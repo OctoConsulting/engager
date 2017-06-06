@@ -1,3 +1,10 @@
-var test = requires('ejs'),
-    people = ['John', 'Neil', 'Patrick'],
-    html = ejs.render('<%= people.join(", "); %>', {people: people});
+<!DOCTYPE HTML>
+<html>
+    <div id="output"></div>
+    <script src="ejs.js"></script>
+    <script>
+        var ejs = require('ejs'), people = ['John', 'Neil', 'Alex'];
+        var html = ejs.render('<%= people.join(", "); %>', {people: people});
+        document.getElementById('output') = html;
+    </script>
+</html>
