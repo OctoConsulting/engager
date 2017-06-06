@@ -12,6 +12,11 @@ app.get('/home', (request, response) => {
     name: 'John'
   })
 })
+app.get('/tester', (request, response) => {
+  response.render('tester', {
+    name: 'John Doe'
+  })
+})
 app.listen(3000)
 
 console.log('listening on port 3000')
