@@ -160,10 +160,10 @@ gulp.task('js', function()  {
   bundleApp(false, false);
 });
 
-// gulp.task('watch', function()  {
-//   gulp.watch('./public/Assets/css/**/*.scss', ['sass']);
-//   bundleApp(false, true);
-// });
+gulp.task('watch', function()  {
+  // gulp.watch('./public/Assets/css/**/*.scss', ['sass']);
+  bundleApp(false, true);
+});
 
 var serve = function(){
   var options = {
@@ -188,7 +188,7 @@ gulp.task('clientWatch', function()  {
     .pipe(gulp.dest(clientDestination));
 });
 
-gulp.task('default', ['style', 'inject', 'clientWatch'], function (){
+gulp.task('default', ['style', 'inject', 'clientWatch', 'js'], function (){
   serve();
 });
 
