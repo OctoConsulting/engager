@@ -3,6 +3,13 @@
     <title>Express handlebars</title>
   </head>
   <body>
-    <h2>Hello {{name}}<h2>
+    <div id="home"></div>
   </body>
 </html>
+<script type="application/javascript" src="/Assets/build/vendors.js" ></script>
+<script type="application/javascript" src="/Assets/build/bundle.js"></script>
+<script>
+    ReactDOM.render(
+      React.createElement(Home, {}), document.getElementById("home")
+    );
+</script>
