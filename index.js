@@ -7,9 +7,8 @@ const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'Client/layouts'))
-app.get('/home', (request, response) => {
+app.get('/', (request, response) => {
   response.render('home', {
-    name: 'John'
   })
 })
 app.listen(3000)

@@ -1,0 +1,122 @@
+/*color: #D982FF;
+color: #78c3ff;*/
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: aliceblue;
+}
+
+a {
+  color: #00B7FF;
+
+}
+.login-div{
+  float: none;
+  margin: auto;
+  /*border: 3px solid #73AD21;*/
+  margin-top: 10%;
+  background-color: white;
+  border-radius: 5px;
+}
+.login-title{
+  color: #78c3ff;
+  margin-bottom: 15px;
+  font-size:20px;
+}
+.img-login{
+  width: 100%;
+}
+.button-login{
+  background-color: #78c3ff;
+  color: white;
+  margin-bottom: 15px;
+}
+.button-login:hover{
+  background-color: #78c3ff;
+  color: white;
+}
+.tag-login2{
+  margin-left: 10%;
+}
+.login-side{
+  margin-top: 15px;
+}
+.pic-side{
+  padding-left: 0px !important;
+}
+.google-facebook{
+  margin-top: 15px;
+}
+.facebook{
+  background-color: #3B5998;
+  margin-left: 4%;
+}
+.google{
+  background-color: #DD4B39;
+}
+.google-facebook1{
+  color: white;
+}
+.google-facebook1:hover{
+  color: white;
+}
+.provider{
+  margin-left: 15%;
+}
+.available{
+  margin-top: 0px;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 120%;
+}
+.available1{
+  margin-left: -2%;
+}
+#circle {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+}
+#profile-pic{
+  width: 100px;
+  height: 100px;
+  margin-left: -18%;
+  margin-top: -7%;
+}
+/*<div class="tooltip1">
+Fiverr is an awesome platform for freelancers to thrive. Let us know your expectations as a seller on Fiverr.
+</div>
+.tooltip1{
+  color: #b2b2b2;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 5px 40px 0 0;
+}*/
+.fix-textarea-width{
+  max-width: 80%;
+}
+.fix-width{
+  max-width: 83%;
+}
+.fix-margin{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+.background-img-mind{
+  background: url(../img/landing/header_two.jpg) 50% 0 no-repeat;
+  height: 100%;
+}
+.background-img-body{
+  background: url(../img/landing/header_one.jpg) 50% 0 no-repeat;
+  height: 100%;
+}
+.width{
+  width: 100%;
+}
+.padding-left{
+  padding-left: 25px;
+  padding-right: 30px;
+}
+.margintop{
+  margin-top: 7px;
+}
