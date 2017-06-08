@@ -10,12 +10,26 @@ class signUpForm extends Component {
   }
   render(){
     return (
-    	<div>
-        <div class="input-group">
-          <span class="input-group-addon" id="sizing-addon2">Username</span>
-          <input type="text" class="form-control" aria-describedby="sizing-addon2"/>
-          </div>
-		  </div>
+      <div>
+
+            <form action="/auth/signUp" method="POST">
+                <div className="form-group">
+                    <input type="text" className="form-control" id="name" name="name" placeholder="Name"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" className="form-control" id="username" name="userName" placeholder="Email"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" className="form-control" id="password" name="password" placeholder="Password"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" className="form-control" id="password1" name="password1" placeholder="Confirm Password"/>
+                </div>
+                <button type="submit" className="btn  btn-block button-login">Go</button>
+
+            </form>
+        </div>
+   
     );
   }
 }

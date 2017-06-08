@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 //Custom components
 import Title from '../login_page/components/Title';
-import Input from './components/signUpForm';
+import SignUpForm from './components/signUpForm';
 
 
 const SignUp = () => {
@@ -14,9 +14,9 @@ const SignUp = () => {
           <Title string={'SIGN UP'} />
         </div>
         <div className="input_box">
-        <ul className="list-group-item">
-          <signUpForm />
-        </ul>
+      
+          <SignUpForm />
+       
         </div>
         <div className="button_pos">
         <button type="button" className="btn btn-primary">REGISTER </button>
