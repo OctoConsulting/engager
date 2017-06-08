@@ -53,7 +53,7 @@ gulp.task('inject', function() {
 
     var wiredep = require('wiredep').stream;
     var inject = require('gulp-inject');
-    var injectSrc = gulp.src(['./public/Assets/css/*.css', './public/Assets/js/*.js', './client/app.jsx', './public/build/bundle.js', './public/build/bundle.js.map'], {
+    var injectSrc = gulp.src(['./public/Assets/css/*.css', './public/Assets/js/*.js', './Client/app.jsx', './public/build/bundle.js', './public/build/bundle.js.map'], {
       read: false
     });
     var injectOptions = {
@@ -179,7 +179,7 @@ var serve = function(){
   });
 };
 
-var clientSource = '../client',
+var clientSource = './Client',
     clientDestination = './Client';
 
 gulp.task('clientWatch', function()  {
@@ -188,7 +188,7 @@ gulp.task('clientWatch', function()  {
     .pipe(gulp.dest(clientDestination));
 });
 
-gulp.task('default', ['style', 'inject', 'clientWatch', 'js'], function (){
+gulp.task('default', ['style', 'inject', 'clientWatch', 'watch'], function (){
   serve();
 });
 

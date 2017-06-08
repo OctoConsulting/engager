@@ -1,0 +1,29 @@
+
+<!-- <div id="home"></div>
+<script>
+    ReactDOM.render(
+      React.createElement(Home, {}), document.getElementById("home")
+    );
+</script> -->
+<div class="login-div col-md-6">
+    <div class="row">
+        <div class="col-md-12 login-side">
+            <form action="/auth/signIn" method="POST">
+                <h2 class="ogin-title" style="text-align: center">Welcome to Octo</h2>
+                <p style="color: red;"><%= locals.message != null ? message : "" %></p>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="userName" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <input type="text" style="display: none;" id="redirectPath" name="redirectPath" value="" />
+                <button type="submit" class="btn  btn-block button-login">Go</button>
+                <div style="text-align: center">
+                    <a href="/signUp" class="tag-login">Sign Up</a>
+                    <a href="/forgot" class="tag-login2">Forgot Password</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
