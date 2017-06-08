@@ -19,6 +19,10 @@ app.get('/SignUp', (request, response) => {
   response.render('signUp', {
   })
 })
+app.get('/PrivateProfile', (request, response) => {
+  response.render('privateProfile', {
+  })
+})
 var port = 3000;
 app.listen(port, function() {
   console.log('Listening on http://localhost:%s/', port);
