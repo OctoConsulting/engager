@@ -13,7 +13,6 @@ class Banner extends Component{
         <div className="Name" id="top-name">
           <Title string={'OCTO CONSULTING'}/>
         </div>
-
         <div className="banner">
         </div>
         {/*This is to make sure the sub routes are rendered*/}

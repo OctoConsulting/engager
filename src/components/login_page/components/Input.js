@@ -12,18 +12,16 @@ class Input extends Component {
   render(){
     return (
     	<div>
-      <div className="help-block">
-			   <div className="input-group">
+			   <div className="form-group">
   			   <input type="text" className="form-control" placeholder="Username" aria-describedby="basic-addon2"/>
   			   <span className="input-group-addon" id="basic-addon2">@octoconsulting.com</span>
 			   </div>
-      </div>
 
-			<div className="input-group">
-  			<input type="text" className="form-control" placeholder="Password" aria-describedby="basic-addon2"/>
-  			<span className="input-group-addon" id="basic-addon2">'Between 8 - 12 char'</span>
-			</div>
-		</div>
+			   <div className="form-group">
+  			   <input type="text" className="form-control" placeholder="Password" aria-describedby="basic-addon2"/>
+  			   <span className="input-group-addon" id="basic-addon2">'Between 8 - 12 char'</span>
+			   </div>
+		  </div>
     );
   }
 }

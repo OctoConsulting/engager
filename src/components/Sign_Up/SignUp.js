@@ -13,13 +13,8 @@ const SignUp = () => {
         <div className="title">
           <Title string={'SIGN UP'} />
         </div>
-        <div className="input_box">
-      
+        <div className="box">
           <SignUpForm />
-       
-        </div>
-        <div className="button_pos">
-        <button type="button" className="btn btn-primary">REGISTER </button>
         </div>
       </div>
     </div>

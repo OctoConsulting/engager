@@ -10,7 +10,9 @@
 #top-name{
   vertical-align: text-bottom;
 }
-
+#button-group{
+  align-items: center;
+}
 .banner{
   background-color: #EA8224;
   height: 10px;
@@ -21,19 +23,15 @@
   border: 1px;
   margin-top: 150px;
   background-color: #eee;
-  align-self: center;
+  text-align: center;
+  display: inline-block;
+
 }
 
 .title {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  vertical-align: middle;
 }
 
-.input_box .list-item-group {
-  padding-left: 40%;
-}
 
 .button_pos {
   display: flex;
