@@ -15,6 +15,6 @@ export default (
   <IndexRoute component={App} />
   <Route path="home" component={App}/>
   <Route path="index" component={App}/>
-  <Route path="SignUp" component={SignUp}/> //This is so that the Sign up button can use it
+  <Route path="SignUp" component={SignUp}/> {/*This is so that the Sign up button can use it*/}
 </Route>
 );

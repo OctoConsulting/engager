@@ -25,7 +25,7 @@ class signUpForm extends Component {
                     <input type="password" className="form-control" id="password1" name="password1" placeholder="Confirm Password"/>
                 </div>
                 <div className="button_pos">
-                <button type="button" className="btn btn-default">REGISTER </button>
+                <button type="button" className="btn btn-warning">REGISTER </button>
                 </div>
             </form>
         </div>

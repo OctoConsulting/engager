@@ -8,15 +8,13 @@ import SignUpForm from './components/signUpForm';
 
 const SignUp = () => {
   return(
-    <div>
-      <div className="box">
-        <div className="title">
-          <Title string={'SIGN UP'} />
+    <div className="panel panel-warning">
+        <div className="panel-heading">
+          <h3 className="panel-title">SIGN UP</h3>
         </div>
-        <div className="box">
+        <div className="panel-body">
           <SignUpForm />
         </div>
-      </div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ class Banner extends Component{
         <div className="banner">
         </div>
         {/*This is to make sure the sub routes are rendered*/}
-        {this.props.children};
+        {this.props.children}
       </div>
     );
   }
