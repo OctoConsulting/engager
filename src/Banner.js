@@ -10,7 +10,6 @@ class Banner extends Component{
   render(){
     return(
       <div>
-
         <div className="Name" id="top-name">
           <Title string={'OCTO CONSULTING'}/>
         </div>
