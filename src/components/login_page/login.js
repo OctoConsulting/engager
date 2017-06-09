@@ -19,7 +19,7 @@ const LogIn = () => {
           </ul>
           </div>
           <div className="button_pos">
-          <button type="button" className="btn btn-primary" onClick={SignUp}>LOG IN </button>
+          <button type="button" className="btn btn-primary">LOG IN </button>
           {/*necessary routing for the button to call up another component*/}
           <Link to="/SignUp" className="btn btn-primary">SIGN UP </Link>
           </div>

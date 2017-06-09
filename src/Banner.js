@@ -10,9 +10,11 @@ class Banner extends Component{
   render(){
     return(
       <div>
-        <div className="Name">
+
+        <div className="Name" id="top-name">
           <Title string={'OCTO CONSULTING'}/>
         </div>
+
         <div className="banner">
         </div>
         {/*This is to make sure the sub routes are rendered*/}

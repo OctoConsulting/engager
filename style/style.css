@@ -1,15 +1,20 @@
 .container {
   background-image: url('../img/Pic.png');
-  background-size: 80px 60px;
+  background-size: 60px 60px;
   background-repeat: no-repeat;
 }
 .Name {
-  padding-left: 70px;
+  padding-left: 55px;
+  vertical-align:baseline;
 }
+#top-name{
+  vertical-align: text-bottom;
+}
+
 .banner{
   background-color: #EA8224;
   height: 10px;
-  margin-top: 0.1%;
+  margin-top: 3%;
 }
 
 .box{
@@ -20,8 +25,10 @@
 }
 
 .title {
-  padding-left: 32%;
-  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
 }
 
 .input_box .list-item-group {
@@ -29,6 +36,8 @@
 }
 
 .button_pos {
-  padding-left: 32%;
-  margin-top: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
 }
