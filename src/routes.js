@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 
-import App from './App';
+import Login from './components/login_page/login';
 import Banner from './Banner';
 import SignUp from './components/Sign_Up/SignUp';
 //routing
@@ -12,9 +12,9 @@ import SignUp from './components/Sign_Up/SignUp';
 //to the home page
 export default (
 <Route path="/" component={Banner}>
-  <IndexRoute component={App} />
-  <Route path="home" component={App}/>
-  <Route path="index" component={App}/>
+  <IndexRoute component={Login} />
+  <Route path="home" component={Login}/>
+  <Route path="index" component={Login}/>
   <Route path="SignUp" component={SignUp}/> {/*This is so that the Sign up button can use it*/}
 </Route>
 );

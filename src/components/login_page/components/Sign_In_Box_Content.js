@@ -23,14 +23,15 @@ class Sign_In_Box_Content extends Component {
              <span className="input-group-addon" id="basic-addon2">'Between 8 - 12 char'</span>
            </div>
         </div>
-
-        <div className="btn-toolbar" role="toolbar" aria-label="...">
-          <div className="btn-group" role="group" aria-label="...">
-            <button type="button" className="btn btn-warning">LOG IN </button>
-          </div>
-          {/*necessary routing for the button to call up another component*/}
-          <div className="btn-group" role="group" aria-label="...">
-            <Link to="/SignUp" className="btn btn-warning">SIGN UP </Link>
+        <div className="button_pos">
+          <div className="btn-toolbar" role="toolbar" aria-label="...">
+            <div className="btn-group" role="group" aria-label="...">
+              <button type="button" className="btn btn-warning">LOG IN </button>
+            </div>
+            {/*necessary routing for the button to call up another component*/}
+            <div className="btn-group" role="group" aria-label="...">
+              <Link to="/SignUp" className="btn btn-warning">SIGN UP </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -8,14 +8,14 @@ import SignUpForm from './components/signUpForm';
 
 const SignUp = () => {
   return(
-    <div className="panel panel-warning">
+      <div className="panel panel-warning">
         <div className="panel-heading">
           <h3 className="panel-title">SIGN UP</h3>
         </div>
         <div className="panel-body">
           <SignUpForm />
         </div>
-    </div>
+      </div>
   );
 };
 

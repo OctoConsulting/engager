@@ -2,36 +2,23 @@
   background-image: url('../img/Pic.png');
   background-size: 60px 60px;
   background-repeat: no-repeat;
+
 }
 .Name {
   padding-left: 55px;
   vertical-align:baseline;
 }
-#top-name{
-  vertical-align: text-bottom;
-}
-#button-group{
-  align-items: center;
-}
 
 
-.box{
-  border: 1px;
-  margin-top: 150px;
-  background-color: #eee;
+.box-form{
   text-align: center;
-  display: inline-block;
-
-}
-
-.title {
-  justify-content: center;
+  max-width: 60%;
+  margin: 0 auto;
 }
 
 
 .button_pos {
   display: flex;
-  align-items: center;
   justify-content: center;
   height: 5vh;
 }
