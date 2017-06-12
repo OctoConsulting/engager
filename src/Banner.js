@@ -9,12 +9,14 @@ import Title from './components/login_page/components/Title';
 class Banner extends Component{
   render(){
     return(
-      <div className="box-form">
-        <div className="Name" id="top-name">
-          <Title string={'OCTO CONSULTING'}/>
+      <div>
+        <div className="banner">
+          <img src="../img/Banner.jpg"/>
         </div>
-        {/*This is to make sure the sub routes are rendered*/}
+        <div className="box-form">
+          {/*This is to make sure the sub routes are rendered*/}
           {this.props.children}
+        </div>
       </div>
     );
   }

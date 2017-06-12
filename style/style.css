@@ -1,12 +1,12 @@
-.container {
-  background-image: url('../img/Pic.png');
-  background-size: 60px 60px;
-  background-repeat: no-repeat;
+
+img{
+  max-width: 100%;
 
 }
-.Name {
-  padding-left: 55px;
-  vertical-align:baseline;
+.banner {
+  display: flex;
+  height: 22.63vw;
+  max-width: 100%;
 }
 
 
