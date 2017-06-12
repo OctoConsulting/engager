@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 //Custom components
 import Title from './components/Title';
 import Sign_In_Box_Content from './components/Sign_In_Box_Content';
-import SignUp from '../Sign_Up/SignUp';
+import SignUp from '../Sign_Up/Sign_Up';
 
-const LogIn = () => {
+const Log_In = () => {
     return (
         <div className="panel panel-warning">
           <div className="panel-heading">
@@ -19,4 +19,4 @@ const LogIn = () => {
     );
 };
 
-export default LogIn;
+export default Log_In;

@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 //Custom components
-import Title from '../login_page/components/Title';
+import Title from '../Log_In/components/Title';
 import SignUpForm from './components/signUpForm';
 
 
-const SignUp = () => {
+const Sign_Up = () => {
   return(
       <div className="panel panel-warning">
         <div className="panel-heading">
@@ -19,4 +19,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Sign_Up;
