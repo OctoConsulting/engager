@@ -4,6 +4,7 @@ import {Route, IndexRoute} from 'react-router';
 import Log_In from './components/Log_In/Log_In';
 import Banner from './Banner';
 import Sign_Up from './components/Sign_Up/Sign_Up';
+import Dashboard from './components/Dashboard/components/dashboard';
 import Per_Profile from './components/Per_Profile/Per_Profile';
 //routing
 // The default always brings up the banner first
@@ -17,6 +18,7 @@ export default (
   <Route path="home" component={Log_In}/>
   <Route path="index" component={Log_In}/>
   <Route path="SignUp" component={Sign_Up}/> {/*This is so that the Sign up button can use it*/}
+  <Route path="Dashboard" component={Dashboard}/>
   <Route path="Per_Profile" component={Per_Profile}/>
 </Route>
 );
