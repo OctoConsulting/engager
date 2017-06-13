@@ -10,12 +10,14 @@ const Sign_Up = () => {
   return(
     <div>
       <Banner/>
-      <div className="panel panel-warning">
-        <div className="panel-heading">
-          <h3 className="panel-title">SIGN UP</h3>
-        </div>
-        <div className="panel-body">
-          <SignUpForm />
+      <div className="box-form">
+        <div className="panel panel-warning">
+          <div className="panel-heading">
+            <h3 className="panel-title">SIGN UP</h3>
+          </div>
+          <div className="panel-body">
+            <SignUpForm />
+          </div>
         </div>
       </div>
     </div>
