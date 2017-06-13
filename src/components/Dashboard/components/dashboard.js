@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+
+import Nav_Bar from '../../../Nav_Bar';
+
 var Dashboard = React.createClass({
   getIntialState: function() {
     name: {
@@ -19,6 +22,7 @@ var Dashboard = React.createClass({
   render: function() {
     return (
       <div  className="container dashboard-container">
+        <Nav_Bar/>
         {// <div className="row">
         //   <div className="col-md-2">
         //     <select className="form-control dashboard-filter">
@@ -70,4 +74,5 @@ var Dashboard = React.createClass({
     );
   }
 });
-module.exports = Dashboard;
+
+export default Dashboard;

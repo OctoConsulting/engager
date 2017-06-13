@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 //Custom components
-import Title from '../Log_In/components/Title';
+import Banner from '../../Banner';
 import SignUpForm from './components/signUpForm';
 
 
 const Sign_Up = () => {
   return(
+    <div>
+      <Banner/>
       <div className="panel panel-warning">
         <div className="panel-heading">
           <h3 className="panel-title">SIGN UP</h3>
@@ -16,6 +18,7 @@ const Sign_Up = () => {
           <SignUpForm />
         </div>
       </div>
+    </div>
   );
 };
 

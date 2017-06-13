@@ -4,11 +4,10 @@ img{
 
 }
 .banner {
-  /*display: flex;
+  display: flex;
   height: 14.23vw;
   max-width: 90%;
-  justify-content: center;*/
-  padding-bottom: 75px;
+  justify-content: center;
 }
 .navbar-login
 {
