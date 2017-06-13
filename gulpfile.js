@@ -188,11 +188,11 @@ gulp.task('clientWatch', function()  {
     .pipe(gulp.dest(clientDestination));
 });
 
-gulp.task('default', ['style', 'inject', 'clientWatch', 'watch'], function (){
+gulp.task('default', ['style', 'clientWatch', 'watch'], function (){
   serve();
 });
 
-gulp.task('predeploy', ['style', 'inject', 'js', 'clientWatch']);
+gulp.task('predeploy', ['style', 'js', 'clientWatch']);
 
 gulp.task('serve', [], function (){
   serve();
