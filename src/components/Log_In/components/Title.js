@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 
 //It just takes a string a display it
 //Could potentially be used for other things
-const Title = ({string}) => {
-  return (
+const Title = ({string, size}) => {
+  return(
     <div>
-      <h1>{string}</h1>
+      <h3>{string}</h3>
     </div>
   );
 }
