@@ -1,3 +1,5 @@
 window.ReactDOM= require("react-dom");
 window.React= require("react");
-window.PrivateProfile = require('./jsx/privateProfile.jsx');
+window.Dashboard = require('./jsx/dashboard.jsx');
+window.NavBar = require('./jsx/nav.jsx');
+window.PerProfile = require('./jsx/perProfile.jsx');
