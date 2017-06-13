@@ -26,7 +26,7 @@ class Sign_In_Box_Content extends Component {
         <div className="button_pos">
           <div className="btn-toolbar" role="toolbar" aria-label="...">
             <div className="btn-group" role="group" aria-label="...">
-              <Link to="/Per_Profile" className="btn btn-warning">LOG IN </Link>
+              <Link to="/Dashboard" className="btn btn-warning">LOG IN </Link>
             </div>
             {/*necessary routing for the button to call up another component*/}
             <div className="btn-group" role="group" aria-label="...">

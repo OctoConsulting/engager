@@ -22,8 +22,9 @@ var Dashboard = React.createClass({
   render: function() {
     return (
       <div  className="container dashboard-container">
-        <Nav_Bar/>
-        <br/>
+        <div className="navbar-custom"><Nav_Bar/></div>
+
+
         {// <div className="row">
         //   <div className="col-md-2">
         //     <select className="form-control dashboard-filter">

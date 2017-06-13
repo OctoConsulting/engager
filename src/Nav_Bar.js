@@ -3,7 +3,7 @@
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
+import {Link} from 'react-router';
 
 
 
@@ -54,7 +54,7 @@ class Nav_Bar extends Component{
                                                 <p className="text-left"><strong>Salman Khan</strong></p>
                                                 <p className="text-left small">crazytodevelop@@gmail.com</p>
                                                 <p className="text-left">
-                                                    <a href="#" className="btn btn-primary btn-block btn-sm">Profile</a>
+                                                    <Link to="/Per_Profile"  className="btn btn-primary btn-block btn-sm">Profile</Link>
                                                 </p>
                                             </div>
                                         </div>
