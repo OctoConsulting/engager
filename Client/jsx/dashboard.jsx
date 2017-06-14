@@ -43,12 +43,12 @@ var Dashboard = React.createClass({
         }
           <div className="row" style={{margin: "10px"}}>
             <div className="col-md-12">
-              <table id="example" className="table table-striped table-bordered dashboard-table" cellspacing="0">
+              <table id="example" className="table table-striped table-bordered dashboard-table" cellSpacing="0">
               <thead>
                 <tr>
                   <th>Avatar</th>
                   <th>Name</th>
-                  <th>LAI</th>
+                  <th style={{width: "160px"}}>Last Action Icon</th>
                   <th>Actions</th>
                   <th>Points</th>
                 </tr>
