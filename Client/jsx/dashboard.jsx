@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import NavBar from './nav.jsx'
 var Dashboard = React.createClass({
   getIntialState: function() {
-    name: {
-
-    }
+    users: []
   },
   componentDidMount: function(){
     $(document).ready(function() {
