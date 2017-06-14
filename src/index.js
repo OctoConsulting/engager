@@ -1,13 +1,32 @@
-//library function
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import {Router, browserHistory} from 'react-router';
+
+
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { createStore, applyMiddleware, compose } from 'redux';
+// import rootReducer from './rootReducer';
+// import setAuthorizationToken from './utils/setAuthorizationToken';
+// import jwtDecode from 'jwt-decode';
+// import { setCurrentUser } from './actions/authActions';
+
 import routes from './routes';
 
-//New Component
+const store = createStore(
+  (state = {}) => state,
+  compose(
+    applyMiddleware(thunk),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
+);
 
-//Showing HTML in the DOM
+// if (localStorage.jwtToken) {
+//   setAuthorizationToken(localStorage.jwtToken);
+//   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+// }
 
-//This renders the routes defined in routes.js
-ReactDOM.render(<Router history={browserHistory} routes={routes}/>
-	, document.querySelector('.container'));
+render(
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>, document.querySelector('.container'));
