@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import { login } from '../../actions/authActions';
+import { Field, reduxForm } from 'redux-form';
 
 //Custom components
 //Tis is one giant block that contains the 2 input fields
@@ -17,7 +18,8 @@ class Sign_In_Box_Content extends Component {
       isLoading: false
 };
     this.onSubmit = this.onSubmit.bind(this);
-    // this.onChange = this.onChange.bind(this);  
+    this.onChange = this.onChange.bind(this);  
+    // this.onPasswordChange = this.onPasswordChange.bind(this)
   }
 
   onSubmit(e) {
@@ -29,7 +31,12 @@ class Sign_In_Box_Content extends Component {
       );
   }
 
-
+  // onEmailChange(e) {
+  //   this.setState({email: e.target.value});
+  // }
+  onChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
   render(){
     const {errors, identifier, password, isLoading} = this.state;
     return (
@@ -37,14 +44,14 @@ class Sign_In_Box_Content extends Component {
         <form onSubmit={this.onSubmit}>
            <div className="form-group">
              <input type="text" className="form-control" placeholder="Username" aria-describedby="basic-addon2"
-             value={identifier} error={errors.identifier} field="identifier" label="Username / Email"
+             value={identifier} error={errors.identifier} onChange={this.onChange} field="identifier" label="Username / Email"
              />
              <span className="input-group-addon" id="basic-addon2">@octoconsulting.com</span>
            </div>
 
            <div className="form-group">
-             <input type="text" className="form-control" placeholder="Password" aria-describedby="basic-addon2"
-             value={password} error={errors.password} field="password" label="Password"
+             <input type="password" className="form-control" placeholder="Password" aria-describedby="basic-addon2"
+             value={password} error={errors.password} name="password" onChange={this.onChange} field="password" label="Password"
              />
              <span className="input-group-addon" id="basic-addon2">'Between 8 - 12 char'</span>
            </div>
