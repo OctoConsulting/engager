@@ -12,11 +12,11 @@ var Dashboard = React.createClass({
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <a target="_blank" href="#" className="navbar-brand" style={{marginTop: "5px"}}>My App.</a>
+                <a target="_blank" href="#" className="navbar-brand" style={{marginTop: "-3px"}}>My App.</a>
             </div>
             <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/Dashboard">Home</a></li>
                  </ul>
                 <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
@@ -38,7 +38,7 @@ var Dashboard = React.createClass({
                                             <p className="text-left"><strong>Salman Khan</strong></p>
                                             <p className="text-left small">crazytodevelop@@gmail.com</p>
                                             <p className="text-left">
-                                                <a href="#" className="btn btn-primary btn-block btn-sm">Profile</a>
+                                                <a href="/Profile" className="btn btn-primary btn-block btn-sm">Profile</a>
                                             </p>
                                         </div>
                                     </div>
