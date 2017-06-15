@@ -31,17 +31,21 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.1.18",
     "bootstrap": "^3.3.7",
     "json-loader": "^0.5.4",
     "lodash": "^3.10.1",
     "react": "^0.14.3",
     "react-bootstrap": "^0.31.0",
+    "react-bootstrap-table": "^3.4.0",
     "react-dom": "^0.14.3",
-    "react-redux": "4.3.0",
+    "react-redux": "^5.0.2",
     "react-router": "^2.0.1",
     "react-stormpath": "^2.0.1",
-    "redux": "^3.0.4",
+    "redux": "^3.6.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "youtube-api-search": "0.0.5"
   }
 }

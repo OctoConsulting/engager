@@ -54,7 +54,7 @@ img{
 .dashboard-container{
   background-color: #F5B041;
   border-radius: 10px;
-  margin: 30px;
+  margin-top: 10%;
   padding-top: 20px;
 }
 .dashboard-label{
@@ -92,6 +92,9 @@ img{
 }
 
 /*THESE ARE FOR THE PERSONAL PROFILE*/
+/*////////////////
+///Personal Profile//////
+//////////////////*/
 
 .panel panel-default{
   max-width: 90%;
