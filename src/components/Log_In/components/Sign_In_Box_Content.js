@@ -16,8 +16,6 @@ class Sign_In_Box_Content extends Component {
       errors: {},
       isLoading: false
 };
- this.onSubmit = this.onSubmit.bind(this);
-     this.onChange = this.onChange.bind(this);
 
   }
 
@@ -46,8 +44,8 @@ class Sign_In_Box_Content extends Component {
            </div>
 
            <div className="form-group">
-             <input type="text" className="form-control" placeholder="Password" aria-describedby="basic-addon2"
-             value={password} error={errors.password} onChange={this.onChange} type="text" field="password" label="password"
+             <input className="form-control" placeholder="Password" aria-describedby="basic-addon2"
+             value={password} error={errors.password} onChange={this.onChange} type="password" field="password" label="password"
              />
              <span className="input-group-addon" id="basic-addon2">'Between 8 - 12 char'</span>
            </div>

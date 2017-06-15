@@ -21,8 +21,7 @@ const data = (state = {
     price: 80,
     actions: "200Actions",
     points: "2000pts"
-}
-  ]
+}]
 
 }, action) => {
   console.log("in reducer");

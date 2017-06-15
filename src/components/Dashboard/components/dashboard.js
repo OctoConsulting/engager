@@ -20,7 +20,7 @@ import NavBar from '../../../Nav_Bar';
 //       points: "2000pts"
 //   }];
 
-var Dashboard = React.createClass({
+const Dashboard = React.createClass({
   getIntialState: function() {
     name: {
 
@@ -28,7 +28,7 @@ var Dashboard = React.createClass({
   },
 
   render: function() {
-    var products = this.props.users;
+    const products = this.props.users;
     return (
       <div>
         <NavBar></NavBar>

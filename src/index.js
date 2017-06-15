@@ -7,13 +7,13 @@ import configureStore from "./store/configure-store";
 import routes from './routes';
 const store = configureStore();
 
-const store = createStore(
-  (state = {}) => state,
-  compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  )
-);
+// const store = createStore(
+//   (state = {}) => state,
+//   compose(
+//     applyMiddleware(thunk),
+//     window.devToolsExtension ? window.devToolsExtension() : f => f
+//   )
+// );
 
 // if (localStorage.jwtToken) {
 //   setAuthorizationToken(localStorage.jwtToken);
