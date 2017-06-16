@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import { login } from '../../actions/authActions';
+import axios from 'axios';
+// import { Field, reduxForm } from 'redux-form';
 
 //Custom components
 //Tis is one giant block that contains the 2 input fields
@@ -17,34 +19,42 @@ class Sign_In_Box_Content extends Component {
       isLoading: false
 };
     this.onSubmit = this.onSubmit.bind(this);
-    // this.onChange = this.onChange.bind(this);  
+    this.onChange = this.onChange.bind(this);  
+    // this.onPasswordChange = this.onPasswordChange.bind(this)
   }
 
   onSubmit(e) {
     e.preventDefault();
-     this.setState({ errors: {}, isLoading: true });
-      this.props.login(this.state).then(
-        (res) => this.context.router.push('/'),
-        (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
-      );
+    axios.post('http://localhost:3000/login',  {username: this.state.username, password: this.state.password})
+    //  this.setState({ errors: {}, isLoading: true });
+    //   this.props.login(this.state).then(
+    //     (res) => this.context.router.push('/'),
+    //     (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
+    //   );
   }
 
-
+  // onEmailChange(e) {
+  //   this.setState({email: e.target.value});
+  // }
+  onChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
   render(){
     const {errors, identifier, password, isLoading} = this.state;
     return (
       <div className="list-group-item">
-        <form onSubmit={this.onSubmit}>
+        <form action="loca/login" method="POST" onSubmit={this.onSubmit}>
+        {/*<form onSubmit={this.onSubmit}>*/}
            <div className="form-group">
-             <input type="text" className="form-control" placeholder="Username" aria-describedby="basic-addon2"
-             value={identifier} error={errors.identifier} field="identifier" label="Username / Email"
+             <input type="text" className="form-control" placeholder="Username" name="username" id="username" aria-describedby="basic-addon2"
+             value={identifier} error={errors.identifier} onChange={this.onChange} field="identifier" label="Username / Email"
              />
              <span className="input-group-addon" id="basic-addon2">@octoconsulting.com</span>
            </div>
 
            <div className="form-group">
-             <input type="text" className="form-control" placeholder="Password" aria-describedby="basic-addon2"
-             value={password} error={errors.password} field="password" label="Password"
+             <input type="password" className="form-control" placeholder="Password" aria-describedby="basic-addon2"
+             value={password} error={errors.password} name="password" id="password"onChange={this.onChange} field="password" label="Password"
              />
              <span className="input-group-addon" id="basic-addon2">'Between 8 - 12 char'</span>
            </div>
@@ -52,7 +62,7 @@ class Sign_In_Box_Content extends Component {
         <div className="button_pos">
           <div className="btn-toolbar" role="toolbar" aria-label="...">
             <div className="btn-group" role="group" aria-label="...">
-              <button className="btn btn-warning" disabled={isLoading} >LOG IN </button>
+              <button type="submit" className="btn btn-warning" disabled={isLoading} >LOG IN </button>
             </div>
             {/*necessary routing for the button to call up another component*/}
             <div className="btn-group" role="group" aria-label="...">
