@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-class Dash extends Component{
+export default class Public_Profile_Table extends Component{
   render(){
   return(
     <div>
@@ -9,7 +9,7 @@ class Dash extends Component{
           <div className="row" style={{margin: "10px"}}>
             <div className="col-md-12">
 
-              <BootstrapTable data={null}  search={ true } pagination striped
+              <BootstrapTable data={this.props.social_media_accounts}  search={ true } pagination striped
       hover
       bordered>
                   <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true }>Product ID</TableHeaderColumn>
@@ -25,5 +25,3 @@ class Dash extends Component{
   );
   }
 }
-
-export default Dash;
