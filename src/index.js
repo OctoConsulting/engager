@@ -7,10 +7,20 @@ import configureStore from "./store/configure-store";
 import routes from './routes';
 const store = configureStore();
 
-//New Component
+// const store = createStore(
+//   (state = {}) => state,
+//   compose(
+//     applyMiddleware(thunk),
+//     window.devToolsExtension ? window.devToolsExtension() : f => f
+//   )
+// );
 
-//Showing HTML in the DOM
+// if (localStorage.jwtToken) {
+//   setAuthorizationToken(localStorage.jwtToken);
+//   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+// }
 
 //This renders the routes defined in routes.js
 ReactDOM.render(<Provider store={store}><Router history={browserHistory} routes={routes}/></Provider>
 	, document.querySelector('.container'));
+
