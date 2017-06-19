@@ -8,7 +8,7 @@ import Social_Media from './components/Social_Media';
 import Title from '../Log_In/components/Title';
 import Nav_Bar from '../../Nav_Bar';
 
-
+//Pulling data from a reducer to display for personal profile
 class  Per_Profile extends Component {
   renderItems(){
     return this.props.personalInfo.map((object) => {
@@ -33,7 +33,8 @@ class  Per_Profile extends Component {
       );
     });
   }
-
+//using 2 different methods because the default render() doesn't
+//like returning an object other than a div container
   render(){
     return(
       <div>
@@ -44,12 +45,12 @@ class  Per_Profile extends Component {
   }
 
 }
-
+//Mapping the state to props for using inside the class
 function mapStateToProps(state){
   return {
     personalInfo: state.personalProfileInfo
   };
 }
 
-
+//Connect the reducer to the container
 export default connect (mapStateToProps) (Per_Profile);
