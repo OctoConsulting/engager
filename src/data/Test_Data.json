@@ -1,4 +1,4 @@
-{
+export default {
   "Person1":[
     {
       "Name": "John Doe",
