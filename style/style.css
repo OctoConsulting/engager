@@ -96,6 +96,9 @@ img{
 ///Personal Profile//////
 //////////////////*/
 
+.personal-profile-container{
+  margin-top: 70px;
+}
 .panel panel-default{
   max-width: 90%;
 }
@@ -142,7 +145,7 @@ img{
     background-color: rgba(255, 255, 255, 1);
 }
 .card.hovercard .card-background {
-    height: 130px;
+    height: 150px;
 }
 .card-background img {
     -webkit-filter: blur(25px);

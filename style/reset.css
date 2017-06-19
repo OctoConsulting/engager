@@ -3376,6 +3376,7 @@ body {
 html,
 body {
   height: 100%;
+  background-color: #f8f8f8 !important;
 }
 body.full-height-layout #wrapper,
 body.full-height-layout #page-wrapper {

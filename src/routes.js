@@ -17,10 +17,9 @@ const store = configureStore();
 export default (
     <Route path="/" component={App}>
       <IndexRoute component={Log_In}/>
-      <Route path="home" component={Log_In}/>
-      <Route path="index" component={Log_In}/>
+      <Route path="SignIn" component={Log_In}/>\
       <Route path="SignUp" component={Sign_Up}/> {/*This is so that the Sign up button can use it*/}
       <Route path="Dashboard" component={Dashboard}/>
-      <Route path="Per_Profile" component={Per_Profile}/>
+      <Route path="Profile" component={Per_Profile}/>
     </Route>
 );
