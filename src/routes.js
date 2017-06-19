@@ -22,5 +22,6 @@ export default (
       <Route path="SignUp" component={Sign_Up}/> {/*This is so that the Sign up button can use it*/}
       <Route path="Dashboard" component={Dashboard}/>
       <Route path="Per_Profile" component={Per_Profile}/>
+      <Route path="loginCheck" component={loginCheck}/>
     </Route>
 );

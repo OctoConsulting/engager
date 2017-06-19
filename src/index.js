@@ -5,7 +5,7 @@ import {Router, browserHistory} from 'react-router';
 import { Provider } from 'react-redux'
 import configureStore from "./store/configure-store";
 import routes from './routes';
-const store = configureStore();
+ const store = configureStore();
 
 // const store = createStore(
 //   (state = {}) => state,

@@ -20,6 +20,8 @@ export function logout() {
 export function login(data) {
   return dispatch => {
     return axios.post('https://localhost:3000/login', {username: data.identifier, password:data.password}).then(res => {
+      // res.redirect('/loginCheck');
+      res.send(axios.get('https://localhost:3000/'));
       // const token = res.data.token;
       // localStorage.setItem('jwtToken', token);
       // setAuthorizationToken(token);
