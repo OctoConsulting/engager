@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { connect } from "react-redux";
 
-import NavBar from '../../Nav_Bar';
+import Nav_Bar from '../../Nav_Bar';
 import Table from './components/Table';
 
 // var products = [{
@@ -24,7 +24,12 @@ class Dashboard extends Component{
   render(){
     const products = this.props.users;
     return (
-      <div><Table users={products}/></div>
+      <div>
+        <div className="navbar-custom">
+          <Nav_Bar/>
+        </div>
+        <Table users={products}/>
+      </div>
     );
   }
 }

@@ -15,9 +15,6 @@ class Pub_Profile extends Component {
     return this.props.publicInfo.map((object) => {
       return(
         <div>
-          <div className="navbar-custom">
-            <Nav_Bar/>
-          </div>
           <div className="panel panel-info">
             <div className="panel-heading">THEIR PROFILE</div>
             <div className="panel-body">
@@ -37,6 +34,9 @@ class Pub_Profile extends Component {
   render(){
     return (
       <div>
+        <div className="navbar-custom">
+          <Nav_Bar/>
+        </div>
         {this.renderItems()}
       </div>
     );
