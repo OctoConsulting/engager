@@ -31,11 +31,11 @@ class Log_In extends Component {
             <h3 className="panel-title">WELCOME</h3>
           </div>
           <div className="panel-body">
-            <form action="/auth/signUp" method="POST">
+            <form action="http://localhost:3000/login" method="post">
               <div className="list-group-item">
               <div>
                  <div className="form-group">
-                   <input type="text" className="form-control" placeholder="Email" id="email" name="email"  onChange={this.handleEmailChange.bind(this)} aria-describedby="basic-addon2"/>
+                   <input type="text" className="form-control" placeholder="Email" id="username" name="username"  onChange={this.handleEmailChange.bind(this)} aria-describedby="basic-addon2"/>
                    <span className="input-group-addon" id="basic-addon2">@octoconsulting.com</span>
                  </div>
 
@@ -47,7 +47,7 @@ class Log_In extends Component {
               <div className="button_pos">
                 <div className="btn-toolbar" role="toolbar" aria-label="...">
                   <div className="btn-group" role="group" aria-label="...">
-                    <Link to="/Per_Profile" className="btn btn-warning">LOG IN </Link>
+                    <button type="submit" className="btn btn-warning">Log in </button>
                   </div>
                   {/*necessary routing for the button to call up another component*/}
                   <div className="btn-group" role="group" aria-label="...">

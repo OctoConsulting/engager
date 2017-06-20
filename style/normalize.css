@@ -4551,6 +4551,49 @@ ul.days li span {
   border-radius: 50% 50% 50% 50%;
 }
 
+.btn-instagram {
+  color: #FFF;
+  background-color: #fb3958;
+  border-color: #fb3958;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-instagram:hover, .btn-instagram:focus, .btn-instagram:active {
+  color: #FFF !important;
+  background-color: #008cb8;
+}
+.btn-instagram.btn-stroke {
+  border: 1px double #fb3958;
+  background-color: transparent;
+  color: #fb3958;
+}
+.btn-instagram.btn-stroke:hover {
+  color: #FFF !important;
+  background-color: #fb3958;
+}
+
+.btn-github {
+  color: #FFF;
+  background-color: #24292e;
+  border-color: #24292e;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-github:hover, .btn-github:focus, .btn-github:active {
+  color: #FFF !important;
+  background-color: #24292e;
+}
+.btn-github.btn-stroke {
+  border: 1px double #24292e;
+  background-color: transparent;
+  color: #24292e;
+}
+.btn-github.btn-stroke:hover {
+  color: #FFF !important;
+  background-color: #24292e;
+}
+
+
+
+
 .btn-icon-stacked {
   text-align: left;
   padding: 10px 10px 10px 45px;
@@ -7978,6 +8021,56 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-twitter .morris-hover-row-label {
   background-color: #00799e;
 }
+
+
+.bg-instagram {
+  background-color: #fb3958 !important;
+  border: 1px solid #fb3958;
+  color: white;
+}
+.bg-instagram a, .bg-instagram i, .bg-instagram span, .bg-instagram small, .bg-instagram p {
+  color: white;
+}
+.bg-instagram .flot-tick-label.tickLabel {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.bg-instagram .morris-hover-row-label {
+  background-color: #00799e;
+}
+
+
+.bg-github {
+  background-color: #24292e !important;
+  border: 1px solid #24292e;
+  color: white;
+}
+.bg-github a, .bg-github i, .bg-github span, .bg-github small, .bg-github p {
+  color: white;
+}
+.bg-github .flot-tick-label.tickLabel {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.bg-github .morris-hover-row-label {
+  background-color: #00799e;
+}
+
+
+.bg-linkedin {
+  background-color: #0077B5 !important;
+  border: 1px solid #0077B5;
+  color: white;
+}
+.bg-linkedin a, .bg-linkedin i, .bg-linkedin span, .bg-linkedin small, .bg-linkedin p {
+  color: white;
+}
+.bg-linkedin .flot-tick-label.tickLabel {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.bg-linkedin .morris-hover-row-label {
+  background-color: #00799e;
+}
+
+
 
 .bg-stackOverFlow {
   background-color: #f48024 !important;

@@ -29,14 +29,13 @@ class Sign_Up extends Component {
     return(
     <div>
       <Banner/>
-<<<<<<< HEAD
       <div className="panel panel-warning">
         <div className="panel-heading">
           <h3 className="panel-title">SIGN UP</h3>
         </div>
         <div className="panel-body">
           <div className="list-group-item">
-                <form action="/auth/signUp" method="POST">
+                <form action="/register" method="POST">
                     <div className="form-group">
                         <input type="text" className="form-control" id="name" name="name" onChange={this.handleNameChange.bind(this)}placeholder="Name"/>
                     </div>
@@ -54,16 +53,6 @@ class Sign_Up extends Component {
                     </div>
                 </form>
             </div>
-=======
-      <div className="box-form">
-        <div className="panel panel-warning">
-          <div className="panel-heading">
-            <h3 className="panel-title">SIGN UP</h3>
-          </div>
-          <div className="panel-body">
-            <SignUpForm />
-          </div>
->>>>>>> d9789ac5dd9482802b41f2de691a9f803ef61481
         </div>
       </div>
     </div>
