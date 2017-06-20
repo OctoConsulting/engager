@@ -4,7 +4,8 @@ import { appUrl } from "../clientConfig";
 var userService = require("../services/userService");
 export const USER_REGISTERED = "USER_REGISTERED";
 
-import {RouterActions, FBSDK} from '../clientConfig'
+import {RouterActions, FBSDK} from '../clientConfig';
+
 export const registerUser = (userDto) => {
   return dispatch => {
     dispatch(requestData());
