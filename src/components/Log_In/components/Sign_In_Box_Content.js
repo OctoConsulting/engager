@@ -25,7 +25,7 @@ class Sign_In_Box_Content extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    axios.post('http://localhost:3000/login',  {username: this.state.username, password: this.state.password})
+    axios.post('/login',  {username: this.state.username, password: this.state.password}).then()
     //  this.setState({ errors: {}, isLoading: true });
     //   this.props.login(this.state).then(
     //     (res) => this.context.router.push('/'),
