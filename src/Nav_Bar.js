@@ -46,7 +46,7 @@ class Nav_Bar extends Component{
                                             <p className="text-left"><strong>Salman Khan</strong></p>
                                             <p className="text-left small">crazytodevelop@@gmail.com</p>
                                             <p className="text-left">
-                                                <Link to="/Per_Profile" className="btn btn-primary btn-block btn-sm">Profile</Link>
+                                                <Link to="/Profile" className="btn btn-primary btn-block btn-sm">Profile</Link>
                                             </p>
                                         </div>
                                     </div>

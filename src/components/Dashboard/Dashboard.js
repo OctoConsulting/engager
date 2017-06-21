@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+
+
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { connect } from "react-redux";
 

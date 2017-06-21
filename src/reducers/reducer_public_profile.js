@@ -3,6 +3,7 @@ export default function(){
     {
         Name: "John Doe",
         Title: "Developer"
+
     }
   ]
 }

@@ -10,18 +10,10 @@ import NavBar from '../../Nav_Bar';
 
 
 
-const dummy_data = {
-      "Name": "John Doe",
-      "Title": "Developer",
-      "Integrations": ["Twitter", "Facebook", "LinkedIn"]
-}
-
-
-
 const Per_Profile = () => {
   return(
-    <div className="">
-      <NavBar></NavBar>
+    <div>
+      <NavBar />
       <div  className="container personal-profile-container">
         <div className="row">
           <div className="col-md-12 profile-card">
@@ -128,10 +120,11 @@ const Per_Profile = () => {
               </div>
           </div>
         </div>
+      </div>
+    </div>
       );
-    });
-  }
-//using 2 different methods because the default render() doesn't
+};
+{/*/using 2 different methods because the default render() doesn't
 //like returning an object other than a div container
   render(){
     return(
@@ -140,9 +133,9 @@ const Per_Profile = () => {
       </div>
     );
 
-  }
+  }*/}
 
-}
+
 //Mapping the state to props for using inside the class
 function mapStateToProps(state){
   return {
