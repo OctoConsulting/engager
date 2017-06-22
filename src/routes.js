@@ -4,8 +4,9 @@ import { Provider } from 'react-redux'
 import App from './App';
 import Log_In from './components/Log_In/Log_In';
 import Sign_Up from './components/Sign_Up/Sign_Up';
-import Dashboard from './components/Dashboard/components/dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Per_Profile from './components/Per_Profile/Per_Profile';
+import Pub_Profile from './components/Pub_Profile/Pub_Profile';
 import configureStore from "./store/configure-store";
 const store = configureStore();
 //routing
@@ -17,10 +18,10 @@ const store = configureStore();
 export default (
     <Route path="/" component={App}>
       <IndexRoute component={Log_In}/>
-      <Route path="home" component={Log_In}/>
-      <Route path="index" component={Log_In}/>
+      <Route path="SignIn" component={Log_In}/>\
       <Route path="SignUp" component={Sign_Up}/> {/*This is so that the Sign up button can use it*/}
       <Route path="Dashboard" component={Dashboard}/>
-      <Route path="Per_Profile" component={Per_Profile}/>
+      <Route path="Profile" component={Per_Profile}/>
+      <Route path="Pub_Profile" component={Pub_Profile}/>
     </Route>
 );

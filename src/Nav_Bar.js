@@ -20,11 +20,11 @@ class Nav_Bar extends Component{
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <a target="_blank" href="#" className="navbar-brand" style={{marginTop: "6px"}}>ENGAGE</a>
+                <Link to="/dashboard" className="navbar-brand" style={{marginTop: "6px"}}>ENGAGE</Link>
             </div>
             <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><Link to="/dashboard">Home</Link></li>
                  </ul>
                 <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
@@ -46,7 +46,7 @@ class Nav_Bar extends Component{
                                             <p className="text-left"><strong>Salman Khan</strong></p>
                                             <p className="text-left small">crazytodevelop@@gmail.com</p>
                                             <p className="text-left">
-                                                <a href="#" className="btn btn-primary btn-block btn-sm">Profile</a>
+                                                <Link to="/Profile" className="btn btn-primary btn-block btn-sm">Profile</Link>
                                             </p>
                                         </div>
                                     </div>

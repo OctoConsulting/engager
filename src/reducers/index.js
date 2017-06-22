@@ -1,4 +1,11 @@
+
 import { combineReducers, createStore, applyMiddleware, compose } from "redux";
+
+
+import PersonalProfile from './reducer_personal_profile';
+import PublicProfile from './reducer_public_profile';
+
+
 import * as types from "../actions";
 import * as userTypes from "../actions/users";
 import { appUrl } from "../clientConfig";
@@ -51,7 +58,9 @@ const data = (state = {
 };
 
 const rootReducer = combineReducers({
-  data
+  data,
+  personalProfileInfo: PersonalProfile,
+  publicProfileInfo: PublicProfile
 });
 
 export default rootReducer;

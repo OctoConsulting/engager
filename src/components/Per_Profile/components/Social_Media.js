@@ -10,7 +10,7 @@ const Social_Media = ({list}) => {
           and it will just return each of the array item*/}
         {list.map((account) => {
           return(
-            <div className="col-sm-6">{account}</div>
+            <div key={account} className="col-sm-6">{account}</div>
           );
         })}
     </div>

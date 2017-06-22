@@ -1,17 +1,14 @@
+
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
-import {connect} from 'react-redux';
-import { login } from '../../actions/authActions';
-import axios from 'axios';
-// import { Field, reduxForm } from 'redux-form';
-
 //Custom components
 //Tis is one giant block that contains the 2 input fields
 //for Username and Password on LOG IN
 class Sign_In_Box_Content extends Component {
   constructor(props){
     super(props);
+
     this.state = {
       username: '',
       password: '',
@@ -38,31 +35,28 @@ class Sign_In_Box_Content extends Component {
   // }
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});
+
+    this.state = {string: ''};
+
   }
   render(){
-    const {errors, identifier, password, isLoading} = this.state;
     return (
       <div className="list-group-item">
-        <form action="loca/login" method="POST" onSubmit={this.onSubmit}>
-        {/*<form onSubmit={this.onSubmit}>*/}
+        <div>
            <div className="form-group">
-             <input type="text" className="form-control" placeholder="Username" name="username" id="username" aria-describedby="basic-addon2"
-             value={identifier} error={errors.identifier} onChange={this.onChange} field="identifier" label="Username / Email"
-             />
+             <input type="text" className="form-control" placeholder="Username" aria-describedby="basic-addon2"/>
              <span className="input-group-addon" id="basic-addon2">@octoconsulting.com</span>
            </div>
 
            <div className="form-group">
-             <input type="password" className="form-control" placeholder="Password" aria-describedby="basic-addon2"
-             value={password} error={errors.password} name="password" id="password"onChange={this.onChange} field="password" label="Password"
-             />
+             <input type="text" className="form-control" placeholder="Password" aria-describedby="basic-addon2"/>
              <span className="input-group-addon" id="basic-addon2">'Between 8 - 12 char'</span>
            </div>
-        
+        </div>
         <div className="button_pos">
           <div className="btn-toolbar" role="toolbar" aria-label="...">
             <div className="btn-group" role="group" aria-label="...">
-              <button type="submit" className="btn btn-warning" disabled={isLoading} >LOG IN </button>
+              <Link to="/Per_Profile" className="btn btn-warning">LOG IN </Link>
             </div>
             {/*necessary routing for the button to call up another component*/}
             <div className="btn-group" role="group" aria-label="...">
@@ -70,18 +64,9 @@ class Sign_In_Box_Content extends Component {
             </div>
           </div>
         </div>
-        </form>
       </div>
     );
   }
 }
 
-Sign_In_Box_Content.propTypes = {
-  login: React.PropTypes.func.isRequired
-}
-
-Sign_In_Box_Content.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
-  export default connect(null, { login })(Sign_In_Box_Content);
-//  export default Sign_In_Box_Content;
+export default Sign_In_Box_Content;
