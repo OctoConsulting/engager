@@ -25,16 +25,16 @@ class Sign_In_Box_Content extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    axios.post('/login',  {username: this.state.username, password: this.state.password}).then()
+    // axios.post('http://localhost:3000/login',  {username: this.state.username, password: this.state.password}).then(res => this.context.router.push('/Dashboard'));
     //  this.setState({ errors: {}, isLoading: true });
-    //   this.props.login(this.state).then(
-    //     (res) => this.context.router.push('/'),
-    //     (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
-    //   );
+      this.props.login(this.state).then(
+        (res) => this.context.router.push('/Dashboard'),
+      //   (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
+      );
   }
 
   // onEmailChange(e) {
-  //   this.setState({email: e.target.value});
+  //   this.setState({email: e.target.value})
   // }
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});

@@ -1,8 +1,10 @@
-import { combineReducers } from "redux";
+import { combineReducers, createStore, applyMiddleware, compose } from "redux";
 import * as types from "../actions";
 import * as userTypes from "../actions/users";
 import { appUrl } from "../clientConfig";
 import {RouterActions} from '../clientConfig';
+import thunk from "redux-thunk";
+
 const data = (state = {
   isFetching: false,
   message: "",

@@ -32,7 +32,7 @@ router.get('/login', function(req, res) {
     res.render('login', { user : req.user });
 });
 
-router.post('http://localhost:3000/login', passport.authenticate('local'), function(req, res) {
+router.post('/login', passport.authenticate('local'), function(req, res) {
         // res.redirect('http://localhost:8080/dashboard');
 
     res.status(200).json({message:"login successful"}); 
