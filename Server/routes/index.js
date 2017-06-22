@@ -33,8 +33,16 @@ router.post('/register', function(req, res) {
 // });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
+<<<<<<< AT_Srijan_Copy
     res.status(200).json({message:"login successful"});
 });
+=======
+
+ // res.redirect('http://localhost:8080/dashboard');
+
+res.status(200).json({message:"login successful"}); 
+
+>>>>>>> local
 
 router.get('/logout', function(req, res) {
     req.logout();
