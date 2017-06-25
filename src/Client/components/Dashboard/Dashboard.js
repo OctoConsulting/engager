@@ -1,36 +1,21 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-
-
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { connect } from "react-redux";
 
 import Nav_Bar from '../../Nav_Bar';
 import Table from './components/Table';
 
-// var products = [{
-//       id: 1,
-//       name: "Product1",
-//       price: 120,
-//       actions: "200Actions",
-//       points: "2000pts"
-//   }, {
-//       id: 2,
-//       name: "Product2",
-//       price: 80,
-//       actions: "200Actions",
-//       points: "2000pts"
-//   }];
 
 class Dashboard extends Component{
   render(){
-    const products = this.props.users;
+    //const products = this.props.users;
     return (
       <div>
         <div className="navbar-custom">
           <Nav_Bar/>
         </div>
-        <Table users={products}/>
+        <Table users={null}/>
       </div>
     );
   }
@@ -46,7 +31,7 @@ Dashboard.defaultProps = {
 
 function mapStateToProps(state){
   return {
-    users: state.data.users
+    users: null
   };
 }
 

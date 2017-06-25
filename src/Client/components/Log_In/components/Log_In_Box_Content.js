@@ -13,16 +13,24 @@ class Log_In_Box_Content extends Component {
     //when the input changes
   }
   //new context type object specifically for router context
+  //to be called later on in onSubmit
   static contextTypes = {
     router: PropTypes.object
   }
 
+  //this props is the props from the form, not this.props
   onSubmit(props){
-    this.props.userSubmit(props);
+    this.props.userSubmit(props)
+    .then(() => {
+      //navigate to dashboard on context
+      //Should be making a server check later on before pushing to Dashboard
+      this.context.router.push('/Dashboard');
+    });
   }
 
   render(){
     //Assigning the properties from this.props to fields
+    //handleSubmit is a redux form library function
     const { fields: {username, password}, handleSubmit} = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -31,10 +39,11 @@ class Log_In_Box_Content extends Component {
           <label>Username</label>
           <input type="text" className="form-control" {...username}/>
           <div className="text-help">
-            {username.touched ? username.error : ''}
+            {username.touched ? username.error : ''/*Only displays the error message when the box is touched*/}
           </div>
         </div>
-
+        {/*Supposed to check if it's been touched and if invalid is true
+          if so make it red*/}
         <div className={`form-group ${password.touched && password.invalid ? 'has-danger' : ''}`}>
           <label>Password</label>
           <input type="password" className="form-control" {...password}/>
@@ -44,11 +53,13 @@ class Log_In_Box_Content extends Component {
         </div>
 
         <button type="submit" className="btn btn-warning"> LOG IN</button>
+        <Link to='/SignUp' className="btn btn-warning"> SIGN UP</Link>
       </form>
     );
   }
 }
 
+//THIS FUNCTION CHECKS IF THERE'S INPUT IN THE FIELDS
 function validate(values){
   const errors = {};
 

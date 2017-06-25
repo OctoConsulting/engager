@@ -18,11 +18,6 @@ export default class Log_In extends Component {
     };
   }
 
-  //Call back functions to save the username and password the user enters
-
-
-//hand the data over to the actions for processing
-
   render(){
     return (
       <div>
