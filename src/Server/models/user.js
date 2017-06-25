@@ -7,7 +7,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   //lowercase makes sure it's turned lowercase all the time
   email: {type: String, unique: true, lowercase: true}, //making sure the email field is always unique with MongoDB
-  password: String
+  password: String,
+  verified: Boolean
 });
 
 //On Save Hook, encrypt password
@@ -27,6 +28,15 @@ userSchema.pre('save', function(next) {
     })
   })
 })
+
+//METHOD TO COMPARE PASSWORDS
+userSchema.methods.comparePassword = function(candidatePassword, callback){
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch){
+    if (err) {return callback(err);}
+
+    callback(null, isMatch);
+  });
+}
 
 //CREATE THE MODEL CLASS
 const UserModelClass = mongoose.model('user', userSchema);
