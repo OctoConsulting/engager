@@ -1,5 +1,3 @@
 npm-debug.log
 /node_modules
-/src/Server/module_modules
-/src/Server/config.js
 bundle.js

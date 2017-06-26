@@ -44,8 +44,10 @@ export function signupUser({name, email, password}){
           localStorage.setItem('token', response.data.token);
           browserHistory.push('/dashboard');
         })
-        .catch(() => {
-          dispatch(authError(response.data.error));
+        .catch(error => {
+          //If request is invalid:
+          //   + Show an error to the user
+          dispatch(authError(error.response.data.error));
         })
   }
 }

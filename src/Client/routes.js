@@ -8,6 +8,7 @@ import Sign_Out from './components/Sign_Out/Sign_Out';
 import Dashboard from './components/Dashboard/Dashboard';
 import Per_Profile from './components/Per_Profile/Per_Profile';
 import Pub_Profile from './components/Pub_Profile/Pub_Profile';
+import Require_Auth from './components/authentication/require_auth';
 import configureStore from "./store/configure-store";
 const store = configureStore();
 //routing
@@ -22,7 +23,7 @@ export default (
       <Route path="signin" component={Log_In}/>\
       <Route path="signup" component={Sign_Up}/> {/*This is so that the Sign up button can use it*/}
       <Route path="signout" component={Sign_Out}/>
-      <Route path="dashboard" component={Dashboard}/>
+      <Route path="dashboard" component={Require_Auth(Dashboard)}/>
       <Route path="Profile" component={Per_Profile}/>
       <Route path="Pub_Profile" component={Pub_Profile}/>
     </Route>
