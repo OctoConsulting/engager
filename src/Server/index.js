@@ -1,4 +1,4 @@
-//MAIN FILE FOR SERVER INITOALIZATION
+//MAIN FILE FOR SERVER INITIALIZATION
 
 const express = require('express');
 const http = require('http');
@@ -7,12 +7,14 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const app = express(); //instance of app created
 const router = require('./router');//importing router into this
+const cors = require('cors');
 
 //SERVER SETUP
 mongoose.connect('mongodb://localhost:/dataBase');
 //APP SETUP
 //Any incoming requests will be passed through
 //morgan and bodyParser (they are middlewares)
+app.use(cors());//Making sure CORS doesn't intefere with incoming requests
 app.use(morgan('combined'));//morgan logs incoming requests for debugging
 app.use(bodyParser.json({type: '*/*'}));//body-parser parses incoming requests as JSON
 router(app); //calling router to start routing data

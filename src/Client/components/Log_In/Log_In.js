@@ -10,14 +10,6 @@ import User_Validation from '../../actions/index';
 import Log_In_Box_Content from './components/Log_In_Box_Content';
 
 export default class Log_In extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-  }
-
   render(){
     return (
       <div>

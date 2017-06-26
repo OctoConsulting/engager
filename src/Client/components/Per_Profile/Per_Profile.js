@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Avatar from './components/Avatar';
 import Bio from './components/Bio';
 import Social_Media from './components/Social_Media';
-import Title from '../Log_In/components/Title';
+//import Title from '../Log_In/components/Title';
 import NavBar from '../../Nav_Bar';
 
 

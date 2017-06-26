@@ -7,7 +7,7 @@ import {Link} from 'react-router';
 
 
 
-import Title from './components/Log_In/components/Title';
+
 
 class Nav_Bar extends Component{
   render(){
