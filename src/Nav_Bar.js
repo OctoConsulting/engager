@@ -1,11 +1,9 @@
 //BANNER IS ITS OWN THING BECAUSE WE NEED TO RENDER IT SEPARATELY
 //FROM OTHERS SINCE IT NEEDS TO BE PERSISTENT
-
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
-
-
+import { connect } from "react-redux";
 
 import Title from './components/Log_In/components/Title';
 
@@ -20,17 +18,17 @@ class Nav_Bar extends Component{
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <a target="_blank" href="#" className="navbar-brand" style={{marginTop: "6px"}}>ENGAGE</a>
+                <a href="/Dashboard" className="navbar-brand" style={{marginTop: "6px"}}>ENGAGE</a>
             </div>
             <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/Dashboard">Home</a></li>
                  </ul>
                 <ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
                         <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                             <span className="glyphicon glyphicon-user" style={{paddingRight:"5px"}}></span>
-                            <strong>Salman</strong>
+                            <strong></strong>
                             <span className="glyphicon glyphicon-chevron-down" style={{paddingLeft:"5px"}}></span>
                         </a>
                         <ul className="dropdown-menu">
@@ -46,18 +44,14 @@ class Nav_Bar extends Component{
                                             <p className="text-left"><strong>Salman Khan</strong></p>
                                             <p className="text-left small">crazytodevelop@@gmail.com</p>
                                             <p className="text-left">
-                                                <a href="#" className="btn btn-primary btn-block btn-sm">Profile</a>
+                                                <a href="/Profile" className="btn btn-primary btn-block btn-sm">Profile</a>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                             <li className="divider navbar-login-session-bg"></li>
-                            <li><a href="#">Account Settings <span className="glyphicon glyphicon-cog pull-right"></span></a></li>
-                            <li className="divider"></li>
-                            <li><a href="#">User stats <span className="glyphicon glyphicon-stats pull-right"></span></a></li>
-                            <li className="divider"></li>
-                            <li><a href="#">Sign Out <span className="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                            <li><a href="#" style={{color: "black !important"}}>Sign Out <span className="glyphicon glyphicon-log-out pull-right"></span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -67,5 +61,14 @@ class Nav_Bar extends Component{
     );
   }
 };
+Nav_Bar.propTypes = {
+  dispatch: React.PropTypes.func
+};
 
-export default Nav_Bar;
+Nav_Bar.defaultProps = {
+  dispatch: () => {}
+};
+
+export default connect((state) => ({
+  users: state.data.users
+}))(Nav_Bar);

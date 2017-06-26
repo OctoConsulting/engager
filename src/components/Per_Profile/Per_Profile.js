@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from "react-redux";
 
 import Avatar from './components/Avatar';
 import Bio from './components/Bio';
@@ -28,8 +29,8 @@ const Per_Profile = () => {
                 <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" />
              </div>
              <div className="profile-details">
-                 <h1>Anis M</h1>
-                 <h6>@anismashku</h6>
+                 <h1>Users Name</h1>
+                 <h6>@users twitter username</h6>
              </div>
            </div>
          </div>
@@ -131,5 +132,14 @@ const Per_Profile = () => {
   );
 
 }
+Per_Profile.propTypes = {
+  dispatch: React.PropTypes.func
+};
 
-export default Per_Profile;
+Per_Profile.defaultProps = {
+  dispatch: () => {}
+};
+
+export default connect((state) => ({
+  users: state.data.users
+}))(Per_Profile);

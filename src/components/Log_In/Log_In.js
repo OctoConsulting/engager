@@ -31,7 +31,7 @@ class Log_In extends Component {
             <h3 className="panel-title">WELCOME</h3>
           </div>
           <div className="panel-body">
-            <form action="http://localhost:3000/login" method="post">
+            <form action="/login" method="post" encType="application/json" >
               <div className="list-group-item">
               <div>
                  <div className="form-group">

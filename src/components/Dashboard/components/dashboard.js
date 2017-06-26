@@ -6,19 +6,19 @@ import { connect } from "react-redux";
 import NavBar from '../../../Nav_Bar';
 
 
-// var products = [{
-//       id: 1,
-//       name: "Product1",
-//       price: 120,
-//       actions: "200Actions",
-//       points: "2000pts"
-//   }, {
-//       id: 2,
-//       name: "Product2",
-//       price: 80,
-//       actions: "200Actions",
-//       points: "2000pts"
-//   }];
+var products = [{
+      avatar: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
+      name: "Jhon Doe",
+      lai: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
+      actions: "200Actions",
+      points: "200Pts"
+  }, {
+      avatar: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
+      name: "Andrew Josh",
+      lai: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
+      actions: "1Actions",
+      points: "2Pts"
+  }];
 
 const Dashboard = React.createClass({
   getIntialState: function() {
@@ -26,25 +26,27 @@ const Dashboard = React.createClass({
 
     }
   },
+  imageFormatter: function(cell, row){
+    return "<img class='dashboard-table-avatar' src='"+cell+"'/>" ;
+  },
+  
 
   render: function() {
-    const products = this.props.users;
     return (
       <div>
         <NavBar></NavBar>
-        <div  className="container dashboard-container">
-          <div className="row" style={{margin: "10px"}}>
-            <div className="col-md-12">
-
-              <BootstrapTable data={ products }  search={ true } pagination striped
-      hover
-      bordered>
-                  <TableHeaderColumn dataField='id' isKey={ true } dataSort={ true }>Product ID</TableHeaderColumn>
-                  <TableHeaderColumn dataField='name' dataSort={ true }>Product Name</TableHeaderColumn>
-                  <TableHeaderColumn dataField='price' dataSort={ true }>Product Price</TableHeaderColumn>
-                  <TableHeaderColumn dataField='actions' dataSort={ true }>LAI</TableHeaderColumn>
-                  <TableHeaderColumn dataField='points' dataSort={ true }>Points</TableHeaderColumn>
-              </BootstrapTable>
+        <div  className="container personal-profile-container">
+          <div className="row">
+            <div className="col-md-12 col-sm-12 col-xs-12">
+                <div className="panel rounded shadow">
+                  <BootstrapTable data={ products }  search={ true } pagination striped hover bordered>
+                      <TableHeaderColumn dataField='avatar' isKey={ true } dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
+                      <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
+                      <TableHeaderColumn dataField='lai' dataFormat={this.imageFormatter}>Last Action Icon</TableHeaderColumn>
+                      <TableHeaderColumn dataField='actions' dataSort={ true }># of Actions</TableHeaderColumn>
+                      <TableHeaderColumn dataField='points' dataSort={true}>Points</TableHeaderColumn>
+                  </BootstrapTable>
+                </div>
             </div>
           </div>
         </div>

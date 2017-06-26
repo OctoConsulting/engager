@@ -94,7 +94,9 @@ img{
     width: 20px;
     height: 20px;
 }
-
+.react-bs-table-container{
+  margin:10px;
+}
 /*THESE ARE FOR THE PERSONAL PROFILE*/
 /*////////////////
 ///Personal Profile//////

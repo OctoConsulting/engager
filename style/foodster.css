@@ -1,0 +1,1227 @@
+
+body.solid-black .text-primary,
+body.solid-black ul.social-buttons li a,
+body.solid-black a,
+body.solid-black .navbar-inverse .nav li a:hover,
+body.solid-black .navbar-inverse .nav li a:focus,
+body.solid-black .navbar-default .nav li a:hover,
+body.solid-black .navbar-default .nav li a:focus {
+  colorwhite !important;
+}
+
+
+body.solid-black .navbar-default .nav li.dropdown a:hover,
+body.solid-black .navbar-default .nav li.dropdown a:focus,
+body.solid-black .navbar-inverse .nav li.dropdown a:hover,
+body.solid-black .navbar-inverse .nav li.dropdown a:focus {
+  colorwhite !important;
+}
+body.solid-black .navbar-default .nav li.active a,
+body.solid-black .navbar-inverse .nav li.active a {
+  background: #000000 !important;
+}
+body.solid-black .navbar-default,
+body.solid-black .profile-card .profile-cover,
+body.solid-black .navbar-default .navbar-toggle,
+body.solid-black .navbar-default .navbar-nav > li.active > a {
+  background-color: black !important;
+}
+body.solid-black .navbar-default a,
+body.solid-black .navbar-default .navbar-toggle a,
+body.solid-black .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-black .navbar-inverse,
+body.solid-black .navbar-inverse .navbar-toggle,
+body.solid-black .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #000000 !important;
+}
+body.solid-black #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-black .timeline > li .timeline-image,
+body.solid-black .blog-col .blog-preview-img .caption {
+  background-color: black !important;
+}
+body.solid-black a:hover,
+body.solid-black a:focus,
+body.solid-black a:active,
+body.solid-black a.active {
+  color: white !important;
+}
+body.solid-black .btn-primary,
+body.solid-black .btn-xl {
+  background-color: black;
+  border: 0;
+  color: white;
+}
+body.solid-black .navbar-nav li.active a:hover,
+body.solid-black .navbar-toggle:hover,
+body.solid-black .navbar-toggle:focus,
+body.solid-black .btn-primary:hover,
+body.solid-black .btn-primary:focus,
+body.solid-black .btn-primary.active,
+body.solid-black .btn-xl:hover,
+body.solid-black .btn-xl:focus,
+body.solid-black .btn-xl:active,
+body.solid-black .btn-xl.active,
+body.solid-black .open .dropdown-toggle.btn-xl {
+  background-color: #000000;
+  border: 0;
+  color: white;
+}
+body.solid-black a.carousel-control,
+body.solid-black a.btn-circle {
+  color: white;
+}
+body.solid-black .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-black .header-10-sub {
+  background-color: black !important;
+}
+body.solid-black .image-wrapper {
+  background-color: black !important;
+}
+body.solid-black .content-23 .bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body.solid-black footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-black footer a:hover {
+  color: #ffffff;
+}
+body.solid-black footer .section-subheading span {
+  color: black;
+}
+body.solid-black footer .section-subheading:after {
+  border-bottom: 2px solid black;
+}
+body.solid-black section .section-divider {
+  color: black;
+}
+body.solid-black #contact .contact-details .section-subheading span {
+  color: black;
+}
+body.solid-black #style-switcher a.panel-button:hover {
+  color: black !important;
+}
+body.solid-black footer .inner a {
+  color: #000000;
+}
+body.solid-black footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-red .text-primary,
+body.solid-red ul.social-buttons li a,
+body.solid-red a,
+body.solid-red .navbar-inverse .nav li a:hover,
+body.solid-red .navbar-inverse .nav li a:focus,
+body.solid-red .navbar-default .nav li a:hover,
+body.solid-red .navbar-default .nav li a:focus {
+  color: white !important;
+}
+body.solid-red .navbar-default .nav li.dropdown a:hover,
+body.solid-red .navbar-default .nav li.dropdown a:focus,
+body.solid-red .navbar-inverse .nav li.dropdown a:hover,
+body.solid-red .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-red .navbar-default .nav li.active a,
+body.solid-red .navbar-inverse .nav li.active a {
+  background: #bc0813 !important;
+}
+body.solid-red .navbar-default,
+body.solid-red .profile-card .profile-cover,
+body.solid-red .navbar-default .navbar-toggle,
+body.solid-red .navbar-default .navbar-nav > li.active > a {
+  background-color: #f63440 !important;
+}
+body.solid-red .navbar-default a,
+body.solid-red .navbar-default .navbar-toggle a,
+body.solid-red .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-red .navbar-inverse,
+body.solid-red .navbar-inverse .navbar-toggle,
+body.solid-red .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #a30711 !important;
+}
+body.solid-red #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-red .timeline > li .timeline-image,
+body.solid-red .blog-col .blog-preview-img .caption {
+  background-color: #f63440 !important;
+}
+body.solid-red a:hover,
+body.solid-red a:focus,
+body.solid-red a:active,
+body.solid-red a.active {
+  color: white !important;
+}
+body.solid-red .btn-primary,
+body.solid-red .btn-xl {
+  background-color: #f63440;
+  border: 0;
+  color: white;
+}
+body.solid-red .navbar-nav li.active a:hover,
+body.solid-red .navbar-toggle:hover,
+body.solid-red .navbar-toggle:focus,
+body.solid-red .btn-primary:hover,
+body.solid-red .btn-primary:focus,
+body.solid-red .btn-primary.active,
+body.solid-red .btn-xl:hover,
+body.solid-red .btn-xl:focus,
+body.solid-red .btn-xl:active,
+body.solid-red .btn-xl.active,
+body.solid-red .open .dropdown-toggle.btn-xl {
+  background-color: #ed0a18;
+  border: 0;
+  color: white;
+}
+body.solid-red a.carousel-control,
+body.solid-red a.btn-circle {
+  color: white;
+}
+body.solid-red .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-red .header-10-sub {
+  background-color: #f63440 !important;
+}
+body.solid-red .image-wrapper {
+  background-color: #f63440 !important;
+}
+body.solid-red .content-23 .bg {
+  background-color: rgba(246, 52, 64, 0.5);
+}
+body.solid-red footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-red footer a:hover {
+  color: #ffffff;
+}
+body.solid-red footer .section-subheading span {
+  color: #f63440;
+}
+body.solid-red footer .section-subheading:after {
+  border-bottom: 2px solid #f63440;
+}
+body.solid-red section .section-divider {
+  color: #f63440;
+}
+body.solid-red #contact .contact-details .section-subheading span {
+  color: #f63440;
+}
+body.solid-red #style-switcher a.panel-button:hover {
+  color: #f63440 !important;
+}
+body.solid-red footer .inner a {
+  color: #290204;
+}
+body.solid-red footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-orange .text-primary,
+body.solid-orange ul.social-buttons li a,
+body.solid-orange a,
+body.solid-orange .navbar-inverse .nav li a:hover,
+body.solid-orange .navbar-inverse .nav li a:focus,
+body.solid-orange .navbar-default .nav li a:hover,
+body.solid-orange .navbar-default .nav li a:focus {
+  color: white !important;
+}
+b
+b
+body.solid-orange .navbar-default .nav li.dropdown a:hover,
+body.solid-orange .navbar-default .nav li.dropdown a:focus,
+body.solid-orange .navbar-inverse .nav li.dropdown a:hover,
+body.solid-orange .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-orange .navbar-default .nav li.active a,
+body.solid-orange .navbar-inverse .nav li.active a {
+  background: #993100 !important;
+}
+body.solid-orange .navbar-default,
+body.solid-orange .profile-card .profile-cover,
+body.solid-orange .navbar-default .navbar-toggle,
+body.solid-orange .navbar-default .navbar-nav > li.active > a {
+  background-color: #ff5200 !important;
+}
+body.solid-orange .navbar-default a,
+body.solid-orange .navbar-default .navbar-toggle a,
+body.solid-orange .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-orange .navbar-inverse,
+body.solid-orange .navbar-inverse .navbar-toggle,
+body.solid-orange .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #802900 !important;
+}
+body.solid-orange #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-orange .timeline > li .timeline-image,
+body.solid-orange .blog-col .blog-preview-img .caption {
+  background-color: #ff5200 !important;
+}
+body.solid-orange a:hover,
+body.solid-orange a:focus,
+body.solid-orange a:active,
+body.solid-orange a.active {
+  color: white !important;
+}
+body.solid-orange .btn-primary,
+body.solid-orange .btn-xl {
+  background-color: #ff5200;
+  border: 0;
+  color: white;
+}
+body.solid-orange .navbar-nav li.active a:hover,
+body.solid-orange .navbar-toggle:hover,
+body.solid-orange .navbar-toggle:focus,
+body.solid-orange .btn-primary:hover,
+body.solid-orange .btn-primary:focus,
+body.solid-orange .btn-primary.active,
+body.solid-orange .btn-xl:hover,
+body.solid-orange .btn-xl:focus,
+body.solid-orange .btn-xl:active,
+body.solid-orange .btn-xl.active,
+body.solid-orange .open .dropdown-toggle.btn-xl {
+  background-color: #cc4200;
+  border: 0;
+  color: white;
+}
+body.solid-orange a.carousel-control,
+body.solid-orange a.btn-circle {
+  color: white;
+}
+body.solid-orange .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-orange .header-10-sub {
+  background-color: #ff5200 !important;
+}
+body.solid-orange .image-wrapper {
+  background-color: #ff5200 !important;
+}
+body.solid-orange .content-23 .bg {
+  background-color: rgba(255, 82, 0, 0.5);
+}
+body.solid-orange footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-orange footer a:hover {
+  color: #ffffff;
+}
+body.solid-orange footer .section-subheading span {
+  color: #ff5200;
+}
+body.solid-orange footer .section-subheading:after {
+  border-bottom: 2px solid #ff5200;
+}
+body.solid-orange section .section-divider {
+  color: #ff5200;
+}
+body.solid-orange #contact .contact-details .section-subheading span {
+  color: #ff5200;
+}
+body.solid-orange #style-switcher a.panel-button:hover {
+  color: #ff5200 !important;
+}
+body.solid-orange footer .inner a {
+  color: #000000;
+}
+body.solid-orange footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-yellow .text-primary,
+body.solid-yellow ul.social-buttons li a,
+body.solid-yellow a,
+body.solid-yellow .navbar-inverse .nav li a:hover,
+body.solid-yellow .navbar-inverse .nav li a:focus,
+body.solid-yellow .navbar-default .nav li a:hover,
+body.solid-yellow .navbar-default .nav li a:focus {
+  color: white !important;
+}
+b
+b
+body.solid-yellow .navbar-default .nav li.dropdown a:hover,
+body.solid-yellow .navbar-default .nav li.dropdown a:focus,
+body.solid-yellow .navbar-inverse .nav li.dropdown a:hover,
+body.solid-yellow .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-yellow .navbar-default .nav li.active a,
+body.solid-yellow .navbar-inverse .nav li.active a {
+  background: #998500 !important;
+}
+body.solid-yellow .navbar-default,
+body.solid-yellow .profile-card .profile-cover,
+body.solid-yellow .navbar-default .navbar-toggle,
+body.solid-yellow .navbar-default .navbar-nav > li.active > a {
+  background-color: #ffde00 !important;
+}
+body.solid-yellow .navbar-default a,
+body.solid-yellow .navbar-default .navbar-toggle a,
+body.solid-yellow .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-yellow .navbar-inverse,
+body.solid-yellow .navbar-inverse .navbar-toggle,
+body.solid-yellow .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #806f00 !important;
+}
+body.solid-yellow #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-yellow .timeline > li .timeline-image,
+body.solid-yellow .blog-col .blog-preview-img .caption {
+  background-color: #ffde00 !important;
+}
+body.solid-yellow a:hover,
+body.solid-yellow a:focus,
+body.solid-yellow a:active,
+body.solid-yellow a.active {
+  color: white !important;
+}
+body.solid-yellow .btn-primary,
+body.solid-yellow .btn-xl {
+  background-color: #ffde00;
+  border: 0;
+  color: white;
+}
+body.solid-yellow .navbar-nav li.active a:hover,
+body.solid-yellow .navbar-toggle:hover,
+body.solid-yellow .navbar-toggle:focus,
+body.solid-yellow .btn-primary:hover,
+body.solid-yellow .btn-primary:focus,
+body.solid-yellow .btn-primary.active,
+body.solid-yellow .btn-xl:hover,
+body.solid-yellow .btn-xl:focus,
+body.solid-yellow .btn-xl:active,
+body.solid-yellow .btn-xl.active,
+body.solid-yellow .open .dropdown-toggle.btn-xl {
+  background-color: #ccb200;
+  border: 0;
+  color: white;
+}
+body.solid-yellow a.carousel-control,
+body.solid-yellow a.btn-circle {
+  color: white;
+}
+body.solid-yellow .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-yellow .header-10-sub {
+  background-color: #ffde00 !important;
+}
+body.solid-yellow .image-wrapper {
+  background-color: #ffde00 !important;
+}
+body.solid-yellow .content-23 .bg {
+  background-color: rgba(255, 222, 0, 0.5);
+}
+body.solid-yellow footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-yellow footer a:hover {
+  color: #ffffff;
+}
+body.solid-yellow footer .section-subheading span {
+  color: #ffde00;
+}
+body.solid-yellow footer .section-subheading:after {
+  border-bottom: 2px solid #ffde00;
+}
+body.solid-yellow section .section-divider {
+  color: #ffde00;
+}
+body.solid-yellow #contact .contact-details .section-subheading span {
+  color: #ffde00;
+}
+body.solid-yellow #style-switcher a.panel-button:hover {
+  color: #ffde00 !important;
+}
+body.solid-yellow footer .inner a {
+  color: #000000;
+}
+body.solid-yellow footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-green .text-primary,
+body.solid-green ul.social-buttons li a,
+body.solid-green a,
+body.solid-green .navbar-inverse .nav li a:hover,
+body.solid-green .navbar-inverse .nav li a:focus,
+body.solid-green .navbar-default .nav li a:hover,
+body.solid-green .navbar-default .nav li a:focus {
+  color: white !important;
+}
+
+
+body.solid-green .navbar-default .nav li.dropdown a:hover,
+body.solid-green .navbar-default .nav li.dropdown a:focus,
+body.solid-green .navbar-inverse .nav li.dropdown a:hover,
+body.solid-green .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-green .navbar-default .nav li.active a,
+body.solid-green .navbar-inverse .nav li.active a {
+  background: #004235 !important;
+}
+body.solid-green .navbar-default,
+body.solid-green .profile-card .profile-cover,
+body.solid-green .navbar-default .navbar-toggle,
+body.solid-green .navbar-default .navbar-nav > li.active > a {
+  background-color: #00a888 !important;
+}
+body.solid-green .navbar-default a,
+body.solid-green .navbar-default .navbar-toggle a,
+body.solid-green .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-green .navbar-inverse,
+body.solid-green .navbar-inverse .navbar-toggle,
+body.solid-green .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #002921 !important;
+}
+body.solid-green #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-green .timeline > li .timeline-image,
+body.solid-green .blog-col .blog-preview-img .caption {
+  background-color: #00a888 !important;
+}
+body.solid-green a:hover,
+body.solid-green a:focus,
+body.solid-green a:active,
+body.solid-green a.active {
+  color: white !important;
+}
+body.solid-green .btn-primary,
+body.solid-green .btn-xl {
+  background-color: #00a888;
+  border: 0;
+  color: white;
+}
+body.solid-green .navbar-nav li.active a:hover,
+body.solid-green .navbar-toggle:hover,
+body.solid-green .navbar-toggle:focus,
+body.solid-green .btn-primary:hover,
+body.solid-green .btn-primary:focus,
+body.solid-green .btn-primary.active,
+body.solid-green .btn-xl:hover,
+body.solid-green .btn-xl:focus,
+body.solid-green .btn-xl:active,
+body.solid-green .btn-xl.active,
+body.solid-green .open .dropdown-toggle.btn-xl {
+  background-color: #00755f;
+  border: 0;
+  color: white;
+}
+body.solid-green a.carousel-control,
+body.solid-green a.btn-circle {
+  color: white;
+}
+body.solid-green .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-green .header-10-sub {
+  background-color: #00a888 !important;
+}
+body.solid-green .image-wrapper {
+  background-color: #00a888 !important;
+}
+body.solid-green .content-23 .bg {
+  background-color: rgba(0, 168, 136, 0.5);
+}
+body.solid-green footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-green footer a:hover {
+  color: #ffffff;
+}
+body.solid-green footer .section-subheading span {
+  color: #00a888;
+}
+body.solid-green footer .section-subheading:after {
+  border-bottom: 2px solid #00a888;
+}
+body.solid-green section .section-divider {
+  color: #00a888;
+}
+body.solid-green #contact .contact-details .section-subheading span {
+  color: #00a888;
+}
+body.solid-green #style-switcher a.panel-button:hover {
+  color: #00a888 !important;
+}
+body.solid-green footer .inner a {
+  color: #000000;
+}
+body.solid-green footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-aqua .text-primary,
+body.solid-aqua ul.social-buttons li a,
+body.solid-aqua a,
+body.solid-aqua .navbar-inverse .nav li a:hover,
+body.solid-aqua .navbar-inverse .nav li a:focus,
+body.solid-aqua .navbar-default .nav li a:hover,
+body.solid-aqua .navbar-default .nav li a:focus {
+  color: white !important;
+}
+body.solid-aqua .navbar-default .nav li.dropdown a:hover,
+body.solid-aqua .navbar-default .nav li.dropdown a:focus,
+body.solid-aqua .navbar-inverse .nav li.dropdown a:hover,
+body.solid-aqua .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-aqua .navbar-default .nav li.active a,
+body.solid-aqua .navbar-inverse .nav li.active a {
+  background: #005b72 !important;
+}
+body.solid-aqua .navbar-default,
+body.solid-aqua .profile-card .profile-cover,
+body.solid-aqua .navbar-default .navbar-toggle,
+body.solid-aqua .navbar-default .navbar-nav > li.active > a {
+  background-color: #00add8 !important;
+}
+body.solid-aqua .navbar-default a,
+body.solid-aqua .navbar-default .navbar-toggle a,
+body.solid-aqua .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-aqua .navbar-inverse,
+body.solid-aqua .navbar-inverse .navbar-toggle,
+body.solid-aqua .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #004759 !important;
+}
+body.solid-aqua #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-aqua .timeline > li .timeline-image,
+body.solid-aqua .blog-col .blog-preview-img .caption {
+  background-color: #00add8 !important;
+}
+body.solid-aqua a:hover,
+body.solid-aqua a:focus,
+body.solid-aqua a:active,
+body.solid-aqua a.active {
+  color: white !important;
+}
+body.solid-aqua .btn-primary,
+body.solid-aqua .btn-xl {
+  background-color: #00add8;
+  border: 0;
+  color: white;
+}
+body.solid-aqua .navbar-nav li.active a:hover,
+body.solid-aqua .navbar-toggle:hover,
+body.solid-aqua .navbar-toggle:focus,
+body.solid-aqua .btn-primary:hover,
+body.solid-aqua .btn-primary:focus,
+body.solid-aqua .btn-primary.active,
+body.solid-aqua .btn-xl:hover,
+body.solid-aqua .btn-xl:focus,
+body.solid-aqua .btn-xl:active,
+body.solid-aqua .btn-xl.active,
+body.solid-aqua .open .dropdown-toggle.btn-xl {
+  background-color: #0084a5;
+  border: 0;
+  color: white;
+}
+body.solid-aqua a.carousel-control,
+body.solid-aqua a.btn-circle {
+  color: white;
+}
+body.solid-aqua .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-aqua .header-10-sub {
+  background-color: #00add8 !important;
+}
+body.solid-aqua .image-wrapper {
+  background-color: #00add8 !important;
+}
+body.solid-aqua .content-23 .bg {
+  background-color: rgba(0, 173, 216, 0.5);
+}
+body.solid-aqua footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-aqua footer a:hover {
+  color: #ffffff;
+}
+body.solid-aqua footer .section-subheading span {
+  color: #00add8;
+}
+body.solid-aqua footer .section-subheading:after {
+  border-bottom: 2px solid #00add8;
+}
+body.solid-aqua section .section-divider {
+  color: #00add8;
+}
+body.solid-aqua #contact .contact-details .section-subheading span {
+  color: #00add8;
+}
+body.solid-aqua #style-switcher a.panel-button:hover {
+  color: #00add8 !important;
+}
+body.solid-aqua footer .inner a {
+  color: #000000;
+}
+body.solid-aqua footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-turquoise .text-primary,
+body.solid-turquoise ul.social-buttons li a,
+body.solid-turquoise a,
+body.solid-turquoise .navbar-inverse .nav li a:hover,
+body.solid-turquoise .navbar-inverse .nav li a:focus,
+body.solid-turquoise .navbar-default .nav li a:hover,
+body.solid-turquoise .navbar-default .nav li a:focus {
+  color: white !important;
+}
+body
+body
+body.solid-turquoise .navbar-default .nav li.dropdown a:hover,
+body.solid-turquoise .navbar-default .nav li.dropdown a:focus,
+body.solid-turquoise .navbar-inverse .nav li.dropdown a:hover,
+body.solid-turquoise .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-turquoise .navbar-default .nav li.active a,
+body.solid-turquoise .navbar-inverse .nav li.active a {
+  background: #003d43 !important;
+}
+body.solid-turquoise .navbar-default,
+body.solid-turquoise .profile-card .profile-cover,
+body.solid-turquoise .navbar-default .navbar-toggle,
+body.solid-turquoise .navbar-default .navbar-nav > li.active > a {
+  background-color: #0099a9 !important;
+}
+body.solid-turquoise .navbar-default a,
+body.solid-turquoise .navbar-default .navbar-toggle a,
+body.solid-turquoise .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-turquoise .navbar-inverse,
+body.solid-turquoise .navbar-inverse .navbar-toggle,
+body.solid-turquoise .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #002629 !important;
+}
+body.solid-turquoise #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-turquoise .timeline > li .timeline-image,
+body.solid-turquoise .blog-col .blog-preview-img .caption {
+  background-color: #0099a9 !important;
+}
+body.solid-turquoise a:hover,
+body.solid-turquoise a:focus,
+body.solid-turquoise a:active,
+body.solid-turquoise a.active {
+  color: white !important;
+}
+body.solid-turquoise .btn-primary,
+body.solid-turquoise .btn-xl {
+  background-color: #0099a9;
+  border: 0;
+  color: white;
+}
+body.solid-turquoise .navbar-nav li.active a:hover,
+body.solid-turquoise .navbar-toggle:hover,
+body.solid-turquoise .navbar-toggle:focus,
+body.solid-turquoise .btn-primary:hover,
+body.solid-turquoise .btn-primary:focus,
+body.solid-turquoise .btn-primary.active,
+body.solid-turquoise .btn-xl:hover,
+body.solid-turquoise .btn-xl:focus,
+body.solid-turquoise .btn-xl:active,
+body.solid-turquoise .btn-xl.active,
+body.solid-turquoise .open .dropdown-toggle.btn-xl {
+  background-color: #006b76;
+  border: 0;
+  color: white;
+}
+body.solid-turquoise a.carousel-control,
+body.solid-turquoise a.btn-circle {
+  color: white;
+}
+body.solid-turquoise .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-turquoise .header-10-sub {
+  background-color: #0099a9 !important;
+}
+body.solid-turquoise .image-wrapper {
+  background-color: #0099a9 !important;
+}
+body.solid-turquoise .content-23 .bg {
+  background-color: rgba(0, 153, 169, 0.5);
+}
+body.solid-turquoise footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-turquoise footer a:hover {
+  color: #ffffff;
+}
+body.solid-turquoise footer .section-subheading span {
+  color: #0099a9;
+}
+body.solid-turquoise footer .section-subheading:after {
+  border-bottom: 2px solid #0099a9;
+}
+body.solid-turquoise section .section-divider {
+  color: #0099a9;
+}
+body.solid-turquoise #contact .contact-details .section-subheading span {
+  color: #0099a9;
+}
+body.solid-turquoise #style-switcher a.panel-button:hover {
+  color: #0099a9 !important;
+}
+body.solid-turquoise footer .inner a {
+  color: #000000;
+}
+body.solid-turquoise footer .inner a:hover {
+  color: #000000 !important;
+}
+
+body.solid-blue .text-primary,
+body.solid-blue ul.social-buttons li a,
+body.solid-blue a,
+body.solid-blue .navbar-inverse .nav li a:hover,
+body.solid-blue .navbar-inverse .nav li a:focus,
+body.solid-blue .navbar-default .nav li a:hover,
+body.solid-blue .navbar-default .nav li a:focus {
+  color: white !important;
+}
+body.solid-blue .navbar-default .nav li.dropdown a:hover,
+body.solid-blue .navbar-default .nav li.dropdown a:focus,
+body.solid-blue .navbar-inverse .nav li.dropdown a:hover,
+body.solid-blue .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-blue .navbar-default .nav li.active a,
+body.solid-blue .navbar-inverse .nav li.active a {
+  background: #000539 !important;
+}
+body.solid-blue .navbar-default,
+body.solid-blue .profile-card .profile-cover,
+body.solid-blue .navbar-default .navbar-toggle,
+body.solid-blue .navbar-default .navbar-nav > li.active > a {
+  background-color: #000f9f !important;
+}
+body.solid-blue .navbar-default a,
+body.solid-blue .navbar-default .navbar-toggle a,
+body.solid-blue .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-blue .navbar-default .navbar-nav>li>a {
+    color: white !important;
+}
+body.solid-blue .navbar-inverse,
+body.solid-blue .navbar-inverse .navbar-toggle,
+body.solid-blue .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #000320 !important;
+}
+body.solid-blue #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-blue .timeline > li .timeline-image,
+body.solid-blue .blog-col .blog-preview-img .caption {
+  background-color: #000f9f !important;
+}
+body.solid-blue a:hover,
+body.solid-blue a:focus,
+body.solid-blue a:active,
+body.solid-blue a.active {
+  color: white !important;
+}
+body.solid-blue .btn-primary,
+body.solid-blue .btn-xl {
+  background-color: #000f9f;
+  border: 0;
+  color: white;
+}
+body.solid-blue .navbar-nav li.active a:hover,
+body.solid-blue .navbar-toggle:hover,
+body.solid-blue .navbar-toggle:focus,
+body.solid-blue .btn-primary:hover,
+body.solid-blue .btn-primary:focus,
+body.solid-blue .btn-primary.active,
+body.solid-blue .btn-xl:hover,
+body.solid-blue .btn-xl:focus,
+body.solid-blue .btn-xl:active,
+body.solid-blue .btn-xl.active,
+body.solid-blue .open .dropdown-toggle.btn-xl {
+  background-color: #000a6c;
+  border: 0;
+  color: white;
+}
+body.solid-blue a.carousel-control,
+body.solid-blue a.btn-circle {
+  color: white;
+}
+body.solid-blue .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-blue .header-10-sub {
+  background-color: #000f9f !important;
+}
+body.solid-blue .image-wrapper {
+  background-color: #000f9f !important;
+}
+body.solid-blue .content-23 .bg {
+  background-color: rgba(0, 15, 159, 0.5);
+}
+body.solid-blue footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-blue footer a:hover {
+  color: #ffffff;
+}
+body.solid-blue footer .section-subheading span {
+  color: #000f9f;
+}
+body.solid-blue footer .section-subheading:after {
+  border-bottom: 2px solid #000f9f;
+}
+body.solid-blue section .section-divider {
+  color: #000f9f;
+}
+body.solid-blue #contact .contact-details .section-subheading span {
+  color: #000f9f;
+}
+body.solid-blue #style-switcher a.panel-button:hover {
+  color: #000f9f !important;
+}
+body.solid-blue footer .inner a {
+  color: #000000;
+}
+body.solid-blue footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-purple .text-primary,
+body.solid-purple ul.social-buttons li a,
+body.solid-purple a,
+body.solid-purple .navbar-inverse .nav li a:hover,
+body.solid-purple .navbar-inverse .nav li a:focus,
+body.solid-purple .navbar-default .nav li a:hover,
+body.solid-purple .navbar-default .nav li a:focus {
+  color: white !important;
+}
+b
+b
+body.solid-purple .navbar-default .nav li.dropdown a:hover,
+body.solid-purple .navbar-default .nav li.dropdown a:focus,
+body.solid-purple .navbar-inverse .nav li.dropdown a:hover,
+body.solid-purple .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-purple .navbar-default .nav li.active a,
+body.solid-purple .navbar-inverse .nav li.active a {
+  background: #6d1768 !important;
+}
+body.solid-purple .navbar-default,
+body.solid-purple .profile-card .profile-cover,
+body.solid-purple .navbar-default .navbar-toggle,
+body.solid-purple .navbar-default .navbar-nav > li.active > a {
+  background-color: #c129b9 !important;
+}
+body.solid-purple .navbar-default a,
+body.solid-purple .navbar-default .navbar-toggle a,
+body.solid-purple .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-purple .navbar-inverse,
+body.solid-purple .navbar-inverse .navbar-toggle,
+body.solid-purple .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #581354 !important;
+}
+body.solid-purple #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-purple .timeline > li .timeline-image,
+body.solid-purple .blog-col .blog-preview-img .caption {
+  background-color: #c129b9 !important;
+}
+body.solid-purple a:hover,
+body.solid-purple a:focus,
+body.solid-purple a:active,
+body.solid-purple a.active {
+  color: white !important;
+}
+body.solid-purple .btn-primary,
+body.solid-purple .btn-xl {
+  background-color: #c129b9;
+  border: 0;
+  color: white;
+}
+body.solid-purple .navbar-nav li.active a:hover,
+body.solid-purple .navbar-toggle:hover,
+body.solid-purple .navbar-toggle:focus,
+body.solid-purple .btn-primary:hover,
+body.solid-purple .btn-primary:focus,
+body.solid-purple .btn-primary.active,
+body.solid-purple .btn-xl:hover,
+body.solid-purple .btn-xl:focus,
+body.solid-purple .btn-xl:active,
+body.solid-purple .btn-xl.active,
+body.solid-purple .open .dropdown-toggle.btn-xl {
+  background-color: #972091;
+  border: 0;
+  color: white;
+}
+body.solid-purple a.carousel-control,
+body.solid-purple a.btn-circle {
+  color: white;
+}
+body.solid-purple .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-purple .header-10-sub {
+  background-color: #c129b9 !important;
+}
+body.solid-purple .image-wrapper {
+  background-color: #c129b9 !important;
+}
+body.solid-purple .content-23 .bg {
+  background-color: rgba(193, 41, 185, 0.5);
+}
+body.solid-purple footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-purple footer a:hover {
+  color: #ffffff;
+}
+body.solid-purple footer .section-subheading span {
+  color: #c129b9;
+}
+body.solid-purple footer .section-subheading:after {
+  border-bottom: 2px solid #c129b9;
+}
+body.solid-purple section .section-divider {
+  color: #c129b9;
+}
+body.solid-purple #contact .contact-details .section-subheading span {
+  color: #c129b9;
+}
+body.solid-purple #style-switcher a.panel-button:hover {
+  color: #c129b9 !important;
+}
+body.solid-purple footer .inner a {
+  color: #000000;
+}
+body.solid-purple footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-pink .text-primary,
+body.solid-pink ul.social-buttons li a,
+body.solid-pink a,
+body.solid-pink .navbar-inverse .nav li a:hover,
+body.solid-pink .navbar-inverse .nav li a:focus,
+body.solid-pink .navbar-default .nav li a:hover,
+body.solid-pink .navbar-default .nav li a:focus {
+  color: white !important;
+}
+body.solid-pink .navbar-default .nav li.dropdown a:hover,
+body.solid-pink .navbar-default .nav li.dropdown a:focus,
+body.solid-pink .navbar-inverse .nav li.dropdown a:hover,
+body.solid-pink .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-pink .navbar-default .nav li.active a,
+body.solid-pink .navbar-inverse .nav li.active a {
+  background: #830555 !important;
+}
+body.solid-pink .navbar-default,
+body.solid-pink .profile-card .profile-cover,
+body.solid-pink .navbar-default .navbar-toggle,
+body.solid-pink .navbar-default .navbar-nav > li.active > a {
+  background-color: #e60895 !important;
+}
+body.solid-pink .navbar-default a,
+body.solid-pink .navbar-default .navbar-toggle a,
+body.solid-pink .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-pink .navbar-inverse,
+body.solid-pink .navbar-inverse .navbar-toggle,
+body.solid-pink .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #6b0445 !important;
+}
+body.solid-pink #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-pink .timeline > li .timeline-image,
+body.solid-pink .blog-col .blog-preview-img .caption {
+  background-color: #e60895 !important;
+}
+body.solid-pink a:hover,
+body.solid-pink a:focus,
+body.solid-pink a:active,
+body.solid-pink a.active {
+  color: white !important;
+}
+body.solid-pink .btn-primary,
+body.solid-pink .btn-xl {
+  background-color: #e60895;
+  border: 0;
+  color: white;
+}
+body.solid-pink .navbar-nav li.active a:hover,
+body.solid-pink .navbar-toggle:hover,
+body.solid-pink .navbar-toggle:focus,
+body.solid-pink .btn-primary:hover,
+body.solid-pink .btn-primary:focus,
+body.solid-pink .btn-primary.active,
+body.solid-pink .btn-xl:hover,
+body.solid-pink .btn-xl:focus,
+body.solid-pink .btn-xl:active,
+body.solid-pink .btn-xl.active,
+body.solid-pink .open .dropdown-toggle.btn-xl {
+  background-color: #b50675;
+  border: 0;
+  color: white;
+}
+body.solid-pink a.carousel-control,
+body.solid-pink a.btn-circle {
+  color: white;
+}
+body.solid-pink .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-pink .header-10-sub {
+  background-color: #e60895 !important;
+}
+body.solid-pink .image-wrapper {
+  background-color: #e60895 !important;
+}
+body.solid-pink .content-23 .bg {
+  background-color: rgba(230, 8, 149, 0.5);
+}
+body.solid-pink footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-pink footer a:hover {
+  color: #ffffff;
+}
+body.solid-pink footer .section-subheading span {
+  color: #e60895;
+}
+body.solid-pink footer .section-subheading:after {
+  border-bottom: 2px solid #e60895;
+}
+body.solid-pink section .section-divider {
+  color: #e60895;
+}
+body.solid-pink #contact .contact-details .section-subheading span {
+  color: #e60895;
+}
+body.solid-pink #style-switcher a.panel-button:hover {
+  color: #e60895 !important;
+}
+body.solid-pink footer .inner a {
+  color: #000000;
+}
+body.solid-pink footer .inner a:hover {
+  color: #000000 !important;
+}
+body.solid-gray .text-primary,
+body.solid-gray ul.social-buttons li a,
+body.solid-gray a,
+body.solid-gray .navbar-inverse .nav li a:hover,
+body.solid-gray .navbar-inverse .nav li a:focus,
+body.solid-gray .navbar-default .nav li a:hover,
+body.solid-gray .navbar-default .nav li a:focus {
+  color: white !important;
+}
+body.solid-gray .navbar-default .nav li.dropdown a:hover,
+body.solid-gray .navbar-default .nav li.dropdown a:focus,
+body.solid-gray .navbar-inverse .nav li.dropdown a:hover,
+body.solid-gray .navbar-inverse .nav li.dropdown a:focus {
+  color: white !important;
+}
+body.solid-gray .navbar-default .nav li.active a,
+body.solid-gray .navbar-inverse .nav li.active a {
+  background: #757577 !important;
+}
+body.solid-gray .navbar-default,
+body.solid-gray .profile-card .profile-cover,
+body.solid-gray .navbar-default .navbar-toggle,
+body.solid-gray .navbar-default .navbar-nav > li.active > a {
+  background-color: #a8a8aa !important;
+}
+body.solid-gray .navbar-default a,
+body.solid-gray .navbar-default .navbar-toggle a,
+body.solid-gray .navbar-default .navbar-nav > li.active > a a {
+  color: white !important;
+}
+body.solid-gray .navbar-inverse,
+body.solid-gray .navbar-inverse .navbar-toggle,
+body.solid-gray .navbar-inverse .navbar-nav > li.active > a {
+  background-color: #68686a !important;
+}
+body.solid-gray #portfolio .portfolio-item .portfolio-link .portfolio-hover,
+body.solid-gray .timeline > li .timeline-image,
+body.solid-gray .blog-col .blog-preview-img .caption {
+  background-color: #a8a8aa !important;
+}
+body.solid-gray a:hover,
+body.solid-gray a:focus,
+body.solid-gray a:active,
+body.solid-gray a.active {
+  color: white !important;
+}
+body.solid-gray .btn-primary,
+body.solid-gray .btn-xl {
+  background-color: #a8a8aa;
+  border: 0;
+  color: white;
+}
+body.solid-gray .navbar-nav li.active a:hover,
+body.solid-gray .navbar-toggle:hover,
+body.solid-gray .navbar-toggle:focus,
+body.solid-gray .btn-primary:hover,
+body.solid-gray .btn-primary:focus,
+body.solid-gray .btn-primary.active,
+body.solid-gray .btn-xl:hover,
+body.solid-gray .btn-xl:focus,
+body.solid-gray .btn-xl:active,
+body.solid-gray .btn-xl.active,
+body.solid-gray .open .dropdown-toggle.btn-xl {
+  background-color: #8e8e91;
+  border: 0;
+  color: white;
+}
+body.solid-gray a.carousel-control,
+body.solid-gray a.btn-circle {
+  color: white;
+}
+body.solid-gray .navbar-inverse .navbar-nav > .active > a {
+  color: white !important;
+}
+body.solid-gray .header-10-sub {
+  background-color: #a8a8aa !important;
+}
+body.solid-gray .image-wrapper {
+  background-color: #a8a8aa !important;
+}
+body.solid-gray .content-23 .bg {
+  background-color: rgba(168, 168, 170, 0.5);
+}
+body.solid-gray footer a {
+  color: rgba(255, 255, 255, 0.7);
+}
+body.solid-gray footer a:hover {
+  color: #ffffff;
+}
+body.solid-gray footer .section-subheading span {
+  color: #a8a8aa;
+}
+body.solid-gray footer .section-subheading:after {
+  border-bottom: 2px solid #a8a8aa;
+}
+body.solid-gray section .section-divider {
+  color: #a8a8aa;
+}
+body.solid-gray #contact .contact-details .section-subheading span {
+  color: #a8a8aa;
+}
+body.solid-gray #style-switcher a.panel-button:hover {
+  color: #a8a8aa !important;
+}
+body.solid-gray footer .inner a {
+  color: #29292a;
+}
+body.solid-gray footer .inner a:hover {
+  color: #000000 !important;
+}

@@ -9,6 +9,7 @@ const data = (state = {
   isInitialized: false,
   isRegistered: false,
   isLoggedIn: false,
+  user: {},
   users: [{
     id: 1,
     name: "Product1",
@@ -21,7 +22,68 @@ const data = (state = {
     price: 80,
     actions: "200Actions",
     points: "2000pts"
-}]
+}, {
+  id: 3,
+  name: "Product1",
+  price: 120,
+  actions: "200Actions",
+  points: "2000pts"
+}, {
+  id: 4,
+  name: "Produc52",
+  price: 50,
+  actions: "500Actions",
+  points: "5000pts"
+},{
+  id: 1,
+  name: "Product1",
+  price: 120,
+  actions: "200Actions",
+  points: "2000pts"
+}, {
+  id: 2,
+  name: "Product2",
+  price: 80,
+  actions: "200Actions",
+  points: "2000pts"
+},{
+  id: 1,
+  name: "Product1",
+  price: 120,
+  actions: "200Actions",
+  points: "2000pts"
+}, {
+  id: 2,
+  name: "Product2",
+  price: 80,
+  actions: "200Actions",
+  points: "2000pts"
+},{
+  id: 1,
+  name: "Product1",
+  price: 120,
+  actions: "200Actions",
+  points: "2000pts"
+}, {
+  id: 2,
+  name: "Product2",
+  price: 80,
+  actions: "200Actions",
+  points: "2000pts"
+},{
+  id: 1,
+  name: "Product1",
+  price: 120,
+  actions: "200Actions",
+  points: "2000pts"
+}, {
+  id: 2,
+  name: "Product2",
+  price: 80,
+  actions: "200Actions",
+  points: "2000pts"
+}
+]
 
 }, action) => {
   console.log("in reducer");
