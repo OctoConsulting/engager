@@ -23,6 +23,7 @@ exports.signin = function(req, res, next){
 
 exports.signup = function(req, res, next){
   //See if the user with the given email exists
+  const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
   const verified = false;
@@ -44,6 +45,7 @@ exports.signup = function(req, res, next){
 
     //if a user with email does NOT exist, create and save user record
     const user = new User({
+      name: name,
       email: email,
       password: password,
       verified: verified

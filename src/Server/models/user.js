@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 //DEFINE THE USER MODEL
 const userSchema = new Schema({
   //lowercase makes sure it's turned lowercase all the time
+  name: String,
   email: {type: String, unique: true, lowercase: true}, //making sure the email field is always unique with MongoDB
   password: String,
   verified: Boolean

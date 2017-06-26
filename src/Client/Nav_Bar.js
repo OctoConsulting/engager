@@ -57,7 +57,7 @@ class Nav_Bar extends Component{
                             <li className="divider"></li>
                             <li><a href="#">User stats <span className="glyphicon glyphicon-stats pull-right"></span></a></li>
                             <li className="divider"></li>
-                            <li><a href="#">Sign Out <span className="glyphicon glyphicon-log-out pull-right"></span></a></li>
+                            <li><Link className="nav-link" to="/signout">Sign Out <span className="glyphicon glyphicon-log-out pull-right"></span></Link></li>
                         </ul>
                     </li>
                 </ul>
