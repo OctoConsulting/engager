@@ -260,3 +260,7 @@ img{
     font-weight: bold;
     padding: 5px 0 7px;
 }
+
+.text-error{
+  color: red;
+}
