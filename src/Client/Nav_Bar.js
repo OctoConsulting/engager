@@ -1,11 +1,9 @@
 //BANNER IS ITS OWN THING BECAUSE WE NEED TO RENDER IT SEPARATELY
 //FROM OTHERS SINCE IT NEEDS TO BE PERSISTENT
-
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
-
-
+import { connect } from "react-redux";
 
 
 
@@ -30,7 +28,7 @@ class Nav_Bar extends Component{
                     <li className="dropdown">
                         <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                             <span className="glyphicon glyphicon-user" style={{paddingRight:"5px"}}></span>
-                            <strong>Salman</strong>
+                            <strong></strong>
                             <span className="glyphicon glyphicon-chevron-down" style={{paddingLeft:"5px"}}></span>
                         </a>
                         <ul className="dropdown-menu">
@@ -53,10 +51,6 @@ class Nav_Bar extends Component{
                                 </div>
                             </li>
                             <li className="divider navbar-login-session-bg"></li>
-                            <li><a href="#">Account Settings <span className="glyphicon glyphicon-cog pull-right"></span></a></li>
-                            <li className="divider"></li>
-                            <li><a href="#">User stats <span className="glyphicon glyphicon-stats pull-right"></span></a></li>
-                            <li className="divider"></li>
                             <li><Link className="nav-link" to="/signout">Sign Out <span className="glyphicon glyphicon-log-out pull-right"></span></Link></li>
                         </ul>
                     </li>
@@ -67,5 +61,4 @@ class Nav_Bar extends Component{
     );
   }
 };
-
 export default Nav_Bar;

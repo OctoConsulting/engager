@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
+
 import Avatar from './components/Avatar';
 import Bio from './components/Bio';
 import Social_Media from './components/Social_Media';
@@ -22,8 +23,8 @@ const Per_Profile = () => {
                 <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" />
              </div>
              <div className="profile-details">
-                 <h1>Anis M</h1>
-                 <h6>@anismashku</h6>
+                 <h1>Users Name</h1>
+                 <h6>@users twitter username</h6>
              </div>
            </div>
          </div>
@@ -142,6 +143,8 @@ function mapStateToProps(state){
     personalInfo: state.personalProfileInfo
   };
 }
-
+Per_Profile.propTypes = {
+  dispatch: React.PropTypes.func
+};
 //Connect the reducer to the container
 export default connect (mapStateToProps) (Per_Profile);
