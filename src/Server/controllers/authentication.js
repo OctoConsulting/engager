@@ -6,9 +6,9 @@ const nodemailer = require('nodemailer');
 
 
 //Nodemailer gmail email and password
-var EMAIL_ACCOUNT_USER = config.emailAccountUser;
-var EMAIL_ACCOUNT_PASSWORD = config.emailPassword;
-var YOUR_NAME = config.emailName;
+const EMAIL_ACCOUNT_USER = config.EmailServer.emailAccountUser;
+const EMAIL_ACCOUNT_PASSWORD = config.EmailServer.emailPassword;
+const YOUR_NAME = config.EmailServer.emailName;
 
 let smtpTransport = nodemailer.createTransport({
   service: 'Gmail',
@@ -78,7 +78,23 @@ exports.signup = function(req, res, next){
       name: name,
       email: email,
       password: password,
-      verified: verified
+      verified: verified,
+      twitter: {
+        username: '',
+        data: null
+      },
+      stackoverflow: {
+        username: '',
+        data: null
+      },
+      github: {
+        username: '',
+        data: null
+      },
+      linkedin: {
+        username: '',
+        data: null
+      }
     });
     user.save(function(err){
       if(err){return next(err);}

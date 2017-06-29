@@ -9,7 +9,23 @@ const userSchema = new Schema({
   name: String,
   email: {type: String, unique: true}, //making sure the email field is always unique with MongoDB
   password: String,
-  verified: Boolean
+  verified: Boolean,
+  twitter: {
+    username: String,
+    data: Object
+  },
+  stackoverflow: {
+    username: String,
+    data: Object
+  },
+  github: {
+    username: String,
+    data: Object
+  },
+  linkedin:{
+    username: String,
+    data: Object
+  }
 });
 
 //On Save Hook, encrypt password
