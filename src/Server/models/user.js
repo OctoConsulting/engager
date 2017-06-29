@@ -16,7 +16,23 @@ const userSchema = new Schema({
     lai: String,
     actions: Number,
     points: Number
-}
+},
+  twitter: {
+    username: String,
+    data: Object
+  },
+  stackoverflow: {
+    username: String,
+    data: Object
+  },
+  github: {
+    username: String,
+    data: Object
+  },
+  linkedin:{
+    username: String,
+    data: Object
+  }
 });
 
 //On Save Hook, encrypt password
