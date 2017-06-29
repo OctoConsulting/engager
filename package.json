@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/OctoConsulting/cto.git"
   },
-  "author": "Andrew_Tran",
+  "author": "Andrew Tran, Josh Fowler, Karam Hijazi, Srijan Karan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/OctoConsulting/cto/issues"
@@ -35,9 +35,20 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.1.18",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
     "json-loader": "^0.5.4",
+    "jwt-simple": "^0.5.1",
     "lodash": "^3.10.1",
+    "mongoose": "^4.10.8",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
     "react": "^0.14.3",
     "react-bootstrap": "^0.31.0",
     "react-bootstrap-table": "^3.4.0",
@@ -50,16 +61,6 @@
     "redux-logger": "^3.0.6",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.0.1",
-    "bcrypt-nodejs": "0.0.3",
-    "body-parser": "^1.17.2",
-    "cors": "^2.8.3",
-    "express": "^4.15.3",
-    "jwt-simple": "^0.5.1",
-    "mongoose": "^4.10.8",
-    "morgan": "^1.8.2",
-    "nodemon": "^1.11.0",
-    "passport": "^0.3.2",
-    "passport-jwt": "^2.2.1",
-    "passport-local": "^1.0.0"
+    "twitter": "^1.7.1"
   }
 }
