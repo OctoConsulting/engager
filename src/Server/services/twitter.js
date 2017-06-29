@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const Twitter = require('twitter');
+const Twitter = require('Twitter');
 const twitter_api = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 const config = require('../config');
 
@@ -14,7 +14,6 @@ const client = new Twitter({
 module.exports = function(req, res, next){
   const user_id = req.params.id;
   const twitter_username = req.body.twitter;
-  let twitter_data = {};
 
 
   client.get('https://api.twitter.com/1.1/statuses/user_timeline.json', {screen_name: twitter_username}, function(err, data, response){
@@ -32,10 +31,5 @@ module.exports = function(req, res, next){
       .catch(next);
       // twitter_data = data;
   });
-
-
-
-
-
 
 }
