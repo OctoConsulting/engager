@@ -6,9 +6,9 @@ const nodemailer = require('nodemailer');
 
 
 //Nodemailer gmail email and password
-const EMAIL_ACCOUNT_USER = config.emailAccountUser;
-const EMAIL_ACCOUNT_PASSWORD = config.emailPassword;
-const YOUR_NAME = config.emailName;
+const EMAIL_ACCOUNT_USER = config.EmailServer.emailAccountUser;
+const EMAIL_ACCOUNT_PASSWORD = config.EmailServer.emailPassword;
+const YOUR_NAME = config.EmailServer.emailName;
 
 let smtpTransport = nodemailer.createTransport({
   service: 'Gmail',
