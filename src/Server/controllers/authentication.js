@@ -10,7 +10,7 @@ var EMAIL_ACCOUNT_USER = config.emailAccountUser;
 var EMAIL_ACCOUNT_PASSWORD = config.emailPassword;
 var YOUR_NAME = config.emailName;
 
-let smtpTransport = nodemailer.createTransport({
+var smtpTransport = nodemailer.createTransport({
   service: 'Gmail',
     auth: {
       user: EMAIL_ACCOUNT_USER,

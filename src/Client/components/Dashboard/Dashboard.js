@@ -9,13 +9,13 @@ import Table from './components/Table';
 
 class Dashboard extends Component{
   render(){
-    //const products = this.props.users;
+    const products = this.props.users;
     return (
       <div>
         <div className="navbar-custom">
           <Nav_Bar/>
         </div>
-        <Table users={null}/>
+        <Table users={products}/>
       </div>
     );
   }
@@ -30,8 +30,9 @@ Dashboard.defaultProps = {
 };
 
 function mapStateToProps(state){
+  console.log(state);
   return {
-    users: null
+    users: state.dashboard
   };
 }
 
