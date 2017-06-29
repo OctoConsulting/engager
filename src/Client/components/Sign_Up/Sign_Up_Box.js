@@ -6,6 +6,7 @@ import * as actions from '../../actions';
 import Banner from '../../Banner';
 
 class Sign_Up_Box extends Component {
+
   handleFormSubmit({name, email, password}){
     this.props.signupUser({name, email, password});
   }
