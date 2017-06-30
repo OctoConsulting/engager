@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 
 import Avatar from './components/Avatar';
@@ -11,7 +12,9 @@ import NavBar from '../../Nav_Bar';
 
 
 
-const Per_Profile = () => {
+class Per_Profile extends Component {
+  render(){
+    var user = this.props.personalInfo.user
   return(
     <div>
       <NavBar />
@@ -23,8 +26,8 @@ const Per_Profile = () => {
                 <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" />
              </div>
              <div className="profile-details">
-                 <h1>Users Name</h1>
-                 <h6>@users twitter username</h6>
+                 <h1>{user.name}</h1>
+                 <h6>@{user.twitter}</h6>
              </div>
            </div>
          </div>
@@ -124,27 +127,15 @@ const Per_Profile = () => {
       </div>
     </div>
       );
+    }
 };
-{/*/using 2 different methods because the default render() doesn't
-//like returning an object other than a div container
-  render(){
-    return(
-      <div>
-        {this.renderItems()}
-      </div>
-    );
 
-  }*/}
+//   //Mapping the state to props for using inside the class
+  function mapStateToProps(state){
+    return {
+      personalInfo: state.personalProfileInfo
+    };
+  }
 
-
-//Mapping the state to props for using inside the class
-function mapStateToProps(state){
-  return {
-    personalInfo: state.personalProfileInfo
-  };
-}
-Per_Profile.propTypes = {
-  dispatch: React.PropTypes.func
-};
 //Connect the reducer to the container
 export default connect (mapStateToProps) (Per_Profile);
