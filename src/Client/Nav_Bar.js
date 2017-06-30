@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 
 class Nav_Bar extends Component{
   render(){
+    var user = this.props.personalInfo.user
     return(
       <div className="navbar navbar-default navbar-fixed-top" role="navigation">
         <div className="container">
@@ -41,8 +42,8 @@ class Nav_Bar extends Component{
                                             </p>
                                         </div>
                                         <div className="col-lg-8">
-                                            <p className="text-left"><strong>Salman Khan</strong></p>
-                                            <p className="text-left small">crazytodevelop@@gmail.com</p>
+                                            <p className="text-center"><strong>{user.name}</strong></p>
+                                            <p className="text-center small">{user.email}</p>
                                             <p className="text-left">
                                                 <Link to="/Profile" className="btn btn-primary btn-block btn-sm">Profile</Link>
                                             </p>
@@ -61,4 +62,11 @@ class Nav_Bar extends Component{
     );
   }
 };
-export default Nav_Bar;
+function mapStateToProps(state){
+  return {
+    personalInfo: state.personalProfileInfo
+  };
+}
+
+//Connect the reducer to the container
+export default connect (mapStateToProps) (Nav_Bar);

@@ -25,12 +25,14 @@ function tokenForUser(user){
   //subject is userid, initialized at time: timestamp
   return jwt.encode({ sub: user.id, iat: timestamp}, config.secret);
 }
-function sendEmail(req, res, next) {
+function sendEmail(text, req, res, next) {
+  console.log(req.body);
+  console.log(text);
       smtpTransport.sendMail({  //email options
         from: 'basharhijazi@gmail.com', // sender address.  Must be the same as authenticated user if using GMail.
-        to: 'hijazikaram@gmail.com', // receiver
+        to: req.body.email, // receiver
         subject: "req.body.subjectField", // subject
-        text: "From: " // body
+        text: text // body
       }, function(error, response){  //callback
         if(error){
           console.log(error);
@@ -56,6 +58,8 @@ exports.signup = function(req, res, next){
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
+  var baseUrl = req.protocol + '://localhost:8080';
+  var text = 'You have requested to create an account at engager.io. To verify this please click the link: ' + baseUrl ;
   const verified = false;
 
   if(!email || !password){
@@ -102,7 +106,7 @@ exports.signup = function(req, res, next){
     res.json({token: tokenForUser(user)}); //just responding with a json to show that it receives
   });
 
-  sendEmail();
+  sendEmail(text, req);
 
   //Respond to request indicating the user was created
 }
