@@ -1,11 +1,12 @@
-export default function(state = {
-  user: {
-    name: "Karam",
-    email: "karam.hijazi@octoconsulting.com",
-    twitter: "karam.hijazi"
+import {
+  USER_INFO
+} from '../actions/types';
+
+
+export default function(state={}, action){
+  switch(action.type){
+    case USER_INFO:
+      return action.payload;
   }
-}, action) {
-  console.log(action.type);
-  console.log("in personal reducer");
   return state;
 }
