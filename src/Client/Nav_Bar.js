@@ -3,13 +3,17 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
-import { connect } from "react-redux";
-
-
+import { connect } from 'react-redux';
+import * as actions from './actions';
 
 class Nav_Bar extends Component{
+
+  componentWillMount(){
+    this.props.retrieveUser(localStorage.getItem('token'));
+  }
+
   render(){
-    var user = this.props.personalInfo.user
+    const user = this.props.personalInfo;
     return(
       <div className="navbar navbar-default navbar-fixed-top" role="navigation">
         <div className="container">
@@ -69,4 +73,4 @@ function mapStateToProps(state){
 }
 
 //Connect the reducer to the container
-export default connect (mapStateToProps) (Nav_Bar);
+export default connect (mapStateToProps, actions) (Nav_Bar);

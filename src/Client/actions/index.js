@@ -1,10 +1,17 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router';
-
-import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './types';
-
+import jwt from 'jwt-simple';
+import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, USER_INFO} from './types';
+import config from '../../Server/config';
 const SERVER_URL = 'http://localhost:3090';
 
+/*
+###########################################################################
+#                                                                         #
+#                             SIGN IN - SIGN UP                           #
+#                                                                         #
+###########################################################################
+*/
 //ACTION CREATOR WHERE THE DATA IS ACTUALLY SENT TO THE SERVER
 export function signinUser({email, password}){
   //returning function() -- product of redux-thunk -- usually ACTION CREATOR
@@ -66,5 +73,32 @@ export function signoutUser(){
   localStorage.removeItem('token');
   return{
     type: UNAUTH_USER
+  }
+}
+
+/*
+###########################################################################
+#                                                                         #
+#                      USER INFORMATION RETRIEVAL                         #
+#                                                                         #
+###########################################################################
+*/
+export function retrieveUser(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
+        .then(response => {
+          dispatch(sendUser(response.data));
+        })
+        .catch(() => dispatch(authError(response.error)))
+  }
+}
+
+
+export function sendUser(response){
+  return {
+    type: USER_INFO,
+    payload: response
   }
 }

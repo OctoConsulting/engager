@@ -3,7 +3,7 @@ const passportService = require('./services/passport');
 const passport = require('passport');
 const twitter = require('./services/Twitter');
 const stackoverflow = require('./services/StackOverflow');
-
+const getuserinfo = require('./services/GetUserInfo');
 //Helper object to authenticate users
 const requireAuth = passport.authenticate('jwt', {session:false});
 const requireSignin = passport.authenticate('local', {session:false});
@@ -11,9 +11,7 @@ const requireSignin = passport.authenticate('local', {session:false});
 module.exports = function(app){
 
   //This made sure that any requests is routed through the authorization module
-  app.get('/', requireAuth, function(req, res){
-    res.send({message: 'Responding to your request!'});
-  });
+  app.get('/user/:id', getuserinfo);
   app.put('/pushTwitterData/:id', twitter);
   app.put('/pushStackOverflowData/:id', stackoverflow);
 
