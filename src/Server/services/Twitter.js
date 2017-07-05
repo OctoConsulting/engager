@@ -18,17 +18,21 @@ module.exports = function(req, res, next){
 
   client.get(twitter_api, {screen_name: twitter_username, count:3200}, function(err, data, response){
     let array = [];
+    let newDate;
     //Converting UTC time to Unix timestamp
     for (i=0; i < data.length; i++){
-      let newDate = Date.parse(data[0].created_at) / 1000;
-      array[i] = {
-        date: newDate,
-        id: data[i].id_str
+      newDate = Date.parse(data[i].created_at) / 1000;
+      if (Number(newDate) >= Number(config.creation_timestamp)){
+        array[i] = {
+          date: newDate,
+          id: data[i].id_str
+        }
       }
     }
     const updated = {
       username: twitter_username,
-      data: array
+      data: array,
+      points: array.length
     };
 
   //console.dir(updated);
