@@ -22,7 +22,7 @@ class Form_StackOverflow extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <button type="button" className="close" data-dismiss="modal">&times;</button>
-                <h4 className="modal-title">Github</h4>
+                <h4 className="modal-title">StackOverflow</h4>
               </div>
               <div className="modal-body">
                 <input className="form-control" type="text" placeholder="StackOverflow User ID" {...username}></input>
