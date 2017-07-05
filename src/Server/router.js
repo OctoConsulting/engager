@@ -1,8 +1,8 @@
 const Authentication = require('./controllers/authentication');
-const Users = require('./controllers/user_dashboard');
 const passportService = require('./services/passport');
 const passport = require('passport');
-const twitter = require('./services/Twitter');
+const twitter = require('./services/twitter');
+const dashboard = require('./services/dashboard');
 const stackoverflow = require('./services/StackOverflow');
 
 //Helper object to authenticate users
@@ -20,5 +20,5 @@ module.exports = function(app){
 
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
-  app.get('/users', Users.dashboard)
+  app.get('/users', dashboard);
 }
