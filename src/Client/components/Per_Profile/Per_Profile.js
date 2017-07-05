@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 
-import Avatar from './components/Avatar';
-import Bio from './components/Bio';
-import Social_Media from './components/Social_Media';
+import Form_Twitter from './components/Form_Twitter';
+import Form_GitHub from './components/Form_GitHub';
+import Form_StackOverflow from './components/Form_StackOverflow';
+
 import NavBar from '../../Nav_Bar';
 
 
@@ -33,6 +34,13 @@ class Per_Profile extends Component {
            </div>
          </div>
           <div className="row">
+            {/*
+              #############################################################
+              #                                                           #
+              #                     FACEBOOK INTEGRATION                  #
+              #                                                           #
+              #############################################################
+              */}
             <div className="col-md-2 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-facebook">
@@ -47,6 +55,14 @@ class Per_Profile extends Component {
                   </div>
                 </div>
             </div>
+
+            {/*
+              #############################################################
+              #                                                           #
+              #                      TWITTER INTEGRATION                  #
+              #                                                           #
+              #############################################################
+              */}
             <div className="col-md-2 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-twitter">
@@ -58,29 +74,19 @@ class Per_Profile extends Component {
                     <button className="btn btn-twitter btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#twitter">
                         <span>Connect</span>
                     </button>
-                    <div className="modal fade" id="twitter" role="dialog">
-                      <div className="modal-dialog">
-
-                        {//<!-- Modal content-->
-                        }
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal">&times;</button>
-                            <h4 className="modal-title">Twitter</h4>
-                          </div>
-                          <div className="modal-body">
-                            <input className="form-control" type="text" placeholder="Twitter Username"></input>
-                          </div>
-                          <div className="modal-footer">
-                            <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
+                    <Form_Twitter/>
                   </div>
                 </div>
             </div>
+
+            {/*
+              #############################################################
+              #                                                           #
+              #                  STACKOVERFLOW INTEGRATION                #
+              #                                                           #
+              #############################################################
+              */}
+
             <div className="col-md-2 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-stackOverFlow">
@@ -92,29 +98,21 @@ class Per_Profile extends Component {
                     <button className="btn btn-stackOverFlow btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#stackoverflow">
                         <span>Connect</span>
                     </button>
-                    <div className="modal fade" id="stackoverflow" role="dialog">
-                      <div className="modal-dialog">
 
-                        {//<!-- Modal content-->
-                        }
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal">&times;</button>
-                            <h4 className="modal-title">Stack OverFlow</h4>
-                          </div>
-                          <div className="modal-body">
-                            <input type="text" className="form-control" placeholder="Stackoverflow Id Number"></input>
-                          </div>
-                          <div className="modal-footer">
-                            <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
-                          </div>
-                        </div>
+                    <Form_StackOverflow />
 
-                      </div>
-                    </div>
                   </div>
                 </div>
             </div>
+
+            {/*
+              #############################################################
+              #                                                           #
+              #                     INSTAGRAM INTEGRATION                 #
+              #                                                           #
+              #############################################################
+              */}
+
             <div className="col-md-2 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-instagram">
@@ -129,6 +127,15 @@ class Per_Profile extends Component {
                   </div>
                 </div>
             </div>
+
+            {/*
+              #############################################################
+              #                                                           #
+              #                       GITHUB INTEGRATION                  #
+              #                                                           #
+              #############################################################
+              */}
+
             <div className="col-md-2 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-github">
@@ -137,37 +144,24 @@ class Per_Profile extends Component {
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    {  // <p className="h4 no-margin inner-all text-strong">
-                      //     <span className="block">5,634</span>
-                      //     <span className="block">Like</span>
-                      // </p>
-                    }
                     <button className="btn btn-github btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#github">
                         <span>Connect</span>
                     </button>
-                    <div className="modal fade" id="github" role="dialog">
-                      <div className="modal-dialog">
 
-                        {//<!-- Modal content-->
-                        }
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal">&times;</button>
-                            <h4 className="modal-title">Github</h4>
-                          </div>
-                          <div className="modal-body">
-                            <input className="form-control" type="text" placeholder="Github Username"></input>
-                          </div>
-                          <div className="modal-footer">
-                            <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
-                          </div>
-                        </div>
+                    <Form_GitHub />
 
-                      </div>
-                    </div>
                   </div>
                 </div>
             </div>
+
+            {/*
+              #############################################################
+              #                                                           #
+              #                     LINKEDIN INTEGRATION                  #
+              #                                                           #
+              #############################################################
+              */}
+
             <div className="col-md-2 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-linkedin">

@@ -102,3 +102,44 @@ export function sendUser(response){
     payload: response
   }
 }
+
+
+/*
+###########################################################################
+#                                                                         #
+#                        SOCIAL MEDIA INTEGRATION                         #
+#                                                                         #
+###########################################################################
+*/
+
+export function socialmedia_integrate({type, token, username}){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    let data = {};
+    let cmd = '';
+    switch(type){
+      case 'Twitter':
+        data = {
+          'twitter': username
+        };
+        cmd = 'pushTwitterData';
+        console.log(data);
+      case 'StackOverflow':
+        data = {
+          'stackoverflow': username
+        }
+        cmd = 'pushStackOverflowData';
+      case 'GitHub':
+        data = {
+          'github': username
+        };
+        cmd = 'pushGitHubData';
+    }
+
+    axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
+        .then( response => {
+          console.log(response.data)
+        })
+        .catch( () => dispatch(authError(response.error)));
+  }
+}
