@@ -3785,7 +3785,7 @@ ul.days li span {
 }
 .btn-facebook:hover, .btn-facebook:focus, .btn-facebook:active {
   color: #FFF !important;
-  background-color: #344e86;
+  background-color: #3b5998 !important;
 }
 .btn-facebook.btn-stroke {
   border: 1px double #3b5998;
@@ -4000,7 +4000,7 @@ ul.days li span {
 }
 .btn-linkedin:hover, .btn-linkedin:focus, .btn-linkedin:active {
   color: #FFF !important;
-  background-color: #0c6590;
+  background-color: #0e76a8 !important;
 }
 .btn-linkedin.btn-stroke {
   border: 1px double #0e76a8;
@@ -4301,7 +4301,7 @@ ul.days li span {
 }
 .btn-twitter:hover, .btn-twitter:focus, .btn-twitter:active {
   color: #FFF !important;
-  background-color: #008cb8;
+  background-color: #00a0d1 !important;
 }
 .btn-twitter.btn-stroke {
   border: 1px double #00a0d1;
@@ -4344,7 +4344,7 @@ ul.days li span {
 }
 .btn-stackOverFlow:hover, .btn-stackOverFlow:focus, .btn-stackOverFlow:active {
   color: #FFF !important;
-  background-color: #008cb8;
+  background-color: #f48024 !important;
 }
 .btn-stackOverFlow.btn-stroke {
   border: 1px double #f48024;
@@ -4559,7 +4559,7 @@ ul.days li span {
 }
 .btn-instagram:hover, .btn-instagram:focus, .btn-instagram:active {
   color: #FFF !important;
-  background-color: #008cb8;
+  background-color: #fb3958 !important;
 }
 .btn-instagram.btn-stroke {
   border: 1px double #fb3958;
@@ -4579,7 +4579,7 @@ ul.days li span {
 }
 .btn-github:hover, .btn-github:focus, .btn-github:active {
   color: #FFF !important;
-  background-color: #24292e;
+  background-color: #24292e !important;
 }
 .btn-github.btn-stroke {
   border: 1px double #24292e;
