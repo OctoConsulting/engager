@@ -11,7 +11,8 @@ User.find({}, function(err, users) {
       userMap[user._id] = user;
     });
 
-    res.send(userMap);  
+    res.send("hi");
+    // res.send(userMap);  
   });
 
 

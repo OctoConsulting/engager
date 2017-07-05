@@ -1,5 +1,5 @@
 const User = require('../models/user');
-const Twitter = require('Twitter');
+const Twitter = require('twitter');
 const twitter_api = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 const config = require('../config');
 
