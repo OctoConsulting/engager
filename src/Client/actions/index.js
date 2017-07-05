@@ -124,16 +124,19 @@ export function socialmedia_integrate({type, token, username}){
         };
         cmd = 'pushTwitterData';
         console.log(data);
+        break;
       case 'StackOverflow':
         data = {
           'stackoverflow': username
         }
         cmd = 'pushStackOverflowData';
+        break;
       case 'GitHub':
         data = {
           'github': username
         };
         cmd = 'pushGitHubData';
+        break;
     }
 
     axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
