@@ -3,12 +3,17 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
-import { connect } from "react-redux";
-
-
+import { connect } from 'react-redux';
+import * as actions from './actions';
 
 class Nav_Bar extends Component{
+
+  componentWillMount(){
+    this.props.retrieveUser(localStorage.getItem('token'));
+  }
+
   render(){
+    const user = this.props.personalInfo;
     return(
       <div className="navbar navbar-default navbar-fixed-top" role="navigation">
         <div className="container">
@@ -41,8 +46,8 @@ class Nav_Bar extends Component{
                                             </p>
                                         </div>
                                         <div className="col-lg-8">
-                                            <p className="text-left"><strong>Salman Khan</strong></p>
-                                            <p className="text-left small">crazytodevelop@@gmail.com</p>
+                                            <p className="text-center"><strong>{user.name}</strong></p>
+                                            <p className="text-center small">{user.email}</p>
                                             <p className="text-left">
                                                 <Link to="/Profile" className="btn btn-primary btn-block btn-sm">Profile</Link>
                                             </p>
@@ -61,4 +66,11 @@ class Nav_Bar extends Component{
     );
   }
 };
-export default Nav_Bar;
+function mapStateToProps(state){
+  return {
+    personalInfo: state.personalProfileInfo
+  };
+}
+
+//Connect the reducer to the container
+export default connect (mapStateToProps, actions) (Nav_Bar);

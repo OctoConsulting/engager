@@ -10,7 +10,6 @@ const client = new Twitter({
 });
 
 
-//
 module.exports = function(req, res, next){
   const user_id = req.params.id;
   const twitter_username = req.body.twitter;
