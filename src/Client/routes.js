@@ -20,7 +20,7 @@ const store = configureStore();
 export default (
     <Route path="/" component={App}>
       <IndexRoute component={Log_In}/>
-      <Route path="signin" component={Log_In}/>\
+      <Route path="signin" component={Log_In}/>
       <Route path="signup" component={Sign_Up}/> {/*This is so that the Sign up button can use it*/}
       <Route path="signout" component={Require_Auth(Sign_Out)}/>
       <Route path="dashboard" component={Require_Auth(Dashboard)}/>

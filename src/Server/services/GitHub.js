@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const zlib = require('zlib');
 const request = require('request');
 
 

@@ -55,9 +55,29 @@ class Per_Profile extends Component {
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-twitter btn-icon-stacked btn-stroke">
+                    <button className="btn btn-twitter btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#twitter">
                         <span>Connect</span>
                     </button>
+                    <div className="modal fade" id="twitter" role="dialog">
+                      <div className="modal-dialog">
+
+                        {//<!-- Modal content-->
+                        }
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal">&times;</button>
+                            <h4 className="modal-title">Twitter</h4>
+                          </div>
+                          <div className="modal-body">
+                            <input className="form-control" type="text" placeholder="Twitter Username"></input>
+                          </div>
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -69,9 +89,29 @@ class Per_Profile extends Component {
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-stackOverFlow btn-icon-stacked btn-stroke">
+                    <button className="btn btn-stackOverFlow btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#stackoverflow">
                         <span>Connect</span>
                     </button>
+                    <div className="modal fade" id="stackoverflow" role="dialog">
+                      <div className="modal-dialog">
+
+                        {//<!-- Modal content-->
+                        }
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal">&times;</button>
+                            <h4 className="modal-title">Stack OverFlow</h4>
+                          </div>
+                          <div className="modal-body">
+                            <input type="text" className="form-control" placeholder="Stackoverflow Id Number"></input>
+                          </div>
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -102,9 +142,29 @@ class Per_Profile extends Component {
                       //     <span className="block">Like</span>
                       // </p>
                     }
-                    <button className="btn btn-github btn-icon-stacked btn-stroke">
+                    <button className="btn btn-github btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#github">
                         <span>Connect</span>
                     </button>
+                    <div className="modal fade" id="github" role="dialog">
+                      <div className="modal-dialog">
+
+                        {//<!-- Modal content-->
+                        }
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal">&times;</button>
+                            <h4 className="modal-title">Github</h4>
+                          </div>
+                          <div className="modal-body">
+                            <input className="form-control" type="text" placeholder="Github Username"></input>
+                          </div>
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
@@ -116,10 +176,29 @@ class Per_Profile extends Component {
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-linkedin btn-icon-stacked btn-stroke">
+                    <button className="btn btn-linkedin btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#linkedin">
                         <span>Connect</span>
                     </button>
+                    <div className="modal fade" id="linkedin" role="dialog">
+                      <div className="modal-dialog">
 
+                        {//<!-- Modal content-->
+                        }
+                        <div className="modal-content">
+                          <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal">&times;</button>
+                            <h4 className="modal-title">Modal Header</h4>
+                          </div>
+                          <div className="modal-body">
+                            <p>Some text in the modal.</p>
+                          </div>
+                          <div className="modal-footer">
+                            <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>
