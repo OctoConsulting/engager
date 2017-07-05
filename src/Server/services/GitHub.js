@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const request = require('request');
-
+const config = require('../config');
 
 module.exports = function(req, res, next){
   const user_id = req.params.id;

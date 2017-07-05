@@ -19,19 +19,23 @@ const userSchema = new Schema({
 },
   twitter: {
     username: String,
-    data: Object
+    data: Object,
+    points: Number
   },
   stackoverflow: {
     username: String,
-    data: Object
+    data: Object,
+    points: Number
   },
   github: {
     username: String,
-    data: Object
+    data: Object,
+    points: Number
   },
   linkedin:{
     username: String,
-    data: Object
+    data: Object,
+    points: Number
   }
 });
 

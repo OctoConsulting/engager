@@ -85,19 +85,23 @@ exports.signup = function(req, res, next){
       verified: verified,
       twitter: {
         username: '',
-        data: null
+        data: null,
+        points: 0
       },
       stackoverflow: {
         username: '',
-        data: null
+        data: null,
+        points: 0
       },
       github: {
         username: '',
-        data: null
+        data: null,
+        points: 0
       },
       linkedin: {
         username: '',
-        data: null
+        data: null,
+        points: 0
       }
     });
     user.save(function(err){
