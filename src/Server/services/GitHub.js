@@ -8,11 +8,12 @@ module.exports = function(req, res, next){
   const github_username = req.body.github;
   request({
     method: 'GET',
+    headers: {'user-agent': 'node.js'},
     uri: `https://api.github.com/users/${github_username}/events/public`
   }, function(error, response, body){
       const updated = {
         username: github_username,
-        data: body
+        data: JSON.parse(body)
       }
 
       User.findByIdAndUpdate({_id: user_id}, {$set: {github : updated}})
