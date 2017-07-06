@@ -29,9 +29,9 @@ function sendEmail(text, req, res, next) {
   console.log(req.body);
   console.log(text);
       smtpTransport.sendMail({  //email options
-        from: 'basharhijazi@gmail.com', // sender address.  Must be the same as authenticated user if using GMail.
+        from: EMAIL_ACCOUNT_USER, // sender address.  Must be the same as authenticated user if using GMail.
         to: req.body.email, // receiver
-        subject: "req.body.subjectField", // subject
+        subject: "Engager.io email verification", // subject
         text: text // body
       }, function(error, response){  //callback
         if(error){
@@ -83,6 +83,13 @@ exports.signup = function(req, res, next){
       email: email,
       password: password,
       verified: verified,
+      profile: {
+        avatar: '',
+        name: '',
+        lai: '',
+        actions: 0,
+        points: 0
+      },
       twitter: {
         username: '',
         data: null,
