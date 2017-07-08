@@ -83,6 +83,13 @@ exports.signup = function(req, res, next){
       email: email,
       password: password,
       verified: verified,
+      facebook_check: false,
+      twitter_check: false,
+      stackoverflow_check: false,
+      instagram_check: false,
+      github_check: false,
+      linkedin_check: false,
+      avatar: '',
       profile: {
         avatar: '',
         name: '',

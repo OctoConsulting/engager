@@ -16,6 +16,9 @@ class Per_Profile extends Component {
 
   render(){
     const info = this.props.personalInfo;
+    const connect = 'Connect';
+    const connected = 'Connected';
+    console.log(info);
     return(
       <div>
         <NavBar />
@@ -24,7 +27,7 @@ class Per_Profile extends Component {
             <div className="col-md-12 profile-card">
               <div className="profile-cover">
                <div className="profile-avatar">
-                  <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" />
+                  <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt={info.name} />
                </div>
                <div className="profile-details">
                    <h1>{info.name}</h1>
@@ -72,7 +75,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-twitter btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#twitter">
-                        <span>Connect</span>
+                        <span>{(info.twitter_check===true) ? connected : connect}</span>
                     </button>
                     <Form_Twitter/>
                   </div>
@@ -96,7 +99,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-stackOverFlow btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#stackoverflow">
-                        <span>Connect</span>
+                        <span>{(info.stackoverflow_check===true) ? connected : connect}</span>
                     </button>
 
                     <Form_StackOverflow />
@@ -145,7 +148,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-github btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#github">
-                        <span>Connect</span>
+                        <span>{(info.github_check===true) ? connected : connect}</span>
                     </button>
 
                     <Form_GitHub />
