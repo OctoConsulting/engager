@@ -5,6 +5,7 @@ const twitter = require('./services/Twitter');
 const dashboard = require('./services/dashboard');
 const stackoverflow = require('./services/StackOverflow');
 const github = require('./services/GitHub');
+const instagram = require('./services/Instagram');
 
 const getuserinfo = require('./services/GetUserInfo');
 //Helper object to authenticate users
@@ -18,8 +19,9 @@ module.exports = function(app){
   app.put('/pushTwitterData/:id', twitter);
   app.put('/pushStackOverflowData/:id', stackoverflow);
   app.put('/pushGitHubData/:id', github);
+  app.put('/pushInstagramData/:id', instagram);
 
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
-  app.get('/users', dashboard);
+  //app.get('/users', dashboard);
 }

@@ -17,6 +17,11 @@ const userSchema = new Schema({
     actions: Number,
     points: Number
 },
+  instagram: {
+    username: String,
+    data: Object,
+    points: Number
+  },
   twitter: {
     username: String,
     data: Object,

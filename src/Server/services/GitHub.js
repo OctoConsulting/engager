@@ -33,7 +33,7 @@ module.exports = function(req, res, next){
 
       User.findByIdAndUpdate({_id: user_id}, {$set: {github : updated}})
           .then(() => User.findById({_id: user_id}))
-          .then( user => res.send(user))
+          .then( user => res.send(user.github))
           .catch(next);
   });
 }
