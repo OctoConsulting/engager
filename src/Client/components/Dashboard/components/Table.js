@@ -1,34 +1,27 @@
+
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import { connect } from "react-redux";
+import * as actions from '../../../actions';
 
+class Table extends Component{
 
+  componentWillMount(){
+    this.props.retrieveDashboard();
+  }
 
-// var users = [{
-//       avatar: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
-//       name: "Jhon Doe",
-//       lai: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
-//       actions: "200Actions",
-//       points: "200Pts"
-//   }, {
-//       avatar: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
-//       name: "Andrew Josh",
-//       lai: "https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
-//       actions: "1Actions",
-//       points: "2Pts"
-//   }];
-
-export default class Table extends Component{
   imageFormatter(cell, row){
     return "<img class='dashboard-table-avatar' src='"+cell+"'/>" ;
   }
   render(){
-    console.log(this.props.users);
+    const users = this.props.users;
     return(
       <div  className="container personal-profile-container">
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12">
                 <div className="panel rounded shadow">
-                  <BootstrapTable data={ this.props.users }  search={ true } pagination striped hover bordered>
+                  <BootstrapTable data={ users }  search={ true } pagination striped hover bordered>
                       <TableHeaderColumn dataField='avatar' isKey={ true } dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
                       <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
                       <TableHeaderColumn dataField='lai' dataFormat={this.imageFormatter}>Last Action Icon</TableHeaderColumn>
@@ -42,3 +35,11 @@ export default class Table extends Component{
     );
   }
 }
+
+function mapStateToProps(state){
+  return {
+    users: state.auth.dash
+  };
+}
+
+export default connect(mapStateToProps,actions)(Table);

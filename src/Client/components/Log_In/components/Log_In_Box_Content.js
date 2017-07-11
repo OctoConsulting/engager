@@ -32,7 +32,7 @@ class Log_In_Box_Content extends Component {
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         {/*making sure it'd turn red when the user doesn't input all data*/}
         <div className={`form-group ${email.touched && email.invalid ? 'has-danger' : ''}`}>
-          <label>email</label>
+          <label>Email</label>
           <input type="text" className="form-control" {...email}/>
           <div className="text-help">
             {email.touched ? email.error : ''/*Only displays the error message when the box is touched*/}
@@ -48,8 +48,13 @@ class Log_In_Box_Content extends Component {
           </div>
         </div>
         {this.renderAlert()}
-        <button type="submit" className="btn btn-warning"> LOG IN</button>
-        <Link to='/SignUp' className="btn btn-warning"> SIGN UP</Link>
+
+        <div className="button_pos">
+          <button type="submit" className="btn btn-primary"> LOG IN</button>
+        </div>
+        <div className="button_pos">
+          <Link to='/SignUp' className="btn btn-primary"> SIGN UP</Link>
+        </div>
       </form>
     );
   }

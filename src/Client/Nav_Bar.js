@@ -7,13 +7,12 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 
 class Nav_Bar extends Component{
-
   componentWillMount(){
     this.props.retrieveUser(localStorage.getItem('token'));
   }
 
   render(){
-    const user = this.props.personalInfo;
+    console.log(this.props.personalInfo);
     return(
       <div className="navbar navbar-default navbar-fixed-top" role="navigation">
         <div className="container">
@@ -23,7 +22,7 @@ class Nav_Bar extends Component{
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <Link to="/dashboard" className="navbar-brand" style={{marginTop: "6px"}}>ENGAGE</Link>
+                <div className="navbar-brand" style={{marginTop: "6px"}}>ENGAGER</div>
             </div>
             <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
@@ -46,8 +45,8 @@ class Nav_Bar extends Component{
                                             </p>
                                         </div>
                                         <div className="col-lg-8">
-                                            <p className="text-center"><strong>{user.name}</strong></p>
-                                            <p className="text-center small">{user.email}</p>
+                                            <p className="text-center"><strong>{(this.props.personalInfo !== null) ? this.props.personalInfo.name : ''}</strong></p>
+                                            <p className="text-center small">{(this.props.personalInfo !== null) ? this.props.personalInfo.email : ''}</p>
                                             <p className="text-left">
                                                 <Link to="/Profile" className="btn btn-primary btn-block btn-sm">Profile</Link>
                                             </p>
@@ -68,7 +67,7 @@ class Nav_Bar extends Component{
 };
 function mapStateToProps(state){
   return {
-    personalInfo: state.personalProfileInfo
+    personalInfo: state.auth.userInfo
   };
 }
 

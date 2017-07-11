@@ -6,9 +6,6 @@ import {reduxForm} from 'redux-form';
 
 class Form_Twitter extends Component {
 
-  Default(event){
-    event.preventDefault();
-  }
 
   handleFormSubmit({username}){
     const type = 'Twitter';

@@ -42,7 +42,7 @@ module.exports = function(req, res, next){
         points: points
       }
 
-      User.findByIdAndUpdate({_id: user_id}, {$set: {stackoverflow : updated}})
+      User.findByIdAndUpdate({_id: user_id}, {$set: {stackoverflow : updated, stackoverflow_check: true}})
           .then(() => User.findById({_id: user_id}))
           .then( user => res.send(user.stackoverflow))
           .catch(next);

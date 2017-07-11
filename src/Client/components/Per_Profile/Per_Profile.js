@@ -15,7 +15,9 @@ import NavBar from '../../Nav_Bar';
 class Per_Profile extends Component {
 
   render(){
-    const info = this.props.personalInfo;
+    const connect = 'Connect';
+    const connected = 'Connected';
+
     return(
       <div>
         <NavBar />
@@ -24,11 +26,11 @@ class Per_Profile extends Component {
             <div className="col-md-12 profile-card">
               <div className="profile-cover">
                <div className="profile-avatar">
-                  <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt="Anis M" />
+                  <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt={(this.props.personalInfo !== null) ? this.props.personalInfo.name : ''} />
                </div>
                <div className="profile-details">
-                   <h1>{info.name}</h1>
-                   <h6>{info.email}</h6>
+                   <h1>{(this.props.personalInfo !== null) ? this.props.personalInfo.name : ''}</h1>
+                   <h6>{(this.props.personalInfo !== null) ? this.props.personalInfo.email : ''}</h6>
                </div>
              </div>
            </div>
@@ -72,7 +74,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-twitter btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#twitter">
-                        <span>Connect</span>
+                        <span>{(this.props.personalInfo !== null && this.props.personalInfo.twitter_check===true) ? connected : connect}</span>
                     </button>
                     <Form_Twitter/>
                   </div>
@@ -96,7 +98,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-stackOverFlow btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#stackoverflow">
-                        <span>Connect</span>
+                        <span>{(this.props.personalInfo !== null && this.props.personalInfo.stackoverflow_check===true) ? connected : connect}</span>
                     </button>
 
                     <Form_StackOverflow />
@@ -145,7 +147,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-github btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#github">
-                        <span>Connect</span>
+                        <span>{(this.props.personalInfo !== null && this.props.personalInfo.github_check === true) ? connected : connect}</span>
                     </button>
 
                     <Form_GitHub />
@@ -206,7 +208,7 @@ class Per_Profile extends Component {
 //   //Mapping the state to props for using inside the class
   function mapStateToProps(state){
     return {
-      personalInfo: state.personalProfileInfo
+      personalInfo: state.auth.userInfo
     };
   }
 

@@ -34,7 +34,8 @@ img{
   margin: 0 auto;
 }
 .button_pos {
-  display: flex;
+  display: inline-block;
+  margin: 10px;
   justify-content: center;
   height: 5vh;
 }
