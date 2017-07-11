@@ -13,15 +13,16 @@ const requireAuth = passport.authenticate('jwt', {session:false});
 const requireSignin = passport.authenticate('local', {session:false});
 
 module.exports = function(app){
-
+  app.post('/signin', requireSignin, Authentication.signin);
+  app.post('/signup', Authentication.signup);
   //This made sure that any requests is routed through the authorization module
+  app.get('/dashboard', dashboard);
   app.get('/user/:id', getuserinfo);
   app.put('/pushTwitterData/:id', twitter);
   app.put('/pushStackOverflowData/:id', stackoverflow);
   app.put('/pushGitHubData/:id', github);
   app.put('/pushInstagramData/:id', instagram);
 
-  app.post('/signin', requireSignin, Authentication.signin);
-  app.post('/signup', Authentication.signup);
-  //app.get('/users', dashboard);
+
+
 }

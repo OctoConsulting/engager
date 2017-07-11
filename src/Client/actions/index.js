@@ -1,9 +1,15 @@
 import axios from 'axios';
 import {browserHistory} from 'react-router';
 import jwt from 'jwt-simple';
-import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, USER_INFO} from './types';
+import {
+  AUTH_USER,
+  UNAUTH_USER,
+  AUTH_ERROR,
+  USER_INFO,
+  USERS } from './types';
 import config from '../../Server/config';
 const SERVER_URL = 'http://localhost:3090';
+
 
 /*
 ###########################################################################
@@ -89,17 +95,56 @@ export function retrieveUser(token){
 
     axios.get(`${SERVER_URL}/user/${user_id.sub}`)
         .then(response => {
-          dispatch(sendUser(response.data));
+          console.log(response.data);
+          const filtered_data = {
+            name: response.data.name,
+            email: response.data.email,
+            facebook_check: response.data.facebook_check,
+            twitter_check: response.data.twitter_check,
+            stackoverflow_check: response.data.stackoverflow_check,
+            instagram_check: response.data.instagram_check,
+            github_check: response.data.github_check,
+            linkedin_check: response.data.linkedin_check
+          }
+          dispatch({type: USER_INFO, payload: filtered_data});
         })
         .catch(() => dispatch(authError(response.error)))
   }
 }
 
 
-export function sendUser(response){
-  return {
-    type: USER_INFO,
-    payload: response
+
+/*
+###########################################################################
+#                                                                         #
+#                      USERS INFORMATION RETRIEVAL                        #
+#                                                                         #
+###########################################################################
+*/
+
+// export function retrieveDashboard(){
+//   return function(dispatch){
+//     // const user_id = jwt.decode(token, config.secret);
+//
+//     axios.get(`${SERVER_URL}/dashboard`)
+//         .then(response => {
+//           dispatch(sendDashboard(response.data));
+//         })
+//         .catch(() => dispatch(authError(response.error)))
+//   }
+// }
+let data;
+export function retrieveDashboard(){
+  return function(dispatch){
+    axios.get(`${SERVER_URL}/dashboard`)
+        .then(response => {
+           console.log("5")
+           dispatch({type: USERS, payload: response.data});
+           //data = response.data;
+           //sendDashboard(data);
+           //return data;
+        })
+        .catch(() => console.log("error"))
   }
 }
 

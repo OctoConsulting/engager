@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 
 //DEFINE THE USER MODEL
 const userSchema = new Schema({
-  //lowercase makes sure it's turned lowercase all the time
   name: String,
   email: {type: String, unique: true}, //making sure the email field is always unique with MongoDB
   password: String,
@@ -16,14 +15,13 @@ const userSchema = new Schema({
   instagram_check: Boolean,
   github_check: Boolean,
   linkedin_check: Boolean,
-  avatar: String,
   profile: {
     avatar: String,
-    name: String,
+    ava_name: String,
     lai: String,
     actions: Number,
     points: Number
-},
+  },
   instagram: {
     username: String,
     data: Object,
@@ -57,7 +55,7 @@ userSchema.pre('save', function(next) {
   //get access to the user model
   const user = this;
   //Generate a salt, takes time so run call back after generated
-  bcrypt.genSalt(10, function(err, salt){
+  bcrypt.genSalt(5, function(err, salt){
     if (err) {return next(err);}
     //hash the password using the salt
     bcrypt.hash(user.password, salt, null, function(err, hash) {

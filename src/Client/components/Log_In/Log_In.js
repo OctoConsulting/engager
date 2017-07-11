@@ -12,9 +12,9 @@ import Log_In_Box_Content from './components/Log_In_Box_Content';
 export default class Log_In extends Component {
   render(){
     return (
-      <div>
-        <Banner/>
-        <div className="panel panel-warning">
+      <div className="box-form">
+        <h1>ENGAGER</h1>
+        <div className="panel panel-default">
           <div className="panel-heading">
             <h3 className="panel-title">WELCOME</h3>
           </div>
