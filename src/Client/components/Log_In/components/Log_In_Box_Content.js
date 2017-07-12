@@ -48,7 +48,6 @@ class Log_In_Box_Content extends Component {
           </div>
         </div>
         {this.renderAlert()}
-
         <div className="button_pos">
           <button type="submit" className="btn btn-primary"> LOG IN</button>
         </div>

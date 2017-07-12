@@ -17,7 +17,7 @@ const userSchema = new Schema({
   linkedin_check: Boolean,
   profile: {
     avatar: String,
-    ava_name: String,
+    name: String,
     lai: String,
     actions: Number,
     points: Number
@@ -61,7 +61,9 @@ userSchema.pre('save', function(next) {
     bcrypt.hash(user.password, salt, null, function(err, hash) {
       if (err) {return next(err);}
       //override the plain text password with encrypted password
+      console.log(hash);
       user.password = hash;
+      console.log(user.password);
       next();
     })
   })
