@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
 import {reduxForm} from 'redux-form';
 import * as actions from '../../../actions';
-
+let count = 0;
 //Custom components
 //Tis is one giant block that contains the 2 input fields
 //for email and Password on LOG IN
@@ -13,6 +13,7 @@ class Log_In_Box_Content extends Component {
     //Needs to send email and password to server
     this.props.signinUser({email, password});
   }
+
 
   renderAlert(){
     if(this.props.errorMessage){
@@ -48,7 +49,6 @@ class Log_In_Box_Content extends Component {
           </div>
         </div>
         {this.renderAlert()}
-
         <div className="button_pos">
           <button type="submit" className="btn btn-primary"> LOG IN</button>
         </div>
@@ -90,4 +90,4 @@ export default reduxForm({
     'password'
   ],
   validate
-}, mapStateToProps, actions )(Log_In_Box_Content);
+}, null, actions )(Log_In_Box_Content);

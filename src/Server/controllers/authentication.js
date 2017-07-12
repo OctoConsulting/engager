@@ -4,7 +4,7 @@ const jwt = require('jwt-simple');
 const config = require('../config');
 const nodemailer = require('nodemailer');
 
-/*
+
 //Nodemailer gmail email and password
 const EMAIL_ACCOUNT_USER = config.EmailServer.emailAccountUser;
 const EMAIL_ACCOUNT_PASSWORD = config.EmailServer.emailPassword;
@@ -17,7 +17,7 @@ var smtpTransport = nodemailer.createTransport({
       pass: EMAIL_ACCOUNT_PASSWORD
     }
 });
-*/
+
 
 //Tokenize a piece of information
 function tokenForUser(user){
@@ -26,7 +26,7 @@ function tokenForUser(user){
   return jwt.encode({ sub: user.id, iat: timestamp}, config.secret);
 }
 
-/*function sendEmail(text, req, res, next) {
+function sendEmail(text, req, res, next) {
   console.log(req.body);
   console.log(text);
       smtpTransport.sendMail({  //email options
@@ -45,7 +45,7 @@ function tokenForUser(user){
         smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
       });
     }
-*/
+
 
 exports.signin = function(req, res, next){
   //User already authorized with their username and password
@@ -92,7 +92,7 @@ exports.signup = function(req, res, next){
       linkedin_check: false,
       profile: {
         avatar: '',
-        ava_name: '',
+        name: '',
         lai: '',
         actions: 0,
         points: 0

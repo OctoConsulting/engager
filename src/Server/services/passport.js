@@ -24,8 +24,8 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
         console.log(user.password);
         console.log(password);
         console.log('password not matched');
-        return done(null, false);}
-
+        return done(null, false);
+      }
       return done(null, user);
     });
   });

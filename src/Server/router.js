@@ -23,6 +23,4 @@ module.exports = function(app){
   app.put('/pushGitHubData/:id', github);
   app.put('/pushInstagramData/:id', instagram);
 
-
-
 }

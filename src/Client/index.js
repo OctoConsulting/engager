@@ -12,6 +12,8 @@ import reducers from './reducers';
 import {AUTH_USER} from './actions/types';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+
+
 //store contains the current redux state -- everything flows through reducers
 const store = createStoreWithMiddleware(reducers);
 //THIS CHECKS FOR AUTHENTICATION --
