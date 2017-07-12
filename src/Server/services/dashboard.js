@@ -29,7 +29,9 @@ function userU(array){
   for (i in array){
     console.log("id is: " + i);
     console.log(array[i]);
-    User.update({_id: mongoose.mongo.ObjectId(i)}, {$set: {profile: array[i]}}, {multi: true});
+    User.findByIdAndUpdate({_id: i}, {$set: {profile: array[i]}})
+        .then(() => User.findById({_id: i}))
+        .catch();
     console.log("after call");
   }
 }
