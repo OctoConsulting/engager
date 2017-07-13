@@ -28,6 +28,12 @@ img{
 }
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
+
+.app-name{
+  text-align: center;
+  margin-top: 50px;
+}
+
 .box-form{
   text-align: center;
   max-width: 60%;
