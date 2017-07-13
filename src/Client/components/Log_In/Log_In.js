@@ -36,8 +36,11 @@ class Log_In extends Component {
       <form className="box-form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         {/*making sure it'd turn red when the user doesn't input all data*/}
         <div className={`form-group ${email.touched && email.invalid ? 'has-danger' : ''}`}>
-          <label>Email</label>
-          <input type="text" className="form-control" {...email}/>
+
+          <input type="text" placeholder="Email"
+            pattern="[A-Za-z0-9\.]+@octoconsulting\.com"
+            title="Only A Valid Octo Email Is Allowed"
+            className="form-control" {...email}/>
           <div className="text-help">
             {email.touched ? email.error : ''/*Only displays the error message when the box is touched*/}
           </div>
@@ -45,8 +48,8 @@ class Log_In extends Component {
         {/*Supposed to check if it's been touched and if invalid is true
           if so make it red*/}
         <div className={`form-group ${password.touched && password.invalid ? 'has-danger' : ''}`}>
-          <label>Password</label>
-          <input type="password" className="form-control" {...password}/>
+
+          <input type="password" placeholder="Password" className="form-control" {...password}/>
           <div className="text-help">
             {password.touched ? password.error : ''}
           </div>

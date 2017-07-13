@@ -29,12 +29,26 @@ img{
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
 
+input[type="text"], input[type="password"], input[type="email"]{
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+
+
 .app-name{
   text-align: center;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .box-form{
+  border-radius: 25px;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: rgb(242,242,242);
   text-align: center;
   max-width: 60%;
   margin: 0 auto;
