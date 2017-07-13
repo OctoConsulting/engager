@@ -9,16 +9,21 @@ import * as actions from '../../actions';
 //for email and Password on LOG IN
 class Log_In extends Component {
 
+  //Clearing out error in the reducer
+  componentWillMount(){
+    this.props.clearError();
+  }
+  //Sending sign up info to server for validation
   handleFormSubmit({ email, password }){
     //Needs to send email and password to server
     this.props.signinUser({email, password});
   }
-
+  //Displaying error messages when signing in/ signing up
   renderAlert(){
     if(this.props.errorMessage){
       return(
         <div className="alert alert-danger">
-          <strong>Oops!</strong> {this.props.errorMessage}
+          <strong>Oops, {this.props.errorMessage}</strong>
         </div>
       );
     }
@@ -41,18 +46,14 @@ class Log_In extends Component {
             pattern="[A-Za-z0-9\.]+@octoconsulting\.com"
             title="Only A Valid Octo Email Is Allowed"
             className="form-control" {...email}/>
-          <div className="text-help">
-            {email.touched ? email.error : ''/*Only displays the error message when the box is touched*/}
-          </div>
+          {email.touched && email.error && <div className="text-error">{email.error}</div>}
         </div>
         {/*Supposed to check if it's been touched and if invalid is true
           if so make it red*/}
         <div className={`form-group ${password.touched && password.invalid ? 'has-danger' : ''}`}>
 
           <input type="password" placeholder="Password" className="form-control" {...password}/>
-          <div className="text-help">
-            {password.touched ? password.error : ''}
-          </div>
+          {password.touched && password.error && <div className="text-error">{password.error}</div>}
         </div>
         {this.renderAlert()}
         <div className="button_pos">

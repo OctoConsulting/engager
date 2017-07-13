@@ -35,7 +35,16 @@ input[type="text"], input[type="password"], input[type="email"]{
   outline: none;
 }
 
+.panel-default {
+  border-radius: 25px;
+}
 
+.message-box{
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 200px;
+  max-width: 60%;
+}
 
 .app-name{
   text-align: center;
@@ -45,12 +54,12 @@ input[type="text"], input[type="password"], input[type="email"]{
 
 .box-form{
   border-radius: 25px;
-  padding-top: 50px;
+  padding-top: 15px;
   padding-left: 30px;
   padding-right: 30px;
   background-color: rgb(242,242,242);
   text-align: center;
-  max-width: 60%;
+  max-width: 50%;
   margin: 0 auto;
 }
 .button_pos {

@@ -5,6 +5,7 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
+  CLEAR_ERROR,
   USER_INFO,
   USERS } from './types';
 import config from '../../Server/config';
@@ -36,10 +37,10 @@ export function signinUser({email, password}){
             //   + Redirect the user to main dashboard
             browserHistory.push('/dashboard');
           })
-          .catch(() => {
+          .catch( () => {
             //If request is invalid:
             //   + Show an error to the user
-            dispatch(authError('Bad Login Info'));
+            dispatch(authError("Sorry! Your login info is either incorrect or has not be verified via email."))
           })
   }
 }
@@ -55,7 +56,7 @@ export function signupUser({name, email, password}){
         .then(response => {
           dispatch({type: AUTH_USER});
           localStorage.setItem('token', response.data.token);
-          browserHistory.push('/dashboard');
+          browserHistory.push('/signup_redirect');
         })
         .catch(error => {
           //If request is invalid:
@@ -65,7 +66,16 @@ export function signupUser({name, email, password}){
   }
 }
 
-
+//CLEARING ERROR MESSAGES WHEN SWITCHING BETWEEN COMPONENTS
+//USED BY SIGN IN / SIGN UP SO OLD ERROR MESSAGES WON'T RANDOMLY SHOW
+export function clearError(){
+  return function(dispatch){
+    dispatch({type: CLEAR_ERROR});
+    if (localStorage.getItem('token') !== null){
+      signoutUser();
+    }
+  }
+}
 
 
 export function authError(error){

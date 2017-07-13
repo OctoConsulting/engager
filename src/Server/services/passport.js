@@ -15,7 +15,11 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
   //Verify username and password, call done with the username
   User.findOne({email: email}, function(err, user){
     if (err) {return done(err);}
-    if (!user) {return done(null, false);}
+
+    //COMMENTED OUT BECAUSE EMAIL VERIFICATION IS NOT DONE YET
+    //PUT IT BACK IN WHEN EMAIL VERIFICATION WORKS
+    if (!user /*|| (user && user.verified == false)*/) {return done(null, false);}
+
 
     //Call done with false with it's NOT correct
     user.comparePassword(password, function(err, isMatch){

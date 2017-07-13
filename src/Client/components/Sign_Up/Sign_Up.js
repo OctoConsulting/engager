@@ -7,6 +7,10 @@ import * as actions from '../../actions';
 
 class Sign_Up extends Component {
 
+  componentWillMount(){
+    this.props.clearError();
+  }
+
   handleFormSubmit({name, email, password}){
     this.props.signupUser({name, email, password});
   }
@@ -27,12 +31,15 @@ class Sign_Up extends Component {
       <div>
         <div className="app-name">
           <h1>ENGAGER</h1>
-          <h4>CREATE AN ACCOUNT</h4>
         </div>
         <form className="box-form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+          <h4>CREATE AN ACCOUNT</h4>
+          <br/>
           <fieldset className="form-group">
             <input type="text" className="form-control"
               placeholder="Name"
+              pattern="[A-za-z' ]+"
+              title="Please enter your full name. No special characters or numbers allowed (except for ')"
              {...name}/>
              {name.touched && name.error && <div className="text-error">{name.error}</div>}
            </fieldset>
