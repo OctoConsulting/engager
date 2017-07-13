@@ -8,6 +8,7 @@ An interactive web app that measures your activities across multiple social medi
 1. Install MongoDB
 2. Install Node
 
+***Note: config.js was blanked out since it contains secret API keys.***
 
 ### Running the Project
 
