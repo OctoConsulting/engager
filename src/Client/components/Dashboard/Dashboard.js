@@ -1,39 +1,48 @@
+
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import { connect } from "react-redux";
-
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import Nav_Bar from '../../Nav_Bar';
-import Table from './components/Table';
-
-
 class Dashboard extends Component{
+  componentWillMount(){
+    this.props.retrieveDashboard();
+  }
+
+  imageFormatter(cell, row){
+    return "<img class='dashboard-table-avatar' src='"+cell+"'/>" ;
+  }
   render(){
-    const products = this.props.users;
-    return (
+    return(
       <div>
-        <div className="navbar-custom">
+        <div className="navbar">
           <Nav_Bar/>
         </div>
-        <Table users={products}/>
+        <div  className="container personal-profile-container">
+            <div className="row">
+              <div className="col-md-12 col-sm-12 col-xs-12">
+                  <div className="panel rounded shadow">
+                    <BootstrapTable data={ this.props.users }  search={ true } pagination striped hover bordered>
+                        <TableHeaderColumn dataField='avatar' isKey={ true } dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
+                        <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
+                        <TableHeaderColumn dataField='lai' dataFormat={this.imageFormatter}>Last Action Icon</TableHeaderColumn>
+                        <TableHeaderColumn dataField='actions' dataSort={ true }># of Actions</TableHeaderColumn>
+                        <TableHeaderColumn dataField='points' dataSort={true}>Points</TableHeaderColumn>
+                    </BootstrapTable>
+                  </div>
+              </div>
+            </div>
+        </div>
       </div>
     );
   }
 }
 
-Dashboard.propTypes = {
-  dispatch: React.PropTypes.func
-};
-
-Dashboard.defaultProps = {
-  dispatch: () => {}
-};
-
 function mapStateToProps(state){
-  console.log(state);
   return {
-    users: state.dashboard
+    users: state.auth.dash
   };
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps,actions)(Dashboard);

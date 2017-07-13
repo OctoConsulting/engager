@@ -51,6 +51,8 @@ exports.signin = function(req, res, next){
   //User already authorized with their username and password
   //Only needs a token
   res.send({token: tokenForUser(req.user)});
+
+
 }
 
 
