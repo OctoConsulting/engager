@@ -26,25 +26,6 @@ function tokenForUser(user){
   return jwt.encode({ sub: user.id, iat: timestamp}, config.secret);
 }
 
-function sendEmail(text, req, res, next) {
-  console.log(req.body);
-  console.log(text);
-      smtpTransport.sendMail({  //email options
-        from: EMAIL_ACCOUNT_USER, // sender address.  Must be the same as authenticated user if using GMail.
-        to: req.body.email, // receiver
-        subject: "Engager.io email verification", // subject
-        text: text // body
-      }, function(error, response){  //callback
-        if(error){
-          console.log(error);
-        }else{
-          console.log("Message sent: " + response.message);
-          res.send("email sent");
-        }
-
-        smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
-      });
-    }
 
 
 exports.signin = function(req, res, next){
@@ -61,8 +42,8 @@ exports.signup = function(req, res, next){
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
-  var baseUrl = req.protocol + '://localhost:8080';
-  var text = 'You have requested to create an account at engager.io. To verify this please click the link: ' + baseUrl ;
+  let baseUrl = req.protocol + '://localhost:8080/verify/';
+  let text = 'You have requested to create an account at engager.io. To verify this please click the following link:\n' + baseUrl ;
   const verified = false;
 
   if(!email || !password){
@@ -123,10 +104,47 @@ exports.signup = function(req, res, next){
     user.save(function(err){
       if(err){return next(err);}
     });
+    const emailToken = tokenForUser(user);
+    text = text + emailToken;
+    //Respond to request indicating the user was created
     res.json({token: tokenForUser(user)}); //just responding with a json to show that it receives
+    sendEmail(text, req);
   });
 
-  //sendEmail(text, req);
-
-  //Respond to request indicating the user was created
 }
+
+/*#########################################################################
+  #                                                                       #
+  #                       EMAIL VERIFICATION FUNCTION                     #
+  #                                                                       #
+  #########################################################################*/
+exports.verify = function(req, res, next){
+  const user_id = req.params.id;
+
+  User.findByIdAndUpdate({_id: user_id}, {$set: {verified: true}})
+      .then( () => User.findById({_id: user_id}))
+      .then( user => res.send(user))
+      .catch(next);
+}
+
+
+
+function sendEmail(text, req, res, next) {
+  console.log(req.body);
+  console.log(text);
+      smtpTransport.sendMail({  //email options
+        from: EMAIL_ACCOUNT_USER, // sender address.  Must be the same as authenticated user if using GMail.
+        to: req.body.email, // receiver
+        subject: "Engager.io Email Verification", // subject
+        text: text // body
+      }, function(error, response){  //callback
+        if(error){
+          console.log(error);
+        }else{
+          console.log("Message sent: " + response.message);
+          res.send("email sent");
+        }
+
+        smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+      });
+    }

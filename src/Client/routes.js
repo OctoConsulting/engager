@@ -5,6 +5,7 @@ import App from './App';
 import Log_In from './components/Log_In/Log_In';
 import Sign_Up from './components/Sign_Up/Sign_Up';
 import SignUp_Redirect from './components/Sign_Up/SignUp_Redirect';
+import Verify from './components/Sign_Up/Verify';
 import Sign_Out from './components/Sign_Out/Sign_Out';
 import Dashboard from './components/Dashboard/Dashboard';
 import Per_Profile from './components/Per_Profile/Per_Profile';
@@ -24,6 +25,7 @@ export default (
       <Route path="signin" component={Log_In}/>
       <Route path="signup" component={Sign_Up}/>
       <Route path="signup_redirect" component={Require_Auth(SignUp_Redirect)}/>
+      <Route path="verify/*" component={Verify}/>
       <Route path="signout" component={Require_Auth(Sign_Out)}/>
       <Route path="dashboard" component={Require_Auth(Dashboard)}/>
       <Route path="Profile" component={Require_Auth(Per_Profile)}/>

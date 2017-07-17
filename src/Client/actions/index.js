@@ -45,6 +45,19 @@ export function signinUser({email, password}){
   }
 }
 
+export function verifyUser(token){
+  const user_id = jwt.decode(token, config.secret);
+  return function(dispatch){
+    axios.put(`${SERVER_URL}/verify/${user_id.sub}`)
+          .then( response => {
+            console.log(response.data)
+          })
+          .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+
+
 export function signupUser({name, email, password}){
   //returning function() -- product of redux-thunk -- usually ACTION CREATOR
   //only returns an object

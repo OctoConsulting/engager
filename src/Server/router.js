@@ -15,6 +15,7 @@ const requireSignin = passport.authenticate('local', {session:false});
 module.exports = function(app){
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
+  app.put('/verify/:id', Authentication.verify);
   //This made sure that any requests is routed through the authorization module
   app.get('/dashboard', dashboard);
   app.get('/user/:id', getuserinfo);
