@@ -25,7 +25,7 @@ export default (
       <Route path="signin" component={Log_In}/>
       <Route path="signup" component={Sign_Up}/>
       <Route path="signup_redirect" component={Require_Auth(SignUp_Redirect)}/>
-      <Route path="verify/*" component={Verify}/>
+      <Route path="verify/:token" component={Verify}/>
       <Route path="signout" component={Require_Auth(Sign_Out)}/>
       <Route path="dashboard" component={Require_Auth(Dashboard)}/>
       <Route path="Profile" component={Require_Auth(Per_Profile)}/>

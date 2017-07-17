@@ -7,13 +7,9 @@ import * as actions from '../../actions';
 
 class Verify extends Component{
 
-  static contextTypes = {
-    router: React.PropTypes.object
-  }
-
   componentDidMount(){
-    const token = this.context.router.getCurrentParams();
-    console.log(token);
+    const token = this.props.params.token;
+    this.props.verifyUser(token);
   }
 
   render(){

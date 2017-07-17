@@ -7,14 +7,6 @@ import * as actions from '../../actions';
 
 class SignUp_Redirect extends Component{
 
-  static contextTypes = {
-    router: React.PropTypes.object
-  }
-
-  componentWillMount(){
-    this.props.retrieveUser(localStorage.getItem('token'));
-  }
-
   render(){
     return(
       <div className="message-box">
