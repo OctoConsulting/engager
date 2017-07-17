@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {browserHistory} from 'react-router';
+import {hashHistory} from 'react-router';
 import jwt from 'jwt-simple';
 import {
   AUTH_USER,
@@ -35,7 +35,7 @@ export function signinUser({email, password}){
             //   + Save the JWT token to local storage
             localStorage.setItem('token', response.data.token);
             //   + Redirect the user to main dashboard
-            browserHistory.push('/dashboard');
+            hashHistory.push('/dashboard');
           })
           .catch( () => {
             //If request is invalid:
@@ -44,6 +44,19 @@ export function signinUser({email, password}){
           })
   }
 }
+
+export function verifyUser(token){
+  const user_id = jwt.decode(token, config.secret);
+  return function(dispatch){
+    axios.put(`${SERVER_URL}/verify/${user_id.sub}`)
+          .then( response => {
+            console.log(response.data)
+          })
+          .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+
 
 export function signupUser({name, email, password}){
   //returning function() -- product of redux-thunk -- usually ACTION CREATOR
@@ -56,7 +69,7 @@ export function signupUser({name, email, password}){
         .then(response => {
           dispatch({type: AUTH_USER});
           localStorage.setItem('token', response.data.token);
-          browserHistory.push('/signup_redirect');
+          hashHistory.push('/signup_redirect');
         })
         .catch(error => {
           //If request is invalid:

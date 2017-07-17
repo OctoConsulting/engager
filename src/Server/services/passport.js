@@ -18,7 +18,7 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
 
     //COMMENTED OUT BECAUSE EMAIL VERIFICATION IS NOT DONE YET
     //PUT IT BACK IN WHEN EMAIL VERIFICATION WORKS
-    if (!user /*|| (user && user.verified == false)*/) {return done(null, false);}
+    if (!user || (user && user.verified == false)) {return done(null, false);}
 
 
     //Call done with false with it's NOT correct
