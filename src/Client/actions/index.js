@@ -69,7 +69,7 @@ export function signupUser({name, email, password}){
     axios.post(`${SERVER_URL}/signup`, { name, email, password })
         .then(response => {
           dispatch({type: AUTH_USER});
-          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('email', email);
           hashHistory.push('/signup_redirect');
         })
         .catch(error => {
@@ -85,9 +85,6 @@ export function signupUser({name, email, password}){
 export function clearError(){
   return function(dispatch){
     dispatch({type: CLEAR_ERROR});
-    if (localStorage.getItem('token') !== null){
-      signoutUser();
-    }
   }
 }
 
@@ -146,27 +143,12 @@ export function retrieveUser(token){
 ###########################################################################
 */
 
-// export function retrieveDashboard(){
-//   return function(dispatch){
-//     // const user_id = jwt.decode(token, config.secret);
-//
-//     axios.get(`${SERVER_URL}/dashboard`)
-//         .then(response => {
-//           dispatch(sendDashboard(response.data));
-//         })
-//         .catch(() => dispatch(authError(response.error)))
-//   }
-// }
 let data;
 export function retrieveDashboard(){
   return function(dispatch){
     axios.get(`${SERVER_URL}/dashboard`)
         .then(response => {
-           console.log("5")
            dispatch({type: USERS, payload: response.data});
-           //data = response.data;
-           //sendDashboard(data);
-           //return data;
         })
         .catch(() => console.log("error"))
   }
@@ -192,7 +174,6 @@ export function socialmedia_integrate({type, token, username}){
           'twitter': username
         };
         cmd = 'pushTwitterData';
-        console.log(data);
         break;
       case 'StackOverflow':
         data = {
@@ -210,7 +191,7 @@ export function socialmedia_integrate({type, token, username}){
 
     axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
         .then( response => {
-          console.log(response.data)
+          console.log(username)
         })
         .catch( () => dispatch(authError(response.error)));
   }
