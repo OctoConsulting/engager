@@ -7,17 +7,27 @@ import * as actions from '../../actions';
 import Form_Twitter from './components/Form_Twitter';
 import Form_GitHub from './components/Form_GitHub';
 import Form_StackOverflow from './components/Form_StackOverflow';
-
+import Avatar from 'react-avatar';
 import NavBar from '../../Nav_Bar';
 
 
 
 class Per_Profile extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      modified: null,
+      twitter: ''
+    };
+  }
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      modified: nextProps.personalInfo
+    });
+  }
 
   render(){
     const connect = 'Connect';
-    const connected = 'Connected';
-
     return(
       <div>
         <NavBar />
@@ -26,11 +36,11 @@ class Per_Profile extends Component {
             <div className="col-md-12 profile-card">
               <div className="profile-cover">
                <div className="profile-avatar">
-                  <img src="https://dl.dropboxusercontent.com/s/7pcnqq18skh1myk/avatar.jpg" alt={(this.props.personalInfo !== null) ? this.props.personalInfo.name : ''} />
+                  <img src="http://stock.wikimini.org/w/images/thumb/9/95/Gnome-stock_person-avatar-profile.png/240px-Gnome-stock_person-avatar-profile.png" alt={(this.state.modified !== null) ? this.state.modified.name : ''} />
                </div>
                <div className="profile-details">
-                   <h1>{(this.props.personalInfo !== null) ? this.props.personalInfo.name : ''}</h1>
-                   <h6>{(this.props.personalInfo !== null) ? this.props.personalInfo.email : ''}</h6>
+                   <h1>{(this.state.modified !== null) ? this.state.modified.name : ''}</h1>
+                   <h6>{(this.state.modified !== null) ? this.state.modified.email : ''}</h6>
                </div>
              </div>
            </div>
@@ -52,7 +62,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-facebook btn-icon-stacked btn-stroke">
-                        <span>Connect</span>
+                        <span>{(this.state.modified !== null && this.state.modified.facebook != '') ? this.state.modified.facebook : connect}</span>
                     </button>
                   </div>
                 </div>
@@ -74,9 +84,10 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-twitter btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#twitter">
-                        <span>{(this.props.personalInfo !== null && this.props.personalInfo.twitter_check===true) ? connected : connect}</span>
+                        <span>{(this.state.modified !== null && this.state.modified.twitter != '') ? this.state.modified.twitter : connect}</span>
                     </button>
                     <Form_Twitter/>
+                    
                   </div>
                 </div>
             </div>
@@ -98,7 +109,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-stackOverFlow btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#stackoverflow">
-                        <span>{(this.props.personalInfo !== null && this.props.personalInfo.stackoverflow_check===true) ? connected : connect}</span>
+                        <span>{(this.state.modified !== null && this.state.modified.stackoverflow != '') ? this.state.modified.stackoverflow : connect}</span>
                     </button>
 
                     <Form_StackOverflow />
@@ -124,7 +135,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-instagram btn-icon-stacked btn-stroke">
-                        <span>Connect</span>
+                        <span>{(this.state.modified !== null && this.state.modified.instagram != '') ? this.state.modified.instagram : connect}</span>
                     </button>
                   </div>
                 </div>
@@ -147,7 +158,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-github btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#github">
-                        <span>{(this.props.personalInfo !== null && this.props.personalInfo.github_check === true) ? connected : connect}</span>
+                        <span>{(this.state.modified !== null && this.state.modified.github != '') ? this.state.modified.github : connect}</span>
                     </button>
 
                     <Form_GitHub />
@@ -173,7 +184,7 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-linkedin btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#linkedin">
-                        <span>Connect</span>
+                        <span>{(this.state.modified !== null && this.state.modified.linkedin != '') ? this.state.modified.linkedin : connect}</span>
                     </button>
                     <div className="modal fade" id="linkedin" role="dialog">
                       <div className="modal-dialog">

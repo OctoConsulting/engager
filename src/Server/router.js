@@ -13,12 +13,18 @@ const requireAuth = passport.authenticate('jwt', {session:false});
 const requireSignin = passport.authenticate('local', {session:false});
 
 module.exports = function(app){
+  
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
+
+  //UPDATES VERIFICATION STATUS WHEN EMAIL IS CLICKED
   app.put('/verify/:id', Authentication.verify);
-  //This made sure that any requests is routed through the authorization module
+  //PULL ALL USER INFO TO DISPLAY ON THE DASHBOARD
   app.get('/dashboard', dashboard);
+  //LOADS CURRENT USER TO THE NAV BAR AND PERSONAL PROFILE
   app.get('/user/:id', getuserinfo);
+
+  //DIFFERENT SOCIAL MEDIA ARE HANDLED BY DIFFERENT SERVICES
   app.put('/pushTwitterData/:id', twitter);
   app.put('/pushStackOverflowData/:id', stackoverflow);
   app.put('/pushGitHubData/:id', github);

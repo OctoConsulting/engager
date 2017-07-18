@@ -5,21 +5,8 @@ const config = require('../config');
 const nodemailer = require('nodemailer');
 
 
-//Nodemailer gmail email and password
-const EMAIL_ACCOUNT_USER = config.EmailServer.emailAccountUser;
-const EMAIL_ACCOUNT_PASSWORD = config.EmailServer.emailPassword;
-const YOUR_NAME = config.EmailServer.emailName;
 
-var smtpTransport = nodemailer.createTransport({
-  service: 'Gmail',
-    auth: {
-      user: EMAIL_ACCOUNT_USER,
-      pass: EMAIL_ACCOUNT_PASSWORD
-    }
-});
-
-
-//Tokenize a piece of information
+//HELPER FUNCTION TO TOKENIZE USER ID
 function tokenForUser(user){
   const timestamp = new Date().getTime();//creating timestamp for the token
   //subject is userid, initialized at time: timestamp
@@ -27,6 +14,12 @@ function tokenForUser(user){
 }
 
 
+
+/*#########################################################################
+  #                                                                       #
+  #                       SIGN IN/SIGN UP FUNCTIONS                       #
+  #                                                                       #
+  #########################################################################*/
 
 exports.signin = function(req, res, next){
   //User already authorized with their username and password
@@ -67,12 +60,6 @@ exports.signup = function(req, res, next){
       email: email,
       password: password,
       verified: verified,
-      facebook_check: false,
-      twitter_check: false,
-      stackoverflow_check: false,
-      instagram_check: false,
-      github_check: false,
-      linkedin_check: false,
       profile: {
         avatar: '',
         name: '',
@@ -80,7 +67,17 @@ exports.signup = function(req, res, next){
         actions: 0,
         points: 0
       },
+      facebook: {
+        username: '',
+        data: null,
+        points: 0
+      },
       twitter: {
+        username: '',
+        data: null,
+        points: 0
+      },
+      instagram: {
         username: '',
         data: null,
         points: 0
@@ -127,7 +124,18 @@ exports.verify = function(req, res, next){
       .catch(next);
 }
 
+//Nodemailer gmail email and password
+const EMAIL_ACCOUNT_USER = config.EmailServer.emailAccountUser;
+const EMAIL_ACCOUNT_PASSWORD = config.EmailServer.emailPassword;
+const YOUR_NAME = config.EmailServer.emailName;
 
+const smtpTransport = nodemailer.createTransport({
+  service: 'Gmail',
+    auth: {
+      user: EMAIL_ACCOUNT_USER,
+      pass: EMAIL_ACCOUNT_PASSWORD
+    }
+});
 
 function sendEmail(text, req, res, next) {
   console.log(req.body);
