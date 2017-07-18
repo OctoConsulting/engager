@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
@@ -10,6 +10,7 @@ class Verify extends Component{
   componentDidMount(){
     const token = this.props.params.token;
     this.props.verifyUser(token);
+    setTimeout(() => hashHistory.push('/'), 5000);
   }
 
   render(){
@@ -20,11 +21,11 @@ class Verify extends Component{
           <div className="panel-body">
             Thank you for verifying your email.
             <br/>
-            Your account is now activated. Log in and enjoy!
+            Your account is now activated. Sign in and enjoy!
             <br/>
           </div>
         </div>
-        <Link to='/SignIn' className="btn btn-primary">SIGN IN</Link>
+        <Link to='/' className="btn btn-primary">SIGN IN</Link>
       </div>
     );
   }
