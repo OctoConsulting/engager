@@ -7,14 +7,16 @@ import * as actions from '../../actions';
 
 class Sign_Up extends Component {
 
+  //CLEARING ERROR FROM PREV. COMPONENT
   componentWillMount(){
     this.props.clearError();
   }
-
+  //SENDING INFO TO THE SERVER
   handleFormSubmit({name, email, password}){
     this.props.signupUser({name, email, password});
   }
 
+  //SHOWS ERROR IF THERE'S ANY
   renderAlert(){
     if(this.props.errorMessage){
       return(

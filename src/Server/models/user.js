@@ -9,17 +9,16 @@ const userSchema = new Schema({
   email: {type: String, unique: true}, //making sure the email field is always unique with MongoDB
   password: String,
   verified: Boolean,
-  facebook_check: Boolean,
-  twitter_check: Boolean,
-  stackoverflow_check: Boolean,
-  instagram_check: Boolean,
-  github_check: Boolean,
-  linkedin_check: Boolean,
   profile: {
     avatar: String,
     name: String,
     lai: String,
     actions: Number,
+    points: Number
+  },
+  facebook: {
+    username: String,
+    data: Object,
     points: Number
   },
   instagram: {

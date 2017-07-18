@@ -6,6 +6,10 @@ import {reduxForm} from 'redux-form';
 
 class Form_Twitter extends Component {
 
+  onInputChange(username){
+    this.onInputChange = this.onInputChange.bind(this);
+    return username;
+  }
 
   handleFormSubmit({username}){
     const type = 'Twitter';
@@ -32,7 +36,7 @@ class Form_Twitter extends Component {
               </div>
               <div className="modal-footer">
                 <button type="submit" className="btn btn-default" data-dismiss="modal"
-                  onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>Submit</button>
+                  onClick = {handleSubmit(this.handleFormSubmit.bind(this))} >Submit</button>
               </div>
             </div>
           </div>

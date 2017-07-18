@@ -2,6 +2,7 @@ const User = require('../models/user');
 const request = require('request');
 const config = require('../config');
 
+//MAIN MODULE THAT PULLS STACKOVERFLOW INFORMATION
 module.exports = function(req, res, next){
   const user_id = req.params.id;
   const stackoverflow_userid = req.body.stackoverflow;
@@ -15,6 +16,8 @@ module.exports = function(req, res, next){
       const data = JSON.parse(body).items;
       let counter = 0;//making sure the inner loop doesn't mismatch
       //with outer loop
+
+      //ONLY PULLING ANSWERS AND QUESTIONS, NO OTHER DATA
       for(i=0; i < data.length; i++){
         if (data[i].post_id && data[i].creation_date >= Number(config.creation_timestamp)){
           filtered_data[counter] = {
@@ -26,6 +29,7 @@ module.exports = function(req, res, next){
         }
       }
       //Counting initial points for user
+      /*/10 FOR EVERY ANSWER, 2 FOR EVERY QUESTION */
       let points = 0;
       for (i=0; i < filtered_data.length; i++){
         if (filtered_data[i].post_type == "answer"){

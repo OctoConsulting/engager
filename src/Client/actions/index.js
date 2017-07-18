@@ -45,6 +45,7 @@ export function signinUser({email, password}){
   }
 }
 
+//VERIFYING USERNAME WHEN THEY CONFIRM THEIR EMAIL
 export function verifyUser(token){
   const user_id = jwt.decode(token, config.secret);
   return function(dispatch){
@@ -122,12 +123,12 @@ export function retrieveUser(token){
           const filtered_data = {
             name: response.data.name,
             email: response.data.email,
-            facebook_check: response.data.facebook_check,
-            twitter_check: response.data.twitter_check,
-            stackoverflow_check: response.data.stackoverflow_check,
-            instagram_check: response.data.instagram_check,
-            github_check: response.data.github_check,
-            linkedin_check: response.data.linkedin_check
+            facebook: response.data.facebook.username,
+            twitter: response.data.twitter.username,
+            stackoverflow: response.data.stackoverflow.username,
+            instagram: response.data.instagram.username,
+            github: response.data.github.username,
+            linkedin: response.data.linkedin.username
           }
           dispatch({type: USER_INFO, payload: filtered_data});
         })

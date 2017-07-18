@@ -3,14 +3,14 @@ const Twitter = require('twitter');
 const twitter_api = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 const config = require('../config');
 
-
+//INITIATING KEYS AND TOKEN
 const client = new Twitter({
   consumer_key: config.Twitter.consumer_key,
   consumer_secret: config.Twitter.consumer_secret,
   bearer_token: config.Twitter.bearer_token
 });
 
-
+//MAIN MODULE TO PULL INFO FROM TWITTER
 module.exports = function(req, res, next){
   const user_id = req.params.id;
   const twitter_username = req.body.twitter;
@@ -19,7 +19,8 @@ module.exports = function(req, res, next){
   client.get(twitter_api, {screen_name: twitter_username, count:3200}, function(err, data, response){
     let array = [];
     let newDate;
-    //Converting UTC time to Unix timestamp
+    //CONVERTS UTC TIME TO UNIX TIMESTAMP
+    //ONLY STORING TWEET IDs AND TIMESTAMPS
     for (i=0; i < data.length; i++){
       newDate = Date.parse(data[i].created_at) / 1000;
       if (Number(newDate) >= Number(config.creation_timestamp)){

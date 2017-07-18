@@ -31,7 +31,7 @@ module.exports = function(req, res, next){
         points: filtered_data.length * 5
       }
 
-      User.findByIdAndUpdate({_id: user_id}, {$set: {github : updated, github_check: true}})
+      User.findByIdAndUpdate({_id: user_id}, {$set: {github : updated}})
           .then(() => User.findById({_id: user_id}))
           .then( user => res.send(user.github))
           .catch(next);
