@@ -5,9 +5,19 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import Nav_Bar from '../../Nav_Bar';
+import _ from 'lodash';
+
 class Dashboard extends Component{
-  componentWillMount(){
-    this.props.retrieveDashboard();
+  constructor(props){
+    super(props);
+    this.state ={
+      dash: this.props.users
+    }
+  }
+  componentWillUpdate(nextProps, nextState){
+    this.setState({
+      dash: nextProps.users
+    });
   }
 
   imageFormatter(cell, row){
@@ -23,7 +33,7 @@ class Dashboard extends Component{
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12">
                   <div className="panel rounded shadow">
-                    <BootstrapTable data={ this.props.users }  search={ true } pagination striped hover bordered>
+                    <BootstrapTable data={ this.state.dash}  search={ true } pagination striped hover bordered>
                         <TableHeaderColumn dataField='avatar' isKey={ true } dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
                         <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='lai' dataFormat={this.imageFormatter}>Last Action Icon</TableHeaderColumn>

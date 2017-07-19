@@ -7,8 +7,9 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 
 class Nav_Bar extends Component{
-  componentDidMount(){
+  componentWillMount(){
     this.props.retrieveUser(localStorage.getItem('token'));
+    this.props.retrieveDashboard();
   }
 
   render(){

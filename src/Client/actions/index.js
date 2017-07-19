@@ -69,6 +69,7 @@ export function signupUser({name, email, password}){
     axios.post(`${SERVER_URL}/signup`, { name, email, password })
         .then(response => {
           dispatch({type: AUTH_USER});
+          localStorage.setItem('token', response.data.token);
           localStorage.setItem('email', email);
           hashHistory.push('/signup_redirect');
         })
@@ -85,6 +86,9 @@ export function signupUser({name, email, password}){
 export function clearError(){
   return function(dispatch){
     dispatch({type: CLEAR_ERROR});
+    if (localStorage.getItem('token')){
+      localStorage.removeItem('token');
+    }
   }
 }
 
@@ -143,7 +147,7 @@ export function retrieveUser(token){
 ###########################################################################
 */
 
-let data;
+
 export function retrieveDashboard(){
   return function(dispatch){
     axios.get(`${SERVER_URL}/dashboard`)
