@@ -22,17 +22,7 @@ function updateUsers(){
       resolve(true);
     });
   })
-
 }
-
-function userU(array){
-  for (i in array){
-    User.findByIdAndUpdate({_id: i}, {$set: {profile: array[i]}})
-        .then(() => User.findById({_id: i}))
-        .catch();
-  }
-}
-
 
 
 module.exports = function(req, res, next){
