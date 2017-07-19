@@ -34,6 +34,7 @@ export function signinUser({email, password}){
             dispatch({type: AUTH_USER});
             //   + Save the JWT token to local storage
             localStorage.setItem('token', response.data.token);
+
             //   + Redirect the user to main dashboard
             hashHistory.push('/dashboard');
           })
@@ -69,6 +70,7 @@ export function signupUser({name, email, password}){
     axios.post(`${SERVER_URL}/signup`, { name, email, password })
         .then(response => {
           dispatch({type: AUTH_USER});
+          localStorage.setItem('token', response.data.token);
           localStorage.setItem('email', email);
           hashHistory.push('/signup_redirect');
         })
@@ -85,6 +87,9 @@ export function signupUser({name, email, password}){
 export function clearError(){
   return function(dispatch){
     dispatch({type: CLEAR_ERROR});
+    if (localStorage.getItem('token')){
+      localStorage.removeItem('token');
+    }
   }
 }
 
@@ -143,11 +148,13 @@ export function retrieveUser(token){
 ###########################################################################
 */
 
-let data;
+
 export function retrieveDashboard(){
   return function(dispatch){
     axios.get(`${SERVER_URL}/dashboard`)
         .then(response => {
+          console.log('1');
+          console.log(response.data);
            dispatch({type: USERS, payload: response.data});
         })
         .catch(() => console.log("error"))
@@ -191,7 +198,9 @@ export function socialmedia_integrate({type, token, username}){
 
     axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
         .then( response => {
-          console.log(username)
+          console.log('0');
+          retrieveDashboard();
+          console.log("0.5");
         })
         .catch( () => dispatch(authError(response.error)));
   }

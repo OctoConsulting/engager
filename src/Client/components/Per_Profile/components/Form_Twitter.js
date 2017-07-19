@@ -6,11 +6,6 @@ import {reduxForm} from 'redux-form';
 
 class Form_Twitter extends Component {
 
-  onInputChange(username){
-    this.onInputChange = this.onInputChange.bind(this);
-    return username;
-  }
-
   handleFormSubmit({username}){
     const type = 'Twitter';
     const token = localStorage.getItem('token');

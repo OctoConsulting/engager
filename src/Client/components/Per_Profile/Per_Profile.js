@@ -16,10 +16,10 @@ class Per_Profile extends Component {
   constructor(props){
     super(props);
     this.state = {
-      modified: null,
-      twitter: ''
+      modified: null
     };
   }
+
   componentWillReceiveProps(nextProps){
     this.setState({
       modified: nextProps.personalInfo
