@@ -34,6 +34,7 @@ export function signinUser({email, password}){
             dispatch({type: AUTH_USER});
             //   + Save the JWT token to local storage
             localStorage.setItem('token', response.data.token);
+
             //   + Redirect the user to main dashboard
             hashHistory.push('/dashboard');
           })
@@ -152,6 +153,7 @@ export function retrieveDashboard(){
   return function(dispatch){
     axios.get(`${SERVER_URL}/dashboard`)
         .then(response => {
+          console.log(response.data);
            dispatch({type: USERS, payload: response.data});
         })
         .catch(() => console.log("error"))
@@ -195,7 +197,8 @@ export function socialmedia_integrate({type, token, username}){
 
     axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
         .then( response => {
-          console.log(username)
+          retrieveDashboard();
+          console.log("AFter retrieve");
         })
         .catch( () => dispatch(authError(response.error)));
   }

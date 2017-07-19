@@ -10,7 +10,6 @@ class Form_Twitter extends Component {
     const type = 'Twitter';
     const token = localStorage.getItem('token');
     this.props.socialmedia_integrate({type, token ,username});
-    this.props.retrieveDashboard();
   }
 
   render(){
