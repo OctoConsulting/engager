@@ -15,26 +15,21 @@ function updateUsers(){
               "actions" : 0,
               "points" : user.stackoverflow.points + user.linkedin.points + user.github.points + user.twitter.points
           };
-
-        array[user._id] = updated;
+          User.findByIdAndUpdate({_id: user._id}, {$set: {profile: updated}})
+              .then( () => User.findById({_id: user._id}))
+              .catch();
       });
       resolve(true);
-      userU(array);
     });
   })
 
 }
 
 function userU(array){
-
-  console.log(array);
   for (i in array){
-    console.log("id is: " + i);
-    console.log(array[i]);
     User.findByIdAndUpdate({_id: i}, {$set: {profile: array[i]}})
         .then(() => User.findById({_id: i}))
         .catch();
-    console.log("after call");
   }
 }
 
