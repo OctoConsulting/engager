@@ -153,6 +153,7 @@ export function retrieveDashboard(){
   return function(dispatch){
     axios.get(`${SERVER_URL}/dashboard`)
         .then(response => {
+          console.log('1');
           console.log(response.data);
            dispatch({type: USERS, payload: response.data});
         })
@@ -197,8 +198,9 @@ export function socialmedia_integrate({type, token, username}){
 
     axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
         .then( response => {
+          console.log('0');
           retrieveDashboard();
-          console.log("AFter retrieve");
+          console.log("0.5");
         })
         .catch( () => dispatch(authError(response.error)));
   }

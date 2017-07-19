@@ -19,8 +19,8 @@ class Dashboard extends Component{
   }
 
   componentWillReceiveProps(nextProps){
-    console.log("LOGGING nextProps");
-    console.log(nextProps.users);
+    console.log("4");
+    console.log(nextProps);
     console.log(nextProps.dash !== this.props.dash);
     this.setState({
       init: nextProps.users
@@ -58,6 +58,8 @@ class Dashboard extends Component{
 }
 
 function mapStateToProps(state){
+  console.log('3');
+  console.log(state);
   return {
     users: state.auth.dash
   };

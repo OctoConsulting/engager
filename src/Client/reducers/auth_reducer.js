@@ -27,6 +27,8 @@ export default function(state = defState, action) {
     case USER_INFO:
       return {...state, userInfo: action.payload};
     case USERS:
+      console.log('2');
+      console.log(state);
       return {...state, dash: action.payload};
     default:
       return state;
