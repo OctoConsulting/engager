@@ -70,31 +70,37 @@ exports.signup = function(req, res, next){
       facebook: {
         username: '',
         data: null,
+        actions: 0,
         points: 0
       },
       twitter: {
         username: '',
         data: null,
+        actions: 0,
         points: 0
       },
       instagram: {
         username: '',
         data: null,
+        actions: 0,
         points: 0
       },
       stackoverflow: {
         username: '',
         data: null,
+        actions: 0,
         points: 0
       },
       github: {
         username: '',
         data: null,
+        actions: 0,
         points: 0
       },
       linkedin: {
         username: '',
         data: null,
+        actions: 0,
         points: 0
       }
     });

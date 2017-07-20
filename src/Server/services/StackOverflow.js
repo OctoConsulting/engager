@@ -23,7 +23,7 @@ module.exports = function(req, res, next){
           filtered_data[counter] = {
             post_id: data[i].post_id,
             post_type: data[i].post_type,
-            creation_date: data[i].creation_date
+            date: data[i].creation_date
           }
           counter++;
         }
@@ -43,10 +43,11 @@ module.exports = function(req, res, next){
       const updated = {
         username: stackoverflow_userid,
         data: filtered_data,
+        actions: filtered_data.length,
         points: points
       }
 
-      User.findByIdAndUpdate({_id: user_id}, {$set: {stackoverflow : updated, stackoverflow_check: true}})
+      User.findByIdAndUpdate({_id: user_id}, {$set: {stackoverflow : updated}})
           .then(() => User.findById({_id: user_id}))
           .then( user => res.send(user.stackoverflow))
           .catch(next);
