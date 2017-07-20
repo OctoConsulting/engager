@@ -37,13 +37,20 @@ module.exports = function(req, res, next){
       points: array.length
     };
 
-  //console.dir(updated);
-
   User.findByIdAndUpdate({_id: user_id}, {$set: {twitter: updated}})
       .then(() => User.findById({_id: user_id}))
       .then( user => res.send(user.twitter))
       .catch(next);
       // twitter_data = data;
+  });
+  const twitter_userapi = 'https://api.twitter.com/1.1/users/show.json';
+  client.get(twitter_userapi, {screen_name: twitter_username}, (error, data, response) => {
+    const avatar = data.profile_image_url;
+    console.log(avatar);
+    User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: avatar}})
+        .then(() => User.findById({_id: user_id}))
+        .then( user => res.send(user.avatar))
+        .catch(next);
   });
 
 }

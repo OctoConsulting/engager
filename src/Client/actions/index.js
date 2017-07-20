@@ -124,6 +124,7 @@ export function retrieveUser(token){
           console.log(response.data);
           const filtered_data = {
             name: response.data.name,
+            avatar: response.data.avatar,
             email: response.data.email,
             facebook: response.data.facebook.username,
             twitter: response.data.twitter.username,

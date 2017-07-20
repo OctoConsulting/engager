@@ -18,6 +18,7 @@ function updateUsers(){
     User.find({}, (err, users) => {
       users.forEach(user => {
 
+        let lai = '';
         if (user.linkedin.data !== null){
           if (user.linkedin.data[0].date > date){
           lai = linkedin_ico;
@@ -55,7 +56,7 @@ function updateUsers(){
         }
 
         let updated = {
-             avatar : "http://stock.wikimini.org/w/images/thumb/9/95/Gnome-stock_person-avatar-profile.png/240px-Gnome-stock_person-avatar-profile.png",
+             avatar : user.avatar,
               name : user.name,
               lai : lai,
               actions : user.stackoverflow.actions + user.github.actions + user.twitter.actions,

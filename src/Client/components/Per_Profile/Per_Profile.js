@@ -16,7 +16,7 @@ class Per_Profile extends Component {
   constructor(props){
     super(props);
     this.state = {
-      modified: null
+      modified: this.props.personalInfo
     };
   }
 
@@ -36,7 +36,7 @@ class Per_Profile extends Component {
             <div className="col-md-12 profile-card">
               <div className="profile-cover">
                <div className="profile-avatar">
-                  <img src="http://stock.wikimini.org/w/images/thumb/9/95/Gnome-stock_person-avatar-profile.png/240px-Gnome-stock_person-avatar-profile.png" alt={(this.state.modified !== null) ? this.state.modified.name : ''} />
+                  <img src={(this.state.modified !== null) ? this.state.modified.avatar : ''} alt={(this.state.modified !== null) ? this.state.modified.name : ''} />
                </div>
                <div className="profile-details">
                    <h1>{(this.state.modified !== null) ? this.state.modified.name : ''}</h1>
@@ -87,7 +87,7 @@ class Per_Profile extends Component {
                         <span>{(this.state.modified !== null && this.state.modified.twitter != '') ? this.state.modified.twitter : connect}</span>
                     </button>
                     <Form_Twitter/>
-                    
+
                   </div>
                 </div>
             </div>
