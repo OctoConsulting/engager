@@ -28,6 +28,7 @@ module.exports = function(req, res, next){
       const updated = {
         username: github_username,
         data: filtered_data,
+        actions: filtered_data.length,
         points: filtered_data.length * 5
       }
 

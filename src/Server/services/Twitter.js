@@ -33,12 +33,13 @@ module.exports = function(req, res, next){
     const updated = {
       username: twitter_username,
       data: array,
+      actions: array.length,
       points: array.length
     };
 
   //console.dir(updated);
 
-  User.findByIdAndUpdate({_id: user_id}, {$set: {twitter: updated, twitter_check: true}})
+  User.findByIdAndUpdate({_id: user_id}, {$set: {twitter: updated}})
       .then(() => User.findById({_id: user_id}))
       .then( user => res.send(user.twitter))
       .catch(next);

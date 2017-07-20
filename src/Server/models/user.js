@@ -19,31 +19,37 @@ const userSchema = new Schema({
   facebook: {
     username: String,
     data: Object,
+    actions: Number,
     points: Number
   },
   instagram: {
     username: String,
     data: Object,
+    actions: Number,
     points: Number
   },
   twitter: {
     username: String,
     data: Object,
+    actions: Number,
     points: Number
   },
   stackoverflow: {
     username: String,
     data: Object,
+    actions: Number,
     points: Number
   },
   github: {
     username: String,
     data: Object,
+    actions: Number,
     points: Number
   },
   linkedin:{
     username: String,
     data: Object,
+    actions: Number,
     points: Number
   }
 });

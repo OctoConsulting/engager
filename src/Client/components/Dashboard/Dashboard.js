@@ -14,9 +14,6 @@ class Dashboard extends Component{
       init: this.props.users
     }
   }
-  componentWillMount(){
-    this.props.retrieveDashboard();
-  }
 
   componentWillReceiveProps(nextProps){
     console.log("4");

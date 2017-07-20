@@ -21,6 +21,7 @@ module.exports = function(req, res, next){
     const updated = {
       username: ig_username,
       data: data,
+      actions: data.length,
       points: 0
     }
 
