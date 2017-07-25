@@ -47,7 +47,6 @@ module.exports = function(req, res, next){
   client.get(twitter_userapi, {screen_name: twitter_username}, (error, data, response) => {
     let avatar = data.profile_image_url;
     avatar = avatar.replace("_normal", "");
-    console.log(avatar);
     User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: avatar}})
         .then(() => User.findById({_id: user_id}))
         .then( user => res.send(user.avatar))

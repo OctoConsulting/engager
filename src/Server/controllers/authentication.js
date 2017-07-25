@@ -57,7 +57,7 @@ exports.signup = function(req, res, next){
     //if a user with email does NOT exist, create and save user record
     const user = new User({
       name: name,
-      avatar: "http://stock.wikimini.org/w/images/thumb/9/95/Gnome-stock_person-avatar-profile.png/240px-Gnome-stock_person-avatar-profile.png",
+      avatar: 'http://www.octoconsulting.com/wp-content/uploads/2016/12/picture-300-1475249213.jpg',
       email: email,
       password: password,
       verified: verified,

@@ -19,7 +19,7 @@ function updateUsers(){
     User.find({}, (err, users) => {
       users.forEach(user => {
 
-        let lai = '';
+        let lai = 'https://pbs.twimg.com/profile_images/1534431858/Avatar_400x400.png';
         if (user.linkedin.data !== null  && user.linkedin.data.length > 0){
           if (user.linkedin.data[0].date > date){
           lai = linkedin_ico;
