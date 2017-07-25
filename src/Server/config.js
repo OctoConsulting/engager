@@ -14,7 +14,7 @@ module.exports = {
     access_url : ''
   },
   EmailServer:{
-    emailAccountUser: 'octo.engager.mailer@gmail.com',
+    emailAccountUser: '',
     emailPassword: '',
     emailName: ''
   }
