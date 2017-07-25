@@ -14,8 +14,9 @@ module.exports = {
     access_url : 'https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=token'
 },
   EmailServer:{
-    emailAccountUser: 'octo.engager.mailer@gmail.com',
-    emailPassword: 'S3D5jRBnkcTp5ghnIk5fCLS6KvDo02',
-    emailName: 'Karam Hijazi'
-}
+    emailAccountUser: '',
+    emailPassword: '',
+    emailName: ''
+  }
+
 }
