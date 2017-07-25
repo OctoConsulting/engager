@@ -12,6 +12,7 @@ const github_ico = "https://image.flaticon.com/icons/svg/25/25231.svg";
 const default_ico = "https://s3-us-west-2.amazonaws.com/jrdevsresumes/company_logos/66604/octo-consulting.png?1478301859";
 let date = 0;
 
+
 function updateUsers(){
   return new Promise( (resolve, reject) => {
     let array = {};

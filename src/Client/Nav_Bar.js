@@ -42,7 +42,7 @@ class Nav_Bar extends Component{
                                     <div className="row">
                                         <div className="col-lg-4">
                                             <p className="text-center">
-                                                <span className="glyphicon glyphicon-user icon-size"></span>
+                                                <img src={(this.props.personalInfo !== null) ? this.props.personalInfo.avatar : ''}></img>
                                             </p>
                                         </div>
                                         <div className="col-lg-8">
