@@ -19,37 +19,37 @@ function updateUsers(){
       users.forEach(user => {
 
         let lai = '';
-        if (user.linkedin.data !== null){
+        if (user.linkedin.data !== null  && user.linkedin.data.length > 0){
           if (user.linkedin.data[0].date > date){
           lai = linkedin_ico;
           }
         }
 
-        if (user.facebook.data !== null){
+        if (user.facebook.data !== null  && user.facebook.data.length > 0){
           if(user.facebook.data[0].date > date){
             lai = facebook_ico;
           }
         }
 
-        if (user.twitter.data !== null){
+        if (user.twitter.data !== null  && user.twitter.data.length > 0){
           if (user.twitter.data[0].date > date){
             lai = twitter_ico;
           }
         }
 
-        if (user.stackoverflow.data !== null) {
+        if (user.stackoverflow.data !== null  && user.stackoverflow.data.length > 0) {
           if (user.stackoverflow.data[0].date > date){
             lai = stackoverflow_ico;
           }
         }
 
-        if (user.instagram.data !== null){
+        if (user.instagram.data !== null  && user.instagram.data.length > 0){
           if (user.instagram.data[0].date > date){
             lai = instagram_ico;
           }
         }
 
-        if (user.github.data !== null){
+        if (user.github.data !== null && user.github.data.length > 0){
           if (user.github.data[0].date > date){
             lai = github_ico;
           }

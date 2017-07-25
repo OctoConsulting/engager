@@ -45,7 +45,8 @@ module.exports = function(req, res, next){
   });
   const twitter_userapi = 'https://api.twitter.com/1.1/users/show.json';
   client.get(twitter_userapi, {screen_name: twitter_username}, (error, data, response) => {
-    const avatar = data.profile_image_url;
+    let avatar = data.profile_image_url;
+    avatar = avatar.replace("_normal", "");
     console.log(avatar);
     User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: avatar}})
         .then(() => User.findById({_id: user_id}))
