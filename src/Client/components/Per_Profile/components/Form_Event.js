@@ -54,6 +54,8 @@ class Form_Event extends Component {
                     <input type="text1"  className="form-control"
                     placeholder="Type" {...type}/>
                   </fieldset>
+                  <h4><strong>Training & Conference</strong></h4>
+                  <div className="alert alert-info alert-dismissable fade in"><strong>Use this form to submit training and or work related events to earn points!</strong></div>
                 </div>
                 <div className="form-thing">
                   <fieldset className="form-group">
@@ -72,7 +74,8 @@ class Form_Event extends Component {
           </div>
 
           <div className="col-md-12 col-sm-12 col-xs-12">
-            <div className="panel rounded shadow">
+            <div className="panel rounded shadow"  id="table-thing">
+              <h4><strong>Past Training & Conference Information</strong></h4>
               <BootstrapTable data={this.state.eventList}  search={ true } pagination striped hover bordered>
                 <TableHeaderColumn dataField='type' isKey={ true }>Type</TableHeaderColumn>
                 <TableHeaderColumn dataField='eventName'>Event Name</TableHeaderColumn>
