@@ -73,6 +73,48 @@ input[type="text"], input[type="password"], input[type="email"]{
   padding-bottom: 95px;
 }
 
+/*FOR PERSONAL PROFILE SUBMISSION FORM*/
+#button1{
+  margin: 0 0% 0 5%;
+}
+
+#form1 {
+  margin: 0 5% 0 10%;
+  width: 80%;
+}
+
+#form2 {
+  margin: 0 5% 0 10%;
+  width: 80%;
+  height: 75px;
+}
+
+.select-box{
+  display: inline-block;
+  width: 50%;
+}
+
+.form-thing{
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  float: right;
+  width: 50%;
+}
+
+.event-box{
+  display: flex;
+  justify-content: center;
+}
+
+.submit-box {
+  padding: 5px;
+  border-radius: 15px;
+  background-color: rgb(211,211,211);
+  display: flex;
+  padding-top: 15px;
+}
+
 /*////////////////
 ///Dashboard//////
 //////////////////*/

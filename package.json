@@ -59,6 +59,7 @@
     "react-dom": "^0.14.3",
     "react-redux": "^5.0.2",
     "react-router": "^2.0.1",
+    "react-select": "^1.0.0-rc.5",
     "react-stormpath": "^2.0.1",
     "redux": "^3.6.0",
     "redux-form": "^5.3.3",

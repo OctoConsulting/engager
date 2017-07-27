@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-
+import Select from 'react-select';
 
 import Form_Twitter from './components/Form_Twitter';
 import Form_GitHub from './components/Form_GitHub';
@@ -16,8 +16,10 @@ class Per_Profile extends Component {
   constructor(props){
     super(props);
     this.state = {
-      modified: this.props.personalInfo
+      modified: this.props.personalInfo,
+      formSelectState: "one"
     };
+
   }
 
   componentWillReceiveProps(nextProps){
@@ -26,8 +28,20 @@ class Per_Profile extends Component {
     });
   }
 
+  logChange(val){
+    this.setState({
+      formSelectState: val.value
+    });
+    console.log('Selected: ' + JSON.stringify(val));
+  }
   render(){
+    const options = [
+      {value: 'Training', label: 'Training'},
+      {value: 'Conference', label: 'Conference'},
+      {value: 'Meet Up', label: 'Meet Up'}
+    ];
     const connect = 'Connect';
+    const { handleSubmit, fields: {type, } } = this.props;
     return(
       <div>
         <NavBar />
@@ -211,7 +225,51 @@ class Per_Profile extends Component {
             </div>
           </div>
         </div>
-      </div>
+
+        {/*
+          #############################################################
+          #                                                           #
+          #                    FORMS FOR CONFERENCES                  #
+          #                                                           #
+          #############################################################
+          */}
+        <div className="event-box">
+          <div className="col-md-12 col-sm-12 col-xs-12">
+            <div className="submit-box">
+                <div className="select-box">
+                  <Select name="form-field-name"
+                          value={this.state.formSelectState}
+                          options={options}
+                          onChange={this.logChange.bind(this)}/>
+                </div>
+                <div className="form-thing">
+                  <fieldset className="form-group">
+                    <input type="text1" id="form1" className="form-control"
+                    placeholder="Event Name"/>
+                  </fieldset>
+
+                  <fieldset className="form-group">
+                    <textarea type="text1" id="form2" className="form-control"
+                    placeholder="Description"/>
+                  </fieldset>
+
+                  <button type="button" className="btn btn-primary">Submit</button>
+                </div>
+            </div>
+          </div>
+
+          <div className="col-md-12 col-sm-12 col-xs-12">
+            <div className="panel rounded shadow">
+              <BootstrapTable data={null}  search={ true } pagination striped hover bordered>
+                <TableHeaderColumn dataField='event' isKey={ true } dataFormat={this.imageFormatter}>Event</TableHeaderColumn>
+                <TableHeaderColumn dataField='description'>Description</TableHeaderColumn>
+              </BootstrapTable>
+            </div>
+          </div>
+
+        </div>
+
+    </div>
       );
     }
 };
