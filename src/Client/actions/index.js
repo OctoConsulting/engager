@@ -7,7 +7,8 @@ import {
   AUTH_ERROR,
   CLEAR_ERROR,
   USER_INFO,
-  USERS } from './types';
+  USERS,
+  EVENTS_INFO } from './types';
 import config from '../../Server/config';
 const SERVER_URL = 'http://localhost:3090';
 
@@ -204,5 +205,38 @@ export function socialmedia_integrate({type, token, username}){
           console.log("0.5");
         })
         .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+/*
+###########################################################################
+#                                                                         #
+#                        SOCIAL MEDIA INTEGRATION                         #
+#                                                                         #
+###########################################################################
+*/
+
+export function retrieveEvents(token){
+  const user_id = jwt.decode(token, config.secret);
+  return function (dispatch){
+    axios.get(`${SERVER_URL}/getEvent/${user_id.sub}`)
+          .then( response => {
+            console.log('retrieving data');
+            dispatch({type: EVENTS_INFO, payload: response.data});
+          })
+          .catch( () => console.log("error getting event list"));
+  }
+}
+
+export function addingEvent({token, type, eventName, description}){
+  const user_id = jwt.decode(token, config.secret);
+  return function (dispatch){
+    axios.put(`${SERVER_URL}/addingEvent/${user_id.sub}`, {type, eventName, description})
+          .then( response => {
+            console.log("Done saving");
+            retrieveEvents(token);
+            console.log("After retrieve");
+          })
+          .catch( () => dispatch(authError(response.error)));
   }
 }

@@ -4,7 +4,8 @@ import {
   AUTH_ERROR,
   CLEAR_ERROR,
   USER_INFO,
-  USERS
+  USERS,
+  EVENTS_INFO
 } from '../actions/types';
 
 let defState = {
@@ -27,9 +28,9 @@ export default function(state = defState, action) {
     case USER_INFO:
       return {...state, userInfo: action.payload};
     case USERS:
-      console.log('2');
-      console.log(state);
       return {...state, dash: action.payload};
+    case EVENTS_INFO:
+      return {...state, events: action.payload};
     default:
       return state;
   }

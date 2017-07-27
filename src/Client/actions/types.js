@@ -6,3 +6,4 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const USER_INFO = 'USER_INFO';
 export const USERS = 'USERS';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
+export const EVENTS_INFO = 'EVENTS_INFO';

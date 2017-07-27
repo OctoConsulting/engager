@@ -10,6 +10,10 @@ const userSchema = new Schema({
   email: {type: String, unique: true}, //making sure the email field is always unique with MongoDB
   password: String,
   verified: Boolean,
+  events: {
+    points: Number,
+    data: Array
+  },
   profile: {
     avatar: String,
     name: String,
