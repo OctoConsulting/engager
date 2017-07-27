@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { reduxForm } from 'redux-form';
 
 
 import Form_Twitter from './components/Form_Twitter';
 import Form_GitHub from './components/Form_GitHub';
 import Form_StackOverflow from './components/Form_StackOverflow';
+import Form_Event from './components/Form_Event';
 import Avatar from 'react-avatar';
 import NavBar from '../../Nav_Bar';
 
@@ -18,6 +20,7 @@ class Per_Profile extends Component {
     this.state = {
       modified: this.props.personalInfo
     };
+
   }
 
   componentWillReceiveProps(nextProps){
@@ -28,6 +31,7 @@ class Per_Profile extends Component {
 
   render(){
     const connect = 'Connect';
+
     return(
       <div>
         <NavBar />
@@ -203,25 +207,25 @@ class Per_Profile extends Component {
                             <button type="button" className="btn btn-default" data-dismiss="modal">Submit</button>
                           </div>
                         </div>
-
                       </div>
                     </div>
                   </div>
                 </div>
             </div>
           </div>
+          <Form_Event />
         </div>
-      </div>
+    </div>
       );
     }
-};
+}
 
 //   //Mapping the state to props for using inside the class
-  function mapStateToProps(state){
-    return {
-      personalInfo: state.auth.userInfo
-    };
-  }
+function mapStateToProps(state){
+  return {
+    personalInfo: state.auth.userInfo
+  };
+}
 
 //Connect the reducer to the container
-export default connect (mapStateToProps, actions) (Per_Profile);
+export default connect(mapStateToProps, actions) (Per_Profile);

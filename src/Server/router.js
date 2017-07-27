@@ -6,7 +6,7 @@ const dashboard = require('./services/dashboard');
 const stackoverflow = require('./services/StackOverflow');
 const github = require('./services/GitHub');
 const instagram = require('./services/Instagram');
-
+const Events = require('./services/Events');
 const getuserinfo = require('./services/GetUserInfo');
 //Helper object to authenticate users
 const requireAuth = passport.authenticate('jwt', {session:false});
@@ -23,6 +23,9 @@ module.exports = function(app){
   app.get('/dashboard', dashboard);
   //LOADS CURRENT USER TO THE NAV BAR AND PERSONAL PROFILE
   app.get('/user/:id', getuserinfo);
+  //ADDING EVENT DATA TO DATABASE
+  app.put('/addingEvent/:id', Events.addEvent);
+  app.get('/getEvent/:id', Events.getEvents);
 
   //DIFFERENT SOCIAL MEDIA ARE HANDLED BY DIFFERENT SERVICES
   app.put('/pushTwitterData/:id', twitter);

@@ -61,6 +61,10 @@ exports.signup = function(req, res, next){
       email: email,
       password: password,
       verified: verified,
+      events: {
+        points: 0,
+        data: []
+      },
       profile: {
         avatar: '',
         name: '',

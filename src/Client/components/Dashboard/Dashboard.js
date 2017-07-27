@@ -34,7 +34,7 @@ class Dashboard extends Component{
         <div className="navbar">
           <Nav_Bar/>
         </div>
-        <div  className="container personal-profile-container">
+        <div className="container personal-profile-container">
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12">
                   <div className="panel rounded shadow">
