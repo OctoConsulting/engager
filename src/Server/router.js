@@ -1,6 +1,10 @@
 const Authentication = require('./controllers/authentication');
 const passportService = require('./services/passport');
+
+//SERVICES
+//##################################################################
 const passport = require('passport');
+const facebook = require('./services/Facebook');
 const twitter = require('./services/Twitter');
 const dashboard = require('./services/dashboard');
 const stackoverflow = require('./services/StackOverflow');
@@ -8,6 +12,8 @@ const github = require('./services/GitHub');
 const instagram = require('./services/Instagram');
 const Events = require('./services/Events');
 const getuserinfo = require('./services/GetUserInfo');
+//##################################################################
+
 //Helper object to authenticate users
 const requireAuth = passport.authenticate('jwt', {session:false});
 const requireSignin = passport.authenticate('local', {session:false});
@@ -32,5 +38,6 @@ module.exports = function(app){
   app.put('/pushStackOverflowData/:id', stackoverflow);
   app.put('/pushGitHubData/:id', github);
   app.put('/pushInstagramData/:id', instagram);
+  app.put('/pushFacebookData/:id', facebook);
 
 }

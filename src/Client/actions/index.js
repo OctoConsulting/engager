@@ -208,10 +208,26 @@ export function socialmedia_integrate({type, token, username}){
   }
 }
 
+
+export function facebook_call({accessToken, userToken}){
+  return function(dispatch){
+    const user_id = jwt.decode(userToken, config.secret);
+
+    const data = {
+      'accessToken': accessToken
+    };
+
+    axios.put(`${SERVER_URL}/pushFacebookData/${user_id.sub}`, data)
+          .then( response => {
+            console.log("Facebook data successfully pulled");
+          })
+          .catch( () => dispatch(authError(response.error)));
+  }
+}
 /*
 ###########################################################################
 #                                                                         #
-#                        SOCIAL MEDIA INTEGRATION                         #
+#                        AD HOC FORMS INTEGRATION                         #
 #                                                                         #
 ###########################################################################
 */

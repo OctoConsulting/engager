@@ -8,6 +8,7 @@ import { reduxForm } from 'redux-form';
 import Form_Twitter from './components/Form_Twitter';
 import Form_GitHub from './components/Form_GitHub';
 import Form_StackOverflow from './components/Form_StackOverflow';
+import Form_Facebook from './components/Form_Facebook';
 import Form_Event from './components/Form_Event';
 import Avatar from 'react-avatar';
 import NavBar from '../../Nav_Bar';
@@ -65,9 +66,10 @@ class Per_Profile extends Component {
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-facebook btn-icon-stacked btn-stroke">
+                    <button className="btn btn-facebook btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#facebook">
                         <span>{(this.state.modified !== null && this.state.modified.facebook != '') ? this.state.modified.facebook : connect}</span>
                     </button>
+                    <Form_Facebook/>
                   </div>
                 </div>
             </div>
@@ -91,7 +93,6 @@ class Per_Profile extends Component {
                         <span>{(this.state.modified !== null && this.state.modified.twitter != '') ? this.state.modified.twitter : connect}</span>
                     </button>
                     <Form_Twitter/>
-
                   </div>
                 </div>
             </div>

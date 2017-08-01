@@ -40,6 +40,7 @@
     "bootstrap": "^3.3.7",
     "cors": "^2.8.3",
     "express": "^4.15.3",
+    "fb": "^2.0.0",
     "https": "^1.0.0",
     "instagram-node": "^0.5.8",
     "json-loader": "^0.5.4",
