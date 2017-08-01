@@ -8,12 +8,20 @@ const mongoose = require('mongoose');
 const app = express(); //instance of app created
 const router = require('./router');//importing router into this
 const cors = require('cors');
-
+const config = require('./config');
 
 //DATABASE SETUP
+//LOCAL DB
 mongoose.connect('mongodb://localhost:/dataBase', {
   useMongoClient: true
 });
+
+//REMOTE DB ON MLAB
+/*mongoose.connect(`mongodb://${config.database.username}:${config.database.password}@ds129053.mlab.com:29053/engager`, {
+  useMongoClient: true
+});*/
+
+
 //APP SETUP
 //Any incoming requests will be passed through
 //morgan and bodyParser (they are middlewares)
