@@ -1,46 +1,43 @@
 const User = require('../models/user');
 const request = require('request');
 const config = require('../config');
-FB = require('fb')
-
-
-function getAccess(){
-  return new Promise( (resolve, reject) => {
-    FB.api('oauth/access_token', {
-      client_id: '451996951822224',
-      client_secret: 'af97b74256742bac119f6f66e2b0987a',
-      grant_type: 'client_credentials'
-  }, function (res) {
-      if(!res || res.error) {
-          console.log(!res ? 'error occurred' : res.error);
-          return;
-      }
-      console.log('access here');
-      console.log(res.access_token);
-      accessToken = res.access_token;
-      resolve(accessToken);
-    });
-    });
-}
+FB = require('fb');
 
 module.exports = function(req, res, next){
-    getAccess()
+    const user_id = req.params.id;
+    const accessToken = req.body.accessToken;
+
+    FB.api('/me?fields=id,name', {access_token: accessToken})
       .then( response => {
-        const user_id = req.params.id;
-        const username = req.body.facebook;
-        console.log(response.data);
-        const accessToken = response;
-        request({
-          method: 'GET',
-          headers: {'user-agent': 'node.js'},
-          uri: `https://graph.facebook.com/me?fields=${username}&access_token=d7rHtbVOBvDUwN6JTyDd5ExuRHU`
-          }, function(error, response, body){
-            const updated = {
-              username: '',
-              data: '',
-              points: ''
+        FB.api(`/${response.id}/feed`, 'GET', {access_token: accessToken},
+          function(result){
+            let array = [];
+            let newDate;
+            for (i=0; i < result.data.length; i++){
+              newDate = Date.parse(result.data[i].created_time) / 1000;
+              if (Number(newDate) >= Number(config.creation_timestamp)){
+                array[i] = {
+                  date: newDate,
+                  id: result.data[i].id
+                }
+              }
             }
-            res.send(response);
-        });
-      });
+
+            const updated = {
+              username: response.name,
+              accessToken: accessToken,
+              data: array,
+              actions: array.length,
+              points: array.length
+            };
+            console.log(updated);
+            User.findByIdAndUpdate({_id: user_id}, {$set: {facebook: updated}})
+                .then(() => User.findById({_id: user_id}))
+                .then( user => res.send(user.facebook))
+                .catch(next);
+
+          }
+        );
+      })
+
 }

@@ -74,6 +74,7 @@ exports.signup = function(req, res, next){
       },
       facebook: {
         username: '',
+        accessToken: '',
         data: null,
         actions: 0,
         points: 0

@@ -23,6 +23,7 @@ const userSchema = new Schema({
   },
   facebook: {
     username: String,
+    accessToken: String,
     data: Object,
     actions: Number,
     points: Number

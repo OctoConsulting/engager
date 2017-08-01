@@ -30,12 +30,6 @@ class Form_Event extends Component {
     });
   }
 
-  logChange(val){
-    this.setState({
-      formSelectState: val.value
-    });
-    console.log('Selected: ' + JSON.stringify(val));
-  }
 
   render(){
     const options = [
