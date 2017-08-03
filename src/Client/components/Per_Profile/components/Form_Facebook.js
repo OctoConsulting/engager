@@ -46,7 +46,7 @@ class Form_Facebook extends Component {
                 <h4 className="modal-title">Facebook</h4>
               </div>
               <div className="modal-body">
-                <div className="fb-login-button" data-width="50" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"
+                <div className="fb-login-button" data-width="50" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="true" data-auto-logout-link="true" data-use-continue-as="true"
                 data-scope="user_posts,publish_actions,email"
                 {...username}></div>
               </div>

@@ -28,7 +28,9 @@ export default (
       <Route path="verify/:token" component={Verify}/>
       <Route path="signout" component={Require_Auth(Sign_Out)}/>
       <Route path="dashboard" component={Require_Auth(Dashboard)}/>
-      <Route path="Profile" component={Require_Auth(Per_Profile)}/>
+      <Route path="Profile" component={Require_Auth(Per_Profile)}>
+        <IndexRoute component={Require_Auth(Per_Profile)}/>
+      </Route>
       <Route path="Pub_Profile" component={Require_Auth(Pub_Profile)}/>
     </Route>
 );

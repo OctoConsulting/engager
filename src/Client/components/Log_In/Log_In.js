@@ -18,6 +18,7 @@ class Log_In extends Component {
     //Needs to send email and password to server
     this.props.signinUser({email, password});
   }
+
   //Displaying error messages when signing in/ signing up
   renderAlert(){
     if(this.props.errorMessage){
