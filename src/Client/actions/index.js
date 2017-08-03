@@ -88,9 +88,6 @@ export function signupUser({name, email, password}){
 export function clearError(){
   return function(dispatch){
     dispatch({type: CLEAR_ERROR});
-    if (localStorage.getItem('token')){
-      localStorage.removeItem('token');
-    }
   }
 }
 
@@ -171,7 +168,8 @@ export function retrieveDashboard(){
 #                                                                         #
 ###########################################################################
 */
-
+//THIS IS FOR TWITTER - GITHUB - STACKOVERFLOW
+//NO OAUTH2 REQUIRED
 export function socialmedia_integrate({type, token, username}){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
@@ -208,7 +206,8 @@ export function socialmedia_integrate({type, token, username}){
   }
 }
 
-
+//FACEBOOK SPECIFIC CALL SINCE IT'S FORMATTED DIFFERENTLY
+//OATH2 REQUIRED
 export function facebook_call({accessToken, userToken}){
   return function(dispatch){
     const user_id = jwt.decode(userToken, config.secret);

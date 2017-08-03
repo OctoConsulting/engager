@@ -25,17 +25,14 @@ exports.signin = function(req, res, next){
   //User already authorized with their username and password
   //Only needs a token
   res.send({token: tokenForUser(req.user)});
-
-
 }
-
 
 exports.signup = function(req, res, next){
   //See if the user with the given email exists
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
-  let baseUrl = req.protocol + '://localhost:8080/#/verify/';
+  let baseUrl = req.protocol + '://localhost:8080/verify/';
   let text = 'You have requested to create an account at engager.io. To verify this please click the following link:\n' + baseUrl ;
   const verified = false;
 

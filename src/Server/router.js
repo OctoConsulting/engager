@@ -5,6 +5,8 @@ const passportService = require('./services/passport');
 //##################################################################
 const passport = require('passport');
 const facebook = require('./services/Facebook');
+const authLinkedin = require('./services/authLinkedin');
+const linkedin = require('./services/Linkedin');
 const twitter = require('./services/Twitter');
 const dashboard = require('./services/dashboard');
 const stackoverflow = require('./services/StackOverflow');
@@ -40,4 +42,6 @@ module.exports = function(app){
   app.put('/pushInstagramData/:id', instagram);
   app.put('/pushFacebookData/:id', facebook);
 
+
+  app.get('/authLinkedin',authLinkedin, linkedin);
 }

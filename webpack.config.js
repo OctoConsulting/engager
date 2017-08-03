@@ -10,19 +10,19 @@ module.exports = {
   module: {
     loaders: [{
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
         presets: ['react', 'es2015', 'stage-1']
             }
       },
-      {test: /\.css$/, loader:"style-loeader!css-loader"}
+      {test: /\.css$/, loader:"style-loader!css-loader"}
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
+  devtool: 'source-map',
   devServer: {
-    historyApiFallback: true,
-    contentBase: './'
+    historyApiFallback: true
   }
 };
