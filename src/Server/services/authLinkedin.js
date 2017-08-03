@@ -2,7 +2,7 @@ const User = require('../models/user');
 const request = require('request');
 const config = require('../config');
 
-
+//FIRST LINKEDIN MODULE TO TRADE USER TOKEN FOR AN ACTUAL ACCESS TOKEN
 module.exports = function(req, res, next){
 
   const options = {

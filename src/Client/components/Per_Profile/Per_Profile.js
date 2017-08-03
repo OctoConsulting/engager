@@ -12,7 +12,7 @@ import Form_GitHub from './components/Form_GitHub';
 import Form_StackOverflow from './components/Form_StackOverflow';
 import Form_Facebook from './components/Form_Facebook';
 import Form_Event from './components/Form_Event';
-import Form_Linkedin from './components/Form_Linkedin';
+
 import Avatar from 'react-avatar';
 import NavBar from '../../Nav_Bar';
 
@@ -36,7 +36,13 @@ class Per_Profile extends Component {
   openLinkedinWindow(){
     const token = localStorage.getItem('token');
     const user_id = jwt.decode(token, config.secret);
-    let testWindow = window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=778l6ot4kvtw5r&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
+    window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=778l6ot4kvtw5r&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
+  }
+
+  openInstagramWindow(){
+    const token = localStorage.getItem('token');
+    const user_id = jwt.decode(token, config.secret);
+    window.open(`https://api.instagram.com/oauth/authorize/?client_id=bb65c1a4262349d78765097663077982&redirect_uri=http%3A%2F%2Flocalhost:3090/authInstagram&response_type=code&state=${user_id.sub}&scope=basic+public_content`, "Instagram Authorization", "titlebar=yes, width=500, height=450");
   }
 
   render(){
@@ -146,7 +152,8 @@ class Per_Profile extends Component {
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-instagram btn-icon-stacked btn-stroke">
+                    <button className="btn btn-instagram btn-icon-stacked btn-stroke"
+                      onClick={this.openInstagramWindow}>
                         <span>{(this.state.modified !== null && this.state.modified.instagram != '') ? this.state.modified.instagram : connect}</span>
                     </button>
                   </div>
@@ -198,7 +205,6 @@ class Per_Profile extends Component {
                     <button className="btn btn-linkedin btn-icon-stacked btn-stroke" onClick={this.openLinkedinWindow}>
                         <span>{(this.state.modified !== null && this.state.modified.linkedin != '') ? this.state.modified.linkedin : connect}</span>
                     </button>
-                    {/*<Form_Linkedin/>*/}
                   </div>
                 </div>
             </div>
