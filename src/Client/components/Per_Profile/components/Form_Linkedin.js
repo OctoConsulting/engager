@@ -12,13 +12,16 @@ class Form_Linkedin extends Component {
     const token = localStorage.getItem('token');
     const user_id = jwt.decode(token, config.secret);
     window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${config.Linkedin.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
-
   }
 
   handleDeauth(){
     const token = localStorage.getItem('token');
-
     this.props.linkedin_deauth(token);
+  }
+
+  linkedin_button(){
+    const token = localStorage.getItem('token');
+    this.props.linkedin_auth(token);
   }
 
   render(){
@@ -36,12 +39,19 @@ class Form_Linkedin extends Component {
               <div className="modal-body">
                 <div className="button_pos">
                   <button type="button" className="btn btn-primary"
-                    data-dismiss="modal" onClick={this.handleAuth}>CONNECT</button>
+                     onClick={this.handleAuth}>CONNECT</button>
                 </div>
                 <div className="button_pos">
                   <button type="button" className="btn btn-warning"
                     data-dismiss="modal" onClick={this.handleDeauth.bind(this)}>DISCONNECT</button>
                 </div>
+              </div>
+              <div className="modal-footer">
+                <div className="modal-button">
+                  <button type="submit" className="btn btn-primary"
+                    data-dismiss="modal" onClick={this.linkedin_button.bind(this)}>FINISH</button>
+                </div>
+
               </div>
             </div>
           </div>

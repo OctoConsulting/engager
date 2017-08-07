@@ -50,7 +50,6 @@ module.exports = function(req, res, next){
     avatar = avatar.replace("_normal", "");
     User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: avatar}})
         .then(() => User.findById({_id: user_id}))
-        .then( user => res.send(user.avatar))
         .catch(next);
   });
 }

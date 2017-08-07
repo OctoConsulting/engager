@@ -28,8 +28,12 @@ class Nav_Bar extends Component{
             <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
                     <li><Link to="/dashboard">Home</Link></li>
-                 </ul>
+                    <li><Link to="/Profile">Profile</Link></li>
+                </ul>
                 <ul className="nav navbar-nav navbar-right">
+                  <li><Link className="nav-link" to="/signout">Sign Out</Link></li>
+                </ul>
+                {/*<ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">
                         <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                             <span className="glyphicon glyphicon-user" style={{paddingRight:"5px"}}></span>
@@ -59,7 +63,7 @@ class Nav_Bar extends Component{
                             <li><Link className="nav-link" to="/signout">Sign Out <span className="glyphicon glyphicon-log-out pull-right"></span></Link></li>
                         </ul>
                     </li>
-                </ul>
+                </ul>*/}
             </div>
         </div>
     </div>

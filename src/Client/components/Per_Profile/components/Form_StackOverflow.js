@@ -34,11 +34,14 @@ class Form_StackOverflow extends Component {
                 <input className="form-control" type="text" placeholder="StackOverflow User ID" {...username}></input>
               </div>
               <div className="modal-footer">
-                <button type="submit" className="btn btn-primary" data-dismiss="modal"
-                  onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>CONNECT</button>
+                <div className="modal-button">
+                  <button type="submit" className="btn btn-primary" data-dismiss="modal"
+                    onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>CONNECT</button>
 
-                  <button type="button" className="btn btn-warning" data-dismiss="modal"
-                    onClick= {this.deauthStackoverflow.bind(this)}>DISCONNECT</button>
+                    <button type="button" className="btn btn-warning" data-dismiss="modal"
+                      onClick= {this.deauthStackoverflow.bind(this)}>DISCONNECT</button>
+                </div>
+
               </div>
             </div>
           </div>

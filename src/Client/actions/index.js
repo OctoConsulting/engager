@@ -8,7 +8,13 @@ import {
   CLEAR_ERROR,
   USER_INFO,
   USERS,
-  EVENTS_INFO } from './types';
+  EVENTS_INFO,
+  FACEBOOK,
+  TWITTER,
+  STACKOVERFLOW,
+  INSTAGRAM,
+  GITHUB,
+  LINKEDIN} from './types';
 import config from '../../Server/config';
 const SERVER_URL = 'http://localhost:3090';
 
@@ -123,15 +129,15 @@ export function retrieveUser(token){
           const filtered_data = {
             name: response.data.name,
             avatar: response.data.avatar,
-            email: response.data.email,
-            facebook: response.data.facebook.username,
-            twitter: response.data.twitter.username,
-            stackoverflow: response.data.stackoverflow.username,
-            instagram: response.data.instagram.username,
-            github: response.data.github.username,
-            linkedin: response.data.linkedin.username
+            email: response.data.email
           }
           dispatch({type: USER_INFO, payload: filtered_data});
+          dispatch({type:TWITTER, payload:response.data.twitter.username});
+          dispatch({type:STACKOVERFLOW, payload:response.data.stackoverflow.username});
+          dispatch({type:GITHUB, payload:response.data.github.username});
+          dispatch({type:FACEBOOK, payload:response.data.facebook.username});
+          dispatch({type:LINKEDIN, payload:response.data.linkedin.username});
+          dispatch({type:INSTAGRAM, payload:response.data.instagram.username});
         })
         .catch(() => dispatch(authError(response.error)))
   }
@@ -152,8 +158,6 @@ export function retrieveDashboard(){
   return function(dispatch){
     axios.get(`${SERVER_URL}/dashboard`)
         .then(response => {
-          console.log('1');
-          console.log(response.data);
            dispatch({type: USERS, payload: response.data});
         })
         .catch(() => console.log("error"))
@@ -198,9 +202,17 @@ export function socialmedia_auth({type, token, username}){
 
     axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
         .then( response => {
-          console.log('0');
-          retrieveDashboard();
-          console.log("0.5");
+          switch(type){
+            case 'Twitter':
+              dispatch({type:TWITTER, payload:response.data.username});
+              break;
+            case 'StackOverflow':
+              dispatch({type:STACKOVERFLOW, payload:response.data.username});
+              break;
+            case 'GitHub':
+              dispatch({type:GITHUB, payload:response.data.username});
+              break;
+          }
         })
         .catch( () => dispatch(authError(response.error)));
   }
@@ -212,8 +224,17 @@ export function socialmedia_deauth({type, token}){
 
     axios.put(`${SERVER_URL}/${type}_deauth/${user_id.sub}`)
         .then( response => {
-          console.log("Successfully deauth: " + type);
-
+          switch(type){
+            case 'twitter':
+              dispatch({type:TWITTER, payload:''});
+              break;
+            case 'stackoverflow':
+              dispatch({type:STACKOVERFLOW, payload:''});
+              break;
+            case 'github':
+              dispatch({type:GITHUB, payload:''});
+              break;
+          }
         })
         .catch( () => dispatch(authError(response.error)));
   }
@@ -232,9 +253,9 @@ export function facebook_auth({accessToken, userToken}){
 
     axios.put(`${SERVER_URL}/pushFacebookData/${user_id.sub}`, data)
           .then( response => {
-            console.log("Facebook data successfully pulled");
+            dispatch({type:FACEBOOK, payload:response.data.username});
           })
-          .catch( () => dispatch(authError(response.error)));
+          .catch( error => dispatch(authError(error.status)));
   }
 }
 
@@ -243,21 +264,43 @@ export function facebook_deauth(userToken){
     const user_id = jwt.decode(userToken, config.secret);
     axios.put(`${SERVER_URL}/deauthFacebook/${user_id.sub}`)
           .then( response => {
-            console.log("successfully deauthorize Facebook");
+            dispatch({type:FACEBOOK, payload:''});
           })
           .catch( () => dispatch(authError(response.error)));
   }
 }
 
+
+export function linkedin_auth(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
+        .then(response => {
+          dispatch({type:LINKEDIN, payload:response.data.linkedin.username});
+        })
+        .catch(() => dispatch(authError(response.error)))
+  }
+}
 //LINKEDIN DEAUTH
 export function linkedin_deauth(token){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
     axios.put(`${SERVER_URL}/deauthLinkedin/${user_id.sub}`)
           .then( response => {
-            console.log("successfully deauthorize Linkedin");
+            dispatch({type:LINKEDIN, payload: ''});
           })
           .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+export function instagram_auth(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
+        .then(response => {
+          dispatch({type:INSTAGRAM, payload:response.data.instagram.username});
+        })
+        .catch(() => dispatch(authError(response.error)))
   }
 }
 
@@ -266,7 +309,7 @@ export function instagram_deauth(token){
     const user_id = jwt.decode(token, config.secret);
     axios.put(`${SERVER_URL}/deauthInstagram/${user_id.sub}`)
           .then( response => {
-            console.log("successfully deauthorize Instagram");
+            dispatch({type:INSTAGRAM, payload: ''});
           })
           .catch( () => dispatch(authError(response.error)));
   }

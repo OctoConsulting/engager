@@ -181,6 +181,10 @@ input[type="text"], input[type="password"], input[type="email"]{
 ///Personal Profile//////
 //////////////////*/
 
+.modal-button{
+  text-align: center;
+}
+
 .personal-profile-container{
   margin-top: 70px;
 }

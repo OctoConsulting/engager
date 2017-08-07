@@ -30,7 +30,7 @@ module.exports = function(req, res, next){
               actions: array.length,
               points: array.length
             };
-            console.log(updated);
+            
             User.findByIdAndUpdate({_id: user_id}, {$set: {facebook: updated}})
                 .then(() => User.findById({_id: user_id}))
                 .then( user => res.send(user.facebook))
