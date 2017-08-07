@@ -12,6 +12,7 @@ import Form_GitHub from './components/Form_GitHub';
 import Form_StackOverflow from './components/Form_StackOverflow';
 import Form_Facebook from './components/Form_Facebook';
 import Form_Instagram from './components/Form_Instagram';
+import Form_Linkedin from './components/Form_Linkedin';
 import Form_Event from './components/Form_Event';
 
 import Avatar from 'react-avatar';
@@ -32,12 +33,6 @@ class Per_Profile extends Component {
     this.setState({
       modified: nextProps.personalInfo
     });
-  }
-
-  openLinkedinWindow(){
-    const token = localStorage.getItem('token');
-    const user_id = jwt.decode(token, config.secret);
-    window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${config.Linkedin.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
   }
 
 
@@ -199,9 +194,13 @@ class Per_Profile extends Component {
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-linkedin btn-icon-stacked btn-stroke" onClick={this.openLinkedinWindow}>
+                    <button className="btn btn-linkedin btn-icon-stacked btn-stroke"
+                      data-toggle="modal" data-target="#linkedin">
                         <span>{(this.state.modified !== null && this.state.modified.linkedin != '') ? this.state.modified.linkedin : connect}</span>
                     </button>
+
+                    <Form_Linkedin/>
+
                   </div>
                 </div>
             </div>

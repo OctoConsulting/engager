@@ -12,6 +12,12 @@ class Form_Twitter extends Component {
     this.props.socialmedia_integrate({type, token ,username});
   }
 
+  deauthTwitter(){
+    const type = 'twitter';
+    const token = localStorage.getItem('token');
+    this.props.socialmedia_deauth({type, token});
+  }
+
   render(){
     const {fields: {username}, handleSubmit} = this.props;
     return(
@@ -30,8 +36,11 @@ class Form_Twitter extends Component {
                   type="text" placeholder="Twitter Username" {...username}></input>
               </div>
               <div className="modal-footer">
-                <button type="submit" className="btn btn-default" data-dismiss="modal"
-                  onClick = {handleSubmit(this.handleFormSubmit.bind(this))} >Submit</button>
+                <button type="submit" className="btn btn-primary" data-dismiss="modal"
+                  onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>CONNECT</button>
+
+                  <button type="button" className="btn btn-warning" data-dismiss="modal"
+                    onClick= {this.deauthTwitter.bind(this)}>DISCONNECT</button>
               </div>
             </div>
           </div>

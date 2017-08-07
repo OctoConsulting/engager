@@ -27,9 +27,16 @@ class Form_Facebook extends Component {
   }
 
   handleFormSubmit(){
-    const accessToken = FB.getAuthResponse()['accessToken'];
-    const userToken = localStorage.getItem('token');
-    this.props.facebook_call({accessToken,userToken});
+    FB.getLoginStatus( (response) => {
+      const userToken = localStorage.getItem('token');
+      if (response.status === 'connected'){
+        const accessToken = response.authResponse.accessToken;
+        this.props.facebook_auth({accessToken,userToken});
+      }
+      else{
+        this.props.facebook_deauth(userToken);
+      }
+    });
   }
 
 
@@ -42,7 +49,6 @@ class Form_Facebook extends Component {
             }
             <div className="modal-content">
               <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">&times;</button>
                 <h4 className="modal-title">Facebook</h4>
               </div>
               <div className="modal-body">
@@ -51,8 +57,8 @@ class Form_Facebook extends Component {
                 {...username}></div>
               </div>
               <div className="modal-footer">
-                <button type="submit" className="btn btn-default" data-dismiss="modal"
-                  onClick = {handleSubmit(this.handleFormSubmit.bind(this))} >Submit</button>
+                <button type="submit" className="btn btn-primary" data-dismiss="modal"
+                  onClick = {handleSubmit(this.handleFormSubmit.bind(this))} >DONE</button>
               </div>
             </div>
           </div>
