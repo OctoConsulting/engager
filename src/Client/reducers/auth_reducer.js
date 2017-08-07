@@ -5,7 +5,8 @@ import {
   CLEAR_ERROR,
   USER_INFO,
   USERS,
-  EVENTS_INFO
+  EVENTS_INFO,
+  FACEBOOK
 } from '../actions/types';
 
 let defState = {
