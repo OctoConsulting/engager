@@ -170,7 +170,7 @@ export function retrieveDashboard(){
 */
 //THIS IS FOR TWITTER - GITHUB - STACKOVERFLOW
 //NO OAUTH2 REQUIRED
-export function socialmedia_integrate({type, token, username}){
+export function socialmedia_auth({type, token, username}){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
     let data = {};
@@ -206,9 +206,23 @@ export function socialmedia_integrate({type, token, username}){
   }
 }
 
+export function socialmedia_deauth({type, token}){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+
+    axios.put(`${SERVER_URL}/${type}_deauth/${user_id.sub}`)
+        .then( response => {
+          console.log("Successfully deauth: " + type);
+
+        })
+        .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+
 //FACEBOOK SPECIFIC CALL SINCE IT'S FORMATTED DIFFERENTLY
 //OATH2 REQUIRED
-export function facebook_call({accessToken, userToken}){
+export function facebook_auth({accessToken, userToken}){
   return function(dispatch){
     const user_id = jwt.decode(userToken, config.secret);
 
@@ -219,6 +233,40 @@ export function facebook_call({accessToken, userToken}){
     axios.put(`${SERVER_URL}/pushFacebookData/${user_id.sub}`, data)
           .then( response => {
             console.log("Facebook data successfully pulled");
+          })
+          .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+export function facebook_deauth(userToken){
+  return function(dispatch){
+    const user_id = jwt.decode(userToken, config.secret);
+    axios.put(`${SERVER_URL}/deauthFacebook/${user_id.sub}`)
+          .then( response => {
+            console.log("successfully deauthorize Facebook");
+          })
+          .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+//LINKEDIN DEAUTH
+export function linkedin_deauth(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    axios.put(`${SERVER_URL}/deauthLinkedin/${user_id.sub}`)
+          .then( response => {
+            console.log("successfully deauthorize Linkedin");
+          })
+          .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+export function instagram_deauth(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    axios.put(`${SERVER_URL}/deauthInstagram/${user_id.sub}`)
+          .then( response => {
+            console.log("successfully deauthorize Instagram");
           })
           .catch( () => dispatch(authError(response.error)));
   }

@@ -12,6 +12,12 @@ class Form_StackOverflow extends Component {
     this.props.socialmedia_integrate({type, token ,username});
   }
 
+  deauthStackoverflow(){
+    const type = 'stackoverflow';
+    const token = localStorage.getItem('token');
+    this.props.socialmedia_deauth({type, token});
+  }
+
   render(){
     const {fields: {username}, handleSubmit} = this.props;
     return(
@@ -28,8 +34,11 @@ class Form_StackOverflow extends Component {
                 <input className="form-control" type="text" placeholder="StackOverflow User ID" {...username}></input>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-default" data-dismiss="modal"
-                  onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>Submit</button>
+                <button type="submit" className="btn btn-primary" data-dismiss="modal"
+                  onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>CONNECT</button>
+
+                  <button type="button" className="btn btn-warning" data-dismiss="modal"
+                    onClick= {this.deauthStackoverflow.bind(this)}>DISCONNECT</button>
               </div>
             </div>
           </div>

@@ -17,7 +17,12 @@ module.exports = function(req, res, next){
   const accessToken = req.result.access_token;
 
   const options = {
+<<<<<<< HEAD
     url: 'https://api.linkedin.com/v1/people/~:(first-name,last-name,num-connections,picture-urls::(original))?format=json',
+=======
+    url: 'https://api.linkedin.com/v1/people/~:(first-name,last-name,num-connections)?format=json',
+    method: 'GET',
+>>>>>>> 933dbd1d221e0573b66c0054338ecf33997ad6d2
     headers: {
       'Authorization': `Bearer ${accessToken}`
     }

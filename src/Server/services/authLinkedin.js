@@ -25,8 +25,6 @@ module.exports = function(req, res, next){
       user_id: req.query.state,
       access_token: JSON.parse(body).access_token
     };
-    console.log("What we want: ");
-    console.log(result);
     req.result = result;
     next();
   });
