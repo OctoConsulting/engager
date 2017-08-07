@@ -11,6 +11,7 @@ import Form_Twitter from './components/Form_Twitter';
 import Form_GitHub from './components/Form_GitHub';
 import Form_StackOverflow from './components/Form_StackOverflow';
 import Form_Facebook from './components/Form_Facebook';
+import Form_Instagram from './components/Form_Instagram';
 import Form_Event from './components/Form_Event';
 
 import Avatar from 'react-avatar';
@@ -36,14 +37,9 @@ class Per_Profile extends Component {
   openLinkedinWindow(){
     const token = localStorage.getItem('token');
     const user_id = jwt.decode(token, config.secret);
-    window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=778l6ot4kvtw5r&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
+    window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${config.Linkedin.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
   }
 
-  openInstagramWindow(){
-    const token = localStorage.getItem('token');
-    const user_id = jwt.decode(token, config.secret);
-    window.open(`https://api.instagram.com/oauth/authorize/?client_id=bb65c1a4262349d78765097663077982&redirect_uri=http%3A%2F%2Flocalhost:3090/authInstagram&response_type=code&state=${user_id.sub}&scope=basic+public_content`, "Instagram Authorization", "titlebar=yes, width=500, height=450");
-  }
 
   render(){
     const connect = 'Connect';
@@ -153,9 +149,10 @@ class Per_Profile extends Component {
                   </div>
                   <div className="panel-body text-center">
                     <button className="btn btn-instagram btn-icon-stacked btn-stroke"
-                      onClick={this.openInstagramWindow}>
+                      data-toggle="modal" data-target="#instagram">
                         <span>{(this.state.modified !== null && this.state.modified.instagram != '') ? this.state.modified.instagram : connect}</span>
                     </button>
+                    <Form_Instagram />
                   </div>
                 </div>
             </div>

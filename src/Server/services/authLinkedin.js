@@ -6,7 +6,7 @@ const config = require('../config');
 module.exports = function(req, res, next){
 
   const options = {
-    url: 'https://www.linkedin.com/oauth/v2/accessToken',
+    url: config.Linkedin.accessToken_url,
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -14,7 +14,7 @@ module.exports = function(req, res, next){
     form: {
       'grant_type': 'authorization_code',
       'code': req.query.code,
-      'redirect_uri': 'http://localhost:3090/authLinkedin',
+      'redirect_uri': config.Linkedin.redirect_uri,
       'client_id': config.Linkedin.id_key,
       'client_secret': config.Linkedin.id_secret
     }
