@@ -18,6 +18,7 @@ module.exports = function(req, res, next){
 
   const options = {
     url: 'https://api.linkedin.com/v1/people/~:(first-name,last-name,num-connections)?format=json',
+    method: 'GET',
     headers: {
       'Authorization': `Bearer ${accessToken}`
     }

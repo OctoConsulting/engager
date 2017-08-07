@@ -6,14 +6,16 @@ import {reduxForm} from 'redux-form';
 
 class Form_GitHub extends Component {
 
-  Default(event){
-    event.preventDefault();
-  }
-
   handleFormSubmit({username}){
     const type = 'GitHub';
     const token = localStorage.getItem('token');
-    this.props.socialmedia_integrate({type, token ,username});
+    this.props.socialmedia_auth({type, token ,username});
+  }
+
+  deauthGitHub(){
+    const type = 'github';
+    const token = localStorage.getItem('token');
+    this.props.socialmedia_deauth({type, token});
   }
 
   render(){
@@ -32,8 +34,11 @@ class Form_GitHub extends Component {
                 <input className="form-control" type="text" placeholder="Github Username" {...username}></input>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-default" data-dismiss="modal"
-                  onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>Submit</button>
+                <button type="submit" className="btn btn-primary" data-dismiss="modal"
+                  onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>CONNECT</button>
+
+                  <button type="button" className="btn btn-warning" data-dismiss="modal"
+                    onClick= {this.deauthGitHub.bind(this)}>DISCONNECT</button>
               </div>
             </div>
           </div>
@@ -41,6 +46,7 @@ class Form_GitHub extends Component {
     );
   }
 }
+
 
 export default reduxForm({
   form: 'githubForm',

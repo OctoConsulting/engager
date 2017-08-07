@@ -6,42 +6,41 @@ import {reduxForm} from 'redux-form';
 import jwt from 'jwt-simple';
 import config from '../../../../Server/config';
 
-class Form_Instagram extends Component {
+class Form_Linkedin extends Component {
 
   handleAuth(){
     const token = localStorage.getItem('token');
     const user_id = jwt.decode(token, config.secret);
-
-    window.open(`https://api.instagram.com/oauth/authorize/?client_id=${config.Instagram.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/authInstagram&response_type=code&state=${user_id.sub}&scope=basic+public_content`, "Instagram Authorization", "titlebar=yes, width=500, height=450");
+    window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${config.Linkedin.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
 
   }
 
-  deauthInstagram(){
-    window.open('https://instagram.com/accounts/logout/', "Instagram Deauthorization", "titlebar=yes, width=500, height=450");
+  handleDeauth(){
     const token = localStorage.getItem('token');
-    this.props.instagram_deauth(token);
+
+    this.props.linkedin_deauth(token);
   }
 
   render(){
     const {fields: {username}, handleSubmit} = this.props;
     return(
-        <div className="modal fade" id="instagram" role="dialog">
+        <div className="modal fade" id="linkedin" role="dialog">
           <div className="modal-dialog">
             {//<!-- Modal content-->
             }
             <div className="modal-content">
               <div className="modal-header">
                 <button type="button" className="close" data-dismiss="modal">&times;</button>
-                <h4 className="modal-title">Instagram</h4>
+                <h4 className="modal-title">Linkedin</h4>
               </div>
               <div className="modal-body">
                 <div className="button_pos">
                   <button type="button" className="btn btn-primary"
-                    data-dismiss="modal" onClick={this.handleAuth.bind(this)}>CONNECT</button>
+                    data-dismiss="modal" onClick={this.handleAuth}>CONNECT</button>
                 </div>
                 <div className="button_pos">
                   <button type="button" className="btn btn-warning"
-                    data-dismiss="modal" onClick={this.deauthInstagram.bind(this)}>DISCONNECT</button>
+                    data-dismiss="modal" onClick={this.handleDeauth.bind(this)}>DISCONNECT</button>
                 </div>
               </div>
             </div>
@@ -52,8 +51,8 @@ class Form_Instagram extends Component {
 }
 
 export default reduxForm({
-  form: 'instagramForm',
+  form: 'LinkedinForm',
   fields: [
     'username'
   ]
-}, null, actions) (Form_Instagram);
+}, null, actions) (Form_Linkedin);
