@@ -17,7 +17,7 @@ module.exports = function(req, res, next){
   const accessToken = req.result.access_token;
 
   const options = {
-    url: 'https://api.linkedin.com/v1/people/~:(first-name,last-name,num-connections)?format=json',
+    url: 'https://api.linkedin.com/v1/people/~:(first-name,last-name,num-connections,picture-urls::(original))?format=json',
     headers: {
       'Authorization': `Bearer ${accessToken}`
     }
@@ -31,13 +31,20 @@ module.exports = function(req, res, next){
       data: {
         accessToken: accessToken
       },
+      avatar: parsedBody.pictureUrls.values[0],
       actions: parsedBody.numConnections,
       points: parsedBody.numConnections
     };
-
+    //console.log(parsedBody.pictureUrls.values[0]);
     User.findByIdAndUpdate({_id: user_id}, {$set: {linkedin : updated}})
         .then(() => User.findById({_id: user_id}))
         .then( user => res.send(html_response_string))
         .catch(next);
+
+    User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: parsedBody.pictureUrls.values[0]}})
+        .then(() => User.findById({_id: user_id}))
+        .then( user => res.send(user.avatar))
+        .catch(next);
+
   });
 }

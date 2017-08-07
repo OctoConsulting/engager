@@ -55,6 +55,7 @@ const userSchema = new Schema({
   linkedin:{
     username: String,
     data: Object,
+    avatar: String,
     actions: Number,
     points: Number
   }

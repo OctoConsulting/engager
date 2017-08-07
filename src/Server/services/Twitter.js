@@ -30,7 +30,8 @@ module.exports = function(req, res, next){
         }
       }
     }
-    const updated = {
+  
+  const updated = {
       username: twitter_username,
       data: array,
       actions: array.length,
@@ -41,8 +42,8 @@ module.exports = function(req, res, next){
       .then(() => User.findById({_id: user_id}))
       .then( user => res.send(user.twitter))
       .catch(next);
-      // twitter_data = data;
   });
+
   const twitter_userapi = 'https://api.twitter.com/1.1/users/show.json';
   client.get(twitter_userapi, {screen_name: twitter_username}, (error, data, response) => {
     let avatar = data.profile_image_url;
@@ -52,5 +53,4 @@ module.exports = function(req, res, next){
         .then( user => res.send(user.avatar))
         .catch(next);
   });
-
 }
