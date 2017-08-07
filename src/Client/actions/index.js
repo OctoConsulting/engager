@@ -271,17 +271,36 @@ export function facebook_deauth(userToken){
 }
 
 
-
+export function linkedin_auth(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
+        .then(response => {
+          dispatch({type:LINKEDIN, payload:response.data.linkedin.username});
+        })
+        .catch(() => dispatch(authError(response.error)))
+  }
+}
 //LINKEDIN DEAUTH
 export function linkedin_deauth(token){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
     axios.put(`${SERVER_URL}/deauthLinkedin/${user_id.sub}`)
           .then( response => {
-            retrieveDashboard();
-            retrieveUser(token);
+            dispatch({type:LINKEDIN, payload: ''});
           })
           .catch( () => dispatch(authError(response.error)));
+  }
+}
+
+export function instagram_auth(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
+        .then(response => {
+          dispatch({type:INSTAGRAM, payload:response.data.instagram.username});
+        })
+        .catch(() => dispatch(authError(response.error)))
   }
 }
 
@@ -290,8 +309,7 @@ export function instagram_deauth(token){
     const user_id = jwt.decode(token, config.secret);
     axios.put(`${SERVER_URL}/deauthInstagram/${user_id.sub}`)
           .then( response => {
-            retrieveDashboard();
-
+            dispatch({type:INSTAGRAM, payload: ''});
           })
           .catch( () => dispatch(authError(response.error)));
   }

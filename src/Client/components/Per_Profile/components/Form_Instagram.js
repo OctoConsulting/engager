@@ -22,6 +22,11 @@ class Form_Instagram extends Component {
     this.props.instagram_deauth(token);
   }
 
+  instagram_button(){
+    const token = localStorage.getItem('token');
+    this.props.instagram_auth(token);
+  }
+
   render(){
     const {fields: {username}, handleSubmit} = this.props;
     return(
@@ -31,18 +36,21 @@ class Form_Instagram extends Component {
             }
             <div className="modal-content">
               <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">&times;</button>
                 <h4 className="modal-title">Instagram</h4>
               </div>
               <div className="modal-body">
                 <div className="button_pos">
                   <button type="button" className="btn btn-primary"
-                    data-dismiss="modal" onClick={this.handleAuth.bind(this)}>CONNECT</button>
+                   onClick={this.handleAuth.bind(this)}>CONNECT</button>
                 </div>
                 <div className="button_pos">
                   <button type="button" className="btn btn-warning"
                     data-dismiss="modal" onClick={this.deauthInstagram.bind(this)}>DISCONNECT</button>
                 </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary"
+                  data-dismiss="modal" onClick={this.instagram_button.bind(this)}>FINISH</button>
               </div>
             </div>
           </div>

@@ -16,8 +16,12 @@ class Form_Linkedin extends Component {
 
   handleDeauth(){
     const token = localStorage.getItem('token');
-
     this.props.linkedin_deauth(token);
+  }
+
+  linkedin_button(){
+    const token = localStorage.getItem('token');
+    this.props.linkedin_auth(token);
   }
 
   render(){
@@ -35,12 +39,16 @@ class Form_Linkedin extends Component {
               <div className="modal-body">
                 <div className="button_pos">
                   <button type="button" className="btn btn-primary"
-                    data-dismiss="modal" onClick={this.handleAuth}>CONNECT</button>
+                     onClick={this.handleAuth}>CONNECT</button>
                 </div>
                 <div className="button_pos">
                   <button type="button" className="btn btn-warning"
                     data-dismiss="modal" onClick={this.handleDeauth.bind(this)}>DISCONNECT</button>
                 </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary"
+                  data-dismiss="modal" onClick={this.linkedin_button.bind(this)}>FINISH</button>
               </div>
             </div>
           </div>
