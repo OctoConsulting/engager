@@ -9,8 +9,7 @@ class Form_Event extends Component {
   constructor(props){
     super(props);
     this.state = {
-      eventList: this.props.events,
-      formSelectState: "one"
+      eventList: this.props.events
     };
   }
   componentWillMount(){
@@ -18,8 +17,6 @@ class Form_Event extends Component {
     this.props.retrieveEvents(token);
   }
   handleFormSubmit({type, eventName, description}){
-    console.log(type);
-    console.log(eventName);
     const token = localStorage.getItem('token');
     this.props.addingEvent({token, type, eventName, description});
   }
@@ -32,11 +29,6 @@ class Form_Event extends Component {
 
 
   render(){
-    const options = [
-      {value: 'Training', label: 'Training'},
-      {value: 'Conference', label: 'Conference'},
-      {value: 'Meet Up', label: 'Meet Up'}
-    ];
     const { handleSubmit, fields: {type, eventName, description} } = this.props;
     return(
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>

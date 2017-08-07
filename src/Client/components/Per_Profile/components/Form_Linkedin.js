@@ -47,8 +47,11 @@ class Form_Linkedin extends Component {
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-primary"
-                  data-dismiss="modal" onClick={this.linkedin_button.bind(this)}>FINISH</button>
+                <div className="modal-button">
+                  <button type="submit" className="btn btn-primary"
+                    data-dismiss="modal" onClick={this.linkedin_button.bind(this)}>FINISH</button>
+                </div>
+
               </div>
             </div>
           </div>

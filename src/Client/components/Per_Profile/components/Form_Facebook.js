@@ -57,8 +57,10 @@ class Form_Facebook extends Component {
                 {...username}></div>
               </div>
               <div className="modal-footer">
-                <button type="submit" className="btn btn-primary" data-dismiss="modal"
-                  onClick = {handleSubmit(this.handleFormSubmit.bind(this))} >DONE</button>
+                <div className="modal-button">
+                  <button type="submit" className="btn btn-primary" data-dismiss="modal"
+                    onClick = {handleSubmit(this.handleFormSubmit.bind(this))} >FINISH</button>
+                </div>
               </div>
             </div>
           </div>

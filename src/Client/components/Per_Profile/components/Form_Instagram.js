@@ -49,8 +49,11 @@ class Form_Instagram extends Component {
                 </div>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-primary"
-                  data-dismiss="modal" onClick={this.instagram_button.bind(this)}>FINISH</button>
+                <div className="modal-button">
+                  <button type="button" className="btn btn-primary"
+                    data-dismiss="modal" onClick={this.instagram_button.bind(this)}>FINISH</button>
+                </div>
+
               </div>
             </div>
           </div>
