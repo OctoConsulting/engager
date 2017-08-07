@@ -11,6 +11,7 @@ const twitter = require('./services/Twitter');
 const dashboard = require('./services/dashboard');
 const stackoverflow = require('./services/StackOverflow');
 const github = require('./services/GitHub');
+const authInstagram = require('./services/authInstagram');
 const instagram = require('./services/Instagram');
 const Events = require('./services/Events');
 const getuserinfo = require('./services/GetUserInfo');
@@ -39,9 +40,9 @@ module.exports = function(app){
   app.put('/pushTwitterData/:id', twitter);
   app.put('/pushStackOverflowData/:id', stackoverflow);
   app.put('/pushGitHubData/:id', github);
-  app.put('/pushInstagramData/:id', instagram);
   app.put('/pushFacebookData/:id', facebook);
 
 
+  app.get('/authInstagram', authInstagram, instagram);
   app.get('/authLinkedin',authLinkedin, linkedin);
 }
