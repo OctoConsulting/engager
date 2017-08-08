@@ -251,7 +251,7 @@ export function facebook_auth({accessToken, userToken}){
       'accessToken': accessToken
     };
 
-    axios.put(`${SERVER_URL}/pushFacebookData/${user_id.sub}`, data)
+    axios.put(`${SERVER_URL}/facebook_auth/${user_id.sub}`, data)
           .then( response => {
             dispatch({type:FACEBOOK, payload:response.data.username});
           })
@@ -262,13 +262,27 @@ export function facebook_auth({accessToken, userToken}){
 export function facebook_deauth(userToken){
   return function(dispatch){
     const user_id = jwt.decode(userToken, config.secret);
-    axios.put(`${SERVER_URL}/deauthFacebook/${user_id.sub}`)
+    axios.put(`${SERVER_URL}/facebook_deauth/${user_id.sub}`)
           .then( response => {
             dispatch({type:FACEBOOK, payload:''});
           })
           .catch( () => dispatch(authError(response.error)));
   }
 }
+
+//GITHUB OAUTH FUNCTION
+export function github_auth(token){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
+        .then(response => {
+          dispatch({type:GITHUB, payload:response.data.github.username});
+        })
+        .catch(() => dispatch(authError(response.error)))
+  }
+}
+
+
 //#########################################################################
 //LINKEDIN
 export function linkedin_auth(token){
@@ -285,7 +299,7 @@ export function linkedin_auth(token){
 export function linkedin_deauth(token){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
-    axios.put(`${SERVER_URL}/deauthLinkedin/${user_id.sub}`)
+    axios.put(`${SERVER_URL}/linkedin_deauth/${user_id.sub}`)
           .then( response => {
             dispatch({type:LINKEDIN, payload: ''});
           })
@@ -310,7 +324,7 @@ export function instagram_auth(token){
 export function instagram_deauth(token){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
-    axios.put(`${SERVER_URL}/deauthInstagram/${user_id.sub}`)
+    axios.put(`${SERVER_URL}/instagram_deauth/${user_id.sub}`)
           .then( response => {
             dispatch({type:INSTAGRAM, payload: ''});
           })

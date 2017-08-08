@@ -1,4 +1,3 @@
-const User = require('../models/user');
 const request = require('request');
 const config = require('../config');
 
@@ -19,6 +18,7 @@ module.exports = function(req, res, next){
 
   request(options, function(err, response, body){
     const parsedBody = JSON.parse(body);
+    console.log(parsedBody);
     const result = {
       user_id: req.query.state,
       access_token: parsedBody.access_token,

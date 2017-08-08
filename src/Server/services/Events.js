@@ -1,12 +1,10 @@
 const User = require('../models/user');
-const twitter = require('./dashboard_services/dashboard_twitter');
-const github = require('./github');
+
 const mongoose = require('mongoose');
 
 
 exports.getEvents = function(req, res, next){
   const user_id = req.params.id;
-  console.log("here");
   User.findById({_id: user_id})
       .then( user => res.send(user.events.data))
       .catch(next);
