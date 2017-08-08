@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 import {reduxForm} from 'redux-form';
 import Select from 'react-select';
+import Form_Event_Modal from './Form_Event_Modal';
 
 class Form_Event extends Component {
   constructor(props){
@@ -29,51 +30,27 @@ class Form_Event extends Component {
 
 
   render(){
-    const { handleSubmit, fields: {type, eventName, description} } = this.props;
     return(
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <div className="event-box">
-          <div className="col-md-12 col-sm-12 col-xs-12">
-            <div className="submit-box">
-                <div className="select-box">
-                  <fieldset className="form-group">
-                    <input type="text1"  className="form-control"
-                    placeholder="Type" {...type}/>
-                  </fieldset>
-                  <h4><strong>Training & Conference</strong></h4>
-                  <div className="alert alert-info alert-dismissable fade in"><strong>Use this form to submit training and or work related events to earn points!</strong></div>
-                </div>
-                <div className="form-thing">
-                  <fieldset className="form-group">
-                    <input type="text1" id="form1" className="form-control"
-                    placeholder="Event Name" {...eventName}/>
-                  </fieldset>
-
-                  <fieldset className="form-group">
-                    <textarea type="text1" id="form2" className="form-control"
-                    placeholder="Description" {...description}/>
-                  </fieldset>
-
-                  <button type="submit" className="btn btn-primary">Submit</button>
-                </div>
-            </div>
-          </div>
-
+          <Form_Event_Modal/>
           <div className="col-md-12 col-sm-12 col-xs-12">
             <div className="panel rounded shadow"  id="table-thing">
               <h4><strong>Past Training & Conference Information</strong></h4>
-              <BootstrapTable data={this.state.eventList}  search={ true } pagination striped hover bordered>
-                <TableHeaderColumn dataField='type' isKey={ true }>Type</TableHeaderColumn>
-                <TableHeaderColumn dataField='eventName'>Event Name</TableHeaderColumn>
-                <TableHeaderColumn dataField='description'>Description</TableHeaderColumn>
+              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus-sign"></span>Add</button>
+              <BootstrapTable data={this.state.eventList}  search={true}  pagination striped hover bordered>
+
+                <TableHeaderColumn dataField='type' isKey={true} dataSort={true}>Type</TableHeaderColumn>
+                <TableHeaderColumn dataField='eventName' dataSort={true}>Event Name</TableHeaderColumn>
+                <TableHeaderColumn dataField='description' dataSort={true}>Description</TableHeaderColumn>
               </BootstrapTable>
             </div>
           </div>
         </div>
-      </form>
     );
   }
 }
+
+
 
 //   //Mapping the state to props for using inside the class
 function mapStateToProps(state){
@@ -82,11 +59,4 @@ function mapStateToProps(state){
   };
 }
 
-export default reduxForm({
-  form: 'event',
-  fields: [
-    'type',
-    'eventName',
-    'description'
-  ]
-}, mapStateToProps, actions) (Form_Event);
+export default connect(mapStateToProps, actions) (Form_Event);
