@@ -5,27 +5,29 @@ const passportService = require('./services/passport');
 //##################################################################
 const passport = require('passport');
 
-const facebook = require('./services/Facebook');
+const facebook_auth = require('./services/facebook_auth');
 const facebook_deauth = require('./services/facebook_deauth');
 
-const authLinkedin = require('./services/authLinkedin');
+const linkedin_auth = require('./services/linkedin_auth');
 const linkedin_deauth = require('./services/linkedin_deauth');
-const linkedin = require('./services/Linkedin');
+const linkedin_handoff = require('./services/linkedin_handoff');
 
 
-const twitter = require('./services/Twitter');
+const twitter_auth = require('./services/twitter_auth');
 const twitter_deauth = require('./services/twitter_deauth');
 
 const dashboard = require('./services/dashboard');
 
-const stackoverflow = require('./services/StackOverflow');
+const stackoverflow_handoff = require('./services/stackoverflow_handoff');
+const stackoverflow_auth = require('./services/stackoverflow_auth');
 const stackoverflow_deauth = require('./services/stackoverflow_deauth');
 
-const github = require('./services/GitHub');
+const github_handoff = require('./services/github_handoff');
+const github_auth = require('./services/github_auth');
 const github_deauth = require('./services/github_deauth');
 
-const authInstagram = require('./services/authInstagram');
-const instagram = require('./services/Instagram');
+const instagram_auth = require('./services/instagram_auth');
+const instagram_handoff = require('./services/instagram_handoff');
 const instagram_deauth = require('./services/instagram_deauth');
 
 
@@ -56,23 +58,21 @@ module.exports = function(app){
   app.get('/getEvent/:id', Events.getEvents);
 
   //DIFFERENT SOCIAL MEDIA ARE HANDLED BY DIFFERENT SERVICES
-  app.put('/pushTwitterData/:id', twitter);
-  app.put('/pushStackOverflowData/:id', stackoverflow);
-  app.put('/pushGitHubData/:id', github);
-
   app.put('/twitter_deauth/:id', twitter_deauth);
-  app.put('/github_deauth/:id', github_deauth);
+  app.put('/pushTwitterData/:id', twitter_auth);
+
   app.put('/stackoverflow_deauth/:id', stackoverflow_deauth);
+  app.get('/stackoverflow_auth', stackoverflow_auth, stackoverflow_handoff);
 
+  app.put('/github_deauth/:id', github_deauth);
+  app.get('/github_auth', github_auth, github_handoff);
 
+  app.put('/facebook_deauth/:id', facebook_deauth);
+  app.put('/facebook_auth/:id', facebook_auth);
 
+  app.put('/instagram_deauth/:id', instagram_deauth);
+  app.get('/instagram_auth', instagram_auth, instagram_handoff);
 
-  app.put('/deauthFacebook/:id', facebook_deauth);
-  app.put('/pushFacebookData/:id', facebook);
-
-  app.put('/deauthInstagram/:id', instagram_deauth);
-  app.get('/authInstagram', authInstagram, instagram);
-
-  app.put('/deauthLinkedin/:id', linkedin_deauth);
-  app.get('/authLinkedin',authLinkedin, linkedin);
+  app.put('/linkedin_deauth/:id', linkedin_deauth);
+  app.get('/linkedin_auth',linkedin_auth, linkedin_handoff);
 }

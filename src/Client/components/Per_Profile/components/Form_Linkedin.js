@@ -11,7 +11,7 @@ class Form_Linkedin extends Component {
   handleAuth(){
     const token = localStorage.getItem('token');
     const user_id = jwt.decode(token, config.secret);
-    window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${config.Linkedin.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/authLinkedin&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
+    window.open(`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${config.Linkedin.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/linkedin_auth&state=${user_id.sub}&scope=r_basicprofile,r_emailaddress`, "Linkedin Authorization", "titlebar=yes, width=500, height=450");
   }
 
   handleDeauth(){
@@ -46,13 +46,14 @@ class Form_Linkedin extends Component {
                     data-dismiss="modal" onClick={this.handleDeauth.bind(this)}>DISCONNECT</button>
                 </div>
               </div>
+
               <div className="modal-footer">
                 <div className="modal-button">
                   <button type="submit" className="btn btn-primary"
                     data-dismiss="modal" onClick={this.linkedin_button.bind(this)}>FINISH</button>
                 </div>
-
               </div>
+
             </div>
           </div>
         </div>

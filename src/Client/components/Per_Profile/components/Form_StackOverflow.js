@@ -9,7 +9,7 @@ class Form_StackOverflow extends Component {
   handleFormSubmit({username}){
     const type = 'StackOverflow';
     const token = localStorage.getItem('token');
-    this.props.socialmedia_integrate({type, token ,username});
+    this.props.socialmedia_auth({type, token ,username});
   }
 
   deauthStackoverflow(){

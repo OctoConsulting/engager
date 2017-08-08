@@ -1,6 +1,4 @@
 const User = require('../models/user');
-const twitter = require('./dashboard_services/dashboard_twitter');
-const github = require('./github');
 const mongoose = require('mongoose');
 
 const twitter_ico = "http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Twitter-icon.png";

@@ -12,6 +12,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Per_Profile from './components/Per_Profile/Per_Profile';
 import Pub_Profile from './components/Pub_Profile/Pub_Profile';
 import Require_Auth from './components/authentication/require_auth';
+
+import GitHub_Auth from './components/GitHub_Redirect';
 import configureStore from "./store/configure-store";
 const store = configureStore();
 //routing
