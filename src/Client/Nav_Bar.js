@@ -18,14 +18,17 @@ class Nav_Bar extends Component{
       <div className="navbar navbar-default navbar-fixed-top" role="navigation">
         <div className="container">
             <div className="navbar-header">
+              <div className="navbar-brand navbar-left" style={{marginTop: "6px"}}>ENGAGER</div>
+
                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <div className="navbar-brand" style={{marginTop: "6px"}}>ENGAGER</div>
+
+
             </div>
-            <div className="collapse navbar-collapse">
+            <div className="collapse navbar-collapse navbar-right">
                 <ul className="nav navbar-nav">
                     <li><Link to="/dashboard">Home</Link></li>
                     <li><Link to="/Profile">Profile</Link></li>

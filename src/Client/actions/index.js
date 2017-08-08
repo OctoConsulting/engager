@@ -269,8 +269,8 @@ export function facebook_deauth(userToken){
           .catch( () => dispatch(authError(response.error)));
   }
 }
-
-
+//#########################################################################
+//LINKEDIN
 export function linkedin_auth(token){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
@@ -281,7 +281,7 @@ export function linkedin_auth(token){
         .catch(() => dispatch(authError(response.error)))
   }
 }
-//LINKEDIN DEAUTH
+
 export function linkedin_deauth(token){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
@@ -292,7 +292,10 @@ export function linkedin_deauth(token){
           .catch( () => dispatch(authError(response.error)));
   }
 }
+//########################################################################
 
+
+//INSTAGRAM
 export function instagram_auth(token){
   return function(dispatch){
     const user_id = jwt.decode(token, config.secret);
@@ -327,7 +330,6 @@ export function retrieveEvents(token){
   return function (dispatch){
     axios.get(`${SERVER_URL}/getEvent/${user_id.sub}`)
           .then( response => {
-            console.log('retrieving data');
             dispatch({type: EVENTS_INFO, payload: response.data});
           })
           .catch( () => console.log("error getting event list"));
@@ -338,10 +340,12 @@ export function addingEvent({token, type, eventName, description}){
   const user_id = jwt.decode(token, config.secret);
   return function (dispatch){
     axios.put(`${SERVER_URL}/addingEvent/${user_id.sub}`, {type, eventName, description})
-          .then( response => {
-            console.log("Done saving");
-            retrieveEvents(token);
-            console.log("After retrieve");
+          .then( () => {
+            axios.get(`${SERVER_URL}/getEvent/${user_id.sub}`)
+                  .then( result => {
+                    dispatch({type: EVENTS_INFO, payload: result.data});
+                  })
+                  .catch( () => console.log("error getting event list"));
           })
           .catch( () => dispatch(authError(response.error)));
   }
