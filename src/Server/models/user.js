@@ -46,6 +46,12 @@ const userSchema = new Schema({
     actions: Number,
     points: Number
   },
+  jsfiddle: {
+    username: String,
+    data: Object,
+    actions: Number,
+    points: Number
+  },
   github: {
     username: String,
     data: Object,

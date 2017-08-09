@@ -94,6 +94,12 @@ exports.signup = function(req, res, next){
         actions: 0,
         points: 0
       },
+      jsfiddle: {
+        username: '',
+        data: null,
+        actions: 0,
+        points: 0
+      },
       github: {
         username: '',
         data: null,
