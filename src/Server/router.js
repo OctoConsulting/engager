@@ -10,7 +10,7 @@ const facebook_deauth = require('./services/facebook_deauth');
 
 const authLinkedin = require('./services/authLinkedin');
 const linkedin_deauth = require('./services/linkedin_deauth');
-const linkedin = require('./services/Linkedin');
+const linkedin = require('./services/LinkedIn');
 
 
 const twitter = require('./services/Twitter');
@@ -20,6 +20,9 @@ const dashboard = require('./services/dashboard');
 
 const stackoverflow = require('./services/StackOverflow');
 const stackoverflow_deauth = require('./services/stackoverflow_deauth');
+
+const jsfiddle = require('./services/jsFiddle');
+//const jsfiddle_deauth = require('./services/jsfiddle_deauth');
 
 const github = require('./services/GitHub');
 const github_deauth = require('./services/github_deauth');
@@ -58,6 +61,7 @@ module.exports = function(app){
   //DIFFERENT SOCIAL MEDIA ARE HANDLED BY DIFFERENT SERVICES
   app.put('/pushTwitterData/:id', twitter);
   app.put('/pushStackOverflowData/:id', stackoverflow);
+  app.put('/pushJsFiddleData/:id', jsfiddle);
   app.put('/pushGitHubData/:id', github);
 
   app.put('/twitter_deauth/:id', twitter_deauth);

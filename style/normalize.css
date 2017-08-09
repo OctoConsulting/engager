@@ -4336,6 +4336,51 @@ ul.days li span {
   border-radius: 50% 50% 50% 50%;
 }
 
+/*####################jsFiddle##############################*/
+.btn-jsFiddle {
+  color: #FFF;
+  background-color: #0277BD;
+  border-color: #0277BD;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-jsFiddle:hover, .btn-jsFiddle:focus, .btn-jsFiddle:active {
+  color: #FFF !important;
+  background-color: #0277BD !important;
+}
+.btn-jsFiddle.btn-stroke {
+  border: 1px double #0277BD;
+  background-color: transparent;
+  color: #0277BD;
+}
+.btn-jsFiddle.btn-stroke:hover {
+  color: #FFF !important;
+  background-color: #0277BD;
+}
+.btn-jsFiddle.btn-solid {
+  border: 1px solid #00a0d1;
+}
+.btn-jsFiddle.btn-dashed {
+  border: 1px dashed #00a0d1;
+}
+.btn-jsFiddle.btn-dotted {
+  border: 1px dotted #00a0d1;
+}
+.btn-jsFiddle.btn-double {
+  border: 4px double #00a0d1;
+}
+.btn-jsFiddle.btn-inset {
+  border: 4px inset #00a0d1;
+}
+.btn-jsFiddle.btn-circle {
+  padding-left: 0;
+  padding-right: 0;
+  width: 34px;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50% 50% 50% 50%;
+}
+/*##########################################################*/
+
 .btn-stackOverFlow {
   color: #FFF;
   background-color: #f48024;
@@ -8069,6 +8114,24 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-linkedin .morris-hover-row-label {
   background-color: #00799e;
 }
+
+/*#####################jsFiddle###########################*/
+.bg-jsFiddle {
+  background-color: #0277BD !important;
+  border: 1px solid #0277BD;
+  color: white;
+}
+.bg-jsFiddle a, .bg-jsFiddle i, .bg-jsFiddle span, .bg-jsFiddle small, .bg-jsFiddle p {
+  color: white;
+}
+.bg-jsFiddle .flot-tick-label.tickLabel {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.bg-jsFiddle .morris-hover-row-label {
+  background-color: #2d4373;
+}
+
+
 
 
 

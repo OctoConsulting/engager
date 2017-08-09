@@ -14,6 +14,7 @@ import Form_Facebook from './components/Form_Facebook';
 import Form_Instagram from './components/Form_Instagram';
 import Form_Linkedin from './components/Form_Linkedin';
 import Form_Event from './components/Form_Event';
+import Form_JsFiddle from './components/Form_JsFiddle';
 
 import Avatar from 'react-avatar';
 import NavBar from '../../Nav_Bar';
@@ -28,6 +29,7 @@ class Per_Profile extends Component {
       facebook: this.props.facebook,
       twitter: this.props.twitter,
       stackoverflow: this.props.stackoverflow,
+      jsfiddle: this.props.jsfiddle,
       instagram: this.props.instagram,
       github: this.props.github,
       linkedin: this.props.linkedin
@@ -41,6 +43,7 @@ class Per_Profile extends Component {
       facebook: nextProps.facebook,
       twitter: nextProps.twitter,
       stackoverflow: nextProps.stackoverflow,
+      jsfiddle: nextProps.jsfiddle,
       instagram: nextProps.instagram,
       github: nextProps.github,
       linkedin: nextProps.linkedin
@@ -134,6 +137,31 @@ class Per_Profile extends Component {
                         <span>{(this.state.stackoverflow !== null && this.state.stackoverflow != '') ? this.state.stackoverflow : connect}</span>
                     </button>
                     <Form_StackOverflow />
+                  </div>
+                </div>
+            </div>
+
+
+            {/*
+              #############################################################
+              #                                                           #
+              #                   JSFIDDLE INTEGRATION                    #
+              #                                                           #
+              #############################################################
+              */}
+
+            <div className="col-md-2 col-sm-4 col-xs-6">
+                <div className="panel rounded shadow">
+                  <div className="panel-heading text-center bg-jsFiddle">
+                      <p className="inner-all no-margin">
+                          <i className="fa fa-jsfiddle fa-5x"></i>
+                      </p>
+                  </div>
+                  <div className="panel-body text-center">
+                    <button className="btn btn-jsFiddle btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#jsfiddle">
+                        <span>{(this.state.jsfiddle !== null && this.state.jsfiddle != '') ? this.state.jsfiddle : connect}</span>
+                    </button>
+                    <Form_JsFiddle />
                   </div>
                 </div>
             </div>
@@ -232,7 +260,8 @@ function mapStateToProps(state){
     stackoverflow: state.integration.stackoverflow,
     instagram: state.integration.instagram,
     github: state.integration.github,
-    linkedin: state.integration.linkedin
+    linkedin: state.integration.linkedin,
+    jsfiddle: state.integration.jsfiddle
   };
 }
 

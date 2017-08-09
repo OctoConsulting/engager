@@ -36,7 +36,6 @@ module.exports = function(req, res, next){
       actions: parsedBody.numConnections,
       points: parsedBody.numConnections
     };
-    //console.log(parsedBody.pictureUrls.values[0]);
     User.findByIdAndUpdate({_id: user_id}, {$set: {linkedin : updated}})
         .then(() => User.findById({_id: user_id}))
         .then( user => res.send(html_response_string))
@@ -44,7 +43,6 @@ module.exports = function(req, res, next){
 
     User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: parsedBody.pictureUrls.values[0]}})
         .then(() => User.findById({_id: user_id}))
-        .then( user => res.send(user.avatar))
         .catch(next);
 
   });
