@@ -54,7 +54,7 @@ exports.signup = function(req, res, next){
     //if a user with email does NOT exist, create and save user record
     const user = new User({
       name: name,
-      avatar: 'http://www.octoconsulting.com/wp-content/uploads/2016/12/picture-300-1475249213.jpg',
+      avatar: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/000/230/34e/068cd16.jpg',
       email: email,
       password: password,
       verified: verified,

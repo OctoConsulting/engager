@@ -30,7 +30,7 @@ class Nav_Bar extends Component{
             </div>
             <div className="collapse navbar-collapse navbar-right">
                 <ul className="nav navbar-nav">
-                    <li><Link to="/dashboard">Home</Link></li>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
                     <li><Link to="/Profile">Profile</Link></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
