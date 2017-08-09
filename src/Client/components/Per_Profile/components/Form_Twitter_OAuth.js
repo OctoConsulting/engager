@@ -3,13 +3,32 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 import {reduxForm} from 'redux-form';
+import jwt from 'jwt-simple';
+import config from '../../../../Server/config';
+import request from 'request';
 
-class Form_Twitter extends Component {
 
-  handleFormSubmit({username}){
-    const type = 'twitter';
-    const token = localStorage.getItem('token');
-    this.props.socialmedia_auth({type, token ,username});
+class Form_Twitter_OAuth extends Component {
+
+  handleAuth(){
+    const options = {
+      url: 'https://api.twitter.com/oauth/request_token',
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'user-agent': 'nodejs'
+      },
+      forms: {
+        'oauth_callback' : 'http://localhost:3090/twitter_auth',
+        'oauth_consumer_key': 'bb65c1a4262349d78765097663077982'
+      }
+    };
+
+    request(options, function(err, response, body){
+      console.log(body);
+    });
+
   }
 
   deauthTwitter(){
@@ -38,7 +57,7 @@ class Form_Twitter extends Component {
               <div className="modal-footer">
                 <div className="modal-button">
                   <button type="submit" className="btn btn-primary" data-dismiss="modal"
-                    onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>CONNECT</button>
+                    onClick= {this.handleAuth.bind(this)}>CONNECT</button>
 
                     <button type="button" className="btn btn-warning" data-dismiss="modal"
                       onClick= {this.deauthTwitter.bind(this)}>DISCONNECT</button>
@@ -57,4 +76,4 @@ export default reduxForm({
   fields: [
     'username'
   ]
-}, null, actions) (Form_Twitter);
+}, null, actions) (Form_Twitter_OAuth);

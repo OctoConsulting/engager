@@ -16,8 +16,9 @@ class Form_GitHub_OAuth extends Component {
 
   deauthGitHub(){
     window.open(`https://github.com/logout`, "GitHub Authorization", "titlebar=yes, width=500, height=450");
+    const type = 'github';
     const token = localStorage.getItem('token');
-    this.props.github_deauth(token);
+    this.props.socialmedia_deauth({type, token});
   }
 
   github_button(){

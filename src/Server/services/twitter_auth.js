@@ -30,7 +30,7 @@ module.exports = function(req, res, next){
         }
       }
     }
-  
+
   const updated = {
       username: twitter_username,
       data: array,
@@ -40,7 +40,6 @@ module.exports = function(req, res, next){
 
   User.findByIdAndUpdate({_id: user_id}, {$set: {twitter: updated}})
       .then(() => User.findById({_id: user_id}))
-      .then( user => res.send(user.twitter))
       .catch(next);
   });
 
@@ -50,6 +49,7 @@ module.exports = function(req, res, next){
     avatar = avatar.replace("_normal", "");
     User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: avatar}})
         .then(() => User.findById({_id: user_id}))
+        .then(user => res.send(user))
         .catch(next);
   });
 }

@@ -8,7 +8,7 @@ export const USERS = 'USERS';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const EVENTS_INFO = 'EVENTS_INFO';
 
-
+export const AVATAR = 'AVATAR';
 export const FACEBOOK = 'FACEBOOK';
 export const TWITTER = 'TWITTER';
 export const STACKOVERFLOW = 'STACKOVERFLOW';

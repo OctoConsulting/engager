@@ -7,6 +7,7 @@ import {
   AUTH_ERROR,
   CLEAR_ERROR,
   USER_INFO,
+  AVATAR,
   USERS,
   EVENTS_INFO,
   FACEBOOK,
@@ -132,6 +133,7 @@ export function retrieveUser(token){
             email: response.data.email
           }
           dispatch({type: USER_INFO, payload: filtered_data});
+          dispatch({type:AVATAR, payload:response.data.avatar});
           dispatch({type:TWITTER, payload:response.data.twitter.username});
           dispatch({type:STACKOVERFLOW, payload:response.data.stackoverflow.username});
           dispatch({type:GITHUB, payload:response.data.github.username});
@@ -180,23 +182,17 @@ export function socialmedia_auth({type, token, username}){
     let data = {};
     let cmd = '';
     switch(type){
-      case 'Twitter':
+      case 'twitter':
         data = {
           'twitter': username
         };
-        cmd = 'pushTwitterData';
+        cmd = 'twitter_auth';
         break;
-      case 'StackOverflow':
+      case 'stackoverflow':
         data = {
           'stackoverflow': username
         }
-        cmd = 'pushStackOverflowData';
-        break;
-      case 'GitHub':
-        data = {
-          'github': username
-        };
-        cmd = 'pushGitHubData';
+        cmd = 'stackoverflow_auth';
         break;
     }
 
@@ -204,17 +200,15 @@ export function socialmedia_auth({type, token, username}){
         .then( response => {
           switch(type){
             case 'Twitter':
-              dispatch({type:TWITTER, payload:response.data.username});
+              dispatch({type:TWITTER, payload:response.data.twitter.username});
+              dispatch({type:AVATAR, payload: response.data.avatar})
               break;
             case 'StackOverflow':
               dispatch({type:STACKOVERFLOW, payload:response.data.username});
               break;
-            case 'GitHub':
-              dispatch({type:GITHUB, payload:response.data.username});
-              break;
           }
         })
-        .catch( () => dispatch(authError(response.error)));
+        .catch( response => dispatch(authError(response.error)));
   }
 }
 
@@ -236,7 +230,7 @@ export function socialmedia_deauth({type, token}){
               break;
           }
         })
-        .catch( () => dispatch(authError(response.error)));
+        .catch( response => dispatch(authError(response.error)));
   }
 }
 
@@ -255,7 +249,7 @@ export function facebook_auth({accessToken, userToken}){
           .then( response => {
             dispatch({type:FACEBOOK, payload:response.data.username});
           })
-          .catch( error => dispatch(authError(error.status)));
+          .catch( response => dispatch(authError(error.status)));
   }
 }
 
@@ -266,7 +260,7 @@ export function facebook_deauth(userToken){
           .then( response => {
             dispatch({type:FACEBOOK, payload:''});
           })
-          .catch( () => dispatch(authError(response.error)));
+          .catch( response => dispatch(authError(response.error)));
   }
 }
 
@@ -278,7 +272,7 @@ export function github_auth(token){
         .then(response => {
           dispatch({type:GITHUB, payload:response.data.github.username});
         })
-        .catch(() => dispatch(authError(response.error)))
+        .catch(response => dispatch(authError(response.error)))
   }
 }
 
@@ -290,9 +284,10 @@ export function linkedin_auth(token){
     const user_id = jwt.decode(token, config.secret);
     axios.get(`${SERVER_URL}/user/${user_id.sub}`)
         .then(response => {
+          dispatch({type:AVATAR, payload:response.data.avatar});
           dispatch({type:LINKEDIN, payload:response.data.linkedin.username});
         })
-        .catch(() => dispatch(authError(response.error)))
+        .catch(response => dispatch(authError(response.error)))
   }
 }
 
@@ -303,7 +298,7 @@ export function linkedin_deauth(token){
           .then( response => {
             dispatch({type:LINKEDIN, payload: ''});
           })
-          .catch( () => dispatch(authError(response.error)));
+          .catch( response => dispatch(authError(response.error)));
   }
 }
 //########################################################################
@@ -317,7 +312,7 @@ export function instagram_auth(token){
         .then(response => {
           dispatch({type:INSTAGRAM, payload:response.data.instagram.username});
         })
-        .catch(() => dispatch(authError(response.error)))
+        .catch(response => dispatch(authError(response.error)))
   }
 }
 
@@ -328,7 +323,7 @@ export function instagram_deauth(token){
           .then( response => {
             dispatch({type:INSTAGRAM, payload: ''});
           })
-          .catch( () => dispatch(authError(response.error)));
+          .catch( response => dispatch(authError(response.error)));
   }
 }
 /*

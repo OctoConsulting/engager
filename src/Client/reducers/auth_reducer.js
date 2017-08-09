@@ -6,14 +6,16 @@ import {
   USER_INFO,
   USERS,
   EVENTS_INFO,
-  FACEBOOK
+  FACEBOOK,
+  AVATAR
 } from '../actions/types';
 
 let defState = {
   authenticated: false,
   error: '',
   userInfo: null,
-  dash: null
+  dash: null,
+  avatar: ''
 }
 
 export default function(state = defState, action) {
@@ -32,6 +34,8 @@ export default function(state = defState, action) {
       return {...state, dash: action.payload};
     case EVENTS_INFO:
       return {...state, events: action.payload};
+    case AVATAR:
+      return {...state, avatar: action.payload};
     default:
       return state;
   }

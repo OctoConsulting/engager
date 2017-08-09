@@ -21,6 +21,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  node:{
+    fs: "empty",
+    net: "empty",
+    tls: "empty"
+  },
   devtool: 'source-map',
   devServer: {
     historyApiFallback: true
