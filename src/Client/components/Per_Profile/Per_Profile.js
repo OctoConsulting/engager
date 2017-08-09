@@ -8,15 +8,13 @@ import config from '../../../Server/config';
 
 
 import Form_Twitter from './components/Form_Twitter';
-
 import Form_GitHub from './components/Form_GitHub';
-import Form_GitHub_OAuth from './components/Form_GitHub_OAuth';
-
 import Form_StackOverflow from './components/Form_StackOverflow';
 import Form_Facebook from './components/Form_Facebook';
 import Form_Instagram from './components/Form_Instagram';
 import Form_Linkedin from './components/Form_Linkedin';
 import Form_Event from './components/Form_Event';
+import Form_JsFiddle from './components/Form_JsFiddle';
 
 import Avatar from 'react-avatar';
 import NavBar from '../../Nav_Bar';
@@ -28,10 +26,10 @@ class Per_Profile extends Component {
     super(props);
     this.state = {
       modified: this.props.personalInfo,
-      avatar: this.props.avatar,
       facebook: this.props.facebook,
       twitter: this.props.twitter,
       stackoverflow: this.props.stackoverflow,
+      jsfiddle: this.props.jsfiddle,
       instagram: this.props.instagram,
       github: this.props.github,
       linkedin: this.props.linkedin
@@ -42,10 +40,10 @@ class Per_Profile extends Component {
   componentWillReceiveProps(nextProps){
     this.setState({
       modified: nextProps.personalInfo,
-      avatar: nextProps.avatar,
       facebook: nextProps.facebook,
       twitter: nextProps.twitter,
       stackoverflow: nextProps.stackoverflow,
+      jsfiddle: nextProps.jsfiddle,
       instagram: nextProps.instagram,
       github: nextProps.github,
       linkedin: nextProps.linkedin
@@ -63,7 +61,7 @@ class Per_Profile extends Component {
             <div className="col-md-12 profile-card">
               <div className="profile-cover">
                <div className="profile-avatar">
-                  <img src={(this.state.avatar !== null) ? this.state.avatar : ''} alt={(this.state.modified !== null) ? this.state.modified.name : ''} />
+                  <img src={(this.state.modified !== null) ? this.state.modified.avatar : ''} alt={(this.state.modified !== null) ? this.state.modified.name : ''} />
                </div>
                <div className="profile-details">
                    <h1>{(this.state.modified !== null) ? this.state.modified.name : ''}</h1>
@@ -80,7 +78,7 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-facebook">
                       <p className="inner-all no-margin">
@@ -103,7 +101,7 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-twitter">
                       <p className="inner-all no-margin">
@@ -127,7 +125,7 @@ class Per_Profile extends Component {
               #############################################################
               */}
 
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-stackOverFlow">
                       <p className="inner-all no-margin">
@@ -143,6 +141,32 @@ class Per_Profile extends Component {
                 </div>
             </div>
 
+
+            {/*
+              #############################################################
+              #                                                           #
+              #                   JSFIDDLE INTEGRATION                    #
+              #                                                           #
+              #############################################################
+              */}
+
+            <div className="col-md-3 col-sm-4 col-xs-6">
+                <div className="panel rounded shadow">
+                  <div className="panel-heading text-center bg-jsFiddle">
+                      <p className="inner-all no-margin">
+                          <i className="fa fa-jsfiddle fa-5x"></i>
+                      </p>
+                  </div>
+                  <div className="panel-body text-center">
+                    <button className="btn btn-jsFiddle btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#jsfiddle">
+                        <span>{(this.state.jsfiddle !== null && this.state.jsfiddle != '') ? this.state.jsfiddle : connect}</span>
+                    </button>
+                    <Form_JsFiddle />
+                  </div>
+                </div>
+                </div>
+            </div>
+
             {/*
               #############################################################
               #                                                           #
@@ -150,8 +174,8 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="row">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-instagram">
                       <p className="inner-all no-margin">
@@ -176,7 +200,7 @@ class Per_Profile extends Component {
               #############################################################
               */}
 
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-github">
                       <p className="inner-all no-margin">
@@ -188,12 +212,12 @@ class Per_Profile extends Component {
                         <span>{(this.state.github !== null && this.state.github != '') ? this.state.github : connect}</span>
                     </button>
 
-                    <Form_GitHub_OAuth />
+                    <Form_GitHub />
 
                   </div>
-                </div>
-            </div>
 
+            </div>
+          </div>
             {/*
               #############################################################
               #                                                           #
@@ -201,8 +225,7 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-
-            <div className="col-md-2 col-sm-4 col-xs-6">
+              <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-linkedin">
                       <p className="inner-all no-margin">
@@ -219,7 +242,7 @@ class Per_Profile extends Component {
 
                   </div>
                 </div>
-            </div>
+                </div>
           </div>
           <Form_Event />
         </div>
@@ -232,13 +255,13 @@ class Per_Profile extends Component {
 function mapStateToProps(state){
   return {
     personalInfo: state.auth.userInfo,
-    avatar: state.auth.avatar,
     facebook: state.integration.facebook,
     twitter: state.integration.twitter,
     stackoverflow: state.integration.stackoverflow,
     instagram: state.integration.instagram,
     github: state.integration.github,
-    linkedin: state.integration.linkedin
+    linkedin: state.integration.linkedin,
+    jsfiddle: state.integration.jsfiddle
   };
 }
 

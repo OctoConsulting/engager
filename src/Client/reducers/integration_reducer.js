@@ -4,7 +4,8 @@ import {
   STACKOVERFLOW,
   INSTAGRAM,
   GITHUB,
-  LINKEDIN
+  LINKEDIN,
+  JSFIDDLE
 } from '../actions/types';
 
 let init = {
@@ -13,7 +14,8 @@ let init = {
   stackoverflow: '',
   instagram: '',
   github: '',
-  linkedin: ''
+  linkedin: '',
+  jsfiddle: ''
 }
 
 export default function(state = init, action) {
@@ -30,6 +32,8 @@ export default function(state = init, action) {
       return {...state, github: action.payload};
     case LINKEDIN:
       return {...state, linkedin: action.payload};
+    case JSFIDDLE:
+      return {...state, jsfiddle: action.payload};
     default:
       return state;
   }

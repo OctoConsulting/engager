@@ -15,3 +15,4 @@ export const STACKOVERFLOW = 'STACKOVERFLOW';
 export const INSTAGRAM = 'INSTAGRAM';
 export const GITHUB = 'GITHUB';
 export const LINKEDIN = 'LINKEDIN';
+export const JSFIDDLE = 'JSFIDDLE';

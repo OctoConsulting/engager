@@ -15,7 +15,8 @@ import {
   STACKOVERFLOW,
   INSTAGRAM,
   GITHUB,
-  LINKEDIN} from './types';
+  LINKEDIN,
+  JSFIDDLE} from './types';
 import config from '../../Server/config';
 const SERVER_URL = 'http://localhost:3090';
 
@@ -140,6 +141,7 @@ export function retrieveUser(token){
           dispatch({type:FACEBOOK, payload:response.data.facebook.username});
           dispatch({type:LINKEDIN, payload:response.data.linkedin.username});
           dispatch({type:INSTAGRAM, payload:response.data.instagram.username});
+          dispatch({type:JSFIDDLE, payload:response.data.jsfiddle.username});
         })
         .catch(() => dispatch(authError(response.error)))
   }
@@ -194,17 +196,25 @@ export function socialmedia_auth({type, token, username}){
         }
         cmd = 'stackoverflow_auth';
         break;
+      case 'jsfiddle':
+        data = {
+          'jsfiddle': username
+        };
+        cmd = 'jsfiddle_auth'
     }
 
     axios.put(`${SERVER_URL}/${cmd}/${user_id.sub}`, data)
         .then( response => {
           switch(type){
-            case 'Twitter':
+            case 'twitter':
               dispatch({type:TWITTER, payload:response.data.twitter.username});
               dispatch({type:AVATAR, payload: response.data.avatar})
               break;
-            case 'StackOverflow':
+            case 'stackoverflow':
               dispatch({type:STACKOVERFLOW, payload:response.data.username});
+              break;
+            case 'jsfiddle':
+              dispatch({type:JSFIDDLE, payload:response.data.username});
               break;
           }
         })
@@ -228,6 +238,8 @@ export function socialmedia_deauth({type, token}){
             case 'github':
               dispatch({type:GITHUB, payload:''});
               break;
+            case 'jsfiddle':
+              dispatch({type:JSFIDDLE, payload: ''});
           }
         })
         .catch( response => dispatch(authError(response.error)));

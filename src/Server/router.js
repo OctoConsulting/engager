@@ -12,6 +12,7 @@ const linkedin_auth = require('./services/linkedin_auth');
 const linkedin_deauth = require('./services/linkedin_deauth');
 const linkedin_handoff = require('./services/linkedin_handoff');
 
+const jsfiddle_auth = require('./services/jsfiddle_auth');
 
 const twitter_auth = require('./services/twitter_auth');
 const twitter_deauth = require('./services/twitter_deauth');
@@ -62,7 +63,9 @@ module.exports = function(app){
   app.put('/twitter_auth/:id', twitter_auth);
 
   app.put('/stackoverflow_deauth/:id', stackoverflow_deauth);
-  app.get('/stackoverflow_auth', stackoverflow_auth, stackoverflow_handoff);
+  app.get('/stackoverflow_auth/:id', stackoverflow_handoff);
+
+  app.put('/jsfiddle_auth/:id', jsfiddle_auth);
 
   app.put('/github_deauth/:id', github_deauth);
   app.get('/github_auth', github_auth, github_handoff);
