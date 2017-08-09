@@ -2,6 +2,15 @@ const User = require('../models/user');
 const request = require('request');
 const config = require('../config');
 
+const html_response_string = `<div class="message-box">
+  <div class="panel panel-success">
+    <div class="panel-heading"><h4><strong>GitHub Successfully logged in</strong></h4></div>
+  </div>
+  <script>
+    setTimeout(() => window.close(), 1000);
+  </script>
+</div>`;
+
 module.exports = function(req, res, next){
   const user_id = req.result.user_id;
   const github_token = req.result.access_token;
@@ -51,7 +60,7 @@ module.exports = function(req, res, next){
 
       User.findByIdAndUpdate({_id: user_id}, {$set: {github : updated}})
           .then(() => User.findById({_id: user_id}))
-          .then( user => res.send(user.github))
+          .then( user => res.send(html_response_string))
           .catch(next);
       });
   });

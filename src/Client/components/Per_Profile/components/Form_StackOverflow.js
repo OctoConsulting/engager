@@ -7,7 +7,7 @@ import {reduxForm} from 'redux-form';
 class Form_StackOverflow extends Component {
 
   handleFormSubmit({username}){
-    const type = 'StackOverflow';
+    const type = 'stackoverflow';
     const token = localStorage.getItem('token');
     this.props.socialmedia_auth({type, token ,username});
   }

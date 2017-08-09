@@ -59,7 +59,7 @@ module.exports = function(app){
 
   //DIFFERENT SOCIAL MEDIA ARE HANDLED BY DIFFERENT SERVICES
   app.put('/twitter_deauth/:id', twitter_deauth);
-  app.put('/pushTwitterData/:id', twitter_auth);
+  app.put('/twitter_auth/:id', twitter_auth);
 
   app.put('/stackoverflow_deauth/:id', stackoverflow_deauth);
   app.get('/stackoverflow_auth', stackoverflow_auth, stackoverflow_handoff);
