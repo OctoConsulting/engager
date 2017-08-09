@@ -78,7 +78,7 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-facebook">
                       <p className="inner-all no-margin">
@@ -101,7 +101,7 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-twitter">
                       <p className="inner-all no-margin">
@@ -125,7 +125,7 @@ class Per_Profile extends Component {
               #############################################################
               */}
 
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-stackOverFlow">
                       <p className="inner-all no-margin">
@@ -150,7 +150,7 @@ class Per_Profile extends Component {
               #############################################################
               */}
 
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-jsFiddle">
                       <p className="inner-all no-margin">
@@ -164,6 +164,7 @@ class Per_Profile extends Component {
                     <Form_JsFiddle />
                   </div>
                 </div>
+                </div>
             </div>
 
             {/*
@@ -173,8 +174,8 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="row">  
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-instagram">
                       <p className="inner-all no-margin">
@@ -199,7 +200,7 @@ class Per_Profile extends Component {
               #############################################################
               */}
 
-            <div className="col-md-2 col-sm-4 col-xs-6">
+            <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-github">
                       <p className="inner-all no-margin">
@@ -214,9 +215,9 @@ class Per_Profile extends Component {
                     <Form_GitHub />
 
                   </div>
-                </div>
+                
             </div>
-
+          </div>
             {/*
               #############################################################
               #                                                           #
@@ -224,8 +225,7 @@ class Per_Profile extends Component {
               #                                                           #
               #############################################################
               */}
-
-            <div className="col-md-2 col-sm-4 col-xs-6">
+              <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
                   <div className="panel-heading text-center bg-linkedin">
                       <p className="inner-all no-margin">
@@ -242,7 +242,15 @@ class Per_Profile extends Component {
 
                   </div>
                 </div>
-            </div>
+                </div>
+            
+         
+         
+         
+         
+         
+         
+         
           </div>
           <Form_Event />
         </div>
