@@ -63,7 +63,7 @@ export function verifyUser(token){
           .then( response => {
             console.log(response.data)
           })
-          .catch( () => dispatch(authError(response.error)));
+          .catch( response => dispatch(authError(response.error)));
   }
 }
 
@@ -127,7 +127,6 @@ export function retrieveUser(token){
 
     axios.get(`${SERVER_URL}/user/${user_id.sub}`)
         .then(response => {
-          console.log(response.data);
           const filtered_data = {
             name: response.data.name,
             avatar: response.data.avatar,
@@ -143,7 +142,7 @@ export function retrieveUser(token){
           dispatch({type:INSTAGRAM, payload:response.data.instagram.username});
           dispatch({type:JSFIDDLE, payload:response.data.jsfiddle.username});
         })
-        .catch(() => dispatch(authError(response.error)))
+        .catch(response => dispatch(authError(response.error)))
   }
 }
 
@@ -164,10 +163,19 @@ export function retrieveDashboard(){
         .then(response => {
            dispatch({type: USERS, payload: response.data});
         })
-        .catch(() => console.log("error"))
+        .catch(repsonse => console.log("error"))
   }
 }
 
+export function retrieveWeeklyDashboard(){
+  return function(dispatch){
+    axios.get(`${SERVER_URL}/dashboard_weekly_filter`)
+          .then( response => {
+            dispatch({type:USERS, payload:response.data});
+          })
+          .catch (response => console.log("Weekly board retrieval error!"));
+  }
+}
 
 /*
 ###########################################################################
@@ -207,7 +215,7 @@ export function socialmedia_auth({type, token, username}){
         .then( response => {
           switch(type){
             case 'twitter':
-              dispatch({type:TWITTER, payload:response.data.twitter.username});
+              dispatch({type:TWITTER, payload:response.data.username});
               dispatch({type:AVATAR, payload: response.data.avatar})
               break;
             case 'stackoverflow':

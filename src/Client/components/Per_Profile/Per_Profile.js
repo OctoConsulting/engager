@@ -9,6 +9,7 @@ import config from '../../../Server/config';
 
 import Form_Twitter from './components/Form_Twitter';
 import Form_GitHub from './components/Form_GitHub';
+import Form_GitHub_OAuth from './components/Form_GitHub_OAuth';
 import Form_StackOverflow from './components/Form_StackOverflow';
 import Form_Facebook from './components/Form_Facebook';
 import Form_Instagram from './components/Form_Instagram';
@@ -212,7 +213,7 @@ class Per_Profile extends Component {
                         <span>{(this.state.github !== null && this.state.github != '') ? this.state.github : connect}</span>
                     </button>
 
-                    <Form_GitHub />
+                    <Form_GitHub_OAuth />
 
                   </div>
 

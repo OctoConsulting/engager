@@ -16,9 +16,6 @@ class Dashboard extends Component{
   }
 
   componentWillReceiveProps(nextProps){
-    console.log("4");
-    console.log(nextProps);
-    console.log(nextProps.dash !== this.props.dash);
     this.setState({
       init: nextProps.users
     });
@@ -27,8 +24,10 @@ class Dashboard extends Component{
   imageFormatter(cell, row){
     return "<img class='dashboard-table-avatar' src='"+cell+"'/>" ;
   }
+  handleWeekly(){
+    this.props.retrieveWeeklyDashboard();
+  }
   render(){
-    data = this.props.users;
     return(
       <div>
         <div className="navbar">
@@ -38,6 +37,8 @@ class Dashboard extends Component{
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12">
                   <div className="panel rounded shadow">
+                    <button type="button" className="btn btn-primary"
+                      onClick={this.handleWeekly.bind(this)}>WEEKLY</button>
                     <BootstrapTable data={ this.state.init }  search={ true } pagination striped hover bordered>
                         <TableHeaderColumn dataField='avatar' isKey={ true } dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
                         <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
@@ -55,8 +56,6 @@ class Dashboard extends Component{
 }
 
 function mapStateToProps(state){
-  console.log('3');
-  console.log(state);
   return {
     users: state.auth.dash
   };

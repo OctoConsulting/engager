@@ -7,9 +7,11 @@ import {reduxForm} from 'redux-form';
 class Form_Twitter extends Component {
 
   handleFormSubmit({username}){
-    const type = 'twitter';
-    const token = localStorage.getItem('token');
-    this.props.socialmedia_auth({type, token ,username});
+    if (username){
+      const type = 'twitter';
+      const token = localStorage.getItem('token');
+      this.props.socialmedia_auth({type, token ,username});
+    }
   }
 
   deauthTwitter(){
