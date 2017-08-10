@@ -49,19 +49,19 @@ class Dashboard extends Component{
 
         <div className="col-md-6 col-sm-6 col-xs-6">
           <div id="sel" className="btn-group" data-toggle="radio">
-            <label className="btn btn-success">
+            <label className="btn btn-facebook btn-stroke">
               <input type="radio" value="option1" autoComplete="on"
                 data-toggle="sel"
                 checked={this.state.selectedOption==='option1'}
                 onChange={this.handleSelection.bind(this)}/> Weekly
               </label>
-              <label className="btn btn-success">
+              <label className="btn btn-facebook btn-stroke">
                 <input type="radio" value="option2" autoComplete="on"
                   data-toggle="sel"
                   checked={this.state.selectedOption==='option2'}
                   onChange={this.handleSelection.bind(this)}/> Monthly
                 </label>
-                <label className="btn btn-success">
+                <label className="btn btn-facebook btn-stroke">
                   <input type="radio" value="option3" autoComplete="on"
                     data-toggle="sel" checked={this.state.selectedOption==='option3'}
                     onChange={this.handleSelection.bind(this)}/> All time

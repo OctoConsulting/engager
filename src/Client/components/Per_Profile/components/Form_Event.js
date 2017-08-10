@@ -52,7 +52,7 @@ class Form_Event extends Component {
         <div className="event-box">
           <Form_Event_Modal/>
 
-            <button type="button" className="btn btn-github btn-stacked btn-stroke" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus"></span>Add</button>
+            <button type="button" className="btn btn-linkedin btn-stacked btn-stroke" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus"></span>Add</button>
 
 
           <div className="col-md-12 col-sm-12 col-xs-12">

@@ -282,7 +282,7 @@ input[type="text"], input[type="password"], input[type="email"]{
     overflow: hidden;
     font-size: 12px;
     line-height: 20px;
-    color: #737373;
+    color: #262626;
     text-overflow: ellipsis;
 }
 .card.hovercard .bottom {
@@ -296,7 +296,8 @@ input[type="text"], input[type="password"], input[type="email"]{
     font: 12px "Myriad Pro";
 }
 .profile-card .profile-cover {
-    background-color: black;
+    background-color: #255392;
+    border: 1px solid black;
     position: relative;
     height: 260px;
     width: 100%;
@@ -305,7 +306,9 @@ input[type="text"], input[type="password"], input[type="email"]{
     -moz-border-radius-topleft: 5px;
     -moz-border-radius-topright: 5px;
     border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
     margin-bottom: 20px;
 }
 .profile-card .profile-cover:hover {
