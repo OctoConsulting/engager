@@ -11,14 +11,12 @@ class Dashboard extends Component{
   constructor(props){
     super(props);
     this.state = {
-      init: this.props.users
+      init: this.props.users,
+      selectedOption: 'option3'
     }
   }
 
   componentWillReceiveProps(nextProps){
-    console.log("4");
-    console.log(nextProps);
-    console.log(nextProps.dash !== this.props.dash);
     this.setState({
       init: nextProps.users
     });
@@ -27,8 +25,22 @@ class Dashboard extends Component{
   imageFormatter(cell, row){
     return "<img class='dashboard-table-avatar' src='"+cell+"'/>" ;
   }
+
+  handleSelection(event){
+    this.setState({
+      selectedOption: event.target.value
+    });
+    if (event.target.value === 'option1'){
+      this.props.retrieveWeeklyDashboard();
+    }
+    else if (event.target.value === 'option2'){
+      this.props.retrieveMonthlyDashboard();
+    }
+    else{
+      this.props.retrieveAlltimeDashboard();
+    }
+  }
   render(){
-    data = this.props.users;
     return(
       <div>
         <div className="navbar">
@@ -38,6 +50,25 @@ class Dashboard extends Component{
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12">
                   <div className="panel rounded shadow">
+
+                    <div className="btn-group">
+                      <label className="btn btn-outline-primary">
+                        <input type="radio" value="option1" autoComplete="on" checked={this.state.selectedOption==='option1'}
+                        onChange={this.handleSelection.bind(this)}/> Weekly
+                        </label>
+                        <label className="btn btn-outline-primary">
+                          <input type="radio" value="option2" autoComplete="on"
+                            checked={this.state.selectedOption==='option2'}
+                            onChange={this.handleSelection.bind(this)}/> Monthly
+                          </label>
+                          <label className="btn btn-outline-primary">
+                            <input type="radio" value="option3" autoComplete="on" checked={this.state.selectedOption==='option3'}
+                            onChange={this.handleSelection.bind(this)}/> All time
+                            </label>
+                          </div>
+
+                    {/*<button type="button" className="btn btn-primary"
+                      onClick={this.handleWeekly.bind(this)}>WEEKLY</button>*/}
                     <BootstrapTable data={ this.state.init }  search={ true } pagination striped hover bordered>
                         <TableHeaderColumn dataField='avatar' isKey={ true } dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
                         <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
@@ -55,8 +86,6 @@ class Dashboard extends Component{
 }
 
 function mapStateToProps(state){
-  console.log('3');
-  console.log(state);
   return {
     users: state.auth.dash
   };

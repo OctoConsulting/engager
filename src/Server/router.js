@@ -5,6 +5,10 @@ const passportService = require('./services/passport');
 //##################################################################
 const passport = require('passport');
 
+const dashboard = require('./services/dashboard');
+const dashboard_weekly_filter = require('./services/dashboard_weekly_filter');
+const dashboard_monthly_filter = require('./services/dashboard_monthly_filter');
+
 const facebook_auth = require('./services/facebook_auth');
 const facebook_deauth = require('./services/facebook_deauth');
 
@@ -17,7 +21,7 @@ const jsfiddle_auth = require('./services/jsfiddle_auth');
 const twitter_auth = require('./services/twitter_auth');
 const twitter_deauth = require('./services/twitter_deauth');
 
-const dashboard = require('./services/dashboard');
+
 
 const stackoverflow_handoff = require('./services/stackoverflow_handoff');
 const stackoverflow_auth = require('./services/stackoverflow_auth');
@@ -52,6 +56,8 @@ module.exports = function(app){
   app.put('/verify/:id', Authentication.verify);
   //PULL ALL USER INFO TO DISPLAY ON THE DASHBOARD
   app.get('/dashboard', dashboard);
+  app.get('/dashboard_weekly_filter', dashboard_weekly_filter);
+  app.get('/dashboard_monthly_filter', dashboard_monthly_filter);
   //LOADS CURRENT USER TO THE NAV BAR AND PERSONAL PROFILE
   app.get('/user/:id', getuserinfo);
   //ADDING EVENT DATA TO DATABASE

@@ -9,7 +9,7 @@ import * as actions from './actions';
 class Nav_Bar extends Component{
   componentWillMount(){
     this.props.retrieveUser(localStorage.getItem('token'));
-    this.props.retrieveDashboard();
+    this.props.retrieveAlltimeDashboard();
   }
 
   render(){
