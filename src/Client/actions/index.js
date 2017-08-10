@@ -225,8 +225,8 @@ export function socialmedia_auth({type, token, username}){
         .then( response => {
           switch(type){
             case 'twitter':
-              dispatch({type:TWITTER, payload:response.data.username});
-              dispatch({type:AVATAR, payload: response.data.avatar})
+              dispatch({type:TWITTER, payload:response.data.twitter.username});
+              dispatch({type:AVATAR, payload: response.data.avatar});
               break;
             case 'stackoverflow':
               dispatch({type:STACKOVERFLOW, payload:response.data.username});
@@ -371,21 +371,33 @@ export function retrieveEvents(token){
           .then( response => {
             dispatch({type: EVENTS_INFO, payload: response.data});
           })
-          .catch( () => console.log("error getting event list"));
+          .catch( response => console.log("error getting event list"));
   }
 }
 
 export function addingEvent({token, type, eventName, description}){
   const user_id = jwt.decode(token, config.secret);
+  const timestamp_n = new Date();
+  const timestamp_epoch = Date.parse(timestamp_n) / 1000;
+
   return function (dispatch){
-    axios.put(`${SERVER_URL}/addingEvent/${user_id.sub}`, {type, eventName, description})
-          .then( () => {
-            axios.get(`${SERVER_URL}/getEvent/${user_id.sub}`)
-                  .then( result => {
-                    dispatch({type: EVENTS_INFO, payload: result.data});
-                  })
-                  .catch( () => console.log("error getting event list"));
+    axios.put(`${SERVER_URL}/addingEvent/${user_id.sub}`, {timestamp_epoch, type, eventName, description})
+          .then( response => {
+            console.log(response.data);
+            dispatch({type:EVENTS_INFO, payload:response.data});
           })
-          .catch( () => dispatch(authError(response.error)));
+          .catch( response => dispatch(authError(response.error)));
+  }
+}
+
+export function deletingEvent({token, timestamp}){
+  const user_id = jwt.decode(token, config.secret);
+  return function(dispatch){
+    axios.put(`${SERVER_URL}/deletingEvent/${user_id.sub}`, {timestamp})
+          .then(response => {
+
+            dispatch({type:EVENTS_INFO, payload:response.data});
+          })
+          .catch( response => dispatch(authError(response.error)));
   }
 }

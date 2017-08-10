@@ -62,6 +62,7 @@ module.exports = function(app){
   app.get('/user/:id', getuserinfo);
   //ADDING EVENT DATA TO DATABASE
   app.put('/addingEvent/:id', Events.addEvent);
+  app.put('/deletingEvent/:id', Events.deleteEvent);
   app.get('/getEvent/:id', Events.getEvents);
 
   //DIFFERENT SOCIAL MEDIA ARE HANDLED BY DIFFERENT SERVICES

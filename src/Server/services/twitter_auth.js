@@ -63,7 +63,7 @@ module.exports = function(req, res, next){
         });
       })
       .then(() => User.findById({_id: user_id}))
-      .then(user => res.send(user.twitter))
+      .then(user => res.send(user))
       .catch(next);
   });
 }
