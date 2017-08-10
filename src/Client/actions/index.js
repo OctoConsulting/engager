@@ -157,7 +157,7 @@ export function retrieveUser(token){
 */
 
 
-export function retrieveDashboard(){
+export function retrieveAlltimeDashboard(){
   return function(dispatch){
     axios.get(`${SERVER_URL}/dashboard`)
         .then(response => {
@@ -174,6 +174,16 @@ export function retrieveWeeklyDashboard(){
             dispatch({type:USERS, payload:response.data});
           })
           .catch (response => console.log("Weekly board retrieval error!"));
+  }
+}
+
+export function retrieveMonthlyDashboard(){
+  return function(dispatch){
+    axios.get(`${SERVER_URL}/dashboard_monthly_filter`)
+          .then(response => {
+            dispatch({type:USERS, payload:response.data});
+          })
+          .catch(response => console.log("Monthly board retrieval error!"));
   }
 }
 

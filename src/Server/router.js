@@ -7,6 +7,7 @@ const passport = require('passport');
 
 const dashboard = require('./services/dashboard');
 const dashboard_weekly_filter = require('./services/dashboard_weekly_filter');
+const dashboard_monthly_filter = require('./services/dashboard_monthly_filter');
 
 const facebook_auth = require('./services/facebook_auth');
 const facebook_deauth = require('./services/facebook_deauth');
@@ -56,6 +57,7 @@ module.exports = function(app){
   //PULL ALL USER INFO TO DISPLAY ON THE DASHBOARD
   app.get('/dashboard', dashboard);
   app.get('/dashboard_weekly_filter', dashboard_weekly_filter);
+  app.get('/dashboard_monthly_filter', dashboard_monthly_filter);
   //LOADS CURRENT USER TO THE NAV BAR AND PERSONAL PROFILE
   app.get('/user/:id', getuserinfo);
   //ADDING EVENT DATA TO DATABASE
