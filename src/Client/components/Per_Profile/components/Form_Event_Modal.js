@@ -4,11 +4,23 @@ import { connect } from 'react-redux';
 import * as actions from '../../../actions';
 import {reduxForm} from 'redux-form';
 import Select from 'react-select';
-
+import {SplitButton, MenuItem} from 'react-bootstrap';
 class Form_Event_Modal extends Component {
 
-  handleFormSubmit({type, eventName, description}){
-    if (type!='' && eventName!='' && description!=''){
+  constructor(props){
+    super(props);
+    this.state = {
+      selection: ''
+    };
+  }
+  onChangeHandler(event){
+    this.setState({
+      selection: event
+    });
+  }
+  handleFormSubmit({eventName, description}){
+    const type = this.state.selection;
+    if (type !='' && eventName!='' && description!=''){
       const token = localStorage.getItem('token');
       this.props.addingEvent({token, type, eventName, description});
     }
@@ -16,6 +28,7 @@ class Form_Event_Modal extends Component {
 
   render(){
     const { handleSubmit, fields: {type, eventName, description} } = this.props;
+    const type_name = 'Types';
     return(
       <form >
         <div className="modal fade" id="event" role="dialog">
@@ -31,11 +44,21 @@ class Form_Event_Modal extends Component {
                 <div className="col-md-12 col-sm-12 col-xs-12">
                   <div className="submit-box">
                       <div className="select-box">
-                        <fieldset className="form-group">
+
+                        <SplitButton bsStyle="default" title={(this.state.selection!=='') ? this.state.selection : type_name} key="Default" id="split-button-basic-default"
+                          onSelect={this.onChangeHandler.bind(this)}>
+                          <MenuItem eventKey="Training" {...type}>Training</MenuItem>
+                          <MenuItem eventKey="Conference" {...type}>Conference</MenuItem>
+                          <MenuItem eventKey="Other" {...type}>Other</MenuItem>
+                        </SplitButton>
+
+
+
+                        {/*<fieldset className="form-group">
                           <input type="text1"  className="form-control"
                           placeholder="Type" {...type}/>
                           {type.error && <div className="text-error">{type.error}</div>}
-                        </fieldset>
+                        </fieldset>*/}
 
                       </div>
                       <div className="form-thing">
