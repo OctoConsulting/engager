@@ -1,47 +1,50 @@
-//HOLD APPLICATION SECRET CONFIG
 
+//HOLD APPLICATION SECRET CONFIG
 module.exports = {
   secret: 'eriwer4309054erfhwiu32*&$#@d32',
   creation_timestamp: '1496667600', //June 5th, 2017 09:00AM EST
   Twitter : {
-    consumer_key: '',
-    consumer_secret: '',
-    bearer_token: ''
+    consumer_key: 'jlD8BSZCNsCqqDpmHgkelSB6A',
+    consumer_secret: 'zUEOxXBxfLJj3GmrWOS1DGCSZU9usa8htO5dSsgZIPXhSY7v3u',
+    bearer_token: 'AAAAAAAAAAAAAAAAAAAAAC9D1QAAAAAAi0AoObt49isSGovSBXoWR5uTpiY%3DVCKs7jmtj1mxSo9VQt18go9RRmdtknb0Nj3dTnLou1XTroxMoJ'
   },
   GitHub: {
-    id_key: '',
-    id_secret: '',
-    accessToken_url: '',
-    deauth_url: ''
+    id_key: '2484a6e5f839819f2f8f',
+    id_secret: 'c2ea24f4442d7e7bf9669d248f384e8aa18f2319',
+    accessToken_url: 'https://github.com/login/oauth/access_token',
+    deauth_url: 'https://api.github.com/authorizations/'
   },
   Instagram : {
-    id_key: '',
-    id_secret: '',
-    accessToken_url : '',
-    redirect_uri: ''
+    id_key: 'bb65c1a4262349d78765097663077982',
+    id_secret: '2d472d1d92cc4802b91943e4edf107be',
+    accessToken_url : 'https://api.instagram.com/oauth/access_token',
+    redirect_uri: 'http://ec2-54-87-137-177.compute-1.amazonaws.com:3090/instagram_auth'
   },
   Linkedin: {
-    id_key: '',
-    id_secret: '',
-    accessToken_url: '',
-    deauth_url: '',
-    redirect_uri: ''
+    id_key: '778l6ot4kvtw5r',
+    id_secret: 'CBfe31te33qaJx1P',
+    accessToken_url: 'https://www.linkedin.com/oauth/v2/accessToken',
+    deauth_url: 'https://api.linkedin.com/uas/oauth/invalidateToken',
+    redirect_uri: 'http://ec2-54-87-137-177.compute-1.amazonaws.com:3090/linkedin_auth'
   },
   EmailServer:{
-    emailAccountUser: '',
-    emailPassword: '',
+    emailAccountUser: 'octo.engager.mailer@gmail.com',
+    emailPassword: 'S3D5jRBnkcTp5ghnIk5fCLS6KvDo02',
     emailName: 'Octo Engager'
   },
   Heroku: {
-  	username: '',
-  	password: ''
+      username: 'octo.engager.mailer@gmail.com',
+      password: '9fdewiofj4095043876hyunerilku'
   },
   mLab: {
-  	username: '',
-  	password: ''
+      username: 'octo_engager',
+      password: 'cKxsLB4WWBs1USasy0jZZ38akVyxkZvTN'
   },
   database: {
-  	username: '',
-  	password: ''
+      username: 'octo_intern',
+      password: '1410Trieu'
   }
 }
+
+
+

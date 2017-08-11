@@ -12,14 +12,14 @@ const config = require('./config');
 
 //DATABASE SETUP
 //LOCAL DB
-mongoose.connect('mongodb://localhost:/dataBase', {
-  useMongoClient: true
-});
+//mongoose.connect('mongodb://localhost:/dataBase', {
+//  useMongoClient: true
+//});
 
 //REMOTE DB ON MLAB
-/*mongoose.connect(`mongodb://${config.database.username}:${config.database.password}@ds129053.mlab.com:29053/engager`, {
+mongoose.connect(`mongodb://${config.database.username}:${config.database.password}@ds129053.mlab.com:29053/engager`, {
   useMongoClient: true
-});*/
+});
 
 
 //APP SETUP
