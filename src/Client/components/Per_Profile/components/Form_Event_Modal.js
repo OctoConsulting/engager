@@ -36,54 +36,41 @@ class Form_Event_Modal extends Component {
             {//<!-- Modal content-->
             }
             <div className="modal-content">
-              <div className="modal-header">
-                <h4 className="modal-title">Ad hoc event Submission Form</h4>
+              <div className="modal-header" id="submission-form">
+                <h4 className="modal-title">Event Submission</h4>
               </div>
               <div className="modal-body">
 
-                <div className="col-md-12 col-sm-12 col-xs-12">
                   <div className="submit-box">
-                      <div className="select-box">
+                    <div id="split-thing">
+                      <SplitButton bsStyle="primary" title={(this.state.selection!=='') ? this.state.selection : type_name} key="Primary" id="split-button-basic-primary"
+                        onSelect={this.onChangeHandler.bind(this)}>
+                        <MenuItem eventKey="Training" {...type}>Training</MenuItem>
+                        <MenuItem eventKey="Conference" {...type}>Conference</MenuItem>
+                        <MenuItem eventKey="Other" {...type}>Other</MenuItem>
+                      </SplitButton>
+                    </div>
 
-                        <SplitButton bsStyle="default" title={(this.state.selection!=='') ? this.state.selection : type_name} key="Default" id="split-button-basic-default"
-                          onSelect={this.onChangeHandler.bind(this)}>
-                          <MenuItem eventKey="Training" {...type}>Training</MenuItem>
-                          <MenuItem eventKey="Conference" {...type}>Conference</MenuItem>
-                          <MenuItem eventKey="Other" {...type}>Other</MenuItem>
-                        </SplitButton>
-
-
-
-                        {/*<fieldset className="form-group">
-                          <input type="text1"  className="form-control"
-                          placeholder="Type" {...type}/>
-                          {type.error && <div className="text-error">{type.error}</div>}
-                        </fieldset>*/}
-
-                      </div>
-                      <div className="form-thing">
                         <fieldset className="form-group">
-                          <input type="text1" id="form1" className="form-control"
+                          <input type="text1" className="form-control"
                           placeholder="Event Name" {...eventName}/>
                           {eventName.error && <div className="text-error">{eventName.error}</div>}
                         </fieldset>
 
                         <fieldset className="form-group">
-                          <textarea type="text1" id="form2" className="form-control"
+                          <textarea type="text1" className="form-control"
                           placeholder="Description" {...description}/>
                           {description.error && <div className="text-error">{description.error}</div>}
                         </fieldset>
-
-                      </div>
                   </div>
-                </div>
+
 
               </div>
               <div className="modal-footer">
                 <div className="modal-button">
                   <button type="submit" className="btn btn-primary" data-dismiss="modal"
                     onClick={handleSubmit(this.handleFormSubmit.bind(this))}>SUBMIT</button>
-                  <button type="button" className="btn btn-default" data-dismiss="modal">CANCEL</button>
+                  <button type="button" className="btn btn-danger" data-dismiss="modal">CANCEL</button>
                 </div>
               </div>
             </div>

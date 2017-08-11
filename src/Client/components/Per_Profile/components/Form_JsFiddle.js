@@ -40,7 +40,7 @@ class Form_JsFiddle extends Component {
                   <button type="submit" className="btn btn-primary" data-dismiss="modal"
                     onClick= {handleSubmit(this.handleFormSubmit.bind(this))}>CONNECT</button>
 
-                    <button type="button" className="btn btn-warning" data-dismiss="modal"
+                    <button type="button" className="btn btn-danger" data-dismiss="modal"
                       onClick= {this.deauthFiddle.bind(this)}>DISCONNECT</button>
                 </div>
 

@@ -43,7 +43,7 @@ class Form_GitHub_OAuth extends Component {
                   <button type="submit" className="btn btn-primary"
                     onClick= {handleSubmit(this.handleAuth.bind(this))}>CONNECT</button>
 
-                    <button type="button" className="btn btn-warning"
+                    <button type="button" className="btn btn-danger"
                       onClick= {this.deauthGitHub.bind(this)}>DISCONNECT</button>
                 </div>
               </div>

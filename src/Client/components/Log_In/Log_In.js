@@ -37,7 +37,7 @@ class Log_In extends Component {
     return (
     <div>
       <div className="app-name">
-        <h1>ENGAGER</h1>
+        <a><img src="../../../../img/Engager_ico_512x512.png"/></a>
       </div>
       <form className="box-form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         {/*making sure it'd turn red when the user doesn't input all data*/}

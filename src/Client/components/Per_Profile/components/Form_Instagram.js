@@ -44,7 +44,7 @@ class Form_Instagram extends Component {
                    onClick={this.handleAuth.bind(this)}>CONNECT</button>
                 </div>
                 <div className="button_pos">
-                  <button type="button" className="btn btn-warning"
+                  <button type="button" className="btn btn-danger"
                     data-dismiss="modal" onClick={this.deauthInstagram.bind(this)}>DISCONNECT</button>
                 </div>
               </div>
