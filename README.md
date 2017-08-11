@@ -23,4 +23,4 @@ An interactive web app that measures your activities across multiple social medi
 
 ### PROFILE
 
-![Step 1:](https://www.dropbox.com/s/a7zvpoisbweodvl/Engager_dashboard.JPG)
+![Step 1:](https://photos-6.dropbox.com/t/2/AADM4rLH13JquRAYwNMX1wQEWhKRPP5O3vVJPDeHdRE-Yg/12/76004654/jpeg/32x32/3/1502496000/0/2/Engager_dashboard.JPG/EKy8_DoY6JsIIAcoBw/h2HEhLliKXFYZ_o0rErACfOWyB-T_Rvir7dTGBzb2Ao?dl=0&size=2048x1536&size_mode=3)
