@@ -97,8 +97,15 @@ input[type="text"], input[type="password"], input[type="email"]{
 }
 
 #table-thing{
+  font: "Calibri";
   text-align: center;
   justify-content: center;
+}
+
+#add-button{
+  margin: 10px 0 0 10px;
+  height: 30px;
+  width: 73.86px;
 }
 
 .form-thing{

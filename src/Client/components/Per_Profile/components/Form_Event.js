@@ -52,14 +52,14 @@ class Form_Event extends Component {
         <div className="event-box">
           <Form_Event_Modal/>
 
-            <button type="button" className="btn btn-linkedin btn-stacked btn-stroke" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus"></span>Add</button>
-
-
           <div className="col-md-12 col-sm-12 col-xs-12">
             <div className="panel rounded shadow">
               <div id="table-thing">
                 <h4><strong>Past Training & Conference Information</strong></h4>
               </div>
+
+              <button type="button" className="btn btn-primary" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus"></span>Add</button>
+
               <BootstrapTable data={this.state.eventList}  search={true}  selectRow={selectRow} deleteRow options={options} pagination bordered>
                 <TableHeaderColumn dataField='date' dataSort={true} isKey={true} dataFormat={this.dateFormatter}>Date</TableHeaderColumn>
                 <TableHeaderColumn dataField='type' dataSort={true}>Type</TableHeaderColumn>

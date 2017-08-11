@@ -75,26 +75,26 @@ class Per_Profile extends Component {
             {/*
               #############################################################
               #                                                           #
-              #                     FACEBOOK INTEGRATION                  #
+              #                     INSTAGRAM INTEGRATION                 #
               #                                                           #
               #############################################################
               */}
             <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
-                  <div className="panel-heading text-center bg-facebook">
+                  <div className="panel-heading text-center bg-instagram">
                       <p className="inner-all no-margin">
-                          <i className="fa fa-facebook fa-5x"></i>
+                          <i className="fa fa-instagram fa-5x"></i>
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-facebook btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#facebook">
-                        <span>{(this.state.facebook !== null && this.state.facebook != '') ? this.state.facebook : connect}</span>
+                    <button className="btn btn-instagram btn-icon-stacked btn-stroke"
+                      data-toggle="modal" data-target="#instagram">
+                        <span>{(this.state.instagram !== null && this.state.instagram != '') ? this.state.instagram : connect}</span>
                     </button>
-                    <Form_Facebook/>
+                    <Form_Instagram />
                   </div>
                 </div>
             </div>
-
             {/*
               #############################################################
               #                                                           #
@@ -168,31 +168,33 @@ class Per_Profile extends Component {
                 </div>
             </div>
 
+
+            <div className="row">
+
+
+
             {/*
               #############################################################
               #                                                           #
-              #                     INSTAGRAM INTEGRATION                 #
+              #                     FACEBOOK INTEGRATION                  #
               #                                                           #
               #############################################################
               */}
-            <div className="row">
             <div className="col-md-3 col-sm-4 col-xs-6">
                 <div className="panel rounded shadow">
-                  <div className="panel-heading text-center bg-instagram">
+                  <div className="panel-heading text-center bg-facebook">
                       <p className="inner-all no-margin">
-                          <i className="fa fa-instagram fa-5x"></i>
+                          <i className="fa fa-facebook fa-5x"></i>
                       </p>
                   </div>
                   <div className="panel-body text-center">
-                    <button className="btn btn-instagram btn-icon-stacked btn-stroke"
-                      data-toggle="modal" data-target="#instagram">
-                        <span>{(this.state.instagram !== null && this.state.instagram != '') ? this.state.instagram : connect}</span>
+                    <button className="btn btn-facebook btn-icon-stacked btn-stroke" data-toggle="modal" data-target="#facebook">
+                        <span>{(this.state.facebook !== null && this.state.facebook != '') ? this.state.facebook : connect}</span>
                     </button>
-                    <Form_Instagram />
+                    <Form_Facebook/>
                   </div>
                 </div>
             </div>
-
             {/*
               #############################################################
               #                                                           #
