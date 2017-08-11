@@ -20,8 +20,7 @@ An interactive web app that measures your activities across multiple social medi
 
 ###MAIN UI
 
-![DASHBOARD] (https://photos-2.dropbox.com/t/2/AADBM-UWHZkNEEPOYAehG1gB5eFM05uVedLoBU35Cjm5ug/12/76004654/jpeg/32x32/1/_/1/2/Engager_dashboard.JPG/EKy8_DoY6JsIIAcoBw/h2HEhLliKXFYZ_o0rErACfOWyB-T_Rvir7dTGBzb2Ao?size=1280x960&size_mode=3)
-
+ <img src="https://photos-2.dropbox.com/t/2/AADBM-UWHZkNEEPOYAehG1gB5eFM05uVedLoBU35Cjm5ug/12/76004654/jpeg/32x32/1/_/1/2/Engager_dashboard.JPG/EKy8_DoY6JsIIAcoBw/h2HEhLliKXFYZ_o0rErACfOWyB-T_Rvir7dTGBzb2Ao?size=1280x960&size_mode=3" width="350"/>
 
 ###PROFILE
 
