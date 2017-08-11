@@ -1,5 +1,5 @@
-
 //HOLD APPLICATION SECRET CONFIG
+
 module.exports = {
   secret: 'eriwer4309054erfhwiu32*&$#@d32',
   creation_timestamp: '1496667600', //June 5th, 2017 09:00AM EST
@@ -33,18 +33,17 @@ module.exports = {
     emailName: 'Octo Engager'
   },
   Heroku: {
-      username: 'octo.engager.mailer@gmail.com',
-      password: '9fdewiofj4095043876hyunerilku'
+  	username: 'octo.engager.mailer@gmail.com',
+  	password: '9fdewiofj4095043876hyunerilku'
   },
   mLab: {
-      username: 'octo_engager',
-      password: 'cKxsLB4WWBs1USasy0jZZ38akVyxkZvTN'
+  	username: 'octo_engager',
+  	password: 'cKxsLB4WWBs1USasy0jZZ38akVyxkZvTN'
   },
   database: {
-      username: 'octo_intern',
-      password: '1410Trieu'
+  	username: 'octo_intern',
+  	password: '1410Trieu'
   }
 }
-
 
 
