@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import Log_In from './components/Log_In/Log_In';
 import Sign_Up from './components/Sign_Up/Sign_Up';
-import SignUp_Redirect from './components/Sign_Up/SignUp_Redirect';
+import SignUp_Redirect from './components/Sign_Up/Signup_Redirect';
 
 import Verify from './components/Sign_Up/Verify';
 import Sign_Out from './components/Sign_Out/Sign_Out';
