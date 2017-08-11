@@ -18,7 +18,12 @@ class Nav_Bar extends Component{
       <div className="navbar navbar-default navbar-fixed-top" role="navigation">
         <div className="container">
             <div className="navbar-header">
-              <div className="navbar-brand navbar-left" style={{marginTop: "6px"}}>ENGAGER</div>
+
+                <a className="navbar-left" id="circle" style={{marginTop: "6px", marginRight:"6px"}}><img src="../../img/Engager_ico_48.png"/></a>
+
+
+              <div className="navbar-brand navbar-left" style={{marginTop: "6px"}}>
+                ENGAGER</div>
 
                 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span className="icon-bar"></span>
@@ -30,11 +35,11 @@ class Nav_Bar extends Component{
             </div>
             <div className="collapse navbar-collapse navbar-right">
                 <ul className="nav navbar-nav">
-                    <li><Link className="btn btn-facebook btn-stacked btn-stroke" to="/dashboard">Dashboard</Link></li>
-                    <li><Link className="btn btn-facebook btn-stacked btn-stroke" to="/Profile">Profile</Link></li>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><Link to="/Profile">Profile</Link></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                  <li><Link className="btn btn-facebook btn-stacked btn-stroke" to="/signout">Sign Out</Link></li>
+                  <li><Link to="/signout">Sign Out</Link></li>
                 </ul>
                 {/*<ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">

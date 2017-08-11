@@ -42,7 +42,7 @@ class Form_Linkedin extends Component {
                      onClick={this.handleAuth}>CONNECT</button>
                 </div>
                 <div className="button_pos">
-                  <button type="button" className="btn btn-warning"
+                  <button type="button" className="btn btn-danger"
                     data-dismiss="modal" onClick={this.handleDeauth.bind(this)}>DISCONNECT</button>
                 </div>
               </div>

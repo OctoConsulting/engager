@@ -58,7 +58,7 @@ class Form_Event extends Component {
                 <h4><strong>Past Training & Conference Information</strong></h4>
               </div>
 
-              <button type="button" className="btn btn-primary" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus"></span>Add</button>
+              <button type="button" className="btn btn-primary" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span id="add-word"><span className="glyphicon glyphicon-plus"></span>Add</span></button>
 
               <BootstrapTable data={this.state.eventList}  search={true}  selectRow={selectRow} deleteRow options={options} pagination bordered>
                 <TableHeaderColumn dataField='date' dataSort={true} isKey={true} dataFormat={this.dateFormatter}>Date</TableHeaderColumn>

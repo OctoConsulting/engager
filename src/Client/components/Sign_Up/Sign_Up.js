@@ -32,7 +32,7 @@ class Sign_Up extends Component {
     return(
       <div>
         <div className="app-name">
-          <h1>ENGAGER</h1>
+          <a><img src="../../../../img/Engager_ico_512x512.png"/></a>
         </div>
         <form className="box-form" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <h4>CREATE AN ACCOUNT</h4>

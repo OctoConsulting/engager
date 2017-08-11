@@ -3,8 +3,7 @@ const User = require('../models/user');
 const jwt = require('jwt-simple');
 const config = require('../config');
 const nodemailer = require('nodemailer');
-
-
+const ava = '../../img/Engager_ico_48.png';
 
 //HELPER FUNCTION TO TOKENIZE USER ID
 function tokenForUser(user){
@@ -54,7 +53,7 @@ exports.signup = function(req, res, next){
     //if a user with email does NOT exist, create and save user record
     const user = new User({
       name: name,
-      avatar: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/000/230/34e/068cd16.jpg',
+      avatar: "https://photos-3.dropbox.com/t/2/AADWCh_xoN_c5XWWzOHKaHmD4oXePnpB3wPqQOoYVlbuCg/12/76004654/png/32x32/1/_/1/2/Engager_ico_512x512.png/EKy8_DoY5psIIAcoBw/KFred7rbPopy2p4coZ-dsoA_0ehryY5SNZC5-bNtmEk?size=1280x960&size_mode=3",
       email: email,
       password: password,
       verified: verified,
