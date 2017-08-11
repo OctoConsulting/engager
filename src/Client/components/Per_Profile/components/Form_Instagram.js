@@ -12,7 +12,7 @@ class Form_Instagram extends Component {
     const token = localStorage.getItem('token');
     const user_id = jwt.decode(token, config.secret);
 
-    window.open(`https://api.instagram.com/oauth/authorize/?client_id=${config.Instagram.id_key}&redirect_uri=http%3A%2F%2Flocalhost:3090/instagram%5Fauth&response_type=code&state=${user_id.sub}&scope=basic+public_content`, "Instagram Authorization", "titlebar=yes, width=500, height=450");
+    window.open(`https://api.instagram.com/oauth/authorize/?client_id=${config.Instagram.id_key}&redirect_uri=http%3A%2F%2Fec2-54-87-137-177.compute-1.amazonaws.com%3A3090%2Finstagram_auth&response_type=code&state=${user_id.sub}&scope=basic+public_content`, "Instagram Authorization", "titlebar=yes, width=500, height=450");
 
   }
 
