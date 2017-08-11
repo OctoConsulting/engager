@@ -17,10 +17,6 @@ class Form_Event extends Component {
     const token = localStorage.getItem('token');
     this.props.retrieveEvents(token);
   }
-  handleFormSubmit({type, eventName, description}){
-    const token = localStorage.getItem('token');
-    this.props.addingEvent({token, type, eventName, description});
-  }
 
   componentWillReceiveProps(nextProps){
     this.setState({
@@ -28,18 +24,45 @@ class Form_Event extends Component {
     });
   }
 
+  dateFormatter(cell, row){
+    const UTC_time = new Date(Number(cell)*1000).toLocaleDateString();
+    return UTC_time;
+  }
+
+  afterDeleteRow(rows){
+    let timestamp = '';
+    const token = localStorage.getItem('token');
+    for (var i =0 ; i<rows.length; i++){
+      timestamp = rows[i];
+      this.props.deletingEvent({token, timestamp});
+    }
+  }
 
   render(){
+    const options = {
+      afterDeleteRow: this.afterDeleteRow.bind(this)
+    };
+    const selectRow = {
+      mode: 'checkbox',
+      bgColor: '#006600',
+      hideSelectColumn: true,
+      clickToSelect: true
+    };
     return(
         <div className="event-box">
           <Form_Event_Modal/>
-          <div className="col-md-12 col-sm-12 col-xs-12">
-            <div className="panel rounded shadow"  id="table-thing">
-              <h4><strong>Past Training & Conference Information</strong></h4>
-              <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus-sign"></span>Add</button>
-              <BootstrapTable data={this.state.eventList}  search={true}  pagination striped hover bordered>
 
-                <TableHeaderColumn dataField='type' isKey={true} dataSort={true}>Type</TableHeaderColumn>
+          <div className="col-md-12 col-sm-12 col-xs-12">
+            <div className="panel rounded shadow">
+              <div id="table-thing">
+                <h4><strong>Past Training & Conference Information</strong></h4>
+              </div>
+
+              <button type="button" className="btn btn-primary" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span className="glyphicon glyphicon-plus"></span>Add</button>
+
+              <BootstrapTable data={this.state.eventList}  search={true}  selectRow={selectRow} deleteRow options={options} pagination bordered>
+                <TableHeaderColumn dataField='date' dataSort={true} isKey={true} dataFormat={this.dateFormatter}>Date</TableHeaderColumn>
+                <TableHeaderColumn dataField='type' dataSort={true}>Type</TableHeaderColumn>
                 <TableHeaderColumn dataField='eventName' dataSort={true}>Event Name</TableHeaderColumn>
                 <TableHeaderColumn dataField='description' dataSort={true}>Description</TableHeaderColumn>
               </BootstrapTable>

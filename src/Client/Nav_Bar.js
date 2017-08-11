@@ -30,11 +30,11 @@ class Nav_Bar extends Component{
             </div>
             <div className="collapse navbar-collapse navbar-right">
                 <ul className="nav navbar-nav">
-                    <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li><Link to="/Profile">Profile</Link></li>
+                    <li><Link className="btn btn-facebook btn-stacked btn-stroke" to="/dashboard">Dashboard</Link></li>
+                    <li><Link className="btn btn-facebook btn-stacked btn-stroke" to="/Profile">Profile</Link></li>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                  <li><Link className="nav-link" to="/signout">Sign Out</Link></li>
+                  <li><Link className="btn btn-facebook btn-stacked btn-stroke" to="/signout">Sign Out</Link></li>
                 </ul>
                 {/*<ul className="nav navbar-nav navbar-right">
                     <li className="dropdown">

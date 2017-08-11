@@ -15,7 +15,8 @@ let defState = {
   error: '',
   userInfo: null,
   dash: null,
-  avatar: ''
+  avatar: '',
+  events: null
 }
 
 export default function(state = defState, action) {

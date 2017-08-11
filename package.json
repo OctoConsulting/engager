@@ -38,7 +38,7 @@
     "babel-preset-stage-1": "6.1.18",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "1.17.2",
-    "bootstrap": "3.3.7",
+    "bootstrap": "4.0.0-alpha.6",
     "cors": "2.8.3",
     "express": "4.15.3",
     "fb": "2.0.0",
