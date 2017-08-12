@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import Log_In from './components/Log_In/Log_In';
 import Sign_Up from './components/Sign_Up/Sign_Up';
-import SignUp_Redirect from './components/Sign_Up/Signup_Redirect';
+import Signup_Redirect from './components/Sign_Up/Signup_Redirect';
 
 import Verify from './components/Sign_Up/Verify';
 import Sign_Out from './components/Sign_Out/Sign_Out';
@@ -27,7 +27,7 @@ export default (
       <IndexRoute component={Log_In}/>
       <Route path="signin" component={Log_In}/>
       <Route path="signup" component={Sign_Up}/>
-      <Route path="signup_redirect" component={Require_Auth(SignUp_Redirect)}/>
+      <Route path="signup_redirect" component={Require_Auth(Signup_Redirect)}/>
       <Route path="verify/:token" component={Verify}/>
       <Route path="signout" component={Require_Auth(Sign_Out)}/>
       <Route path="dashboard" component={Require_Auth(Dashboard)}/>

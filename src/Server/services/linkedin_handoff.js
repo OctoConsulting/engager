@@ -26,25 +26,26 @@ module.exports = function(req, res, next){
 
   request(options, function(err, response, body){
     const parsedBody = JSON.parse(body);
-
-    const updated = {
-      username: `${parsedBody.firstName} ${parsedBody.lastName}`,
-      data: {
-        accessToken: accessToken
-      },
-      avatar: parsedBody.pictureUrls.values[0],
-      actions: parsedBody.numConnections,
-      points: parsedBody.numConnections
-    };
-    //console.log(parsedBody.pictureUrls.values[0]);
-    User.findByIdAndUpdate({_id: user_id}, {$set: {linkedin : updated}})
-        .then(() => User.findById({_id: user_id}))
-        .then( user => res.send(html_response_string))
-        .catch(next);
-
-    User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: parsedBody.pictureUrls.values[0]}})
-        .then(() => User.findById({_id: user_id}))
-        .catch(next);
+    if (parsedBody.firstName && parsedBody.lastName && parsedBody.pictureUrls && parsedBody.numConnections){
+      const updated = {
+        username: `${parsedBody.firstName} ${parsedBody.lastName}`,
+        data: {
+          accessToken: accessToken
+        },
+        avatar: (parsedBody.pictureUrls) ? parsedBody.pictureUrls.values[0] : '',
+        actions: parsedBody.numConnections,
+        points: parsedBody.numConnections
+      };
+      //console.log(parsedBody.pictureUrls.values[0]);
+      User.findByIdAndUpdate({_id: user_id}, {$set: {linkedin : updated}})
+          .then(() => {
+            User.findByIdAndUpdate({_id: user_id}, {$set: {avatar: parsedBody.pictureUrls.values[0]}})
+                .then(() => console.log("Linkedin success!"))
+                .catch(next);
+          })
+          .then( user => res.send(html_response_string))
+          .catch(next);
+    }
 
   });
 }
