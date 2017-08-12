@@ -6,7 +6,7 @@ import * as actions from '../../actions';
 
 
 //USER IS DIRECTED TO THIS AFTER SIGNING UP
-export default class SignUp_Redirect extends Component{
+export default class Signup_Redirect extends Component{
   componentDidMount(){
     setTimeout(() => hashHistory.push('/'), 5000);
   }
