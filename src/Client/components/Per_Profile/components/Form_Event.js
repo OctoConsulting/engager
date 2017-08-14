@@ -29,6 +29,12 @@ class Form_Event extends Component {
     return UTC_time;
   }
 
+  expFormatter(cell, row){
+    const time = Date.parse(cell);
+    const formatted = new Date(time).toLocaleDateString();
+    return formatted;
+  }
+
   afterDeleteRow(rows){
     let timestamp = '';
     const token = localStorage.getItem('token');
@@ -45,7 +51,6 @@ class Form_Event extends Component {
     const selectRow = {
       mode: 'checkbox',
       bgColor: '#006600',
-      hideSelectColumn: true,
       clickToSelect: true
     };
     return(
@@ -63,8 +68,9 @@ class Form_Event extends Component {
               <BootstrapTable data={this.state.eventList}  search={true}  selectRow={selectRow} deleteRow options={options} pagination bordered>
                 <TableHeaderColumn dataField='date' dataSort={true} isKey={true} dataFormat={this.dateFormatter}>Date</TableHeaderColumn>
                 <TableHeaderColumn dataField='type' dataSort={true}>Type</TableHeaderColumn>
-                <TableHeaderColumn dataField='eventName' dataSort={true}>Event Name</TableHeaderColumn>
+                <TableHeaderColumn dataField='eventName' dataSort={true}>Name</TableHeaderColumn>
                 <TableHeaderColumn dataField='description' dataSort={true}>Description</TableHeaderColumn>
+                <TableHeaderColumn dataField='expiration' dataSort={true} >Exp. Date</TableHeaderColumn>
               </BootstrapTable>
             </div>
           </div>
