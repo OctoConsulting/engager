@@ -245,6 +245,32 @@ class Per_Profile extends Component {
 
                   </div>
                 </div>
+              </div>
+
+              {/*
+                #############################################################
+                #                                                           #
+                #                      EVENT INTEGRATION                    #
+                #                                                           #
+                #############################################################
+                */}
+                <div className="col-md-3 col-sm-4 col-xs-6">
+                  <div className="panel rounded shadow">
+                    <div className="panel-heading text-center bg-event">
+                        <p className="inner-all no-margin">
+                            <i className="fa fa-calendar fa-5x"></i>
+                        </p>
+                    </div>
+                    <div className="panel-body text-center">
+                      <button className="btn btn-linkedin btn-icon-stacked btn-stroke"
+                        data-toggle="modal" data-target="#event">
+                          <span>Add an event</span>
+                      </button>
+
+                      <Form_Linkedin/>
+
+                    </div>
+                  </div>
                 </div>
           </div>
           <Form_Event />

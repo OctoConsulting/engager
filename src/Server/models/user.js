@@ -15,6 +15,7 @@ const userSchema = new Schema({
     data: Array
   },
   profile: {
+    user_id: String,
     avatar: String,
     name: String,
     lai: String,

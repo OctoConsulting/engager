@@ -55,6 +55,7 @@ function updateUsers(){
         }
 
         let updated = {
+             user_id: user._id,
              avatar : user.avatar,
               name : user.name,
               lai : lai,

@@ -6,19 +6,23 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import Nav_Bar from '../../Nav_Bar';
 import _ from 'lodash';
+import Form_Public_Modal from './Form_Public_Modal';
 let data;
 class Dashboard extends Component{
   constructor(props){
     super(props);
     this.state = {
       init: this.props.users,
-      selectedOption: 'option3'
+      selectedOption: 'option3',
+      clicked: false,
+      userInfo: null
     }
   }
 
   componentWillReceiveProps(nextProps){
     this.setState({
-      init: nextProps.users
+      init: nextProps.users,
+      userInfo: nextProps.user
     });
   }
 
@@ -40,7 +44,32 @@ class Dashboard extends Component{
       this.props.retrieveAlltimeDashboard();
     }
   }
+
+  selectedRow(row, isSelected, e){
+    this.props.pushUserID(row.user_id);
+    this.props.retrievePublicUser(row.user_id);
+    this.setState({
+      clicked: true
+    });
+  }
+
+  onClickAway(){
+    this.setState({
+      clicked: false
+    });
+  }
+
   render(){
+    const selectRow = {
+      mode: 'radio',
+      bgColor: '#006600',
+      clickToSelect: true,
+      hideSelectColumn: true,
+      onSelect: this.selectedRow.bind(this)
+    };
+
+    const redir_button = (this.state.clicked) ? <button type="button" id="redir-button" className="btn btn-primary"  data-toggle="modal" data-target="#publicProfile" data-dismiss="modal" onBlur={this.onClickAway.bind(this)}>Go to {(this.state.userInfo !== null) ? this.state.userInfo.name : ''} Profile <span className="glyphicon glyphicon-chevron-right"></span></button> : null;
+
     return(
       <div>
         <div className="navbar">
@@ -69,20 +98,19 @@ class Dashboard extends Component{
                 </div>
           </div>
 
+          {redir_button}
 
+        <Form_Public_Modal/>
         <div className="container personal-profile-container">
             <div className="row">
               <div className="col-md-12 col-sm-12 col-xs-12">
                   <div className="panel rounded shadow">
 
-
-
-
-
                     {/*<button type="button" className="btn btn-primary"
                       onClick={this.handleWeekly.bind(this)}>WEEKLY</button>*/}
-                    <BootstrapTable data={ this.state.init }  search={ true } pagination striped hover bordered>
-                        <TableHeaderColumn dataField='avatar' isKey={ true } dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
+                    <BootstrapTable data={ this.state.init } keyField="user_id" search={ true } selectRow={selectRow} pagination striped hover bordered>
+
+                        <TableHeaderColumn dataField='avatar' dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
                         <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='lai' dataFormat={this.imageFormatter}>Last Action Icon</TableHeaderColumn>
                         <TableHeaderColumn dataField='actions' dataSort={ true }># of Actions</TableHeaderColumn>
@@ -99,7 +127,8 @@ class Dashboard extends Component{
 
 function mapStateToProps(state){
   return {
-    users: state.auth.dash
+    users: state.auth.dash,
+    user: state.auth.public_user_info
   };
 }
 

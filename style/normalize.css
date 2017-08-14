@@ -4035,6 +4035,52 @@ ul.days li span {
   border-radius: 50% 50% 50% 50%;
 }
 
+
+
+
+.btn-linkedin {
+  color: #FFF;
+  background-color: #004d1a;
+  border-color: #004d1a;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-linkedin:hover, .btn-linkedin:focus, .btn-linkedin:active {
+  color: #FFF !important;
+  background-color: #004d1a !important;
+}
+.btn-linkedin.btn-stroke {
+  border: 1px double #004d1a;
+  background-color: transparent;
+  color: #0e76a8;
+}
+.btn-linkedin.btn-stroke:hover {
+  color: #FFF !important;
+  background-color: #0c6590;
+}
+.btn-linkedin.btn-solid {
+  border: 1px solid #004d1a;
+}
+.btn-linkedin.btn-dashed {
+  border: 1px dashed #004d1a;
+}
+.btn-linkedin.btn-dotted {
+  border: 1px dotted #004d1a;
+}
+.btn-linkedin.btn-double {
+  border: 4px double #004d1a;
+}
+.btn-linkedin.btn-inset {
+  border: 4px inset #004d1a;
+}
+.btn-linkedin.btn-circle {
+  padding-left: 0;
+  padding-right: 0;
+  width: 34px;
+  -moz-border-radius: 50% 50% 50% 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50% 50% 50% 50%;
+}
+
 .btn-path {
   color: #FFF;
   background-color: #e41f11;
@@ -8131,9 +8177,24 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
   background-color: #2d4373;
 }
 
+/*EVENT BOX###############################################################*/
 
+.bg-event {
+  background-color: #004d1a !important;
+  border: 1px solid #0277BD;
+  color: white;
+}
+.bg-event a, .bg-event i, .bg-event span, .bg-event small, .bg-event p {
+  color: white;
+}
+.bg-event .flot-tick-label.tickLabel {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+.bg-event .morris-hover-row-label {
+  background-color: #004d1a;
+}
 
-
+/*###########################################################################3*/
 
 .bg-stackOverFlow {
   background-color: #f48024 !important;
@@ -8149,6 +8210,7 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .bg-stackOverFlow .morris-hover-row-label {
   background-color: #2d4373;
 }
+
 .bg-googleplus {
   background-color: #db4a39 !important;
   border: 1px solid #db4a39;

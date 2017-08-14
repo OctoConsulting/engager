@@ -2,6 +2,8 @@ import axios from 'axios';
 import {hashHistory} from 'react-router';
 import jwt from 'jwt-simple';
 import {
+  PUBLIC_USER_ID,
+  PUBLIC_USER_INFO,
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
@@ -146,7 +148,16 @@ export function retrieveUser(token){
   }
 }
 
-
+export function retrievePublicUser(user_id){
+  return function(dispatch){
+    axios.get(`${SERVER_URL}/user/${user_id}`)
+        .then( response => {
+          console.log(response.data);
+          dispatch({type: PUBLIC_USER_INFO, payload: response.data});
+        })
+        .catch( response => dispatch(authError(response.error)));
+  }
+}
 
 /*
 ###########################################################################
@@ -356,6 +367,23 @@ export function instagram_deauth(token){
           .catch( response => dispatch(authError(response.error)));
   }
 }
+
+
+
+/*
+###########################################################################
+#                                                                         #
+#                               PUBLIC PROFILE                            #
+#                                                                         #
+###########################################################################
+*/
+export function pushUserID(user_id){
+  return function(dispatch){
+    dispatch({type: PUBLIC_USER_ID, payload: user_id});
+  }
+}
+
+
 /*
 ###########################################################################
 #                                                                         #
