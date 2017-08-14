@@ -42,7 +42,9 @@ img{
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
 
-
+#redir-button{
+  float: right;
+}
 
 #date-picker-thing{
   background: true !important;
