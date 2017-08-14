@@ -18,7 +18,8 @@ exports.addEvent = function(req, res, next){
     date: req.body.timestamp_epoch.toString(),
     type : req.body.type,
     eventName : req.body.eventName,
-    description : req.body.description
+    description : req.body.description,
+    expiration: req.body.expiration
   }
 
   User.findById({_id: user_id})

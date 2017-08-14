@@ -19,6 +19,7 @@ module.exports = function(req, res, next){
 
   request(options, function(err, response, body){
     const parsedBody = JSON.parse(body);
+    console.log(err);
     console.log(parsedBody);
     const result = {
       user_id: req.query.state,

@@ -69,7 +69,7 @@ module.exports = function(app){
   app.put('/twitter_auth/:id', twitter_auth);
 
   app.put('/stackoverflow_deauth/:id', stackoverflow_deauth);
-  app.get('/stackoverflow_auth/:id', stackoverflow_handoff);
+  app.put('/stackoverflow_auth/:id', stackoverflow_handoff);
 
   app.put('/jsfiddle_auth/:id', jsfiddle_auth);
   app.put('/jsfiddle_deauth/:id', jsfiddle_deauth);

@@ -67,7 +67,7 @@ function updateUsers(){
              avatar : user.avatar,
               name : user.name,
               lai : user.profile.lai,
-              actions : stack_a + insta_a + github_a + twitter_a + facebook_a + user.linkedin.actions + user.events.points,
+              actions : stack_a + insta_a + github_a + twitter_a + facebook_a + user.linkedin.actions + user.events.data.length,
               points : stack_p + insta_p + user.linkedin.points + github_p + twitter_p + facebook_p + user.events.points
           };
           console.log(updated);

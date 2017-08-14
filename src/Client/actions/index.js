@@ -375,13 +375,13 @@ export function retrieveEvents(token){
   }
 }
 
-export function addingEvent({token, type, eventName, description}){
+export function addingEvent({token, type, eventName, description, expiration}){
   const user_id = jwt.decode(token, config.secret);
   const timestamp_n = new Date();
   const timestamp_epoch = Date.parse(timestamp_n) / 1000;
 
   return function (dispatch){
-    axios.put(`${SERVER_URL}/addingEvent/${user_id.sub}`, {timestamp_epoch, type, eventName, description})
+    axios.put(`${SERVER_URL}/addingEvent/${user_id.sub}`, {timestamp_epoch, type, eventName, description, expiration})
           .then( response => {
             console.log(response.data);
             dispatch({type:EVENTS_INFO, payload:response.data});

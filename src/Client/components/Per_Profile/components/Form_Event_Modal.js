@@ -5,6 +5,9 @@ import * as actions from '../../../actions';
 import {reduxForm} from 'redux-form';
 import Select from 'react-select';
 import {SplitButton, MenuItem} from 'react-bootstrap';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
 class Form_Event_Modal extends Component {
 
   constructor(props){
@@ -18,17 +21,28 @@ class Form_Event_Modal extends Component {
       selection: event
     });
   }
-  handleFormSubmit({eventName, description}){
+  handleFormSubmit({eventName, description, expiration}){
     const type = this.state.selection;
+    const token = localStorage.getItem('token');
     if (type !='' && eventName!='' && description!=''){
-      const token = localStorage.getItem('token');
-      this.props.addingEvent({token, type, eventName, description});
+      if (type === "Certification"){
+        this.props.addingEvent({token, type, eventName, description, expiration});
+      }
+      else{
+        expiration = "N/A";
+        this.props.addingEvent({token, type, eventName, description, expiration});
+      }
     }
   }
 
   render(){
-    const { handleSubmit, fields: {type, eventName, description} } = this.props;
+    const { handleSubmit, fields: {type, eventName, description, expiration} } = this.props;
     const type_name = 'Types';
+    const expiration_box = (this.state.selection === "Certification") ? <fieldset className="form-group">
+      <input type="text1" className="form-control"
+      placeholder="Expiration Date" {...expiration}/>
+      {description.error && <div className="text-error">{description.error}</div>}
+    </fieldset> : null;
     return(
       <form >
         <div className="modal fade" id="event" role="dialog">
@@ -45,6 +59,7 @@ class Form_Event_Modal extends Component {
                     <div id="split-thing">
                       <SplitButton bsStyle="primary" title={(this.state.selection!=='') ? this.state.selection : type_name} key="Primary" id="split-button-basic-primary"
                         onSelect={this.onChangeHandler.bind(this)}>
+                        <MenuItem eventKey="Certification" {...type}>Certification</MenuItem>
                         <MenuItem eventKey="Training" {...type}>Training</MenuItem>
                         <MenuItem eventKey="Conference" {...type}>Conference</MenuItem>
                         <MenuItem eventKey="Other" {...type}>Other</MenuItem>
@@ -53,8 +68,8 @@ class Form_Event_Modal extends Component {
 
                         <fieldset className="form-group">
                           <input type="text1" className="form-control"
-                          placeholder="Event Name" {...eventName}/>
-                          {eventName.error && <div className="text-error">{eventName.error}</div>}
+                          placeholder="Name" {...eventName}/>
+                          {eventName.touched && eventName.error && <div className="text-error">{eventName.error}</div>}
                         </fieldset>
 
                         <fieldset className="form-group">
@@ -62,6 +77,8 @@ class Form_Event_Modal extends Component {
                           placeholder="Description" {...description}/>
                           {description.error && <div className="text-error">{description.error}</div>}
                         </fieldset>
+
+                        {expiration_box}
                   </div>
 
 
@@ -104,7 +121,8 @@ export default reduxForm({
   fields: [
     'type',
     'eventName',
-    'description'
+    'description',
+    'expiration'
   ],
   validateInput
 }, null, actions) (Form_Event_Modal);

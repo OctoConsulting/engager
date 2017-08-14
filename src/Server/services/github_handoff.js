@@ -35,7 +35,7 @@ module.exports = function(req, res, next){
     };
       request(options1, function(error, response, body){
         const data = JSON.parse(body);
-        
+
         let filtered_data = [];
         let counter = 0, obj = {}, date_mod = 0;
         for (i=0; i < data.length; i++){

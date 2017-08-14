@@ -58,7 +58,7 @@ function updateUsers(){
              avatar : user.avatar,
               name : user.name,
               lai : lai,
-              actions : user.stackoverflow.actions + user.github.actions + user.twitter.actions + user.facebook.actions + user.linkedin.actions,
+              actions : user.stackoverflow.actions + user.github.actions + user.twitter.actions + user.facebook.actions + user.linkedin.actions + user.events.data.length,
               points : user.stackoverflow.points + user.linkedin.points + user.github.points + user.twitter.points + user.facebook.points + user.events.points
           };
           User.findByIdAndUpdate({_id: user._id}, {$set: {profile: updated}})

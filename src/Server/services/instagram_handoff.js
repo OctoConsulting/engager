@@ -32,6 +32,7 @@ module.exports = function(req, res, next){
 
   request(options, function(err, response, body){
     const data = JSON.parse(body).data;
+    console.log(JSON.parse(body));
     if (data){
       let array = [];
       let newDate;
