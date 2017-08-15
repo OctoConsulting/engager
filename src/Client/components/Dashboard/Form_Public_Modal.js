@@ -35,6 +35,17 @@ class Form_Public_Modal extends Component {
     });
   }
 
+  dateFormatter(cell, row){
+    const UTC_time = new Date(Number(cell)*1000).toLocaleDateString();
+    return UTC_time;
+  }
+
+  expFormatter(cell, row){
+    const time = Date.parse(cell);
+    const formatted = new Date(time).toLocaleDateString();
+    return formatted;
+  }
+
   render(){
     return(
       <form >

@@ -153,7 +153,6 @@ export function retrievePublicUser(token){
     const user_id = jwt.decode(token, config.secret);
     axios.get(`${SERVER_URL}/user/${user_id.sub}`)
         .then( response => {
-          console.log(response.data);
           dispatch({type: PUBLIC_USER_INFO, payload: response.data});
         })
         .catch( response => dispatch(authError(response.error)));
