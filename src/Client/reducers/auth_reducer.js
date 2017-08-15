@@ -9,7 +9,8 @@ import {
   USERS,
   EVENTS_INFO,
   FACEBOOK,
-  AVATAR
+  AVATAR,
+  BANNER
 } from '../actions/types';
 
 let defState = {

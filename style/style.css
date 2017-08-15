@@ -42,12 +42,14 @@ img{
 /* DASHBOARD STUFF*/
 #redir-button{
   cursor: pointer;
-  trigger: hover;
 }
 
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
 
+#for{
+  text-align: center;
+}
 
 #date-picker-thing{
   background: true !important;
@@ -101,6 +103,10 @@ img{
 }
 
 /*FOR PERSONAL PROFILE SUBMISSION FORM*/
+
+#event-title{
+  text-align: center;
+}
 
 #button1{
   margin: 0 0% 0 5%;
@@ -348,21 +354,17 @@ img{
     font: 12px "Myriad Pro";
 }
 .profile-card .profile-cover {
-    background-color: #FEC070;
-    border: 1px solid white;
     position: relative;
-    height: 260px;
+    margin: 0 auto;
     width: 100%;
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    margin-bottom: 20px;
+    height: 400px;
+    margin-bottom: 40px;
 }
+
+#banner {
+  max-width: auto !important;
+}
+
 .profile-card .profile-cover:hover {
     filter: none;
     filter: none;
@@ -373,8 +375,8 @@ img{
     background: #ffffff;
     border: 1px solid #eeeeee;
     border: 5px solid #ffffff;
-    width: 150px;
-    height: 150px;
+    width: 275px;
+    height: 275px;
     position: absolute;
     margin: 25px auto 0;
     overflow: hidden;
@@ -398,6 +400,13 @@ img{
     font-weight: bold;
     padding: 5px 0 7px;
 }
+
+.profile-card .profile-cover .profile-banner {
+    color: transparent;
+    width: 100%;
+    padding: 5px 0 7px;
+}
+
 
 .text-error{
   color: red;

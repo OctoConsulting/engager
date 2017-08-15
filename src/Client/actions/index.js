@@ -18,7 +18,8 @@ import {
   INSTAGRAM,
   GITHUB,
   LINKEDIN,
-  JSFIDDLE} from './types';
+  JSFIDDLE
+} from './types';
 import config from '../../Server/config';
 const SERVER_URL = 'http://localhost:3090';
 
@@ -132,7 +133,8 @@ export function retrieveUser(token){
           const filtered_data = {
             name: response.data.name,
             avatar: response.data.avatar,
-            email: response.data.email
+            email: response.data.email,
+            banner: response.data.banner
           }
           dispatch({type: USER_INFO, payload: filtered_data});
           dispatch({type:AVATAR, payload:response.data.avatar});
@@ -153,7 +155,6 @@ export function retrievePublicUser(token){
     const user_id = jwt.decode(token, config.secret);
     axios.get(`${SERVER_URL}/user/${user_id.sub}`)
         .then( response => {
-          console.log(response.data);
           dispatch({type: PUBLIC_USER_INFO, payload: response.data});
         })
         .catch( response => dispatch(authError(response.error)));
@@ -237,8 +238,8 @@ export function socialmedia_auth({type, token, username}){
         .then( response => {
           switch(type){
             case 'twitter':
-              dispatch({type:TWITTER, payload:response.data.twitter.username});
               dispatch({type:AVATAR, payload: response.data.avatar});
+              dispatch({type:TWITTER, payload:response.data.twitter.username});
               break;
             case 'stackoverflow':
               dispatch({type:STACKOVERFLOW, payload:response.data.username});
