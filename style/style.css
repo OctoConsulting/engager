@@ -39,12 +39,15 @@ img{
     background-color: white;
 }
 
+/* DASHBOARD STUFF*/
+#redir-button{
+  cursor: pointer;
+  trigger: hover;
+}
+
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
 
-#redir-button{
-  float: right;
-}
 
 #date-picker-thing{
   background: true !important;

@@ -26,9 +26,16 @@ class Dashboard extends Component{
     });
   }
 
-  imageFormatter(cell, row){
-    return "<img class='dashboard-table-avatar' src='"+cell+"'/>" ;
+  avatarFormatter(cell, row){
+    const img = `<a data-toggle="tooltip" title="Click to view profile" data-placement="top"><img class='dashboard-table-avatar' id="redir-button" data-trigger="hover" data-toggle="modal" data-target="#publicProfile" src='`+cell+`'/><a/>`;
+    return img;
   }
+
+  imageFormatter(cell, row){
+    const img = "<img class='dashboard-table-avatar' src='"+cell+"'/>";
+    return img;
+  }
+
 
   handleSelection(event){
     this.setState({
@@ -46,8 +53,7 @@ class Dashboard extends Component{
   }
 
   selectedRow(row, isSelected, e){
-    this.props.pushUserID(row.user_id);
-    this.props.retrievePublicUser(row.user_id);
+    this.props.retrievePublicUser(row.token);
     this.setState({
       clicked: true
     });
@@ -68,7 +74,7 @@ class Dashboard extends Component{
       onSelect: this.selectedRow.bind(this)
     };
 
-    const redir_button = (this.state.clicked) ? <button type="button" id="redir-button" className="btn btn-primary"  data-toggle="modal" data-target="#publicProfile" data-dismiss="modal" onBlur={this.onClickAway.bind(this)}>Go to {(this.state.userInfo !== null) ? this.state.userInfo.name : ''} Profile <span className="glyphicon glyphicon-chevron-right"></span></button> : null;
+    /*onst redir_button = (this.state.clicked) ? <button type="button" id="redir-button" className="btn btn-primary"  data-toggle="modal" data-target="#publicProfile" data-dismiss="modal" onBlur={this.onClickAway.bind(this)}>Go to {(this.state.userInfo !== null) ? this.state.userInfo.name : ''}'s Profile <span className="glyphicon glyphicon-chevron-right"></span></button> : null;*/
 
     return(
       <div>
@@ -98,7 +104,7 @@ class Dashboard extends Component{
                 </div>
           </div>
 
-          {redir_button}
+          {/*redir_button*/}
 
         <Form_Public_Modal/>
         <div className="container personal-profile-container">
@@ -110,7 +116,7 @@ class Dashboard extends Component{
                       onClick={this.handleWeekly.bind(this)}>WEEKLY</button>*/}
                     <BootstrapTable data={ this.state.init } keyField="user_id" search={ true } selectRow={selectRow} pagination striped hover bordered>
 
-                        <TableHeaderColumn dataField='avatar' dataFormat={this.imageFormatter}>Avatar</TableHeaderColumn>
+                        <TableHeaderColumn dataField='avatar' dataFormat={this.avatarFormatter}>Avatar</TableHeaderColumn>
                         <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
                         <TableHeaderColumn dataField='lai' dataFormat={this.imageFormatter}>Last Action Icon</TableHeaderColumn>
                         <TableHeaderColumn dataField='actions' dataSort={ true }># of Actions</TableHeaderColumn>
