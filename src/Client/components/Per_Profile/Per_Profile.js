@@ -27,6 +27,7 @@ class Per_Profile extends Component {
     super(props);
     this.state = {
       modified: this.props.personalInfo,
+      avatar: this.props.avatar,
       facebook: this.props.facebook,
       twitter: this.props.twitter,
       stackoverflow: this.props.stackoverflow,
@@ -41,6 +42,7 @@ class Per_Profile extends Component {
   componentWillReceiveProps(nextProps){
     this.setState({
       modified: nextProps.personalInfo,
+      avatar: nextProps.avatar,
       facebook: nextProps.facebook,
       twitter: nextProps.twitter,
       stackoverflow: nextProps.stackoverflow,
@@ -62,12 +64,13 @@ class Per_Profile extends Component {
             <div className="col-md-12 profile-card">
               <div className="profile-cover">
                <div className="profile-avatar">
-                  <img src={(this.state.modified !== null) ? this.state.modified.avatar : ''} alt={(this.state.modified !== null) ? this.state.modified.name : ''} />
+                  <img src={(this.state.avatar !== '') ? this.state.avatar : ''} />
                </div>
                <div className="profile-details">
                    <h1>{(this.state.modified !== null) ? this.state.modified.name : ''}</h1>
                    <h6>{(this.state.modified !== null) ? this.state.modified.email : ''}</h6>
                </div>
+               <img className="profile-banner"/>
              </div>
            </div>
          </div>
@@ -284,6 +287,7 @@ class Per_Profile extends Component {
 function mapStateToProps(state){
   return {
     personalInfo: state.auth.userInfo,
+    avatar: state.auth.avatar,
     facebook: state.integration.facebook,
     twitter: state.integration.twitter,
     stackoverflow: state.integration.stackoverflow,
