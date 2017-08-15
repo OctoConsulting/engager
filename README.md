@@ -29,7 +29,7 @@ An interactive web app that measures your activities across multiple social medi
 Note: If you are already familiar with creating, launching and connecting an Ubuntu EC2 instance you may skip to Step 3
 
 ### Step 1: Launch an Instance
-1. Log onto [AWS](aws.amazon.com) and select EC2 on the dashboard since we are going to deploy this on a single instance of EC2
+1. Log onto [AWS](http://www.aws.amazon.com) and select EC2 on the dashboard since we are going to deploy this on a single instance of EC2
 ![AWS Console](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/4.png?raw=true)
 2. Next click the Launch Instance Button in the dashboard
 ![AWS EC2 Dashboard](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/2.png?raw=true)
