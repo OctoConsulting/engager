@@ -63,7 +63,11 @@ class Form_Public_Modal extends Component {
                     <span className="col-md-2 col-sm-2 col-xs-2 inner-all no-margin">
                       <i className="fa fa-instagram fa-3x rounded bg-instagram"></i>
                       <p>
+                        {(this.state.userInfo !== null) ? this.state.userInfo.instagram.username : ''}
+                        <br/>
                         {(this.state.userInfo !== null) ? this.state.userInfo.instagram.points : ''} points
+                        <br/>
+                        {(this.state.userInfo !== null) ? this.state.userInfo.instagram.actions : ''} actions
                       </p>
 
                     </span>
