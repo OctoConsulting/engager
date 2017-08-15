@@ -53,8 +53,7 @@ class Dashboard extends Component{
   }
 
   selectedRow(row, isSelected, e){
-    this.props.pushUserID(row.user_id);
-    this.props.retrievePublicUser(row.user_id);
+    this.props.retrievePublicUser(row.token);
     this.setState({
       clicked: true
     });

@@ -150,9 +150,10 @@ export function retrieveUser(token){
   }
 }
 
-export function retrievePublicUser(user_id){
+export function retrievePublicUser(token){
   return function(dispatch){
-    axios.get(`${SERVER_URL}/user/${user_id}`)
+    const user_id = jwt.decode(token, config.secret);
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
         .then( response => {
           console.log(response.data);
           dispatch({type: PUBLIC_USER_INFO, payload: response.data});

@@ -62,7 +62,7 @@ exports.signup = function(req, res, next){
         data: []
       },
       profile: {
-        user_id: '',
+        token: '',
         avatar: '',
         name: '',
         lai: '',
