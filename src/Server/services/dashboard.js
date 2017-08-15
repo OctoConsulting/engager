@@ -1,5 +1,8 @@
 const User = require('../models/user');
 const mongoose = require('mongoose');
+const jwt = require('jwt-simple');
+const config = require('../config');
+
 
 const twitter_ico = "http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Twitter-icon.png";
 const facebook_ico = "https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png";
@@ -8,6 +11,8 @@ const linkedin_ico = "https://image.flaticon.com/icons/svg/34/34227.svg";
 const stackoverflow_ico = "https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.svg?v=6e4af45f4d66";
 const github_ico = "https://image.flaticon.com/icons/svg/25/25231.svg";
 const default_ico = "https://s3-us-west-2.amazonaws.com/jrdevsresumes/company_logos/66604/octo-consulting.png?1478301859";
+const jsfiddle_ico = "https://maxcdn.icons8.com/Share/icon/Logos//jsfiddle1600.png";
+
 let date = 0;
 
 
@@ -16,8 +21,17 @@ function updateUsers(){
     let array = {};
     User.find({}, (err, users) => {
       users.forEach(user => {
+        const timestamp = new Date().getTime();
+        const token = jwt.encode({sub: user._id, iat: timestamp}, config.secret);
 
         let lai = 'https://pbs.twimg.com/profile_images/1534431858/Avatar_400x400.png';
+
+        if (user.jsfiddle.data !== null  && user.jsfiddle.data.length > 0){
+          if (user.jsfiddle.data[0].date > date){
+          lai = jsfiddle_ico;
+          }
+        }
+
         if (user.linkedin.data !== null  && user.linkedin.data.length > 0){
           if (user.linkedin.data[0].date > date){
           lai = linkedin_ico;
@@ -55,12 +69,12 @@ function updateUsers(){
         }
 
         let updated = {
-             user_id: user._id,
-             avatar : user.avatar,
-              name : user.name,
-              lai : lai,
-              actions : user.stackoverflow.actions + user.github.actions + user.twitter.actions + user.facebook.actions + user.linkedin.actions + user.events.data.length,
-              points : user.stackoverflow.points + user.linkedin.points + user.github.points + user.twitter.points + user.facebook.points + user.events.points
+            token: token,
+            avatar : user.avatar,
+            name : user.name,
+            lai : lai,
+            actions : user.stackoverflow.actions + user.jsfiddle.actions + user.github.actions + user.twitter.actions + user.facebook.actions + user.linkedin.actions + user.instagram.points + user.events.data.length,
+            points : user.stackoverflow.points + user.linkedin.points + user.github.points + user.twitter.points + user.facebook.points + user.instagram.points + user.jsfiddle.points + user.events.points
           };
           User.findByIdAndUpdate({_id: user._id}, {$set: {profile: updated}})
               .then( () => User.findById({_id: user._id}))
