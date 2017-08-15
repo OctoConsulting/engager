@@ -47,6 +47,9 @@ img{
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
 
+#for{
+  text-align: center;
+}
 
 #date-picker-thing{
   background: true !important;
@@ -100,6 +103,10 @@ img{
 }
 
 /*FOR PERSONAL PROFILE SUBMISSION FORM*/
+
+#event-title{
+  text-align: center;
+}
 
 #button1{
   margin: 0 0% 0 5%;
