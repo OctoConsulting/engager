@@ -50,13 +50,15 @@ Hooray! Within a couple of minutes, your EC2 Ubuntu server should be up and runn
 chmod 400 [key_name].pem
 ```
 ![](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/9.png?raw=true)
+
 3. Retrieve the url of your instance from the dashboard
 ![](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/10.png?raw=true)
 Connect using SSH into your instance through terminal using the following command (ensuring you are still in the same directory as your key)
 ```bash
  ssh -i "[key_name].pem" ubuntu@[URL_OF_INSTANCE]
  ```
- ![](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/11.png?raw=true)
+![](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/11.png?raw=true)
+
 Hooray! You should now be connected into your instance’s terminal, and be greeted with this screen
 ![](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/12.png?raw=true)
 ### Step 3: Setting up the project
@@ -68,6 +70,7 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | b
 ```bash
 . ~/.nvm/nvm.sh
 ```
+
 3. Now lets install node, I am going to use the LTS (Latest Stable Version) as of the date this was created which happens to be v6.11.2 , so we enter the following command 
 ```bash
 nvm install v6.11.2
@@ -123,7 +126,8 @@ cd ..\..\Server
 Here we will edit the `index.js` file to tell our application to use MongoDB stored on mlab.  So again we use vim index.js and edit the file by pressing ‘i’ and navigate to where it says `//DATABASE SETUP` .  Here we will comment out the `//LOCAL DB` section and comment in the `//REMOTE DB ON MLAB` section as demonstrated in the screenshot. 
 ![](https://github.com/OctoConsulting/engager/blob/master/img/aws_screenshots/22.png?raw=true)
 
-Save and exit out of vim by pressing `esc`  and then `:wq`
+Save and exit out of vim by pressing `esc`  and then `:wq`.   
+
 9. The last part we need to setup the project is putting in our config file (Note: this is not included in the github repo so you will have to reach out to one of the collaborators on this project or create your own credentials). For this step you will run `vim config.js` and go ahead and clear the file by pressing `50dd` from the top of the document. This command deletes the next 50 lines (clears the whole file)  in `vim`. Now press `i` and paste in the code from your own `config.js` file. Since the terminal’s buffer can’t hold all of the text at once, you can’t copy and paste it all at once so you will have to copy and paste it in two sections ( I divide it up after the LinkedIn section).
 Now you can save and exit by pressing `esc`  and then `:wq` and finally be done with this long and exhausting step
 ### Step 4: Running the backend and frontend
