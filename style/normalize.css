@@ -4038,41 +4038,41 @@ ul.days li span {
 
 
 
-.btn-linkedin {
+.btn-events {
   color: #FFF;
   background-color: #004d1a;
   border-color: #004d1a;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
-.btn-linkedin:hover, .btn-linkedin:focus, .btn-linkedin:active {
+.btn-events:hover, .btn-events:focus, .btn-events:active {
   color: #FFF !important;
   background-color: #004d1a !important;
 }
-.btn-linkedin.btn-stroke {
+.btn-events.btn-stroke {
   border: 1px double #004d1a;
   background-color: transparent;
-  color: #0e76a8;
+  color: #004d1a;
 }
-.btn-linkedin.btn-stroke:hover {
+.btn-events.btn-stroke:hover {
   color: #FFF !important;
   background-color: #0c6590;
 }
-.btn-linkedin.btn-solid {
+.btn-events.btn-solid {
   border: 1px solid #004d1a;
 }
-.btn-linkedin.btn-dashed {
+.btn-events.btn-dashed {
   border: 1px dashed #004d1a;
 }
-.btn-linkedin.btn-dotted {
+.btn-events.btn-dotted {
   border: 1px dotted #004d1a;
 }
-.btn-linkedin.btn-double {
+.btn-events.btn-double {
   border: 4px double #004d1a;
 }
-.btn-linkedin.btn-inset {
+.btn-events.btn-inset {
   border: 4px inset #004d1a;
 }
-.btn-linkedin.btn-circle {
+.btn-events.btn-circle {
   padding-left: 0;
   padding-right: 0;
   width: 34px;
@@ -4080,6 +4080,9 @@ ul.days li span {
   -webkit-border-radius: 50%;
   border-radius: 50% 50% 50% 50%;
 }
+
+
+
 
 .btn-path {
   color: #FFF;

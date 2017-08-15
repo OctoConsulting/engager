@@ -262,7 +262,7 @@ class Per_Profile extends Component {
                         </p>
                     </div>
                     <div className="panel-body text-center">
-                      <button className="btn btn-linkedin btn-icon-stacked btn-stroke"
+                      <button className="btn btn-events btn-icon-stacked btn-stroke"
                         data-toggle="modal" data-target="#event">
                           <span>Add an event</span>
                       </button>
