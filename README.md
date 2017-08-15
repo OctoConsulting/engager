@@ -1,6 +1,5 @@
-PROJECT ENGAGER
+PROJECT ENGAGER  ![Engager](https://github.com/OctoConsulting/engager/blob/public_profile/img/Engager_ico_48.png?raw=true)
 ================
-![Engager](https://github.com/OctoConsulting/engager/blob/public_profile/img/Engager_ico_48.png?raw=true)
 
 An interactive web app that measures your activities across multiple social media and project platforms
 
