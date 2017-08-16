@@ -168,7 +168,7 @@ class Form_Public_Modal extends Component {
 
 
 
-    const empty_message = (this.state.userInfo !== null && (this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0) ? <div className="icon-center"><p className=" fa fa-plug fa-5x"></p><br/><strong>This user does not have any plugins. Please check back later.</strong></div> : null;
+    const empty_message = (this.state.userInfo !== null && (this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0) ? <div className="icon-center"><p className=" fa fa-plug fa-5x"></p><br/><strong>This user does not have any social media connected. Please check back later.</strong></div> : null;
 
 
     const options = {
@@ -183,6 +183,10 @@ class Form_Public_Modal extends Component {
             }
             <div className="modal-content">
               <div className="modal-header" id="submission-form">
+                <button type="button" className="close" data-dismiss="modal">&times;</button>
+                <div>
+                  <img className="public-modal-avatar" src={(this.state.userInfo!==null)?this.state.userInfo.avatar : ''}/>
+                </div>
                 <strong><h4 className="modal-title">{(this.state.userInfo !== null) ? this.state.userInfo.name : ''}</h4></strong>
                 <strong><h5 className="modal-title">{(this.state.userInfo !== null) ? this.state.userInfo.email : ''}</h5></strong>
               </div>

@@ -74,7 +74,10 @@ class Dashboard extends Component{
       onSelect: this.selectedRow.bind(this)
     };
 
-    /*onst redir_button = (this.state.clicked) ? <button type="button" id="redir-button" className="btn btn-primary"  data-toggle="modal" data-target="#publicProfile" data-dismiss="modal" onBlur={this.onClickAway.bind(this)}>Go to {(this.state.userInfo !== null) ? this.state.userInfo.name : ''}'s Profile <span className="glyphicon glyphicon-chevron-right"></span></button> : null;*/
+    const options = {
+      defaultSortName: 'points',
+      defaultSortOrder: 'desc'
+    };
 
     return(
       <div>
@@ -114,7 +117,7 @@ class Dashboard extends Component{
 
                     {/*<button type="button" className="btn btn-primary"
                       onClick={this.handleWeekly.bind(this)}>WEEKLY</button>*/}
-                    <BootstrapTable data={ this.state.init } keyField="user_id" search={ true } selectRow={selectRow} pagination striped hover bordered>
+                    <BootstrapTable data={ this.state.init } keyField="user_id" search={ true } selectRow={selectRow} options={options} pagination striped hover bordered>
 
                         <TableHeaderColumn dataField='avatar' dataFormat={this.avatarFormatter}>Avatar</TableHeaderColumn>
                         <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
