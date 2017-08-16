@@ -34,6 +34,5 @@ export default (
       <Route path="Profile" component={Require_Auth(Per_Profile)}>
         <IndexRoute component={Require_Auth(Per_Profile)}/>
       </Route>
-      <Route path="Pub_Profile" component={Require_Auth(Pub_Profile)}/>
     </Route>
 );
