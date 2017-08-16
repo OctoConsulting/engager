@@ -21,27 +21,34 @@ class Form_Event_Modal extends Component {
       selection: event
     });
   }
-  handleFormSubmit({eventName, description, expiration}){
+  handleFormSubmit({enteredDate, eventName, description, expiration}){
     const type = this.state.selection;
     const token = localStorage.getItem('token');
-    if (type !='' && eventName!='' && description!=''){
+    if (enteredDate!=='' && type !='' && eventName!='' && description!=''){
       if (type === "Certification"){
-        this.props.addingEvent({token, type, eventName, description, expiration});
+        enteredDate = "N/A";
+        this.props.addingEvent({token, enteredDate, type, eventName, description, expiration});
       }
       else{
         expiration = "N/A";
-        this.props.addingEvent({token, type, eventName, description, expiration});
+        this.props.addingEvent({token, enteredDate, type, eventName, description, expiration});
       }
     }
   }
 
   render(){
-    const { handleSubmit, fields: {type, eventName, description, expiration} } = this.props;
+    const { handleSubmit, fields: {enteredDate, type, eventName, description, expiration} } = this.props;
     const type_name = 'Types';
     const expiration_box = (this.state.selection === "Certification") ? <fieldset className="form-group">
       <input type="text1" className="form-control"
       placeholder="Expiration Date" {...expiration}/>
       {description.error && <div className="text-error">{description.error}</div>}
+    </fieldset> : null;
+
+    const input_date = (this.state.selection !== '' && this.state.selection !== 'Certification') ? <fieldset className="form-group">
+      <input type="text1" className="form-control"
+      placeholder="MM/DD/YYYY"
+      {...enteredDate}/>
     </fieldset> : null;
     return(
       <form >
@@ -65,6 +72,8 @@ class Form_Event_Modal extends Component {
                         <MenuItem eventKey="Other" {...type}>Other</MenuItem>
                       </SplitButton>
                     </div>
+
+                        {input_date}
 
                         <fieldset className="form-group">
                           <input type="text1" className="form-control"
@@ -120,6 +129,7 @@ export default reduxForm({
   form: 'event',
   fields: [
     'type',
+    'enteredDate',
     'eventName',
     'description',
     'expiration'

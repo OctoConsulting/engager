@@ -47,7 +47,9 @@ class Form_Event extends Component {
 
   render(){
     const options = {
-      afterDeleteRow: this.afterDeleteRow.bind(this)
+      afterDeleteRow: this.afterDeleteRow.bind(this),
+      defaultSortName: 'event_date',
+      defaultSortOrder: 'desc'
     };
     const selectRow = {
       mode: 'checkbox',
@@ -66,8 +68,8 @@ class Form_Event extends Component {
 
               {/*<button type="button" className="btn btn-primary" id="add-button" data-toggle="modal" data-target="#event" data-dismiss="modal"><span id="add-word"><span className="glyphicon glyphicon-plus"></span>Add</span></button>*/}
 
-              <BootstrapTable data={this.state.eventList}  search={true}  selectRow={selectRow} deleteRow options={options} pagination bordered>
-                <TableHeaderColumn dataField='date' dataSort={true} isKey={true} dataFormat={this.dateFormatter}>Date</TableHeaderColumn>
+              <BootstrapTable data={this.state.eventList}  search={true} keyField='date' selectRow={selectRow} deleteRow options={options} pagination bordered>
+                <TableHeaderColumn dataField='event_date' dataSort={true} >Date</TableHeaderColumn>
                 <TableHeaderColumn dataField='type' dataSort={true}>Type</TableHeaderColumn>
                 <TableHeaderColumn dataField='eventName' dataSort={true}>Name</TableHeaderColumn>
                 <TableHeaderColumn dataField='description' dataSort={true}>Description</TableHeaderColumn>

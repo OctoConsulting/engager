@@ -5,8 +5,7 @@ import * as actions from '../../../actions';
 import {reduxForm} from 'redux-form';
 
 class Form_Facebook extends Component {
-
-  componentWillMount(){
+  componentDidMount(){
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '451996951822224',

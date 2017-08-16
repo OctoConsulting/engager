@@ -44,6 +44,12 @@ img{
   cursor: pointer;
 }
 
+/*public profile stuff*/
+.public-modal-avatar{
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+}
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
 
