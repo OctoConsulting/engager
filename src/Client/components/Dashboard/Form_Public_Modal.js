@@ -24,14 +24,15 @@ class Form_Public_Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: this.props.user_id,
-      userInfo: this.props.userInfo
+      userInfo: this.props.userInfo,
+      userScores: this.props.userScores,
+      selectedOption: 'alltime'
     };
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
-      user_id: nextProps.user_id,
-      userInfo: nextProps.userInfo
+      userInfo: nextProps.userInfo,
+      userScores: nextProps.userScores
     });
   }
 
@@ -46,9 +47,29 @@ class Form_Public_Modal extends Component {
     return formatted;
   }
 
+  handleSelection(event){
+    this.setState({
+      selectedOption: event.target.value
+    });
+    let type;
+    if (event.target.value === 'weekly'){
+      type = 'weekly';
+    }
+    else if (event.target.value === 'monthly'){
+      type = 'monthly';
+    }
+    else{
+      type = 'alltime';
+    }
+    const token = this.state.userInfo.profile.token;
+    this.props.retrievePublicUserScore({type, token});
+  }
 
   render(){
-    const instagram_connect = (this.state.userInfo !== null && this.state.userInfo.instagram.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
+
+    {/*ALL THE CONNECTIONS WILL ONLY DISPLAY WHEN IT IS CONNECTED. HIDDEN OTHERWISE*/}
+
+    const instagram_connect = (this.state.userScores !== null && this.state.userScores.instagram.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-instagram">
           <p className="inner-all no-margin">
@@ -56,14 +77,14 @@ class Form_Public_Modal extends Component {
           </p>
         </div>
         <div className="panel-body text-center">
-          <strong> {(this.state.userInfo !== null) ? this.state.userInfo.instagram.username : ''} </strong> <br />
-          actions: {(this.state.userInfo !== null) ? this.state.userInfo.instagram.actions : ''} <br />
-          points: {(this.state.userInfo !== null) ? this.state.userInfo.instagram.points : ''}
+          <strong> {(this.state.userScores !== null) ? this.state.userScores.instagram.username : ''} </strong> <br />
+          actions: {(this.state.userScores !== null) ? this.state.userScores.instagram.actions : ''} <br />
+          points: {(this.state.userScores !== null) ? this.state.userScores.instagram.points : ''}
         </div>
       </div>
     </span> : null;
 
-    const twitter_connect = (this.state.userInfo !== null && this.state.userInfo.twitter.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
+    const twitter_connect = (this.state.userScores !== null && this.state.userScores.twitter.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-twitter">
           <p className="inner-all no-margin">
@@ -71,14 +92,14 @@ class Form_Public_Modal extends Component {
           </p>
         </div>
         <div className="panel-body text-center">
-          <strong> {(this.state.userInfo !== null) ? this.state.userInfo.twitter.username : ''} </strong> <br />
-          actions: {(this.state.userInfo !== null) ? this.state.userInfo.twitter.actions : ''} <br />
-          points: {(this.state.userInfo !== null) ? this.state.userInfo.twitter.points : ''}
+          <strong> {(this.state.userScores !== null) ? this.state.userScores.twitter.username : ''} </strong> <br />
+          actions: {(this.state.userScores !== null) ? this.state.userScores.twitter.actions : ''} <br />
+          points: {(this.state.userScores !== null) ? this.state.userScores.twitter.points : ''}
         </div>
       </div>
     </span> : null;
 
-    const stackoverflow_connect = (this.state.userInfo !== null && this.state.userInfo.stackoverflow.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
+    const stackoverflow_connect = (this.state.userScores !== null && this.state.userScores.stackoverflow.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-stackOverFlow">
           <p className="inner-all no-margin">
@@ -86,14 +107,14 @@ class Form_Public_Modal extends Component {
           </p>
         </div>
         <div className="panel-body text-center">
-          <strong> {(this.state.userInfo !== null) ? this.state.userInfo.stackoverflow.username : ''} </strong> <br />
-          actions: {(this.state.userInfo !== null) ? this.state.userInfo.stackoverflow.actions : ''} <br />
-          points: {(this.state.userInfo !== null) ? this.state.userInfo.stackoverflow.points : ''}
+          <strong> {(this.state.userScores !== null) ? this.state.userScores.stackoverflow.username : ''} </strong> <br />
+          actions: {(this.state.userScores !== null) ? this.state.userScores.stackoverflow.actions : ''} <br />
+          points: {(this.state.userScores !== null) ? this.state.userScores.stackoverflow.points : ''}
         </div>
       </div>
     </span> : null;
 
-    const jsfiddle_connect = (this.state.userInfo !== null && this.state.userInfo.jsfiddle.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
+    const jsfiddle_connect = (this.state.userScores !== null && this.state.userScores.jsfiddle.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-jsFiddle">
           <p className="inner-all no-margin">
@@ -101,15 +122,15 @@ class Form_Public_Modal extends Component {
           </p>
         </div>
         <div className="panel-body text-center">
-          <strong> {(this.state.userInfo !== null) ? this.state.userInfo.jsfiddle.username : ''} </strong> <br />
-          actions: {(this.state.userInfo !== null) ? this.state.userInfo.jsfiddle.actions : ''} <br />
-          points: {(this.state.userInfo !== null) ? this.state.userInfo.jsfiddle.points : ''}
+          <strong> {(this.state.userScores !== null) ? this.state.userScores.jsfiddle.username : ''} </strong> <br />
+          actions: {(this.state.userScores !== null) ? this.state.userScores.jsfiddle.actions : ''} <br />
+          points: {(this.state.userScores !== null) ? this.state.userScores.jsfiddle.points : ''}
         </div>
       </div>
     </span> : null;
 
 
-    const facebook_connect = (this.state.userInfo !== null && this.state.userInfo.facebook.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
+    const facebook_connect = (this.state.userScores !== null && this.state.userScores.facebook.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-facebook">
           <p className="inner-all no-margin">
@@ -117,14 +138,14 @@ class Form_Public_Modal extends Component {
           </p>
         </div>
         <div className="panel-body text-center">
-          <strong> {(this.state.userInfo !== null) ? this.state.userInfo.facebook.username : ''} </strong> <br />
-          actions: {(this.state.userInfo !== null) ? this.state.userInfo.facebook.actions : ''} <br />
-          points: {(this.state.userInfo !== null) ? this.state.userInfo.facebook.points : ''}
+          <strong> {(this.state.userScores !== null) ? this.state.userScores.facebook.username : ''} </strong> <br />
+          actions: {(this.state.userScores !== null) ? this.state.userScores.facebook.actions : ''} <br />
+          points: {(this.state.userScores !== null) ? this.state.userScores.facebook.points : ''}
         </div>
       </div>
     </span> : null;
 
-    const github_connect = (this.state.userInfo !== null && this.state.userInfo.github.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
+    const github_connect = (this.state.userScores !== null && this.state.userScores.github.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-github">
           <p className="inner-all no-margin">
@@ -132,14 +153,14 @@ class Form_Public_Modal extends Component {
           </p>
         </div>
         <div className="panel-body text-center">
-          <strong> {(this.state.userInfo !== null) ? this.state.userInfo.github.username : ''} </strong> <br />
-          actions: {(this.state.userInfo !== null) ? this.state.userInfo.github.actions : ''} <br />
-          points: {(this.state.userInfo !== null) ? this.state.userInfo.github.points : ''}
+          <strong> {(this.state.userScores !== null) ? this.state.userScores.github.username : ''} </strong> <br />
+          actions: {(this.state.userScores !== null) ? this.state.userScores.github.actions : ''} <br />
+          points: {(this.state.userScores !== null) ? this.state.userScores.github.points : ''}
         </div>
       </div>
     </span> : null;
 
-    const linkedin_connect = (this.state.userInfo !== null && this.state.userInfo.linkedin.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
+    const linkedin_connect = (this.state.userScores !== null && this.state.userScores.linkedin.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-linkedin">
           <p className="inner-all no-margin">
@@ -147,13 +168,14 @@ class Form_Public_Modal extends Component {
           </p>
         </div>
         <div className="panel-body text-center">
-          <strong> {(this.state.userInfo !== null) ? this.state.userInfo.linkedin.username : ''} </strong> <br />
-          actions: {(this.state.userInfo !== null) ? this.state.userInfo.linkedin.actions : ''} <br />
-          points: {(this.state.userInfo !== null) ? this.state.userInfo.linkedin.points : ''}
+          <strong> {(this.state.userScores !== null) ? this.state.userScores.linkedin.username : ''} </strong> <br />
+          actions: {(this.state.userScores !== null) ? this.state.userScores.linkedin.actions : ''} <br />
+          points: {(this.state.userScores !== null) ? this.state.userScores.linkedin.points : ''}
         </div>
       </div>
     </span> : null;
 
+    {/*DISPLAY THE TABLE ONLY WHEN THERE'S DATA. OTHERWISE SHOW A MESSAGE*/}
     const table = (this.state.userInfo !== null && this.state.userInfo.events.data.length !== 0) ? (<div className="col-md-12 col-sm-12 col-xs-12">
       <h4 id="event-title">Logged Events</h4>
       <br/>
@@ -167,8 +189,29 @@ class Form_Public_Modal extends Component {
     </div>) : (<div className="icon-center"><p className=" fa fa-calendar fa-5x"></p><br/><strong>This user has not logged any event.</strong></div>);
 
 
-
-    const empty_message = (this.state.userInfo !== null && (this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0) ? <div className="icon-center"><p className=" fa fa-plug fa-5x"></p><br/><strong>This user does not have any social media connected. Please check back later.</strong></div> : null;
+    {/*SELECTION STATEMENT TO DISPLAY EITHER THE FILTER BUTTONS WHEN THERE IS A CONNECTION
+      OR THE EMPTY MESSAGE*/}
+    const empty_message = (this.state.userInfo !== null && (this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0) ? <div className="icon-center"><p className=" fa fa-plug fa-5x"></p><br/><strong>This user does not have any social media connected. Please check back later.</strong></div> : (<div className="row text-center">
+      <div className="col-md-12 col-sm-12 col-xs-12">
+        <div className="btn-group" data-toggle="radio">
+          <label className="btn btn-primary">
+            <input type="radio" value="weekly" autoComplete="on"
+              checked={this.state.selectedOption==='weekly'}
+              onChange={this.handleSelection.bind(this)}/> Weekly
+            </label>
+            <label className="btn btn-primary">
+              <input type="radio" value="monthly" autoComplete="on"
+                checked={this.state.selectedOption==='monthly'}
+                onChange={this.handleSelection.bind(this)}/> Monthly
+              </label>
+              <label className="btn btn-primary">
+                <input type="radio" value="alltime" autoComplete="on"
+                  checked={this.state.selectedOption==='alltime'}
+                  onChange={this.handleSelection.bind(this)}/> All time
+                </label>
+              </div>
+        </div>
+    </div>);
 
 
     const options = {
@@ -187,13 +230,13 @@ class Form_Public_Modal extends Component {
                 <div>
                   <img className="public-modal-avatar" src={(this.state.userInfo!==null)?this.state.userInfo.avatar : ''}/>
                 </div>
-                <strong><h4 className="modal-title">{(this.state.userInfo !== null) ? this.state.userInfo.name : ''}</h4></strong>
-                <strong><h5 className="modal-title">{(this.state.userInfo !== null) ? this.state.userInfo.email : ''}</h5></strong>
+                <strong><h4 className="modal-title">{(this.state.userScores !== null) ? this.state.userInfo.name : ''}</h4></strong>
+                <strong><h5 className="modal-title">{(this.state.userScores !== null) ? this.state.userInfo.email : ''}</h5></strong>
               </div>
 
 
               <div className="modal-body">
-                <div className="row text-center">
+                <div className="row">
                   {empty_message}
                   {instagram_connect}
                   {twitter_connect}
@@ -221,8 +264,8 @@ class Form_Public_Modal extends Component {
 
 function mapStateToProps(state) {
   return {
-    user_id: state.auth.public_user_id,
-    userInfo: state.auth.public_user_info
+    userInfo: state.auth.public_user_info,
+    userScores: state.auth.public_user_scores
   };
 }
 

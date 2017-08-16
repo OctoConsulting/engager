@@ -8,6 +8,7 @@ const passport = require('passport');
 const dashboard = require('./services/dashboard');
 const dashboard_weekly_filter = require('./services/dashboard_weekly_filter');
 const dashboard_monthly_filter = require('./services/dashboard_monthly_filter');
+const public_user_scores = require('./services/public_info_filters');
 
 const facebook_auth = require('./services/facebook_auth');
 const facebook_deauth = require('./services/facebook_deauth');
@@ -57,6 +58,7 @@ module.exports = function(app){
   app.get('/dashboard', dashboard);
   app.get('/dashboard_weekly_filter', dashboard_weekly_filter);
   app.get('/dashboard_monthly_filter', dashboard_monthly_filter);
+  app.put('/publicUserScore/:id', public_user_scores);
   //LOADS CURRENT USER TO THE NAV BAR AND PERSONAL PROFILE
   app.get('/user/:id', getuserinfo);
   //ADDING EVENT DATA TO DATABASE

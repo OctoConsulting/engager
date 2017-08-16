@@ -7,8 +7,8 @@ export const USER_INFO = 'USER_INFO';
 export const USERS = 'USERS';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const EVENTS_INFO = 'EVENTS_INFO';
-export const PUBLIC_USER_ID = 'PUBLIC_USER_ID';
 export const PUBLIC_USER_INFO = 'PUBLIC_USER_INFO';
+export const PUBLIC_SCORE_INFO = 'PUBLIC_SCORE_INFO';
 
 export const AVATAR = 'AVATAR';
 export const FACEBOOK = 'FACEBOOK';
