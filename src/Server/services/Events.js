@@ -16,6 +16,7 @@ exports.addEvent = function(req, res, next){
 
   const updated = {
     date: req.body.timestamp_epoch.toString(),
+    event_date: req.body.enteredDate,
     type : req.body.type,
     eventName : req.body.eventName,
     description : req.body.description,

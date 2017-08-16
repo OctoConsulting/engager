@@ -117,7 +117,7 @@ class Dashboard extends Component{
 
                     {/*<button type="button" className="btn btn-primary"
                       onClick={this.handleWeekly.bind(this)}>WEEKLY</button>*/}
-                    <BootstrapTable data={ this.state.init } keyField="user_id" search={ true } selectRow={selectRow} options={options} pagination striped hover bordered>
+                    <BootstrapTable data={ this.state.init } keyField='token' search={ true } selectRow={selectRow} options={options} pagination striped hover bordered>
 
                         <TableHeaderColumn dataField='avatar' dataFormat={this.avatarFormatter}>Avatar</TableHeaderColumn>
                         <TableHeaderColumn dataField='name' dataSort={ true }>Name</TableHeaderColumn>
