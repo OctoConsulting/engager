@@ -21,7 +21,7 @@ import {
   JSFIDDLE
 } from './types';
 import config from '../../Server/config';
-const SERVER_URL = 'http://localhost:3090';
+const SERVER_URL = config.server_url;
 
 
 /*
