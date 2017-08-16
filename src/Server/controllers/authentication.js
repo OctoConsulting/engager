@@ -31,7 +31,7 @@ exports.signup = function(req, res, next){
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
-  let baseUrl = req.protocol + '://localhost:8080/#/verify/';
+  let baseUrl = req.protocol + config.frontend_url + '/#/verify/';
   let text = 'You have requested to create an account at engager.io. To verify this please click the following link:\n' + baseUrl ;
   const verified = false;
 
