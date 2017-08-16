@@ -48,7 +48,7 @@ class Form_Public_Modal extends Component {
 
 
   render(){
-    const instagram_connect = (this.state.userInfo !== null && this.state.userInfo.instagram.username !== '') ? <span className="col-md-4 col-sm-2 col-xs-2 inner-all no-margin">
+    const instagram_connect = (this.state.userInfo !== null && this.state.userInfo.instagram.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-instagram">
           <p className="inner-all no-margin">
@@ -63,7 +63,7 @@ class Form_Public_Modal extends Component {
       </div>
     </span> : null;
 
-    const twitter_connect = (this.state.userInfo !== null && this.state.userInfo.twitter.username !== '') ? <span className="col-md-4 col-sm-2 col-xs-2 inner-all no-margin">
+    const twitter_connect = (this.state.userInfo !== null && this.state.userInfo.twitter.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-twitter">
           <p className="inner-all no-margin">
@@ -78,7 +78,7 @@ class Form_Public_Modal extends Component {
       </div>
     </span> : null;
 
-    const stackoverflow_connect = (this.state.userInfo !== null && this.state.userInfo.stackoverflow.username !== '') ? <span className="col-md-4 col-sm-2 col-xs-2 inner-all no-margin">
+    const stackoverflow_connect = (this.state.userInfo !== null && this.state.userInfo.stackoverflow.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-stackOverFlow">
           <p className="inner-all no-margin">
@@ -93,7 +93,7 @@ class Form_Public_Modal extends Component {
       </div>
     </span> : null;
 
-    const jsfiddle_connect = (this.state.userInfo !== null && this.state.userInfo.jsfiddle.username !== '') ? <span className="col-md-4 col-sm-2 col-xs-2 inner-all no-margin">
+    const jsfiddle_connect = (this.state.userInfo !== null && this.state.userInfo.jsfiddle.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-jsFiddle">
           <p className="inner-all no-margin">
@@ -109,7 +109,7 @@ class Form_Public_Modal extends Component {
     </span> : null;
 
 
-    const facebook_connect = (this.state.userInfo !== null && this.state.userInfo.facebook.username !== '') ? <span className="col-md-4 col-sm-2 col-xs-2 inner-all no-margin">
+    const facebook_connect = (this.state.userInfo !== null && this.state.userInfo.facebook.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-facebook">
           <p className="inner-all no-margin">
@@ -124,7 +124,7 @@ class Form_Public_Modal extends Component {
       </div>
     </span> : null;
 
-    const github_connect = (this.state.userInfo !== null && this.state.userInfo.github.username !== '') ? <span className="col-md-4 col-sm-2 col-xs-2 inner-all no-margin">
+    const github_connect = (this.state.userInfo !== null && this.state.userInfo.github.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-github">
           <p className="inner-all no-margin">
@@ -139,7 +139,7 @@ class Form_Public_Modal extends Component {
       </div>
     </span> : null;
 
-    const linkedin_connect = (this.state.userInfo !== null && this.state.userInfo.linkedin.username !== '') ? <span className="col-md-4 col-sm-2 col-xs-2 inner-all no-margin">
+    const linkedin_connect = (this.state.userInfo !== null && this.state.userInfo.linkedin.username !== '') ? <span className="col-md-3 col-sm-6 col-xs-12 inner-all no-margin">
       <div className="panel rounded shadow">
         <div className="panel-heading text-center bg-linkedin">
           <p className="inner-all no-margin">
@@ -154,7 +154,27 @@ class Form_Public_Modal extends Component {
       </div>
     </span> : null;
 
-    const empty_message = (this.state.userInfo !== null && (this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0) ? <div id="for"><p className="fa fa-chain-broken fa-5x"></p><br/><strong>This user does not have any integration connected. Please check back later.</strong></div> : null;
+    const table = (this.state.userInfo !== null && this.state.userInfo.events.data.length !== 0) ? (<div className="col-md-12 col-sm-12 col-xs-12">
+      <h4 id="event-title">Logged Events</h4>
+      <br/>
+      <BootstrapTable data={(this.state.userInfo !== null) ? this.state.userInfo.events.data : null} search={true}  options={options} pagination bordered>
+        <TableHeaderColumn dataField='date' dataSort={true} isKey={true} dataFormat={this.dateFormatter}>Date</TableHeaderColumn>
+        <TableHeaderColumn dataField='type' dataSort={true}>Type</TableHeaderColumn>
+        <TableHeaderColumn dataField='eventName' dataSort={true}>Name</TableHeaderColumn>
+        <TableHeaderColumn dataField='description' dataSort={true}>Description</TableHeaderColumn>
+        <TableHeaderColumn dataField='expiration' dataSort={true} >Exp. Date</TableHeaderColumn>
+      </BootstrapTable>
+    </div>) : (<div className="icon-center"><p className=" fa fa-calendar fa-5x"></p><br/><strong>This user has not logged any event.</strong></div>);
+
+
+
+    const empty_message = (this.state.userInfo !== null && (this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0) ? <div className="icon-center"><p className=" fa fa-plug fa-5x"></p><br/><strong>This user does not have any plugins. Please check back later.</strong></div> : null;
+
+
+    const options = {
+      noDataText: `No Event Information`
+    };
+
     return(
       <form >
         <div className="modal fade" id="publicProfile" role="dialog">
@@ -164,6 +184,7 @@ class Form_Public_Modal extends Component {
             <div className="modal-content">
               <div className="modal-header" id="submission-form">
                 <strong><h4 className="modal-title">{(this.state.userInfo !== null) ? this.state.userInfo.name : ''}</h4></strong>
+                <strong><h5 className="modal-title">{(this.state.userInfo !== null) ? this.state.userInfo.email : ''}</h5></strong>
               </div>
 
 
@@ -177,27 +198,13 @@ class Form_Public_Modal extends Component {
                   {facebook_connect}
                   {github_connect}
                   {linkedin_connect}
-                  <br/>
                 </div>
                 <hr/>
                 <div className="row">
-                  <div className="col-md-12 col-sm-12 col-xs-12">
-                    <h4 id="event-title">Event Information</h4>
-                    <br/>
-                    <BootstrapTable data={(this.state.userInfo !== null) ? this.state.userInfo.events.data : null} search={true} pagination bordered>
-                      <TableHeaderColumn dataField='date' dataSort={true} isKey={true} dataFormat={this.dateFormatter}>Date</TableHeaderColumn>
-                      <TableHeaderColumn dataField='type' dataSort={true}>Type</TableHeaderColumn>
-                      <TableHeaderColumn dataField='eventName' dataSort={true}>Name</TableHeaderColumn>
-                      <TableHeaderColumn dataField='description' dataSort={true}>Description</TableHeaderColumn>
-                      <TableHeaderColumn dataField='expiration' dataSort={true} >Exp. Date</TableHeaderColumn>
-                    </BootstrapTable>
-                  </div>
+                  {table}
                 </div>
-
-
               </div>
               <div className="modal-footer">
-
               </div>
             </div>
           </div>

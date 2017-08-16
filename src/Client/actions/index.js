@@ -48,7 +48,7 @@ export function signinUser({email, password}){
             localStorage.setItem('token', response.data.token);
 
             //   + Redirect the user to main dashboard
-            hashHistory.push('/dashboard');
+            hashHistory.push('/Profile');
           })
           .catch( () => {
             //If request is invalid:

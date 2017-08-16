@@ -47,7 +47,7 @@ img{
 
 /*THESE ARE FOR SIGN UP - SIGN IN*/
 
-#for{
+.icon-center{
   text-align: center;
 }
 
@@ -373,8 +373,7 @@ img{
 }
 .profile-card .profile-cover .profile-avatar {
     background: #ffffff;
-    border: 1px solid #eeeeee;
-    border: 5px solid #ffffff;
+    border: 5px solid #2c3e50;
     width: 275px;
     height: 275px;
     position: absolute;
