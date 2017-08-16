@@ -1,6 +1,6 @@
 import {
-  PUBLIC_USER_ID,
   PUBLIC_USER_INFO,
+  PUBLIC_SCORE_INFO,
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
@@ -18,18 +18,18 @@ let defState = {
   error: '',
   userInfo: null,
   public_user_info: null,
+  public_user_scores: null,
   dash: null,
   avatar: '',
-  events: null,
-  public_user_id: ''
+  events: null
 }
 
 export default function(state = defState, action) {
   switch(action.type){
-    case PUBLIC_USER_ID:
-      return {...state, public_user_id: action.payload};
     case PUBLIC_USER_INFO:
       return {...state, public_user_info: action.payload};
+    case PUBLIC_SCORE_INFO:
+      return {...state, public_user_scores: action.payload};
     case AUTH_USER:
       return { ...state, authenticated: true, error: ''};
     case UNAUTH_USER:

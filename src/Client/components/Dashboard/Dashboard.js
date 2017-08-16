@@ -53,17 +53,12 @@ class Dashboard extends Component{
   }
 
   selectedRow(row, isSelected, e){
-    this.props.retrievePublicUser(row.token);
-    this.setState({
-      clicked: true
-    });
+    const token = row.token;
+    this.props.retrievePublicUser(token);
+    const type = 'alltime';
+    this.props.retrievePublicUserScore({type,token});
   }
 
-  onClickAway(){
-    this.setState({
-      clicked: false
-    });
-  }
 
   render(){
     const selectRow = {

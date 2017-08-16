@@ -4,6 +4,7 @@ import jwt from 'jwt-simple';
 import {
   PUBLIC_USER_ID,
   PUBLIC_USER_INFO,
+  PUBLIC_SCORE_INFO,
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
@@ -150,16 +151,7 @@ export function retrieveUser(token){
   }
 }
 
-export function retrievePublicUser(token){
-  return function(dispatch){
-    const user_id = jwt.decode(token, config.secret);
-    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
-        .then( response => {
-          dispatch({type: PUBLIC_USER_INFO, payload: response.data});
-        })
-        .catch( response => dispatch(authError(response.error)));
-  }
-}
+
 
 /*
 ###########################################################################
@@ -379,12 +371,29 @@ export function instagram_deauth(token){
 #                                                                         #
 ###########################################################################
 */
-export function pushUserID(user_id){
+
+export function retrievePublicUser(token){
   return function(dispatch){
-    dispatch({type: PUBLIC_USER_ID, payload: user_id});
+    const user_id = jwt.decode(token, config.secret);
+    axios.get(`${SERVER_URL}/user/${user_id.sub}`)
+        .then( response => {
+          dispatch({type: PUBLIC_USER_INFO, payload: response.data});
+        })
+        .catch( response => dispatch(authError(response.error)));
   }
 }
 
+export function retrievePublicUserScore({type, token}){
+  return function(dispatch){
+    const user_id = jwt.decode(token, config.secret);
+    const data = {'type': type};
+    axios.put(`${SERVER_URL}/publicUserScore/${user_id.sub}`, data)
+          .then( response => {
+            dispatch({type: PUBLIC_SCORE_INFO, payload:response.data});
+          })
+          .catch( response => dispatch(authError(response.error)));
+  }
+}
 
 /*
 ###########################################################################
