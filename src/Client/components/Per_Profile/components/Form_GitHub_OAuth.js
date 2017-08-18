@@ -11,7 +11,7 @@ class Form_GitHub_OAuth extends Component {
   handleAuth(){
     const token = localStorage.getItem('token');
     const user_id = jwt.decode(token, config.secret);
-    window.open(`http://github.com/login/oauth/authorize?client_id=${config.GitHub.id_key}&state=${user_id.sub}&scope=user%20public_repo%20repo:status`, "GitHub Authorization", "titlebar=yes, width=500, height=450");
+    window.open(`http://github.com/login/oauth/authorize?redirect_uri=${config.GitHub.redirect_uri}&client_id=${config.GitHub.id_key}&state=${user_id.sub}&scope=user%20public_repo%20repo:status`, "GitHub Authorization", "titlebar=yes, width=500, height=450");
   }
 
   deauthGitHub(){

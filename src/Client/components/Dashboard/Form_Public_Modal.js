@@ -191,7 +191,9 @@ class Form_Public_Modal extends Component {
 
     {/*SELECTION STATEMENT TO DISPLAY EITHER THE FILTER BUTTONS WHEN THERE IS A CONNECTION
       OR THE EMPTY MESSAGE*/}
-    const empty_message = (this.state.userInfo !== null && (this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0) ? <div className="icon-center"><p className=" fa fa-plug fa-5x"></p><br/><strong>This user does not have any social media connected. Please check back later.</strong></div> : (<div className="row text-center">
+    const empty_message = (this.state.userInfo !== null && ((this.state.userInfo.profile.points - this.state.userInfo.events.points) == 0)) ? <div className="icon-center"><p className=" fa fa-plug fa-5x"></p><br/><strong>This user does not have any social media connected. Please check back later.</strong></div> : null;
+
+    const button_bar = (this.state.userInfo !== null && ((this.state.userInfo.profile.points - this.state.userInfo.events.points) != 0)) ? (<div className="row text-center">
       <div className="col-md-12 col-sm-12 col-xs-12">
         <div className="btn-group" data-toggle="radio">
           <label className="btn btn-primary">
@@ -211,7 +213,7 @@ class Form_Public_Modal extends Component {
                 </label>
               </div>
         </div>
-    </div>);
+    </div>) : null;
 
 
     const options = {
@@ -238,6 +240,7 @@ class Form_Public_Modal extends Component {
               <div className="modal-body">
                 <div className="row">
                   {empty_message}
+                  {button_bar}
                   {instagram_connect}
                   {twitter_connect}
                   {stackoverflow_connect}
