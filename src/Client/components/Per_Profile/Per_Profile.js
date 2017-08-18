@@ -68,7 +68,7 @@ class Per_Profile extends Component {
                </div>
                <div className="profile-details">
                    <h1>{(this.state.modified !== null) ? this.state.modified.name : ''}</h1>
-                   <h6>{(this.state.modified !== null) ? this.state.modified.email : ''}</h6>
+                   <h4>{(this.state.modified !== null) ? this.state.modified.email : ''}</h4>
                </div>
                <img className="profile-banner"/>
              </div>
